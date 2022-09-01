@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, home-manager, impermanence, nix-gaming, ... }:
+{ config, pkgs, home-manager, impermanence, nix-gaming, hyprland, ... }:
 
 {
   imports =
@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       impermanence.nixosModules.impermanence
       home-manager.nixosModules.home-manager
+      hyprland.nixosModules.default
     ];
 
   boot = {
@@ -135,8 +136,8 @@
     settings = {
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
-      substituters = [ "https://nix-gaming.cachix.org" ];
-      trusted-public-keys = [ "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4=" ];
+      substituters = [ "https://nix-gaming.cachix.org" "https://hyprland.cachix.org" ];
+      trusted-public-keys = [ "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4=" "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
     };
   };
 
@@ -177,6 +178,20 @@
     windowManager.bspwm.enable = true;
     desktopManager.runXdgAutostartIfNone = true;
   };
+
+  environment.loginShellInit = ''
+    export LIBVA_DRIVER_NAME=nvidia
+    export CLUTTER_BACKEND=wayland
+    # export XDG_SESSION_TYPE=wayland
+    export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+    export MOZ_ENABLE_WAYLAND=1
+    export GBM_BACKEND=nvidia-drm
+    export __GLX_VENDOR_LIBRARY_NAME=nvidia
+    export WLR_NO_HARDWARE_CURSORS=1
+    export WLR_BACKEND=vulkan
+    export QT_QPA_PLATFORM=wayland
+    export GDK_BACKEND=wayland
+  '';
 
   services = {
     earlyoom = {
@@ -255,6 +270,10 @@
       dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     };
     gamemode = { enable = true; };
+    hyprland = {
+      enable = true;
+      package = null;  # required for using with the home-manager module
+    };
   };
 
   users = {
@@ -276,6 +295,7 @@
       shiba = { pkgs, ... }: {
         imports = [ 
           impermanence.nixosModules.home-manager.impermanence
+	  hyprland.homeManagerModules.default
         ];
 
         home.stateVersion = "22.05";
@@ -300,6 +320,133 @@
 	    ".local/share/qutebrowser"
 	  ];
 	  allowOther = true;
+	};
+
+	wayland.windowManager.hyprland = {
+	  enable = true;
+	  xwayland.enable = true;
+	  extraConfig = ''
+            monitor=,preferred,auto,1
+            workspace=DP-1,1
+            
+            input {
+                kb_file =
+                kb_layout =
+                kb_variant =
+                kb_model =
+                kb_options =
+                kb_rules =
+            
+                follow_mouse = 1
+            
+                touchpad {
+                    natural_scroll = true
+                }
+            
+                sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
+            }
+            
+            general {
+                main_mod = SUPER
+            
+                gaps_in = 12
+                gaps_out = 24
+
+                border_size = 3
+                col.active_border = 0x66ee1111
+                col.inactive_border = 0x66333333
+
+		cursor_inactive_timeout = 3
+            }
+            
+            decoration {
+                rounding = 4
+		inactive_opacity = 0.7
+
+		blur = true
+                blur_size = 16
+                blur_passes = 2
+		blur_ignore_opacity = true
+                blur_new_optimizations = true
+		
+		shadow_range = 8
+
+		dim_inactive = true
+            }
+            
+            animations {
+                enabled = 1
+                animation = windows,1,5,default
+                animation = border,1,10,default
+                animation = fade,1,10,default
+                animation = workspaces,1,5,default
+            }
+            
+            dwindle {
+                pseudotile=0 # enable pseudotiling on dwindle
+            }
+            
+            gestures {
+                workspace_swipe = true
+            }
+            
+            bind = SUPER,Return,exec,kitty
+            bind = SUPERSHIFT,C,killactive,
+            bind = SUPERSHIFT,Q,exit,
+            bind = SUPER,V,togglefloating,
+            bind = SUPER,F,fullscreen,
+            bind = SUPER,P,pseudo,
+            
+            bind = SUPER,h,movefocus,l
+            bind = SUPER,l,movefocus,r
+            bind = SUPER,k,movefocus,u
+            bind = SUPER,j,movefocus,d
+
+            bind = SUPERSHIFT,h,movewindow,l
+            bind = SUPERSHIFT,l,movewindow,r
+            bind = SUPERSHIFT,k,movewindow,u
+            bind = SUPERSHIFT,j,movewindow,d
+            
+            bind = SUPER,1,workspace,1
+            bind = SUPER,2,workspace,2
+            bind = SUPER,3,workspace,3
+            bind = SUPER,4,workspace,4
+            bind = SUPER,5,workspace,5
+            bind = SUPER,6,workspace,6
+            bind = SUPER,7,workspace,7
+            bind = SUPER,8,workspace,8
+            bind = SUPER,9,workspace,9
+            bind = SUPER,0,workspace,10
+            
+            bind = SUPERSHIFT,1,movetoworkspace,1
+            bind = SUPERSHIFT,2,movetoworkspace,2
+            bind = SUPERSHIFT,3,movetoworkspace,3
+            bind = SUPERSHIFT,4,movetoworkspace,4
+            bind = SUPERSHIFT,5,movetoworkspace,5
+            bind = SUPERSHIFT,6,movetoworkspace,6
+            bind = SUPERSHIFT,7,movetoworkspace,7
+            bind = SUPERSHIFT,8,movetoworkspace,8
+            bind = SUPERSHIFT,9,movetoworkspace,9
+            bind = SUPERSHIFT,0,movetoworkspace,10
+            
+            bind = SUPER,mouse_down,workspace,e+1
+            bind = SUPER,mouse_up,workspace,e-1
+
+	    binde = ,XF86AudioRaiseVolume,exec,pamixer -i 1
+	    binde = SHIFT,XF86AudioRaiseVolume,exec,pamixer -i 2
+	    binde = ,XF86AudioLowerVolume,exec,pamixer -d 1
+	    binde = SHIFT,XF86AudioLowerVolume,exec,pamixer -d 2
+
+            binde = ,XF86MonBrightnessUp,exec,light -A 0.2
+            binde = SHIFT,XF86MonBrightnessUp,exec,light -A 1
+            binde = ,XF86MonBrightnessDown,exec,light -U 0.2
+            binde = SHIFT,XF86MonBrightnessDown,exec,light -U 1
+
+            binde = SUPER,XF86AudioRaiseVolume,exec,light -A 0.2
+            binde = SUPERSHIFT,XF86AudioRaiseVolume,exec,light -A 1
+            binde = SUPER,XF86AudioLowerVolume,exec,light -U 0.2
+            binde = SUPERSHIFT,XF86AudioLowerVolume,exec,light -U 1
+	  '';
 	};
 
         systemd.user.startServices = "sd-switch";

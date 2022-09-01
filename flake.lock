@@ -21,6 +21,25 @@
         "type": "github"
       }
     },
+    "hyprland": {
+      "inputs": {
+        "nixpkgs": "nixpkgs",
+        "wlroots": "wlroots"
+      },
+      "locked": {
+        "lastModified": 1661937972,
+        "narHash": "sha256-/qMWX2/jplrtMoh1/6saFjNzU84IVTDV0iEXZ1y0UM0=",
+        "owner": "hyprwm",
+        "repo": "Hyprland",
+        "rev": "0ad261aa9c408aa43b8ff846acf9dab97e29b927",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hyprwm",
+        "repo": "Hyprland",
+        "type": "github"
+      }
+    },
     "impermanence": {
       "locked": {
         "lastModified": 1661155543,
@@ -58,6 +77,22 @@
     },
     "nixpkgs": {
       "locked": {
+        "lastModified": 1661720780,
+        "narHash": "sha256-AJNGyaB2eKZAYaPNjBZOzap87yL+F9ZLaFzzMkvega0=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "a63021a330d8d33d862a8e29924b42d73037dd37",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
         "lastModified": 1661427965,
         "narHash": "sha256-LJeSDbiebN0/eRt9vyOm+Bxljdsq5ZdalmmTk9Xpp30=",
         "owner": "NixOS",
@@ -75,9 +110,28 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "hyprland": "hyprland",
         "impermanence": "impermanence",
         "nix-gaming": "nix-gaming",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs_2"
+      }
+    },
+    "wlroots": {
+      "flake": false,
+      "locked": {
+        "host": "gitlab.freedesktop.org",
+        "lastModified": 1660930713,
+        "narHash": "sha256-bY7q1NqG/sjCUAWPn/Ne9NCigLlPlH5Lk1WCMqv3rTU=",
+        "owner": "wlroots",
+        "repo": "wlroots",
+        "rev": "7c575922c05e4d5fd9a403c2aa631a54c7531d44",
+        "type": "gitlab"
+      },
+      "original": {
+        "host": "gitlab.freedesktop.org",
+        "owner": "wlroots",
+        "repo": "wlroots",
+        "type": "gitlab"
       }
     }
   },

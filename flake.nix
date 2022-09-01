@@ -12,9 +12,10 @@
       url = "github:fufexan/nix-gaming";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, impermanence, nix-gaming }: {
+  outputs = inputs @ { self, nixpkgs, home-manager, impermanence, nix-gaming, hyprland }: {
     nixosConfigurations = {
       shiba-asus = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
