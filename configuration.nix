@@ -405,6 +405,8 @@
             bind = SUPERSHIFT,l,movewindow,r
             bind = SUPERSHIFT,k,movewindow,u
             bind = SUPERSHIFT,j,movewindow,d
+
+	    bind = SUPER,O,toggleopaque,
             
             bind = SUPER,1,workspace,1
             bind = SUPER,2,workspace,2
