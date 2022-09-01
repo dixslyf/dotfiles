@@ -371,8 +371,6 @@
                 blur_new_optimizations = true
 		
 		shadow_range = 8
-
-		dim_inactive = true
             }
             
             animations {
