@@ -318,6 +318,7 @@
 	    ".local/share/lutris"
 	    ".local/share/osu"
 	    ".local/share/qutebrowser"
+	    ".local/state/wireplumber"
 	  ];
 	  allowOther = true;
 	};
