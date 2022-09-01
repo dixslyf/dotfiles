@@ -362,14 +362,15 @@
             
             decoration {
                 rounding = 4
-		inactive_opacity = 0.7
+
+		inactive_opacity = 0.5
 
 		blur = true
-                blur_size = 16
-                blur_passes = 2
-		blur_ignore_opacity = true
+                blur_size = 6
+		blur_passes = 3
                 blur_new_optimizations = true
-		
+		blur_ignore_opacity = true
+
 		shadow_range = 8
             }
             
