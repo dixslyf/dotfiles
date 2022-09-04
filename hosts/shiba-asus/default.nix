@@ -1,0 +1,201 @@
+{ pkgs, inputs, ... }:
+
+{
+  imports = [
+    ./hardware
+    ./users
+    inputs.impermanence.nixosModules.impermanence
+    inputs.hyprland.nixosModules.default
+  ];
+
+  # Kernel
+  boot = {
+    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    kernel = {
+      sysctl = {
+        "kernel.sysrq" = 1;  # https://wiki.archlinux.org/title/Keyboard_shortcuts#Kernel_(SysRq)
+      };
+    };
+    supportedFilesystems = [ "ntfs" ];  # ntfs-3g driver; required by udisks to mount due to the "windows_names" mount option
+  };
+
+  # Opt-in persisted root directories
+  environment.persistence."/persist" = {
+    hideMounts = true;
+    directories = [
+      "/var/log"
+      "/var/lib/systemd/coredump"
+      "/var/lib/btrfs"
+      "/var/lib/systemd/backlight"  # for systemd-backlight to be able to restore brightness
+      "/etc/NetworkManager/system-connections"
+      "/etc/mullvad-vpn"
+    ];
+    files = [
+      "/etc/machine-id"
+    ];
+  };
+
+  system = {
+    # This value determines the NixOS release from which the default
+    # settings for stateful data, like file locations and database versions
+    # on your system were taken. It‘s perfectly fine and recommended to leave
+    # this value at the release version of the first install of this system.
+    # Before changing this value read the documentation for this option
+    # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+    stateVersion = "22.05"; # Did you read the comment?
+
+    autoUpgrade = {
+      enable = true;
+      dates = "weekly";
+    };
+  };
+
+  nix = {
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = [ "nix-command" "flakes" ];
+      substituters = [ "https://nix-gaming.cachix.org" "https://hyprland.cachix.org" ];
+      trusted-public-keys = [ "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4=" "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+    };
+  };
+
+  security = {
+    sudo  = {
+      execWheelOnly = true;
+      extraConfig = "Defaults lecture=never";
+    };
+    rtkit.enable = true;
+  };
+
+  networking = {
+    hostName = "shiba-asus";
+    networkmanager.enable = true;
+  };
+
+  # Set your time zone.
+  time.timeZone = "Asia/Singapore";
+
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_SG.UTF-8";
+  console = {
+    font = "Lat2-Terminus16";
+    # keyMap = "us";
+    useXkbConfig = true; # use xkbOptions in tty.
+  };
+
+  # Enable the X11 windowing system.
+  services.xserver = {
+    enable = true;
+    videoDrivers = [ "nvidia" ];  # required for nvidia prime
+    layout = "us";
+    libinput = {
+      enable = true;
+      touchpad.naturalScrolling = true;
+    };
+    displayManager.sddm.enable = true;
+    windowManager.bspwm.enable = true;
+    desktopManager.runXdgAutostartIfNone = true;
+  };
+
+  environment.loginShellInit = ''
+    export LIBVA_DRIVER_NAME=nvidia
+    export CLUTTER_BACKEND=wayland
+    export XDG_SESSION_TYPE=wayland
+    export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+    export MOZ_ENABLE_WAYLAND=1
+    export GBM_BACKEND=nvidia-drm
+    export __GLX_VENDOR_LIBRARY_NAME=nvidia
+    export WLR_NO_HARDWARE_CURSORS=1
+    export WLR_BACKEND=vulkan
+    export QT_QPA_PLATFORM=wayland
+    export GDK_BACKEND=wayland
+  '';
+
+  services = {
+    earlyoom = {
+      enable = true;
+      freeMemThreshold = 5;
+    };
+    fstrim.enable = true;
+    btrfs = {
+      autoScrub = {
+        enable = true;
+        fileSystems = [ "/dev/sda3" "/dev/sdb1" ];
+      };
+    };
+    udisks2 = {
+      enable = true;
+      settings = {
+        "mount_options.conf" = {
+          defaults = {
+            defaults = "noatime";
+          };
+        };
+      };
+    };
+    tlp = {
+      enable = true;
+      settings = {
+        START_CHARGE_THRESH_BAT0 = 0;
+        STOP_CHARGE_THRESH_BAT0 = 80;
+        DISK_DEVICES = "sda sdb";
+      };
+    };
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
+    resolved.enable = true;
+    mullvad-vpn.enable = true;
+    psd.enable = true;
+  };
+
+  # XDG Autostart
+  xdg.autostart.enable = true;
+
+  # Packages
+  nixpkgs.config.allowUnfree = true;
+  environment.systemPackages = let nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload"
+    ''
+      export __NV_PRIME_RENDER_OFFLOAD=1
+      export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
+      export __GLX_VENDOR_LIBRARY_NAME=nvidia
+      export __VK_LAYER_NV_optimus=NVIDIA_only
+      exec "$@"
+    '';
+  in with pkgs; [
+    nvidia-offload
+    pciutils
+    light
+    pamixer
+    mullvad-vpn
+  ];
+
+  programs = {
+    fuse.userAllowOther = true;
+    light.enable = true;
+    neovim = {
+      enable = true;
+      vimAlias = true;
+      viAlias = true;
+      defaultEditor = true;
+    };
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+      dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    };
+    gamemode = { enable = true; };
+    hyprland = {
+      enable = true;
+      package = null;  # required for using with the home-manager module
+    };
+  };
+}

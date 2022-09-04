@@ -18,12 +18,12 @@
     };
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, impermanence, nix-gaming, hyprland }: {
+  outputs = inputs @ { self, nixpkgs, ... }: {
     nixosConfigurations = {
       shiba-asus = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ ./configuration.nix ];
-        specialArgs = inputs;
+        modules = [ ./hosts/shiba-asus ];
+        specialArgs = { inherit inputs; };
       };
     };
   };
