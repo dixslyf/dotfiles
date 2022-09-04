@@ -195,7 +195,9 @@
     gamemode = { enable = true; };
     hyprland = {
       enable = true;
-      package = null;  # required for using with the home-manager module
+      package = inputs.hyprland.packages.${pkgs.system}.default.override {
+        nvidiaPatches = true;
+      };
     };
   };
 }

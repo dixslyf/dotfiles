@@ -35,6 +35,7 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+    package = null;  # required to use the nixOS module to install hyprland
     xwayland.enable = true;
     extraConfig = ''
       monitor=,preferred,auto,1
