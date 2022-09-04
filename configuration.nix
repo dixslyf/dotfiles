@@ -537,7 +537,12 @@
                 )
               '';
           };
-          fish.enable = true;
+          fish = {
+	    enable = true;
+	    interactiveShellInit = ''
+	      fish_vi_key_bindings
+	    '';
+	  };
           kitty = {
             enable = true;
             settings = {
