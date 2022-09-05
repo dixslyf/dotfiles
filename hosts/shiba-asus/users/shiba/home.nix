@@ -167,7 +167,6 @@
     gpg-agent = {
       enable = true;
       enableFishIntegration = true;
-      pinentryFlavor = "tty";
       enableSshSupport = true;
     };
     udiskie = {
