@@ -213,6 +213,10 @@
       enable = true;
       userEmail = "dixonseanlow@protonmail.com";
       userName = "PlayerNameHere";
+      signing = {
+        key = "A9F388161E9B90C7!";
+        signByDefault = true;
+      };
     };
     gitui = {
       enable = true;
