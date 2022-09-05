@@ -208,6 +208,7 @@
 
   programs = {
     gpg.enable = true;
+    ssh.enable = true;
     git = {
       enable = true;
       userEmail = "dixonseanlow@protonmail.com";
