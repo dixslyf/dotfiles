@@ -168,6 +168,7 @@
       enable = true;
       enableFishIntegration = true;
       pinentryFlavor = "tty";
+      enableSshSupport = true;
     };
     udiskie = {
       enable = true;
