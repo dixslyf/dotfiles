@@ -1,0 +1,10 @@
+keys:
+  - &shiba 696e2d91121faeef3057400883e06ba3516ce57e 
+  - &shiba-asus age1lpt6dhmya86wajkr30j8waereg0pknv8nx3tmymqts69r49hg45sxurjyk
+creation_rules:
+  - path_regex: hosts/shiba-asus/secrets.yaml$
+    key_groups:
+      - pgp:
+        - *shiba
+        age:
+        - *shiba-asus

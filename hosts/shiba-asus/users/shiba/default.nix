@@ -1,12 +1,14 @@
-{ ... }:
+{ config, ... }:
 
 {
+  sops.secrets."user-passwords/shiba" = { neededForUsers = true; };
+
   users = {
     users = {
       shiba = {
         isNormalUser = true;
         extraGroups = [ "networkmanager" "video" "wheel" ];
-        initialPassword = "";  # temporary
+	passwordFile = config.sops.secrets."user-passwords/shiba".path;
       };
     };
   };

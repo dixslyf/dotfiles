@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ config, inputs, ... }:
 
 {
   imports = [
@@ -6,9 +6,11 @@
     ./shiba
   ];
 
+  sops.secrets."user-passwords/root" = { neededForUsers = true; };
+
   users = {
     mutableUsers = false;
-    users.root.initialPassword = "";  # temporary
+    users.root.passwordFile = config.sops.secrets."user-passwords/root".path;
   };
 
   home-manager = {

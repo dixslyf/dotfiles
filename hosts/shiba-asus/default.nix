@@ -5,6 +5,7 @@
     ./hardware
     ./users
     inputs.impermanence.nixosModules.impermanence
+    inputs.sops-nix.nixosModules.sops
     inputs.hyprland.nixosModules.default
   ];
 
@@ -64,6 +65,11 @@
       substituters = [ "https://nix-gaming.cachix.org" "https://hyprland.cachix.org" ];
       trusted-public-keys = [ "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4=" "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
     };
+  };
+
+  sops = {
+    age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+    defaultSopsFile = ./secrets.yaml;
   };
 
   security = {
@@ -173,6 +179,7 @@
     light
     pamixer
     mullvad-vpn
+    sops
   ];
 
   programs = {
