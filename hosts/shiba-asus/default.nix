@@ -32,6 +32,8 @@
     ];
     files = [
       "/etc/machine-id"
+      "/etc/ssh/ssh_host_ed25519_key"
+      "/etc/ssh/ssh_host_ed25519_key.pub"
     ];
   };
 
@@ -137,6 +139,15 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+    };
+    openssh = {
+      enable = true;
+      hostKeys = [
+        { 
+          path = "/etc/ssh/ssh_host_ed25519_key";
+          type = "ed25519";
+	}
+      ];
     };
     resolved.enable = true;
     mullvad-vpn.enable = true;
