@@ -204,6 +204,7 @@
     lutris
     vlc
     inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin 
+    xdragon
   ];
 
   programs = {
