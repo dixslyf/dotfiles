@@ -145,6 +145,8 @@
       bind = SUPER,mouse_down,workspace,e+1
       bind = SUPER,mouse_up,workspace,e-1
 
+      bind = SUPER,r,exec,wofi --show drun
+
       binde = ,XF86AudioRaiseVolume,exec,pamixer -i 1
       binde = SHIFT,XF86AudioRaiseVolume,exec,pamixer -i 2
       binde = ,XF86AudioLowerVolume,exec,pamixer -d 1
@@ -205,6 +207,7 @@
     vlc
     inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin 
     xdragon
+    wofi
   ];
 
   programs = {
