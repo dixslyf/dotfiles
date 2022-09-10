@@ -6,7 +6,10 @@
     ./shiba
   ];
 
-  sops.secrets."user-passwords/root" = { neededForUsers = true; };
+  sops.secrets."user-passwords/root" = {
+    neededForUsers = true;
+    sopsFile = ./secrets.yaml;
+  };
 
   users = {
     mutableUsers = false;

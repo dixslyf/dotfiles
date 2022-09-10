@@ -283,6 +283,9 @@
     nnn = {
       enable = true;
     };
+    waybar = {
+      enable = true;
+    };
   };
 
   xsession = {

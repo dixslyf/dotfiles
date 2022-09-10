@@ -1,7 +1,10 @@
 { config, ... }:
 
 {
-  sops.secrets."user-passwords/shiba" = { neededForUsers = true; };
+  sops.secrets."user-passwords/shiba" = {
+    neededForUsers = true;
+    sopsFile = ../secrets.yaml;
+  };
 
   users = {
     users = {

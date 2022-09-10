@@ -3,7 +3,7 @@
 {
   imports = [
     ./hardware
-    ./users
+    ../../users
     inputs.impermanence.nixosModules.impermanence
     inputs.sops-nix.nixosModules.sops
     inputs.hyprland.nixosModules.default
@@ -67,10 +67,7 @@
     };
   };
 
-  sops = {
-    age.sshKeyPaths = [ "/persist/etc/ssh/ssh_host_ed25519_key" ];
-    defaultSopsFile = ./secrets.yaml;
-  };
+  sops = { age.sshKeyPaths = [ "/persist/etc/ssh/ssh_host_ed25519_key" ]; };
 
   security = {
     sudo  = {
