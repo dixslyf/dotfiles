@@ -20,6 +20,10 @@
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    catppuccin-grub = {
+      url = "github:catppuccin/grub";
+      flake = false;
+    };
   };
 
   outputs = inputs @ { self, nixpkgs, ... }: {

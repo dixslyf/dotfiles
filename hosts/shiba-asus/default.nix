@@ -11,6 +11,7 @@
 
   # Kernel
   boot = {
+    loader.grub.theme = inputs.catppuccin-grub.outPath + "/src/catppuccin-macchiato-grub-theme";
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
     kernel = {
       sysctl = {

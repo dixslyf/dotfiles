@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "catppuccin-grub": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1662562599,
+        "narHash": "sha256-BIdKhHdbtQom4kyIWUrse+3WfnYvze/tm5HGNQxeOzU=",
+        "owner": "catppuccin",
+        "repo": "grub",
+        "rev": "fc5fba2896db095aee7b0d6442307c3035a24fa7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "grub",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -111,6 +127,7 @@
     },
     "root": {
       "inputs": {
+        "catppuccin-grub": "catppuccin-grub",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "impermanence": "impermanence",
