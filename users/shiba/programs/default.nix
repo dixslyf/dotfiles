@@ -1,5 +1,8 @@
 { ... }:
 
 {
-  imports = [ ./hyprland ];
+  imports = [
+    ./hyprland
+    ./bspwm
+  ];
 }
