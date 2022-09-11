@@ -78,6 +78,7 @@
       settings = {
         shell = "fish";
       };
+      theme = "Catppuccin-Macchiato";
     };
     neovim.enable = true;
     firefox = {
