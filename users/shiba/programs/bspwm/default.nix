@@ -1,6 +1,8 @@
 { ... }:
 
 {
+  # Note that xsession.enable = false so that home-manager doesn't create ~/.xsession.
+  # More details: https://github.com/NixOS/nixpkgs/issues/190442
   xsession.windowManager.bspwm = {
     enable = true;
     monitors = {
