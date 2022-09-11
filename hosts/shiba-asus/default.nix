@@ -156,8 +156,14 @@
     psd.enable = true;
   };
 
-  # XDG Autostart
-  xdg.autostart.enable = true;
+  xdg = {
+    autostart.enable = true;
+    portal = {
+      enable = true;
+      # xdg-desktop-portal-wlr should already be enabled by hyprland
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    };
+  };
 
   # Packages
   nixpkgs.config.allowUnfree = true;
