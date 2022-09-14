@@ -21,6 +21,7 @@
           in
           "\n"+ builtins.concatStringsSep "\n" (builtins.map
             (key: ''
+	      bind = ,${key},moveworkspacetomonitor,name:${key} current
               bind = ,${key},workspace,name:${key}
               bind = SHIFT,${key},movetoworkspacesilent,name:${key}
             '')
