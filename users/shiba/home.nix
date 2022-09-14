@@ -29,6 +29,7 @@
       ".local/share/qutebrowser"
       ".local/state/wireplumber"
       ".local/share/Euro Truck Simulator 2"
+      ".cache/tealdeer"
     ];
     allowOther = true;
   };

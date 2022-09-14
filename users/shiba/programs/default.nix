@@ -5,5 +5,6 @@
     ./hyprland
     ./bspwm
     ./git
+    ./tealdeer
   ];
 }
