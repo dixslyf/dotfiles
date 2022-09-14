@@ -198,6 +198,7 @@
     gamemode = { enable = true; };
     hyprland = {
       enable = true;
+      recommendedEnvironment = false;  # variables are added below to avoid causing issues in x
       package = (inputs.hyprland.packages.${pkgs.system}.default.overrideAttrs (oldAttrs: {
         buildInputs = oldAttrs.buildInputs ++ [ pkgs.makeWrapper ];
 	postInstall = oldAttrs.postInstall or ''
@@ -212,7 +213,9 @@
             --set WLR_NO_HARDWARE_CURSORS 1 \
             --set WLR_BACKEND vulkan \
             --set QT_QPA_PLATFORM wayland \
-            --set GDK_BACKEND wayland
+            --set GDK_BACKEND wayland \
+            --set _JAVA_AWT_WM_NONREPARENTING 1 \
+            --set NIXOS_OZONE_WL 1
 	'';
       })).override { nvidiaPatches = true; };
     };
