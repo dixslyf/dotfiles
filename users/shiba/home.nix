@@ -50,6 +50,8 @@
     network-manager-applet.enable = true;
   };
 
+  fonts.fontconfig.enable = true;
+
   home.packages = with pkgs; [
     bottom
     keepassxc
