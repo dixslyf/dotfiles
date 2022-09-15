@@ -65,6 +65,7 @@
     inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin 
     xdragon
     wofi
+    material-design-icons
   ];
 
   programs = {
