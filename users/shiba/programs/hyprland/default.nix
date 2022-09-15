@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ lib, pkgs, inputs, ... }:
 
 {
   imports = [ inputs.hyprland.homeManagerModules.default ];
@@ -20,11 +20,14 @@
           ];
           in
           "\n"+ builtins.concatStringsSep "\n" (builtins.map
-            (key: ''
-	      bind = ,${key},moveworkspacetomonitor,name:${key} current
-              bind = ,${key},workspace,name:${key}
-              bind = SHIFT,${key},movetoworkspacesilent,name:${key}
-            '')
+            (key: let
+	        keyUpper = lib.strings.toUpper key;
+	      in
+	      ''
+                bind = ,${key},moveworkspacetomonitor,name:${keyUpper} current
+                bind = ,${key},workspace,name:${keyUpper}
+                bind = SHIFT,${key},movetoworkspacesilent,name:${keyUpper}
+              '')
             keys);
       };
       in builtins.readFile "${config}";
