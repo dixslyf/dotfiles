@@ -7,6 +7,7 @@
     inputs.impermanence.nixosModules.impermanence
     inputs.sops-nix.nixosModules.sops
     inputs.hyprland.nixosModules.default
+    inputs.nix-gaming.nixosModules.pipewireLowLatency
   ];
 
   # Kernel
@@ -137,6 +138,7 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+      lowLatency.enable = true;
     };
     openssh = {
       enable = true;
