@@ -152,7 +152,12 @@
     resolved.enable = true;
     mullvad-vpn.enable = true;
     psd.enable = true;
-    upower.enable = true;
+    upower = {
+      enable = true;
+      percentageLow = 30;
+      percentageCritical = 15;
+      percentageAction = 10;
+    };
   };
 
   xdg = {
