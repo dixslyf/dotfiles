@@ -66,6 +66,8 @@
     xdragon
     wofi
     material-design-icons
+    iosevka-bin
+    (iosevka-bin.override { variant = "sgr-iosevka-term"; })
   ];
 
   programs = {
