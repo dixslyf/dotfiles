@@ -1,4 +1,4 @@
-vim.g.catppuccin_flavour = "frappe"
+vim.g.catppuccin_flavour = "macchiato"
 
 require("catppuccin").setup {
     dim_inactive = { enabled = true }
