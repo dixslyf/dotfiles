@@ -104,4 +104,16 @@
       enable = true;
     };
   };
+  
+  home.pointerCursor = {
+    name = "Catppuccin-Frappe-Dark-Cursors";
+    package = pkgs.callPackage ./pkgs/catppuccin-frappe-dark-cursors.nix {};
+    x11.enable = true;
+    gtk.enable = true;
+    size = 32;
+  };
+
+  gtk = {
+    enable = true;
+  };
 }
