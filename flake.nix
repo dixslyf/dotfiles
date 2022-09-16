@@ -24,6 +24,7 @@
       url = "github:catppuccin/grub";
       flake = false;
     };
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
   outputs = inputs @ { self, nixpkgs, ... }: {
