@@ -11,7 +11,7 @@
     extraConfig = let
       config = pkgs.substituteAll {
         src = ./hyprland.conf;
-	setCursor = ''exec-once=hyprctl setcursor "Catppuccin-Frappe-Dark-Cursors" 32'';
+	setCursor = ''exec-once=hyprctl setcursor "Catppuccin-Macchiato-Dark-Cursors" 32'';
         workspaceBindings = let
           keys = [
             "grave" "1" "2" "3" "4" "5" "6" "7" "8" "9" "0" "minus" "equal"
