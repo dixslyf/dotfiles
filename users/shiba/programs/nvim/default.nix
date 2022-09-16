@@ -8,5 +8,8 @@
     extraConfig = ''
       luafile ~/.config/nvim/config.lua
     '';
+    plugins = with pkgs.vimPlugins; [
+      catppuccin-nvim
+    ];
   };
 }
