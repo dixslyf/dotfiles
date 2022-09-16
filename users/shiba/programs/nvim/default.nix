@@ -10,6 +10,8 @@
     '';
     plugins = with pkgs.vimPlugins; [
       catppuccin-nvim
+      feline-nvim
+      nvim-web-devicons
     ];
   };
 }
