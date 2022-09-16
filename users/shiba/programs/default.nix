@@ -7,5 +7,6 @@
     ./bspwm
     ./git
     ./tealdeer
+    ./nvim
   ];
 }

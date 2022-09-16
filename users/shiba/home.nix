@@ -84,7 +84,6 @@
       };
       theme = "Catppuccin-Macchiato";
     };
-    neovim.enable = true;
     firefox = {
       enable = true;
       profiles.default = {
