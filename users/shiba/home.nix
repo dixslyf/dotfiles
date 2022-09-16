@@ -102,8 +102,8 @@
   };
   
   home.pointerCursor = {
-    name = "Catppuccin-Frappe-Dark-Cursors";
-    package = pkgs.callPackage ./pkgs/catppuccin-frappe-dark-cursors.nix {};
+    name = "Catppuccin-Macchiato-Dark-Cursors";
+    package = pkgs.callPackage ./pkgs/catppuccin-macchiato-dark-cursors.nix {};
     x11.enable = true;
     gtk.enable = true;
     size = 32;
