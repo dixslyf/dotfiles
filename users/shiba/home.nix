@@ -59,6 +59,7 @@
     neofetch
     xfce.thunar
     fd
+    ripgrep
     udiskie
     lutris
     vlc
