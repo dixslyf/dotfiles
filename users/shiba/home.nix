@@ -80,17 +80,6 @@
         fish_vi_key_bindings
       '';
     };
-    kitty = {
-      enable = true;
-      settings = {
-        shell = "fish";
-      };
-      font = {
-        name = "Iosevka Term";
-        size = 16;
-      };
-      theme = "Catppuccin-Macchiato";
-    };
     firefox = {
       enable = true;
       profiles.default = {
