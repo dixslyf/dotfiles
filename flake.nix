@@ -25,9 +25,10 @@
       flake = false;
     };
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    pvtpkgs.url = "./pkgs";
   };
 
-  outputs = inputs @ { self, nixpkgs, ... }: {
+  outputs = inputs @ { self, nixpkgs, pvtpkgs, ... }: {
     nixosConfigurations = {
       shiba-asus = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -35,7 +36,7 @@
           {
 	    nixpkgs.overlays = [
               inputs.neovim-nightly-overlay.overlay
-              (import ./pkgs)
+              pvtpkgs.overlay
             ];
           }
 	  ./hosts/shiba-asus

@@ -1,16 +1,16 @@
-{ lib
+{ inputs
+, lib
 , stdenvNoCC
 , fetchzip
 }:
  
 stdenvNoCC.mkDerivation rec {
   pname = "catppuccin-macchiato-dark-cursors";
-  version = "unstable-2022-08-23";
- 
-  src = fetchzip {
-    url = "https://github.com/catppuccin/cursors/raw/3d3023606939471c45cff7b643bffc5d5d4ff29c/cursors/Catppuccin-Macchiato-Dark-Cursors.zip";
-    sha256 = "1i4n4pmg1f299k9vdgaqpv8l2pmfzbhn5bc0w2ji2gdhxz7fhlyb";
-  };
+  # No lastModifiedDate since the src is fetched as a zip and not a git repo
+  # src.narHash starts with "sha256"
+  version = builtins.substring 6 6 src.narHash;
+
+  src = inputs.catppuccin-macchiato-dark-cursors;
 
   installPhase = ''
     install -dm 0755 "$out/share/icons/Catppuccin-Macchiato-Dark-Cursors"

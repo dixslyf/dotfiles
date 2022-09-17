@@ -16,6 +16,18 @@
         "type": "github"
       }
     },
+    "catppuccin-macchiato-dark-cursors": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-y1Pozu+wPRGl4ICtYuH6rl5B0b5YvbbTTEm48OollsQ=",
+        "type": "tarball",
+        "url": "https://github.com/catppuccin/cursors/raw/main/cursors/Catppuccin-Macchiato-Dark-Cursors.zip"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://github.com/catppuccin/cursors/raw/main/cursors/Catppuccin-Macchiato-Dark-Cursors.zip"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -216,6 +228,21 @@
         "type": "github"
       }
     },
+    "pvtpkgs": {
+      "inputs": {
+        "catppuccin-macchiato-dark-cursors": "catppuccin-macchiato-dark-cursors"
+      },
+      "locked": {
+        "lastModified": 1,
+        "narHash": "sha256-T8KTje4e7jhyN08mG5tT0WfBiISpujJ9CBrS8sFgFMY=",
+        "path": "/nix/store/15kbsgw74pj590s4pgnlqbqr44847n7m-source/pkgs",
+        "type": "path"
+      },
+      "original": {
+        "path": "/nix/store/15kbsgw74pj590s4pgnlqbqr44847n7m-source/pkgs",
+        "type": "path"
+      }
+    },
     "root": {
       "inputs": {
         "catppuccin-grub": "catppuccin-grub",
@@ -225,6 +252,7 @@
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs_2",
+        "pvtpkgs": "pvtpkgs",
         "sops-nix": "sops-nix"
       }
     },
