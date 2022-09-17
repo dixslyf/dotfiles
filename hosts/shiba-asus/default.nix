@@ -178,13 +178,7 @@
   };
 
   # Packages
-  nixpkgs = {
-    config.allowUnfree = true;
-    overlays = [
-      inputs.neovim-nightly-overlay.overlay
-      (import ../../pkgs)
-    ];
-  };
+  nixpkgs.config.allowUnfree = true;
   environment.systemPackages = let nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload"
     ''
       export __NV_PRIME_RENDER_OFFLOAD=1

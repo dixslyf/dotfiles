@@ -31,7 +31,15 @@
     nixosConfigurations = {
       shiba-asus = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ ./hosts/shiba-asus ];
+        modules = [
+          {
+	    nixpkgs.overlays = [
+              inputs.neovim-nightly-overlay.overlay
+              (import ./pkgs)
+            ];
+          }
+	  ./hosts/shiba-asus
+	];
         specialArgs = { inherit inputs; };
       };
     };
