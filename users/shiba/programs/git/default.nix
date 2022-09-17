@@ -1,7 +1,5 @@
-{ ... }:
-
-{
-  imports = [ ./gitui ];
+{...}: {
+  imports = [./gitui];
 
   programs.git = {
     enable = true;

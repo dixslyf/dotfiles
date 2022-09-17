@@ -1,7 +1,5 @@
-{ pkgs, ... }:
-
-{
-  imports = [ ./hardware-configuration.nix ];
+{pkgs, ...}: {
+  imports = [./hardware-configuration.nix];
 
   boot = {
     loader = {
@@ -13,8 +11,8 @@
         enable = true;
         efiSupport = true;
         enableCryptodisk = true;
-        devices = [ "nodev" ];
-      }; 
+        devices = ["nodev"];
+      };
     };
     initrd = {
       secrets = {
@@ -44,17 +42,17 @@
   };
 
   fileSystems = {
-    "/" = { options = [ "size=2G" "mode=755" "noatime" ]; };
-    "/boot" = { neededForBoot = true; };
-    "/efi" = { options = [ "noatime" ]; };
-    "/nix" = { options = [ "compress=zstd" "noatime" ]; };
+    "/" = {options = ["size=2G" "mode=755" "noatime"];};
+    "/boot" = {neededForBoot = true;};
+    "/efi" = {options = ["noatime"];};
+    "/nix" = {options = ["compress=zstd" "noatime"];};
     "/persist" = {
       neededForBoot = true;
-      options = [ "compress=zstd" "noatime" ];
+      options = ["compress=zstd" "noatime"];
     };
     "/persist/home" = {
       neededForBoot = true;
-      options = [ "compress=zstd" "noatime" ];
+      options = ["compress=zstd" "noatime"];
     };
   };
 

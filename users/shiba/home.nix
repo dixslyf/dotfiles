@@ -1,6 +1,8 @@
-{ pkgs, inputs, ... }:
-
 {
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
     ./programs
@@ -63,13 +65,13 @@
     udiskie
     lutris
     vlc
-    inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin 
+    inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
     xdragon
     wofi
     material-design-icons
     iosevka-bin
-    (iosevka-bin.override { variant = "sgr-iosevka-term"; })
-    (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+    (iosevka-bin.override {variant = "sgr-iosevka-term";})
+    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
   ];
 
   programs = {
@@ -100,7 +102,7 @@
       enable = true;
     };
   };
-  
+
   home.pointerCursor = {
     name = "Catppuccin-Macchiato-Dark-Cursors";
     package = pkgs.pvtpkgs.catppuccin-macchiato-dark-cursors;

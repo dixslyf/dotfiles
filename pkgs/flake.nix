@@ -8,7 +8,7 @@
     };
   };
 
-  outputs = inputs @ { ... }: {
+  outputs = inputs @ {...}: {
     overlay = final: prev: {
       inherit inputs;
       pvtpkgs = {

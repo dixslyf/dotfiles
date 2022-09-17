@@ -6,7 +6,7 @@
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
-    }; 
+    };
     impermanence.url = "github:nix-community/impermanence";
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -28,21 +28,26 @@
     pvtpkgs.url = "./pkgs";
   };
 
-  outputs = inputs @ { self, nixpkgs, pvtpkgs, ... }: {
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    pvtpkgs,
+    ...
+  }: {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
     nixosConfigurations = {
       shiba-asus = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           {
-	    nixpkgs.overlays = [
+            nixpkgs.overlays = [
               inputs.neovim-nightly-overlay.overlay
               pvtpkgs.overlay
             ];
           }
-	  ./hosts/shiba-asus
-	];
-        specialArgs = { inherit inputs; };
+          ./hosts/shiba-asus
+        ];
+        specialArgs = {inherit inputs;};
       };
     };
   };

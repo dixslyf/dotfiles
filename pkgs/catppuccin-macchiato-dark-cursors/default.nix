@@ -1,9 +1,9 @@
-{ inputs
-, lib
-, stdenvNoCC
-, fetchzip
+{
+  inputs,
+  lib,
+  stdenvNoCC,
+  fetchzip,
 }:
- 
 stdenvNoCC.mkDerivation rec {
   pname = "catppuccin-macchiato-dark-cursors";
   # No lastModifiedDate since the src is fetched as a zip and not a git repo
@@ -16,7 +16,7 @@ stdenvNoCC.mkDerivation rec {
     install -dm 0755 "$out/share/icons/Catppuccin-Macchiato-Dark-Cursors"
     cp -a ./* "$out/share/icons/Catppuccin-Macchiato-Dark-Cursors/"
   '';
- 
+
   meta = with lib; {
     description = "Catppuccin (macchiato flavor) cursor theme based on Volantes";
     homepage = "https://github.com/catppuccin/cursors";

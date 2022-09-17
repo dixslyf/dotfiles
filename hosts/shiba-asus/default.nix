@@ -1,6 +1,8 @@
-{ pkgs, inputs, ... }:
-
 {
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     ./hardware
     ../../users
@@ -16,10 +18,10 @@
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
     kernel = {
       sysctl = {
-        "kernel.sysrq" = 1;  # https://wiki.archlinux.org/title/Keyboard_shortcuts#Kernel_(SysRq)
+        "kernel.sysrq" = 1; # https://wiki.archlinux.org/title/Keyboard_shortcuts#Kernel_(SysRq)
       };
     };
-    supportedFilesystems = [ "ntfs" ];  # ntfs-3g driver; required by udisks to mount due to the "windows_names" mount option
+    supportedFilesystems = ["ntfs"]; # ntfs-3g driver; required by udisks to mount due to the "windows_names" mount option
   };
 
   # Opt-in persisted root directories
@@ -29,7 +31,7 @@
       "/var/log"
       "/var/lib/systemd/coredump"
       "/var/lib/btrfs"
-      "/var/lib/systemd/backlight"  # for systemd-backlight to be able to restore brightness
+      "/var/lib/systemd/backlight" # for systemd-backlight to be able to restore brightness
       "/etc/NetworkManager/system-connections"
       "/etc/mullvad-vpn"
     ];
@@ -58,24 +60,24 @@
     };
     settings = {
       auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = ["nix-command" "flakes"];
       substituters = [
         "https://nix-gaming.cachix.org"
-	"https://hyprland.cachix.org"
-	"https://nix-community.cachix.org"
+        "https://hyprland.cachix.org"
+        "https://nix-community.cachix.org"
       ];
       trusted-public-keys = [
         "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
-	"hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-	"nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
     };
   };
 
-  sops = { age.sshKeyPaths = [ "/persist/etc/ssh/ssh_host_ed25519_key" ]; };
+  sops = {age.sshKeyPaths = ["/persist/etc/ssh/ssh_host_ed25519_key"];};
 
   security = {
-    sudo  = {
+    sudo = {
       execWheelOnly = true;
       extraConfig = "Defaults lecture=never";
     };
@@ -100,7 +102,7 @@
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
-    videoDrivers = [ "nvidia" ];  # required for nvidia prime
+    videoDrivers = ["nvidia"]; # required for nvidia prime
     layout = "us";
     libinput = {
       enable = true;
@@ -120,7 +122,7 @@
     btrfs = {
       autoScrub = {
         enable = true;
-        fileSystems = [ "/dev/sda3" "/dev/sdb1" ];
+        fileSystems = ["/dev/sda3" "/dev/sdb1"];
       };
     };
     udisks2 = {
@@ -151,10 +153,10 @@
     openssh = {
       enable = true;
       hostKeys = [
-        { 
+        {
           path = "/etc/ssh/ssh_host_ed25519_key";
           type = "ed25519";
-	}
+        }
       ];
     };
     resolved.enable = true;
@@ -173,28 +175,31 @@
     portal = {
       enable = true;
       # xdg-desktop-portal-wlr should already be enabled by hyprland
-      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      extraPortals = [pkgs.xdg-desktop-portal-gtk];
     };
   };
 
   # Packages
   nixpkgs.config.allowUnfree = true;
-  environment.systemPackages = let nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload"
-    ''
-      export __NV_PRIME_RENDER_OFFLOAD=1
-      export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
-      export __GLX_VENDOR_LIBRARY_NAME=nvidia
-      export __VK_LAYER_NV_optimus=NVIDIA_only
-      exec "$@"
-    '';
-  in with pkgs; [
-    nvidia-offload
-    pciutils
-    light
-    pamixer
-    mullvad-vpn
-    sops
-  ];
+  environment.systemPackages = let
+    nvidia-offload =
+      pkgs.writeShellScriptBin "nvidia-offload"
+      ''
+        export __NV_PRIME_RENDER_OFFLOAD=1
+        export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
+        export __GLX_VENDOR_LIBRARY_NAME=nvidia
+        export __VK_LAYER_NV_optimus=NVIDIA_only
+        exec "$@"
+      '';
+  in
+    with pkgs; [
+      nvidia-offload
+      pciutils
+      light
+      pamixer
+      mullvad-vpn
+      sops
+    ];
 
   programs = {
     fuse.userAllowOther = true;
@@ -210,29 +215,33 @@
       remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
       dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     };
-    gamemode = { enable = true; };
+    gamemode = {enable = true;};
     hyprland = {
       enable = true;
-      recommendedEnvironment = false;  # variables are added below to avoid causing issues in x
-      package = (inputs.hyprland.packages.${pkgs.system}.default.overrideAttrs (oldAttrs: {
-        buildInputs = oldAttrs.buildInputs ++ [ pkgs.makeWrapper ];
-	postInstall = oldAttrs.postInstall or ''
-          wrapProgram $out/bin/Hyprland \
-            --set LIBVA_DRIVER_NAME nvidia \
-            --set CLUTTER_BACKEND wayland \
-            --set XDG_SESSION_TYPE wayland \
-            --set QT_WAYLAND_DISABLE_WINDOWDECORATION 1 \
-            --set MOZ_ENABLE_WAYLAND 1 \
-            --set GBM_BACKEND nvidia-drm \
-            --set __GLX_VENDOR_LIBRARY_NAME nvidia \
-            --set WLR_NO_HARDWARE_CURSORS 1 \
-            --set WLR_BACKEND vulkan \
-            --set QT_QPA_PLATFORM wayland \
-            --set GDK_BACKEND wayland \
-            --set _JAVA_AWT_WM_NONREPARENTING 1 \
-            --set NIXOS_OZONE_WL 1
-	'';
-      })).override { nvidiaPatches = true; };
+      recommendedEnvironment = false; # variables are added below to avoid causing issues in x
+      package =
+        (inputs.hyprland.packages.${pkgs.system}.default.overrideAttrs (oldAttrs: {
+          buildInputs = oldAttrs.buildInputs ++ [pkgs.makeWrapper];
+          postInstall =
+            oldAttrs.postInstall
+            or ''
+              wrapProgram $out/bin/Hyprland \
+                --set LIBVA_DRIVER_NAME nvidia \
+                --set CLUTTER_BACKEND wayland \
+                --set XDG_SESSION_TYPE wayland \
+                --set QT_WAYLAND_DISABLE_WINDOWDECORATION 1 \
+                --set MOZ_ENABLE_WAYLAND 1 \
+                --set GBM_BACKEND nvidia-drm \
+                --set __GLX_VENDOR_LIBRARY_NAME nvidia \
+                --set WLR_NO_HARDWARE_CURSORS 1 \
+                --set WLR_BACKEND vulkan \
+                --set QT_QPA_PLATFORM wayland \
+                --set GDK_BACKEND wayland \
+                --set _JAVA_AWT_WM_NONREPARENTING 1 \
+                --set NIXOS_OZONE_WL 1
+            '';
+        }))
+        .override {nvidiaPatches = true;};
     };
   };
 }
