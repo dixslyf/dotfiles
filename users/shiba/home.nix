@@ -103,7 +103,7 @@
   
   home.pointerCursor = {
     name = "Catppuccin-Macchiato-Dark-Cursors";
-    package = pkgs.callPackage ./pkgs/catppuccin-macchiato-dark-cursors.nix {};
+    package = pkgs.pvtpkgs.catppuccin-macchiato-dark-cursors;
     x11.enable = true;
     gtk.enable = true;
     size = 32;

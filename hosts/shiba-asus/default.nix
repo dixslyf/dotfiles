@@ -180,7 +180,10 @@
   # Packages
   nixpkgs = {
     config.allowUnfree = true;
-    overlays = [ inputs.neovim-nightly-overlay.overlay ];
+    overlays = [
+      inputs.neovim-nightly-overlay.overlay
+      (import ../../pkgs)
+    ];
   };
   environment.systemPackages = let nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload"
     ''
