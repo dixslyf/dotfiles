@@ -29,6 +29,7 @@
   };
 
   outputs = inputs @ { self, nixpkgs, pvtpkgs, ... }: {
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
     nixosConfigurations = {
       shiba-asus = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
