@@ -1,5 +1,8 @@
 local catppuccin_feline = require("catppuccin.groups.integrations.feline")
+local feline = require("feline")
 
-require("feline").setup {
+feline.setup {
     components = catppuccin_feline.get()
 }
+
+feline.winbar.setup()
