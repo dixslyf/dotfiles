@@ -112,6 +112,22 @@
         "type": "github"
       }
     },
+    "hydra-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1659706649,
+        "narHash": "sha256-S1zNbZM7YGkac3XaOv188MiZtWC1aPca08fOIrxT97Y=",
+        "owner": "anuvyklack",
+        "repo": "hydra.nvim",
+        "rev": "c70facc87141f64162aca519acfd18aa85e06329",
+        "type": "github"
+      },
+      "original": {
+        "owner": "anuvyklack",
+        "repo": "hydra.nvim",
+        "type": "github"
+      }
+    },
     "hyprland": {
       "inputs": {
         "nixpkgs": [
@@ -281,16 +297,17 @@
         "catppuccin-macchiato-dark-cursors": "catppuccin-macchiato-dark-cursors",
         "catppuccin-nvim": "catppuccin-nvim",
         "feline-nvim": "feline-nvim",
+        "hydra-nvim": "hydra-nvim",
         "nvim-web-devicons": "nvim-web-devicons"
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-wOKBVyzsR6xaXXip7Jikz22ktLJHyMWUQq8rCInyDws=",
-        "path": "/nix/store/zsmsr31xr57z274x60bf59gw76g7hrx8-source/pkgs",
+        "narHash": "sha256-0ycuitJ0BoMUyvPlTxtWrHpiMFfifaa35PVmwTiXCmo=",
+        "path": "/nix/store/gg5iamfdk44dcs86zy3wvcg965y20rzw-source/pkgs",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/zsmsr31xr57z274x60bf59gw76g7hrx8-source/pkgs",
+        "path": "/nix/store/gg5iamfdk44dcs86zy3wvcg965y20rzw-source/pkgs",
         "type": "path"
       }
     },

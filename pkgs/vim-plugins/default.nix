@@ -22,4 +22,11 @@
     src = inputs.nvim-web-devicons;
     meta.homepage = "https://github.com/kyazdani42/nvim-web-devicons";
   };
+
+  hydra-nvim = vimUtils.buildVimPlugin {
+    pname = "hydra-nvim";
+    version = inputs.hydra-nvim.lastModifiedDate;
+    src = inputs.hydra-nvim;
+    meta.homepage = "https://github.com/anuvyklack/hydra.nvim";
+  };
 }

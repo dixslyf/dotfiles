@@ -18,6 +18,10 @@
       url = "github:kyazdani42/nvim-web-devicons";
       flake = false;
     };
+    hydra-nvim = {
+      url = "github:anuvyklack/hydra.nvim";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {...}: {

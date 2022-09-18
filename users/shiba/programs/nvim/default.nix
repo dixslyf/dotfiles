@@ -10,6 +10,7 @@
       catppuccin-nvim
       feline-nvim
       nvim-web-devicons
+      hydra-nvim
     ];
   };
 }
