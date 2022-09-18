@@ -28,6 +28,38 @@
         "url": "https://github.com/catppuccin/cursors/raw/main/cursors/Catppuccin-Macchiato-Dark-Cursors.zip"
       }
     },
+    "catppuccin-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1663263437,
+        "narHash": "sha256-Ta9KGRmkskG/kAN3oNXwU7mag768G4hYcCnIDhN4lkQ=",
+        "owner": "catppuccin",
+        "repo": "nvim",
+        "rev": "fb453cea1904ead67901aa65086ccf877603dfc1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "nvim",
+        "type": "github"
+      }
+    },
+    "feline-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1663246985,
+        "narHash": "sha256-IdsQuNxm1X2qm91X+/vraie1HnGRkDou5A18Lr6K8RY=",
+        "owner": "feline-nvim",
+        "repo": "feline.nvim",
+        "rev": "b17ff80f3437f04670470479b9ef3113033eda46",
+        "type": "github"
+      },
+      "original": {
+        "owner": "feline-nvim",
+        "repo": "feline.nvim",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -228,18 +260,37 @@
         "type": "github"
       }
     },
+    "nvim-web-devicons": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1657021684,
+        "narHash": "sha256-+t6EVhQ7iC9BZOtVeQwrzkmpmUtc/WWBcUohoX4/+Tg=",
+        "owner": "kyazdani42",
+        "repo": "nvim-web-devicons",
+        "rev": "2d02a56189e2bde11edd4712fea16f08a6656944",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kyazdani42",
+        "repo": "nvim-web-devicons",
+        "type": "github"
+      }
+    },
     "pvtpkgs": {
       "inputs": {
-        "catppuccin-macchiato-dark-cursors": "catppuccin-macchiato-dark-cursors"
+        "catppuccin-macchiato-dark-cursors": "catppuccin-macchiato-dark-cursors",
+        "catppuccin-nvim": "catppuccin-nvim",
+        "feline-nvim": "feline-nvim",
+        "nvim-web-devicons": "nvim-web-devicons"
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-fR/MUvfh/2fniQRh1h2570payKQMXMrOgEEZqSKqfCo=",
-        "path": "/nix/store/zr2xy9p42fw9133p0q6z9z8475paiqbf-source/pkgs",
+        "narHash": "sha256-wOKBVyzsR6xaXXip7Jikz22ktLJHyMWUQq8rCInyDws=",
+        "path": "/nix/store/zsmsr31xr57z274x60bf59gw76g7hrx8-source/pkgs",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/zr2xy9p42fw9133p0q6z9z8475paiqbf-source/pkgs",
+        "path": "/nix/store/zsmsr31xr57z274x60bf59gw76g7hrx8-source/pkgs",
         "type": "path"
       }
     },

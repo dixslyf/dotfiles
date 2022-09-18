@@ -6,7 +6,7 @@
     extraConfig = ''
       luafile ~/.config/nvim/config.lua
     '';
-    plugins = with pkgs.vimPlugins; [
+    plugins = with pkgs.pvtpkgs.vimPlugins; [
       catppuccin-nvim
       feline-nvim
       nvim-web-devicons
