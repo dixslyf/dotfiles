@@ -22,6 +22,10 @@
       url = "github:anuvyklack/hydra.nvim";
       flake = false;
     };
+    gitsigns-nvim = {
+      url = "github:lewis6991/gitsigns.nvim";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {...}: {

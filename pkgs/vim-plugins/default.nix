@@ -29,4 +29,11 @@
     src = inputs.hydra-nvim;
     meta.homepage = "https://github.com/anuvyklack/hydra.nvim";
   };
+
+  gitsigns-nvim = vimUtils.buildVimPluginFrom2Nix {
+    pname = "gitsigns-nvim";
+    version = inputs.gitsigns-nvim.lastModifiedDate;
+    src = inputs.gitsigns-nvim;
+    meta.homepage = "https://github.com/lewis6991/gitsigns.nvim";
+  };
 }

@@ -91,6 +91,22 @@
         "type": "github"
       }
     },
+    "gitsigns-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1663543397,
+        "narHash": "sha256-FgNSwvW7Bk+eKutMj0zqEorJ3+ijCALtOXs2OYiSX1I=",
+        "owner": "lewis6991",
+        "repo": "gitsigns.nvim",
+        "rev": "f98c85e7c3d65a51f45863a34feb4849c82f240f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lewis6991",
+        "repo": "gitsigns.nvim",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -297,17 +313,18 @@
         "catppuccin-macchiato-dark-cursors": "catppuccin-macchiato-dark-cursors",
         "catppuccin-nvim": "catppuccin-nvim",
         "feline-nvim": "feline-nvim",
+        "gitsigns-nvim": "gitsigns-nvim",
         "hydra-nvim": "hydra-nvim",
         "nvim-web-devicons": "nvim-web-devicons"
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-0ycuitJ0BoMUyvPlTxtWrHpiMFfifaa35PVmwTiXCmo=",
-        "path": "/nix/store/5kaaby7nz00ashwn7955fdblgp789nvx-source/pkgs",
+        "narHash": "sha256-qcefOvVvnYsn30jBX1/zSpcgIF647nWcJY4e8/z2Ndg=",
+        "path": "/nix/store/2044b996f9yklpbq56rbp99lf29ink8v-source/pkgs",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/5kaaby7nz00ashwn7955fdblgp789nvx-source/pkgs",
+        "path": "/nix/store/2044b996f9yklpbq56rbp99lf29ink8v-source/pkgs",
         "type": "path"
       }
     },
