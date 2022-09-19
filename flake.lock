@@ -303,11 +303,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-0ycuitJ0BoMUyvPlTxtWrHpiMFfifaa35PVmwTiXCmo=",
-        "path": "/nix/store/gg5iamfdk44dcs86zy3wvcg965y20rzw-source/pkgs",
+        "path": "/nix/store/5kaaby7nz00ashwn7955fdblgp789nvx-source/pkgs",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/gg5iamfdk44dcs86zy3wvcg965y20rzw-source/pkgs",
+        "path": "/nix/store/5kaaby7nz00ashwn7955fdblgp789nvx-source/pkgs",
         "type": "path"
       }
     },
