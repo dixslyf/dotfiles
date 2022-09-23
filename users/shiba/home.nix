@@ -5,6 +5,7 @@
 }: {
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
+    ./services
     ./programs
   ];
 
