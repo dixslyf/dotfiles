@@ -315,16 +315,17 @@
         "feline-nvim": "feline-nvim",
         "gitsigns-nvim": "gitsigns-nvim",
         "hydra-nvim": "hydra-nvim",
-        "nvim-web-devicons": "nvim-web-devicons"
+        "nvim-web-devicons": "nvim-web-devicons",
+        "wlsunset": "wlsunset"
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-ax6YBEhnXF2lp9iqVxFiCmLZA8hJsvRSYHqwECg6gnU=",
-        "path": "/nix/store/mm01j0x8n6riccbxmq4njwgxmm9fsmq3-source/pkgs",
+        "narHash": "sha256-rAq4E8t4ke9GyCR3Uka142pY7y6/Zv40cgN79nDfnOs=",
+        "path": "/nix/store/98vvnfnyk2kzzy1vrgbp0143z9smhjn0-source/pkgs",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/mm01j0x8n6riccbxmq4njwgxmm9fsmq3-source/pkgs",
+        "path": "/nix/store/98vvnfnyk2kzzy1vrgbp0143z9smhjn0-source/pkgs",
         "type": "path"
       }
     },
@@ -393,6 +394,22 @@
         "owner": "wlroots",
         "repo": "wlroots",
         "type": "gitlab"
+      }
+    },
+    "wlsunset": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1651655395,
+        "narHash": "sha256-JxcZQ67eCvp9edE2EulIF8dAEGbyNyKaca9njE3AIBg=",
+        "owner": "~kennylevinsen",
+        "repo": "wlsunset",
+        "rev": "cee422b440b63a1ee3913872674e95486c37f84e",
+        "type": "sourcehut"
+      },
+      "original": {
+        "owner": "~kennylevinsen",
+        "repo": "wlsunset",
+        "type": "sourcehut"
       }
     }
   },
