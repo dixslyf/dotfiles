@@ -6,6 +6,11 @@
       url = "https://github.com/catppuccin/cursors/raw/main/cursors/Catppuccin-Macchiato-Dark-Cursors.zip";
       flake = false;
     };
+    catppuccin-gtk-macchiato-mauve = {
+      type = "file"; # Work around nix#7083
+      url = "https://github.com/catppuccin/gtk/raw/main/Releases/Catppuccin-Macchiato-Mauve.zip";
+      flake = false;
+    };
     wlsunset = {
       url = "sourcehut:~kennylevinsen/wlsunset";
       flake = false;
@@ -37,6 +42,7 @@
       inherit inputs;
       pvtpkgs = {
         catppuccin-macchiato-dark-cursors = final.callPackage ./catppuccin-macchiato-dark-cursors {};
+        catppuccin-gtk-macchiato-mauve = final.callPackage ./catppuccin-gtk-macchiato-mauve {};
         wlsunset = final.callPackage ./wlsunset {};
         vimPlugins = final.lib.recurseIntoAttrs (final.callPackage ./vim-plugins {});
       };

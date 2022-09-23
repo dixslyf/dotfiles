@@ -114,5 +114,9 @@
 
   gtk = {
     enable = true;
+    theme = {
+      package = pkgs.pvtpkgs.catppuccin-gtk-macchiato-mauve;
+      name = "Catppuccin-Macchiato-Mauve";
+    };
   };
 }

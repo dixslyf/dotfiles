@@ -16,6 +16,18 @@
         "type": "github"
       }
     },
+    "catppuccin-gtk-macchiato-mauve": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-M6BoZY0Kp06X7WE6x3Vg3V+NOkybHemoC34wXwCBUfk=",
+        "type": "file",
+        "url": "https://github.com/catppuccin/gtk/raw/main/Releases/Catppuccin-Macchiato-Mauve.zip"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/catppuccin/gtk/raw/main/Releases/Catppuccin-Macchiato-Mauve.zip"
+      }
+    },
     "catppuccin-macchiato-dark-cursors": {
       "flake": false,
       "locked": {
@@ -310,6 +322,7 @@
     },
     "pvtpkgs": {
       "inputs": {
+        "catppuccin-gtk-macchiato-mauve": "catppuccin-gtk-macchiato-mauve",
         "catppuccin-macchiato-dark-cursors": "catppuccin-macchiato-dark-cursors",
         "catppuccin-nvim": "catppuccin-nvim",
         "feline-nvim": "feline-nvim",
@@ -320,12 +333,12 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-rAq4E8t4ke9GyCR3Uka142pY7y6/Zv40cgN79nDfnOs=",
-        "path": "/nix/store/98vvnfnyk2kzzy1vrgbp0143z9smhjn0-source/pkgs",
+        "narHash": "sha256-4yB4AR5Eef9/9HsUvPf0zXtddc+IuaGFaSys4d01fKQ=",
+        "path": "/nix/store/ypa7rdbhc54bzc69s3fid88hxdn8qj1g-source/pkgs",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/98vvnfnyk2kzzy1vrgbp0143z9smhjn0-source/pkgs",
+        "path": "/nix/store/ypa7rdbhc54bzc69s3fid88hxdn8qj1g-source/pkgs",
         "type": "path"
       }
     },
