@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  imports = [./module.nix];
   xdg.configFile."nvim/lua".source = ./lua;
   xdg.configFile."nvim/config.lua".source = ./config.lua;
   programs.neovim = {
