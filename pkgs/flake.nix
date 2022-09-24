@@ -15,6 +15,10 @@
       url = "sourcehut:~kennylevinsen/wlsunset";
       flake = false;
     };
+    mali = {
+      url = "github:cadsondemak/Mali";
+      flake = false;
+    };
     catppuccin-nvim = {
       url = "github:catppuccin/nvim";
       flake = false;
@@ -44,6 +48,7 @@
         catppuccin-macchiato-dark-cursors = final.callPackage ./catppuccin-macchiato-dark-cursors {};
         catppuccin-gtk-macchiato-mauve = final.callPackage ./catppuccin-gtk-macchiato-mauve {};
         wlsunset = final.callPackage ./wlsunset {};
+        mali = final.callPackage ./mali {};
         vimPlugins = final.lib.recurseIntoAttrs (final.callPackage ./vim-plugins {});
       };
     };

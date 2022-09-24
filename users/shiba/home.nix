@@ -114,6 +114,11 @@
 
   gtk = {
     enable = true;
+    font = {
+      package = pkgs.pvtpkgs.mali;
+      name = "Mali";
+      size = 14;
+    };
     theme = {
       package = pkgs.pvtpkgs.catppuccin-gtk-macchiato-mauve;
       name = "Catppuccin-Macchiato-Mauve";

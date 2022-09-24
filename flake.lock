@@ -192,6 +192,22 @@
         "type": "github"
       }
     },
+    "mali": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1603794906,
+        "narHash": "sha256-GOi248zsd1Dl/zFErQMMBBEZEEOsnIlF0vxsmg0FX24=",
+        "owner": "cadsondemak",
+        "repo": "Mali",
+        "rev": "7e11de1301bf785e1b06c24816242ba52dde805f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cadsondemak",
+        "repo": "Mali",
+        "type": "github"
+      }
+    },
     "neovim-flake": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -328,17 +344,18 @@
         "feline-nvim": "feline-nvim",
         "gitsigns-nvim": "gitsigns-nvim",
         "hydra-nvim": "hydra-nvim",
+        "mali": "mali",
         "nvim-web-devicons": "nvim-web-devicons",
         "wlsunset": "wlsunset"
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-4yB4AR5Eef9/9HsUvPf0zXtddc+IuaGFaSys4d01fKQ=",
-        "path": "/nix/store/ypa7rdbhc54bzc69s3fid88hxdn8qj1g-source/pkgs",
+        "narHash": "sha256-z1dp9nYf1DqZr3lAcjMxq7wLPhj2tOYfWQY7PgWwkmE=",
+        "path": "/nix/store/35i3i4wp3fny1hadb6781000h4k5i8pk-source/pkgs",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/ypa7rdbhc54bzc69s3fid88hxdn8qj1g-source/pkgs",
+        "path": "/nix/store/35i3i4wp3fny1hadb6781000h4k5i8pk-source/pkgs",
         "type": "path"
       }
     },
