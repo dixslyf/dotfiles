@@ -1,4 +1,60 @@
+@import "@themePath@";
+
 * {
-	font-family: "Material Design Icons", "DejaVu Sans";
-	font-size: 16;
+	font-family: "Material Design Icons", "Mali";
+	font-size: 16px;
+    font-weight: 600;
+}
+
+window#waybar {
+    background-color: @base;
+    color: @base;
+}
+
+window > box {
+    padding: 0 18px;
+}
+
+#clock,
+#workspaces,
+#pulseaudio,
+#backlight,
+#battery,
+#network,
+#tray {
+    border-radius: 20px; 
+    margin: 12px 6px;
+    padding: 0 16px;
+}
+
+#clock.time {
+    background-color: @maroon;
+}
+
+#clock.date {
+    background-color: @pink;
+}
+
+#workspaces {
+    background-color: @mauve;
+}
+
+#workspaces button {
+    color: @base;
+}
+
+#network {
+    background-color: @red;
+}
+
+#battery {
+    background-color: @green;
+}
+
+#backlight {
+    background-color: @yellow;
+}
+
+#pulseaudio {
+    background-color: @blue;
 }

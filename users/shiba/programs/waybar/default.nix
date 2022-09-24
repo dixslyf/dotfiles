@@ -60,6 +60,9 @@
         };
       };
     };
-    style = builtins.readFile ./style.css;
+    style = pkgs.substituteAll {
+      src = ./style.css;
+      themePath = "${pkgs.pvtpkgs.catppuccin-waybar}/share/waybar/themes/catppuccin/macchiato.css";
+    };
   };
 }
