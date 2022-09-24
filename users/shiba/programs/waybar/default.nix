@@ -13,10 +13,15 @@
         output = "eDP-1";
         layer = "top";
         position = "top";
-        modules-left = ["clock"];
-        modules-right = ["pulseaudio" "backlight" "battery" "network" "tray"];
-        clock = {
-          format = "{:%e %B %A}";
+        modules-left = ["clock#time" "clock#date" "tray"];
+        modules-center = ["wlr/workspaces"];
+        modules-right = ["pulseaudio" "backlight" "battery" "network"];
+        "clock#time" = {
+          format = "󰅐 {:%H\:%M}";
+          tooltip = false;
+        };
+        "clock#date" = {
+          format = "󰃭 {:%e %B, %A}";
           tooltip = false;
         };
         pulseaudio = {
@@ -52,17 +57,6 @@
           format-linked = "󰘘 {ifname}";
           format-wifi = "{icon} {essid} {signalStrength}%";
           format-icons = ["󰤟" "󰤢" "󰤥" "󰤨"];
-        };
-      };
-      leftBar = {
-        output = "eDP-1";
-        layer = "top";
-        position = "left";
-        modules-left = ["clock"];
-        modules-center = ["wlr/workspaces"];
-        clock = {
-          format = "{:%H\n%M}";
-          tooltip = false;
         };
       };
     };
