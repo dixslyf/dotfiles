@@ -11,6 +11,10 @@
       url = "https://github.com/catppuccin/gtk/raw/main/Releases/Catppuccin-Macchiato-Mauve.zip";
       flake = false;
     };
+    catppuccin-waybar = {
+      url = "github:catppuccin/waybar";
+      flake = false;
+    };
     wlsunset = {
       url = "sourcehut:~kennylevinsen/wlsunset";
       flake = false;
@@ -47,6 +51,7 @@
       pvtpkgs = {
         catppuccin-macchiato-dark-cursors = final.callPackage ./catppuccin-macchiato-dark-cursors {};
         catppuccin-gtk-macchiato-mauve = final.callPackage ./catppuccin-gtk-macchiato-mauve {};
+        catppuccin-waybar = final.callPackage ./catppuccin-waybar {};
         wlsunset = final.callPackage ./wlsunset {};
         mali = final.callPackage ./mali {};
         vimPlugins = final.lib.recurseIntoAttrs (final.callPackage ./vim-plugins {});
