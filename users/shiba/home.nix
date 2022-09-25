@@ -69,6 +69,7 @@
     inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
     xdragon
     wofi
+    swaybg
     material-design-icons
     iosevka-bin
     (iosevka-bin.override {variant = "sgr-iosevka-term";})
