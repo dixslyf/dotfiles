@@ -44,6 +44,7 @@
               inputs.neovim-nightly-overlay.overlay
               pvtpkgs.overlay
             ];
+            nix.registry.nixpkgs.flake = nixpkgs;
           }
           ./hosts/shiba-asus
         ];
