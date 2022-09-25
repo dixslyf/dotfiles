@@ -56,8 +56,6 @@
     };
   };
 
-  zramSwap.enable = true;
-
   hardware = {
     cpu.intel.updateMicrocode = true;
     nvidia = {
@@ -79,4 +77,5 @@
       ];
     };
   };
+
 }
