@@ -74,6 +74,7 @@
     iosevka-bin
     (iosevka-bin.override {variant = "sgr-iosevka-term";})
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+    inkscape
   ];
 
   programs = {
