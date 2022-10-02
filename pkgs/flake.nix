@@ -15,6 +15,10 @@
       url = "github:catppuccin/waybar";
       flake = false;
     };
+    catppuccin-zathura = {
+      url = "github:catppuccin/zathura";
+      flake = false;
+    };
     wlsunset = {
       url = "sourcehut:~kennylevinsen/wlsunset";
       flake = false;
@@ -52,6 +56,7 @@
         catppuccin-macchiato-dark-cursors = final.callPackage ./catppuccin-macchiato-dark-cursors {};
         catppuccin-gtk-macchiato-mauve = final.callPackage ./catppuccin-gtk-macchiato-mauve {};
         catppuccin-waybar = final.callPackage ./catppuccin-waybar {};
+        catppuccin-zathura = final.callPackage ./catppuccin-zathura {};
         wlsunset = final.callPackage ./wlsunset {};
         mali = final.callPackage ./mali {};
         vimPlugins = final.lib.recurseIntoAttrs (final.callPackage ./vim-plugins {});

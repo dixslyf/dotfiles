@@ -72,6 +72,22 @@
         "type": "github"
       }
     },
+    "catppuccin-zathura": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1664239314,
+        "narHash": "sha256-5Vh2bVabuBluVCJm9vfdnjnk32CtsK7wGIWM5+XnacM=",
+        "owner": "catppuccin",
+        "repo": "zathura",
+        "rev": "d85d8750acd0b0247aa10e0653998180391110a4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "zathura",
+        "type": "github"
+      }
+    },
     "feline-nvim": {
       "flake": false,
       "locked": {
@@ -358,6 +374,7 @@
         "catppuccin-macchiato-dark-cursors": "catppuccin-macchiato-dark-cursors",
         "catppuccin-nvim": "catppuccin-nvim",
         "catppuccin-waybar": "catppuccin-waybar",
+        "catppuccin-zathura": "catppuccin-zathura",
         "feline-nvim": "feline-nvim",
         "gitsigns-nvim": "gitsigns-nvim",
         "hydra-nvim": "hydra-nvim",
@@ -367,12 +384,12 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-BW+fAkcVJVlzJqRglPxicvsv7CAeh7PJQCCr6IujVWc=",
-        "path": "/nix/store/n6kz7dvmb0hiaz3wjnpzzy5aq2s1di9l-source/pkgs",
+        "narHash": "sha256-dsrpo+2q7koAYscf9H0Nmlp70zfMNhmZAw9YpUQea7E=",
+        "path": "/nix/store/8lhd5nhkvr57jki66jlbdg5f15gvr57y-source/pkgs",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/n6kz7dvmb0hiaz3wjnpzzy5aq2s1di9l-source/pkgs",
+        "path": "/nix/store/8lhd5nhkvr57jki66jlbdg5f15gvr57y-source/pkgs",
         "type": "path"
       }
     },

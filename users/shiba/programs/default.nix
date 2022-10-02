@@ -7,5 +7,6 @@
     ./git
     ./tealdeer
     ./nvim
+    ./zathura
   ];
 }
