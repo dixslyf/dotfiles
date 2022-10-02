@@ -82,12 +82,6 @@
   programs = {
     gpg.enable = true;
     ssh.enable = true;
-    fish = {
-      enable = true;
-      interactiveShellInit = ''
-        fish_vi_key_bindings
-      '';
-    };
     qutebrowser.enable = true;
     feh.enable = true;
     nnn = {

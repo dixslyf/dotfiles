@@ -9,5 +9,6 @@
     ./nvim
     ./zathura
     ./firefox
+    ./fish
   ];
 }
