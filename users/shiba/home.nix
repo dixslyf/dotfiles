@@ -88,16 +88,6 @@
         fish_vi_key_bindings
       '';
     };
-    firefox = {
-      enable = true;
-      profiles.default = {
-        settings = {
-          # Hardware video acceleration
-          "gfx.webrender.all" = true;
-          "media.ffmpeg.vaapi.enabled" = true;
-        };
-      };
-    };
     qutebrowser.enable = true;
     feh.enable = true;
     nnn = {

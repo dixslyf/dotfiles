@@ -8,5 +8,6 @@
     ./tealdeer
     ./nvim
     ./zathura
+    ./firefox
   ];
 }
