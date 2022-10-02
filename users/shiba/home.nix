@@ -103,9 +103,6 @@
     nnn = {
       enable = true;
     };
-    waybar = {
-      enable = true;
-    };
   };
 
   home.pointerCursor = {
