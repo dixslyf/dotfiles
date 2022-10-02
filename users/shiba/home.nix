@@ -53,41 +53,14 @@
     network-manager-applet.enable = true;
   };
 
+  # Fonts
   fonts.fontconfig.enable = true;
-
   home.packages = with pkgs; [
-    bottom
-    keepassxc
-    albert
-    neofetch
-    xfce.thunar
-    fd
-    ripgrep
-    udiskie
-    lutris
-    vlc
-    inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
-    xdragon
-    wofi
-    swaybg
     material-design-icons
     iosevka-bin
     (iosevka-bin.override {variant = "sgr-iosevka-term";})
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
-    inkscape
-    kdenlive
-    mediainfo
   ];
-
-  programs = {
-    gpg.enable = true;
-    ssh.enable = true;
-    qutebrowser.enable = true;
-    feh.enable = true;
-    nnn = {
-      enable = true;
-    };
-  };
 
   home.pointerCursor = {
     name = "Catppuccin-Macchiato-Dark-Cursors";
