@@ -16,6 +16,9 @@
       url = "github:fufexan/nix-gaming";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur = {
+      url = "github:nix-community/NUR";
+    };
     hyprland = {
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,6 +35,7 @@
     self,
     nixpkgs,
     pvtpkgs,
+    nur,
     ...
   }: {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
@@ -41,6 +45,7 @@
         modules = [
           {
             nixpkgs.overlays = [
+              nur.overlay
               inputs.neovim-nightly-overlay.overlay
               pvtpkgs.overlay
             ];

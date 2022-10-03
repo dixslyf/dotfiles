@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   programs.firefox = {
     enable = true;
     profiles.default = {
@@ -8,5 +8,14 @@
         "media.ffmpeg.vaapi.enabled" = true;
       };
     };
+    extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+      ublock-origin
+      sponsorblock
+      duckduckgo-privacy-essentials
+      privacy-badger
+      cookie-autodelete
+      darkreader
+      vimium
+    ];
   };
 }
