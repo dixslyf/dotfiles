@@ -9,4 +9,8 @@
       };
     };
   };
+
+  home.persistence."/persist/home/shiba" = {
+    directories = [".mozilla"];
+  };
 }
