@@ -352,21 +352,6 @@
         "type": "github"
       }
     },
-    "nur": {
-      "locked": {
-        "lastModified": 1664708158,
-        "narHash": "sha256-i0mG1u+tUHWL9wMO4UhbbN8H5aWA5vy8P742cnHZ2TE=",
-        "owner": "nix-community",
-        "repo": "NUR",
-        "rev": "eac6d0a95c42884ad6cc5292dd1be2bf59519607",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "NUR",
-        "type": "github"
-      }
-    },
     "nvim-web-devicons": {
       "flake": false,
       "locked": {
@@ -417,7 +402,6 @@
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs_2",
-        "nur": "nur",
         "pvtpkgs": "pvtpkgs",
         "sops-nix": "sops-nix"
       }
