@@ -76,6 +76,9 @@
         libvdpau-va-gl
       ];
     };
+    bluetooth = {
+      enable = true;
+      hsphfpd.enable = true;
+    };
   };
-
 }

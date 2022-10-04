@@ -168,6 +168,7 @@
       percentageCritical = 15;
       percentageAction = 10;
     };
+    blueman.enable = true;
   };
 
   xdg = {
