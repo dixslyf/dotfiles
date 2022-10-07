@@ -181,7 +181,22 @@
   };
 
   # Packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [
+      (final: prev: {
+        mullvad-vpn = prev.mullvad-vpn.overrideAttrs (oldAttrs: {
+          postInstall = ''
+            # Replace $SCRIPT_DIR with the output directory
+            # since with nix, we know exactly where the bin is
+            sed -i "/SCRIPT_DIR/d" $out/share/mullvad/mullvad-vpn
+            sed -i "s|\$SCRIPT_DIR|$out/bin|" $out/share/mullvad/mullvad-vpn
+          '';
+        });
+      })
+    ];
+  };
+
   environment.systemPackages = let
     nvidia-offload =
       pkgs.writeShellScriptBin "nvidia-offload"
