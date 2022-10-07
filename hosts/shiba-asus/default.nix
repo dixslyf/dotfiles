@@ -204,6 +204,9 @@
         '')
         pkgs.mullvad-vpn
       ];
+      postBuild = ''
+        sed -i "s|Exec.*$|Exec=$out/bin/mullvad-vpn $U|" $out/share/applications/mullvad-vpn.desktop
+      '';
     };
   in
     with pkgs; [
