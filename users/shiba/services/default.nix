@@ -1,5 +1,8 @@
 {...}: {
-  imports = [./wlsunset];
+  imports = [
+    ./wlsunset
+    ./mullvad-vpn
+  ];
 
   systemd.user.startServices = "sd-switch";
   services = {
