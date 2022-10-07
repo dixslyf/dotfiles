@@ -189,8 +189,19 @@
           postInstall = ''
             # Replace $SCRIPT_DIR with the output directory
             # since with nix, we know exactly where the bin is
-            sed -i "/SCRIPT_DIR/d" $out/share/mullvad/mullvad-vpn
             sed -i "s|\$SCRIPT_DIR|$out/bin|" $out/share/mullvad/mullvad-vpn
+            sed -i "/SCRIPT_DIR/d" $out/share/mullvad/mullvad-vpn
+
+            # Execute with wayland flags if wayland
+            sed -i '/exec.*/i\
+            if [ "''${XDG_SESSION_TYPE:-""}" = "wayland" ]; then\
+                WAYLAND_FLAGS="--ozone-platform=wayland --enable-features=WaylandWindowDecorations"\
+            else\
+                WAYLAND_FLAGS=""\
+            fi\
+            ' $out/share/mullvad/mullvad-vpn
+            
+            sed -i 's|"\$@"|$WAYLAND_FLAGS "\$@"|' $out/share/mullvad/mullvad-vpn
           '';
         });
       })
@@ -207,22 +218,6 @@
         export __VK_LAYER_NV_optimus=NVIDIA_only
         exec "$@"
       '';
-    mullvad-vpn = pkgs.symlinkJoin {
-      name = "mullvad-vpn";
-      paths = [
-        (pkgs.writeShellScriptBin "mullvad-vpn" ''
-          if [ "''${XDG_SESSION_TYPE:-""}" = "wayland" ]; then
-            exec ${pkgs.mullvad-vpn}/bin/mullvad-vpn --ozone-platform=wayland --enable-features=WaylandWindowDecorations
-          else
-            exec ${pkgs.mullvad-vpn}/bin/mullvad-vpn
-          fi
-        '')
-        pkgs.mullvad-vpn
-      ];
-      postBuild = ''
-        sed -i "s|Exec.*$|Exec=$out/bin/mullvad-vpn $U|" $out/share/applications/mullvad-vpn.desktop
-      '';
-    };
   in
     with pkgs; [
       nvidia-offload
