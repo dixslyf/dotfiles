@@ -192,6 +192,19 @@
         export __VK_LAYER_NV_optimus=NVIDIA_only
         exec "$@"
       '';
+    mullvad-vpn = pkgs.symlinkJoin {
+      name = "mullvad-vpn";
+      paths = [
+        (pkgs.writeShellScriptBin "mullvad-vpn" ''
+          if [ "''${XDG_SESSION_TYPE:-""}" = "wayland" ]; then
+            exec ${pkgs.mullvad-vpn}/bin/mullvad-vpn --ozone-platform=wayland --enable-features=WaylandWindowDecorations
+          else
+            exec ${pkgs.mullvad-vpn}/bin/mullvad-vpn
+          fi
+        '')
+        pkgs.mullvad-vpn
+      ];
+    };
   in
     with pkgs; [
       nvidia-offload
