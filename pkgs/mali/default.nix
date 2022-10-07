@@ -4,9 +4,8 @@
   stdenvNoCC,
   ...
 }:
-
 stdenvNoCC.mkDerivation rec {
-  pname = "mali";  
+  pname = "mali";
   version = src.lastModifiedDate;
 
   src = inputs.mali;

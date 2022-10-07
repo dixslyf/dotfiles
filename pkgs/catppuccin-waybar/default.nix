@@ -3,7 +3,6 @@
   stdenvNoCC,
   ...
 }:
-
 stdenvNoCC.mkDerivation rec {
   pname = "catppuccin-waybar";
   version = src.lastModifiedDate;

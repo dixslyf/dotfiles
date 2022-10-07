@@ -1,6 +1,6 @@
 {...}: {
   imports = [./wlsunset];
-  
+
   systemd.user.startServices = "sd-switch";
   services = {
     gpg-agent = {
