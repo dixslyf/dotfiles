@@ -20,11 +20,14 @@ window > box {
 #pulseaudio,
 #backlight,
 #battery,
-#network,
-#tray {
+#network {
     border-radius: 20px; 
     margin: 12px 6px;
     padding: 0 16px;
+}
+
+#tray {
+    margin: 12px;
 }
 
 #clock.time {

@@ -24,6 +24,10 @@
           format = "󰃭 {:%e %B, %A}";
           tooltip = false;
         };
+        tray = {
+          icon-size = 24;
+          spacing = 8;
+        };
         pulseaudio = {
           format = "{icon} {volume}%";
           format-bluetooth = "{icon}󰂰 {desc} {volume}%";
