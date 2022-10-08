@@ -1,6 +1,7 @@
 require("gitsigns").setup {
     numhl = true,
     on_attach = function(bufnr)
+        local wk = require("which-key")
         local hydra = require("hydra")
         local gs = require("gitsigns")
         local gs_conf = require("gitsigns.config").config
@@ -98,5 +99,6 @@ require("gitsigns").setup {
                 { "q", nil, { exit = true, desc = "exit" } },
             }
         }
+        wk.register { ["<leader>g"] = { "Git", buffer = bufnr } }
     end
 }
