@@ -380,16 +380,17 @@
         "hydra-nvim": "hydra-nvim",
         "mali": "mali",
         "nvim-web-devicons": "nvim-web-devicons",
+        "which-key-nvim": "which-key-nvim",
         "wlsunset": "wlsunset"
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-E37oIGMzPgw5rfOeK4dbUWeSiwuZ9hFpq6eArfuQYyE=",
-        "path": "/nix/store/v25i45648m9h2kn6pi9bbxxrn88cp8zj-source/pkgs",
+        "narHash": "sha256-e6qQoITFfwH671IZkELnnrBl2XyELWN4aKg0e8PYWek=",
+        "path": "/nix/store/lhph5p0djibghx5z0376ph8yl11q0j72-source/pkgs",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/v25i45648m9h2kn6pi9bbxxrn88cp8zj-source/pkgs",
+        "path": "/nix/store/lhph5p0djibghx5z0376ph8yl11q0j72-source/pkgs",
         "type": "path"
       }
     },
@@ -439,6 +440,22 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "which-key-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1663503432,
+        "narHash": "sha256-RuZ0UDoILeiDkcj1ivcfvUVTaB3kVGlSVR2kwGodi7s=",
+        "owner": "folke",
+        "repo": "which-key.nvim",
+        "rev": "6885b669523ff4238de99a7c653d47b081b5506d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "which-key.nvim",
         "type": "github"
       }
     },

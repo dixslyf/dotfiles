@@ -39,6 +39,10 @@
       url = "github:kyazdani42/nvim-web-devicons";
       flake = false;
     };
+    which-key-nvim = {
+      url = "github:folke/which-key.nvim";
+      flake = false;
+    };
     hydra-nvim = {
       url = "github:anuvyklack/hydra.nvim";
       flake = false;
