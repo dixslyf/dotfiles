@@ -1,6 +1,6 @@
 keys:
   - &shiba 696e2d91121faeef3057400883e06ba3516ce57e 
-  - &shiba-asus age1lpt6dhmya86wajkr30j8waereg0pknv8nx3tmymqts69r49hg45sxurjyk
+  - &shiba-asus age1gjuaev2c8dx6r66a975uk8fd59k3e2p3ksyzqxg2asvmcvasde3ss29y3m
 creation_rules:
   - path_regex: users/secrets.yaml$
     key_groups:

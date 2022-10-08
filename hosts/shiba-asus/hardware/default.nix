@@ -34,7 +34,7 @@
           keyFile = "/keyfiles/home.bin";
         };
         "swap" = {
-          device = "/dev/disk/by-uuid/aa90c2fe-6966-44b9-9dec-42d54c2217db";
+          device = "/dev/disk/by-uuid/0a936449-13c7-47d5-a091-2f768b6eb3db";
           keyFile = "/keyfiles/swap.bin";
         };
       };
