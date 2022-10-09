@@ -14,6 +14,7 @@
     ./zathura
     ./firefox
     ./fish
+    ./mako
   ];
 
   programs = {

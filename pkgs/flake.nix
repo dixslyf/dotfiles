@@ -15,6 +15,10 @@
       url = "github:catppuccin/waybar";
       flake = false;
     };
+    catppuccin-mako = {
+      url = "github:catppuccin/mako";
+      flake = false;
+    };
     catppuccin-zathura = {
       url = "github:catppuccin/zathura";
       flake = false;
@@ -60,6 +64,7 @@
         catppuccin-macchiato-dark-cursors = final.callPackage ./catppuccin-macchiato-dark-cursors {};
         catppuccin-gtk-macchiato-mauve = final.callPackage ./catppuccin-gtk-macchiato-mauve {};
         catppuccin-waybar = final.callPackage ./catppuccin-waybar {};
+        catppuccin-mako = final.callPackage ./catppuccin-mako {};
         catppuccin-zathura = final.callPackage ./catppuccin-zathura {};
         wlsunset = final.callPackage ./wlsunset {};
         mali = final.callPackage ./mali {};
