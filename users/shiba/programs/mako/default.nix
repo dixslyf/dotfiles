@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   programs.mako = {
     enable = true;
-    anchor = "top-left";
+    anchor = "bottom-right";
     defaultTimeout = 8000;
     font = "Mali 16";
     maxIconSize = 48;
