@@ -44,5 +44,10 @@
     kdenlive
     mediainfo
     gimp
+    jq
+    grim
+    slurp
+    swappy
+    wl-clipboard
   ];
 }
