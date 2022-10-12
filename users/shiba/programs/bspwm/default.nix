@@ -7,6 +7,20 @@
       eDP-1 = ["p1" "p2" "p3" "p4" "p5" "p6" "p7" "p8" "p9" "p0"];
       HDMI-1 = ["h1" "h2" "h3" "h4" "h5" "h6" "h7" "h8" "h9" "h0"];
     };
+    rules = {
+        "Steam" = {
+          desktop = "eDP-1:^2";
+        };
+        "Qutebrowser" = {
+          desktop = "eDP-1:^1";
+        };
+        "Firefox" = {
+          desktop = "eDP-1:^4";
+        };
+        "Zathura" = {
+          state = "tiled";
+        };
+    };
     settings = {
       border_width = 2;
       normal_border_color = "#969896";
