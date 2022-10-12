@@ -51,8 +51,16 @@
       "super + shift + {q,r}" = "bspc {quit,wm -r}"; # quit / restart bspwm
       "super + {shift,ctrl} + c" = "bspc node -{c,k}"; # close / kill window
       "super + {_,shift} + {j,k}" = ''bspc node -{f,s} {next,prev}.local.!hidden.window''; # focus / move window
+      "super + {t,shift + t,s,f}" = "bspc node -t {tiled,pseudo_tiled,floating,\~fullscreen"; # set the window state
+      "super + alt + {h,j,k,l}" = ''
+        bspc node -z {left -20 0 || bspc node -z right -20 0, \
+                      bottom 0 20 || bspc node -z top 0 20,\
+                      top 0 -20 || bspc node -z bottom 0 -20,\
+                      right 20 0 || bspc node -z left 20 0}
+      '';
+      "super + {u,i}" = "bspc {monitor -f,node -m} {prev,next}"; # focus or send to the next monitor
       "super + {1-9,0} + {_,shift}" = ''num={1-9,10}; if [ $(bspc query -D -d focused --names | cut -c 2) != "$num" ]; then bspc {desktop -f,node -d} focused:^"$num"; fi''; # focus / move window to desktop
-
+      "super + {o,p}" = "bspc desktop -f {prev,next}.local"; # focus the next/prev desktop in the current monitor
       "super + Return" = "kitty -1"; # open kitty
       "{XF86MonBrightnessUp,XF86MonBrightnessDown} + {_,shift}" = "light -{A,U} {0.2,1}";
       "super + {XF86AudioRaiseVolume,XF86AudioLowerVolume} + {_,shift}" = "light -{A,U} {0.2,1}";
