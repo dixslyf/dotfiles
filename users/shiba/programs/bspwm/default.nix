@@ -5,7 +5,6 @@
     enable = true;
     monitors = {
       eDP-1 = ["p1" "p2" "p3" "p4" "p5" "p6" "p7" "p8" "p9" "p0"];
-      HDMI-1 = ["h1" "h2" "h3" "h4" "h5" "h6" "h7" "h8" "h9" "h0"];
     };
     rules = {
         "Steam" = {
@@ -34,6 +33,11 @@
       pointer_follows_focus = true;
       pointer_follows_monitor = true;
     };
+    extraConfig = ''
+      if [ "$(bspc query -M | wc -l)" -eq "2" ]; then
+          bspc monitor HDMI-1 -d h1 h2 h3 h4 h5 h6 h7 h8 h9 h0
+      fi
+    '';
   };
 
   # home-manager starts sxhkd through ~/.xsession, but since xsession.enable = false,
