@@ -38,6 +38,7 @@
           bspc monitor HDMI-1 -d h1 h2 h3 h4 h5 h6 h7 h8 h9 h0
       fi
     '';
+    startupPrograms = [ "flameshot" ];
   };
 
   # home-manager starts sxhkd through ~/.xsession, but since xsession.enable = false,
@@ -65,6 +66,7 @@
       "{XF86MonBrightnessUp,XF86MonBrightnessDown} + {_,shift}" = "light -{A,U} {0.2,1}";
       "super + {XF86AudioRaiseVolume,XF86AudioLowerVolume} + {_,shift}" = "light -{A,U} {0.2,1}";
       "{XF86AudioRaiseVolume,XF86AudioLowerVolume} + {_,shift}" = "pamixer -{i,d} {1,2}";
+      "Print" = "flameshot gui";
     };
   };
 }

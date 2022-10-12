@@ -2,6 +2,7 @@
   imports = [
     ./wlsunset
     ./mullvad-vpn
+    ./flameshot
   ];
 
   systemd.user.startServices = "sd-switch";
