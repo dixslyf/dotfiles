@@ -43,5 +43,6 @@
     inkscape
     kdenlive
     mediainfo
+    gimp
   ];
 }
