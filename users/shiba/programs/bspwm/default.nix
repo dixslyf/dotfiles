@@ -52,7 +52,7 @@
       "super + shift + {q,r}" = "bspc {quit,wm -r}"; # quit / restart bspwm
       "super + {shift,ctrl} + c" = "bspc node -{c,k}"; # close / kill window
       "super + {_,shift} + {j,k}" = ''bspc node -{f,s} {next,prev}.local.!hidden.window''; # focus / move window
-      "super + {t,shift + t,s,f}" = "bspc node -t {tiled,pseudo_tiled,floating,\~fullscreen"; # set the window state
+      "super + {t,shift + t,s,f}" = "bspc node -t {tiled,pseudo_tiled,floating,\~fullscreen}"; # set the window state
       "super + alt + {h,j,k,l}" = ''
         bspc node -z {left -20 0 || bspc node -z right -20 0, \
                       bottom 0 20 || bspc node -z top 0 20,\
