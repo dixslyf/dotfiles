@@ -108,9 +108,15 @@
       enable = true;
       touchpad.naturalScrolling = true;
     };
-    displayManager.sddm = {
-      enable = true;
-      theme = "sugar-candy";
+    displayManager = {
+      # disable external monitor in SDDM
+      setupCommands = "${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-1 --off";
+      # re-enable external monitor when starting session
+      sessionCommands = "${pkgs.xorg.xrandr}/bin/xrandr --auto";
+      sddm = {
+        enable = true;
+        theme = "sugar-candy";
+      };
     };
     windowManager.bspwm.enable = true;
     desktopManager.runXdgAutostartIfNone = true;
