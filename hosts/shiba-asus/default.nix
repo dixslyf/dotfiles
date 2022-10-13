@@ -111,9 +111,9 @@
     displayManager = {
       # disable external monitor in SDDM
       setupCommands = "${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-1 --off";
-      # re-enable external monitor when starting session
+      # automatically select the display configuration using autorandr
       sessionCommands = ''
-        ${pkgs.xorg.xrandr}/bin/xrandr --auto
+        ${pkgs.autorandr}/bin/autorandr --change
         ${pkgs.xorg.xsetroot}/bin/xsetroot -solid "#363a4f"
       '';
       sddm = {
