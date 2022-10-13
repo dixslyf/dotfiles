@@ -155,6 +155,7 @@
         DISK_DEVICES = "sda sdb";
       };
     };
+    autorandr.enable = true;
     pipewire = {
       enable = true;
       alsa.enable = true;

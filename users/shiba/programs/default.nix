@@ -15,6 +15,7 @@
     ./firefox
     ./fish
     ./mako
+    ./autorandr
   ];
 
   programs = {
