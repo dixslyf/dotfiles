@@ -112,7 +112,10 @@
       # disable external monitor in SDDM
       setupCommands = "${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-1 --off";
       # re-enable external monitor when starting session
-      sessionCommands = "${pkgs.xorg.xrandr}/bin/xrandr --auto";
+      sessionCommands = ''
+        ${pkgs.xorg.xrandr}/bin/xrandr --auto
+        ${pkgs.xorg.xsetroot}/bin/xsetroot -solid "#363a4f"
+      '';
       sddm = {
         enable = true;
         theme = "sugar-candy";
