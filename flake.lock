@@ -397,17 +397,18 @@
         "hydra-nvim": "hydra-nvim",
         "mali": "mali",
         "nvim-web-devicons": "nvim-web-devicons",
+        "sddm-sugar-candy": "sddm-sugar-candy",
         "which-key-nvim": "which-key-nvim",
         "wlsunset": "wlsunset"
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-2jfEwnLm93wem4Z7MikFN3ZIHS7DoQqIE9w8k7RDnys=",
-        "path": "/nix/store/n773lkgwv5zy2k6c0v5mfq8r8ncfb4l7-source/pkgs",
+        "narHash": "sha256-fvpiaTZ+ksauwvpldqm7ybtdh4eLU4ZgJT4Z0n4P2Sc=",
+        "path": "/nix/store/04l8w3ccy9a0ipsqbg5mj43z5ckmpss2-source/pkgs",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/n773lkgwv5zy2k6c0v5mfq8r8ncfb4l7-source/pkgs",
+        "path": "/nix/store/04l8w3ccy9a0ipsqbg5mj43z5ckmpss2-source/pkgs",
         "type": "path"
       }
     },
@@ -422,6 +423,22 @@
         "nixpkgs": "nixpkgs_2",
         "pvtpkgs": "pvtpkgs",
         "sops-nix": "sops-nix"
+      }
+    },
+    "sddm-sugar-candy": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1580585463,
+        "narHash": "sha256-XggFVsEXLYklrfy1ElkIp9fkTw4wvXbyVkaVCZq4ZLU=",
+        "ref": "refs/heads/master",
+        "rev": "2b72ef6c6f720fe0ffde5ea5c7c48152e02f6c4f",
+        "revCount": 53,
+        "type": "git",
+        "url": "https://framagit.org/MarianArlt/sddm-sugar-candy"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://framagit.org/MarianArlt/sddm-sugar-candy"
       }
     },
     "sops-nix": {

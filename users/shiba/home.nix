@@ -57,7 +57,6 @@
   gtk = {
     enable = true;
     font = {
-      package = pkgs.pvtpkgs.mali;
       name = "Mali";
       size = 14;
     };

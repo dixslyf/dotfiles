@@ -108,7 +108,10 @@
       enable = true;
       touchpad.naturalScrolling = true;
     };
-    displayManager.sddm.enable = true;
+    displayManager.sddm = {
+      enable = true;
+      theme = "sugar-candy";
+    };
     windowManager.bspwm.enable = true;
     desktopManager.runXdgAutostartIfNone = true;
   };
@@ -208,6 +211,8 @@
     ];
   };
 
+  fonts.fonts = [ pkgs.pvtpkgs.mali ];
+
   environment.systemPackages = let
     nvidia-offload =
       pkgs.writeShellScriptBin "nvidia-offload"
@@ -226,6 +231,10 @@
       pamixer
       mullvad-vpn
       sops
+      pvtpkgs.sddm-sugar-candy
+      libsForQt5.qt5.qtgraphicaleffects
+      libsForQt5.qt5.qtquickcontrols2
+      libsForQt5.qt5.qtsvg
     ];
 
   programs = {
