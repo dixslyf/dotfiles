@@ -6,6 +6,10 @@
       url = "git+https://framagit.org/MarianArlt/sddm-sugar-candy";
       flake = false;
     };
+    catppuccin-fish = {
+      url = "github:catppuccin/fish";
+      flake = false;
+    };
     catppuccin-macchiato-dark-cursors = {
       url = "https://github.com/catppuccin/cursors/raw/main/cursors/Catppuccin-Macchiato-Dark-Cursors.zip";
       flake = false;
@@ -66,6 +70,7 @@
       inherit inputs;
       pvtpkgs = {
         sddm-sugar-candy = final.callPackage ./sddm-sugar-candy {};
+        catppuccin-fish = final.callPackage ./catppuccin-fish {};
         catppuccin-macchiato-dark-cursors = final.callPackage ./catppuccin-macchiato-dark-cursors {};
         catppuccin-gtk-macchiato-mauve = final.callPackage ./catppuccin-gtk-macchiato-mauve {};
         catppuccin-waybar = final.callPackage ./catppuccin-waybar {};

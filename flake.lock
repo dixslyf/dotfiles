@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "catppuccin-fish": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1665489199,
+        "narHash": "sha256-GLb1BkN0nQ4M60JcVIGMnr9C7RKhpev5FUoQjZS5G2A=",
+        "owner": "catppuccin",
+        "repo": "fish",
+        "rev": "0fd0c48a844636c6082f633cc4f2800abb4b6413",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "fish",
+        "type": "github"
+      }
+    },
     "catppuccin-grub": {
       "flake": false,
       "locked": {
@@ -386,6 +402,7 @@
     },
     "pvtpkgs": {
       "inputs": {
+        "catppuccin-fish": "catppuccin-fish",
         "catppuccin-gtk-macchiato-mauve": "catppuccin-gtk-macchiato-mauve",
         "catppuccin-macchiato-dark-cursors": "catppuccin-macchiato-dark-cursors",
         "catppuccin-mako": "catppuccin-mako",
@@ -403,12 +420,12 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-fvpiaTZ+ksauwvpldqm7ybtdh4eLU4ZgJT4Z0n4P2Sc=",
-        "path": "/nix/store/3q0nbhz7chrx2jb6f6rcq2qi0zkz6j6l-source/pkgs",
+        "narHash": "sha256-yMZvQtDyBmvNyJMLeMemjUXlOTV+5rxpdoPr4JhlY2U=",
+        "path": "/nix/store/maf4mkwv8sqmgq3bs5kn3ggwbizwzqnx-source/pkgs",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/3q0nbhz7chrx2jb6f6rcq2qi0zkz6j6l-source/pkgs",
+        "path": "/nix/store/maf4mkwv8sqmgq3bs5kn3ggwbizwzqnx-source/pkgs",
         "type": "path"
       }
     },
