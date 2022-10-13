@@ -9,7 +9,7 @@
       target = "hyprland-session.target";
     };
     settings = {
-      topBar = {
+      topBarPrimary = {
         output = "eDP-1";
         layer = "top";
         position = "top";
@@ -62,6 +62,12 @@
           format-wifi = "{icon} {essid} {signalStrength}%";
           format-icons = ["󰤟" "󰤢" "󰤥" "󰤨"];
         };
+      };
+      topBarExternal = {
+        output = "HDMI-A-1";
+        layer = "top";
+        position = "top";
+        modules-center = ["wlr/workspaces"];
       };
     };
     style = pkgs.substituteAll {
