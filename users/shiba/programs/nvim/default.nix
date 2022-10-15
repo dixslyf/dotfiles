@@ -15,5 +15,8 @@
       hydra-nvim
       gitsigns-nvim
     ];
+    extraPackages = with pkgs; [
+      sumneko-lua-language-server
+    ];
   };
 }

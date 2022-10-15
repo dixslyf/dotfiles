@@ -39,3 +39,6 @@ local on_attach = function(client, bufnr)
         ["<leader>d"] = "Diagnostics"
     }
 end
+
+-- Set up servers
+require("plugins/lspconfig/sumneko-lua")(on_attach)
