@@ -11,6 +11,7 @@
       feline-nvim
       nvim-web-devicons
       nvim-lspconfig
+      neodev-nvim
       which-key-nvim
       hydra-nvim
       gitsigns-nvim
