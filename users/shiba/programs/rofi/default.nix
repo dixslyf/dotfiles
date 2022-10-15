@@ -1,8 +1,14 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs.rofi = {
     enable = true;
+    configPath = "${config.xdg.configHome}/rofi/home-manager.rasi";
     font = "Mali 16";
     terminal = "${pkgs.kitty}/bin/kitty";
+    theme = "${pkgs.pvtpkgs.catppuccin-rofi-basic}/share/rofi/themes/catppuccin-basic/catppuccin-macchiato.rasi";
     extraConfig = {
       m = -1;
       steal-focus = true;
@@ -12,4 +18,9 @@
       kb-row-right = "Alt+l";
     };
   };
+
+  xdg.configFile."rofi/config.rasi".text = ''
+    @import "${config.programs.rofi.configPath}"
+    ${builtins.readFile "${pkgs.pvtpkgs.catppuccin-rofi-basic}/share/rofi/themes/catppuccin-basic/config.rasi"}
+  '';
 }
