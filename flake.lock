@@ -288,6 +288,22 @@
         "type": "github"
       }
     },
+    "neodev-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1665825895,
+        "narHash": "sha256-ROHkqdK0pOhnrigJR5K4lSZ3YbLWplKEGYErSuI/6cg=",
+        "owner": "folke",
+        "repo": "neodev.nvim",
+        "rev": "08d845563aceafb456e21a2805ae5a1aa3f8fc75",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "neodev.nvim",
+        "type": "github"
+      }
+    },
     "neovim-flake": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -446,6 +462,7 @@
         "gitsigns-nvim": "gitsigns-nvim",
         "hydra-nvim": "hydra-nvim",
         "mali": "mali",
+        "neodev-nvim": "neodev-nvim",
         "nvim-lspconfig": "nvim-lspconfig",
         "nvim-web-devicons": "nvim-web-devicons",
         "sddm-sugar-candy": "sddm-sugar-candy",
@@ -454,12 +471,12 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-c6IR1oVYdIQqrI1lWW6qXnhXrK1OwuZM7CDIlp0M4MU=",
-        "path": "/nix/store/6j3npcb39n5a9lyahai690q5s0d5l0dk-source/pkgs",
+        "narHash": "sha256-9Aj7I6U7HAVFwPOVRzUP8xQ0mocUIOFjUdDSFoR7z94=",
+        "path": "/nix/store/nchz9ak800h88ci93kgv12hwgs70333i-source/pkgs",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/6j3npcb39n5a9lyahai690q5s0d5l0dk-source/pkgs",
+        "path": "/nix/store/nchz9ak800h88ci93kgv12hwgs70333i-source/pkgs",
         "type": "path"
       }
     },

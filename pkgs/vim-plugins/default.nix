@@ -13,6 +13,7 @@ in {
   feline-nvim = build "feline-nvim";
   nvim-web-devicons = build "nvim-web-devicons";
   nvim-lspconfig = build "nvim-lspconfig";
+  neodev-nvim = build "neodev-nvim";
   which-key-nvim = build "which-key-nvim";
   hydra-nvim = build "hydra-nvim";
   gitsigns-nvim = build "gitsigns-nvim";
