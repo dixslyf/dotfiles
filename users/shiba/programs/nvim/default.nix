@@ -10,6 +10,7 @@
       catppuccin-nvim
       feline-nvim
       nvim-web-devicons
+      nvim-lspconfig
       which-key-nvim
       hydra-nvim
       gitsigns-nvim
