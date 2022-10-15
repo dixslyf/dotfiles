@@ -16,6 +16,7 @@
     ./fish
     ./mako
     ./autorandr
+    ./rofi
   ];
 
   programs = {
