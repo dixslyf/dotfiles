@@ -17,6 +17,7 @@
       gitsigns-nvim
     ];
     extraPackages = with pkgs; [
+      rnix-lsp
       sumneko-lua-language-server
     ];
   };

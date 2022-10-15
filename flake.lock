@@ -472,11 +472,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-9Aj7I6U7HAVFwPOVRzUP8xQ0mocUIOFjUdDSFoR7z94=",
-        "path": "/nix/store/nchz9ak800h88ci93kgv12hwgs70333i-source/pkgs",
+        "path": "/nix/store/ah2b3p3x28r3c0wrdib28bkldbbqmndn-source/pkgs",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/nchz9ak800h88ci93kgv12hwgs70333i-source/pkgs",
+        "path": "/nix/store/ah2b3p3x28r3c0wrdib28bkldbbqmndn-source/pkgs",
         "type": "path"
       }
     },

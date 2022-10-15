@@ -41,4 +41,5 @@ local on_attach = function(client, bufnr)
 end
 
 -- Set up servers
+require("plugins/lspconfig/rnix")(on_attach)
 require("plugins/lspconfig/sumneko-lua")(on_attach)
