@@ -14,6 +14,7 @@ in {
   nvim-web-devicons = build "nvim-web-devicons";
   nvim-lspconfig = build "nvim-lspconfig";
   neodev-nvim = build "neodev-nvim";
+  vim-nix = build "vim-nix";
   which-key-nvim = build "which-key-nvim";
   hydra-nvim = build "hydra-nvim";
   gitsigns-nvim = build "gitsigns-nvim";

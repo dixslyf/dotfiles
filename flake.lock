@@ -466,17 +466,18 @@
         "nvim-lspconfig": "nvim-lspconfig",
         "nvim-web-devicons": "nvim-web-devicons",
         "sddm-sugar-candy": "sddm-sugar-candy",
+        "vim-nix": "vim-nix",
         "which-key-nvim": "which-key-nvim",
         "wlsunset": "wlsunset"
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-9Aj7I6U7HAVFwPOVRzUP8xQ0mocUIOFjUdDSFoR7z94=",
-        "path": "/nix/store/ah2b3p3x28r3c0wrdib28bkldbbqmndn-source/pkgs",
+        "narHash": "sha256-luWTe52hXPuLYB4moU+J8iVHF5Rm5OEcJb/P2h4anRo=",
+        "path": "/nix/store/6qa636h3kqvp40i2ig5a2v5mgx0gfyld-source/pkgs",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/ah2b3p3x28r3c0wrdib28bkldbbqmndn-source/pkgs",
+        "path": "/nix/store/6qa636h3kqvp40i2ig5a2v5mgx0gfyld-source/pkgs",
         "type": "path"
       }
     },
@@ -542,6 +543,22 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "vim-nix": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1650919516,
+        "narHash": "sha256-W6ExP+iDNo5T8XazxHRpUiECGv+AU5PPoM4CmU7NV+0=",
+        "owner": "LnL7",
+        "repo": "vim-nix",
+        "rev": "7d23e97d13c40fcc6d603b291fe9b6e5f92516ee",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LnL7",
+        "repo": "vim-nix",
         "type": "github"
       }
     },
