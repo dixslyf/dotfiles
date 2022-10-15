@@ -12,6 +12,7 @@
       nvim-web-devicons
       nvim-lspconfig
       neodev-nvim
+      vim-nix
       which-key-nvim
       hydra-nvim
       gitsigns-nvim
