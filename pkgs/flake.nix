@@ -19,6 +19,10 @@
       url = "https://github.com/catppuccin/gtk/raw/main/Releases/Catppuccin-Macchiato-Mauve.zip";
       flake = false;
     };
+    catppuccin-rofi = {
+      url = "github:catppuccin/rofi";
+      flake = false;
+    };
     catppuccin-waybar = {
       url = "github:catppuccin/waybar";
       flake = false;
@@ -73,6 +77,7 @@
         catppuccin-fish = final.callPackage ./catppuccin-fish {};
         catppuccin-macchiato-dark-cursors = final.callPackage ./catppuccin-macchiato-dark-cursors {};
         catppuccin-gtk-macchiato-mauve = final.callPackage ./catppuccin-gtk-macchiato-mauve {};
+        catppuccin-rofi-basic = final.callPackage ./catppuccin-rofi-basic {};
         catppuccin-waybar = final.callPackage ./catppuccin-waybar {};
         catppuccin-mako = final.callPackage ./catppuccin-mako {};
         catppuccin-zathura = final.callPackage ./catppuccin-zathura {};
