@@ -52,5 +52,6 @@
     swappy
     wl-clipboard
     stylua
+    editorconfig-checker
   ];
 }
