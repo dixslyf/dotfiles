@@ -12,6 +12,7 @@
       feline-nvim
       nvim-web-devicons
       nvim-lspconfig
+      null-ls-nvim
       neodev-nvim
       vim-nix
       which-key-nvim

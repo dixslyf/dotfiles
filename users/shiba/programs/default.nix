@@ -51,5 +51,6 @@
     slurp
     swappy
     wl-clipboard
+    stylua
   ];
 }
