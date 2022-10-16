@@ -7,6 +7,7 @@
       luafile ~/.config/nvim/config.lua
     '';
     plugins = with pkgs.pvtpkgs.vimPlugins; [
+      plenary-nvim
       catppuccin-nvim
       feline-nvim
       nvim-web-devicons
