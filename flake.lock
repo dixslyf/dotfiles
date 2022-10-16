@@ -91,11 +91,11 @@
     "catppuccin-rofi": {
       "flake": false,
       "locked": {
-        "lastModified": 1665533856,
-        "narHash": "sha256-WlGgceZEDz0jvcQpPaBZWqh80JGq6VaG1MpaJXyvdyo=",
+        "lastModified": 1665844372,
+        "narHash": "sha256-+JGthqmyycHXd025bpLFfNS4yo4nV/xeF4DlCov+j/M=",
         "owner": "catppuccin",
         "repo": "rofi",
-        "rev": "28e2a035ce6b32353b5ad3c6036d46b267e2a778",
+        "rev": "e46785bb2619d80a9890e6e22ffb7fb247262a1d",
         "type": "github"
       },
       "original": {
@@ -473,11 +473,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-luWTe52hXPuLYB4moU+J8iVHF5Rm5OEcJb/P2h4anRo=",
-        "path": "/nix/store/6qa636h3kqvp40i2ig5a2v5mgx0gfyld-source/pkgs",
+        "path": "/nix/store/837hxk5g4s3rph8a0hz9krwpq32amid6-source/pkgs",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/6qa636h3kqvp40i2ig5a2v5mgx0gfyld-source/pkgs",
+        "path": "/nix/store/837hxk5g4s3rph8a0hz9krwpq32amid6-source/pkgs",
         "type": "path"
       }
     },
