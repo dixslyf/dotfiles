@@ -55,5 +55,6 @@
     editorconfig-checker
     alejandra
     clang-tools
+    gdb
   ];
 }
