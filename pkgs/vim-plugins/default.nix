@@ -9,6 +9,7 @@
       src = builtins.getAttr name inputs;
     };
 in {
+  plenary-nvim = build "plenary-nvim";
   catppuccin-nvim = build "catppuccin-nvim";
   feline-nvim = build "feline-nvim";
   nvim-web-devicons = build "nvim-web-devicons";

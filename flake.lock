@@ -448,6 +448,22 @@
         "type": "github"
       }
     },
+    "plenary-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1664607953,
+        "narHash": "sha256-lIdBrVpi+vUudeotjFAuw4C0VT8TPoFE9cVVAQEsAYU=",
+        "owner": "nvim-lua",
+        "repo": "plenary.nvim",
+        "rev": "4b7e52044bbb84242158d977a50c4cbcd85070c7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-lua",
+        "repo": "plenary.nvim",
+        "type": "github"
+      }
+    },
     "pvtpkgs": {
       "inputs": {
         "catppuccin-fish": "catppuccin-fish",
@@ -465,6 +481,7 @@
         "neodev-nvim": "neodev-nvim",
         "nvim-lspconfig": "nvim-lspconfig",
         "nvim-web-devicons": "nvim-web-devicons",
+        "plenary-nvim": "plenary-nvim",
         "sddm-sugar-candy": "sddm-sugar-candy",
         "vim-nix": "vim-nix",
         "which-key-nvim": "which-key-nvim",
@@ -472,12 +489,12 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-luWTe52hXPuLYB4moU+J8iVHF5Rm5OEcJb/P2h4anRo=",
-        "path": "/nix/store/837hxk5g4s3rph8a0hz9krwpq32amid6-source/pkgs",
+        "narHash": "sha256-jA8JQwe/UOtFyoMXSAtd3REu2pTQCcno4bEvWmN+1Lc=",
+        "path": "/nix/store/x8sb93rcggr58hp1rv320vbn7jghl57w-source/pkgs",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/837hxk5g4s3rph8a0hz9krwpq32amid6-source/pkgs",
+        "path": "/nix/store/x8sb93rcggr58hp1rv320vbn7jghl57w-source/pkgs",
         "type": "path"
       }
     },
