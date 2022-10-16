@@ -7,18 +7,18 @@
       eDP-1 = ["p1" "p2" "p3" "p4" "p5" "p6" "p7" "p8" "p9" "p0"];
     };
     rules = {
-        "Steam" = {
-          desktop = "eDP-1:^2";
-        };
-        "Qutebrowser" = {
-          desktop = "eDP-1:^1";
-        };
-        "Firefox" = {
-          desktop = "eDP-1:^4";
-        };
-        "Zathura" = {
-          state = "tiled";
-        };
+      "Steam" = {
+        desktop = "eDP-1:^2";
+      };
+      "Qutebrowser" = {
+        desktop = "eDP-1:^1";
+      };
+      "Firefox" = {
+        desktop = "eDP-1:^4";
+      };
+      "Zathura" = {
+        state = "tiled";
+      };
     };
     settings = {
       border_width = 2;
@@ -38,7 +38,7 @@
           bspc monitor HDMI-1 -d h1 h2 h3 h4 h5 h6 h7 h8 h9 h0
       fi
     '';
-    startupPrograms = [ "flameshot" ];
+    startupPrograms = ["flameshot"];
   };
 
   # home-manager starts sxhkd through ~/.xsession, but since xsession.enable = false,
@@ -54,10 +54,10 @@
       "super + {_,shift} + {j,k}" = ''bspc node -{f,s} {next,prev}.local.!hidden.window''; # focus / move window
       "super + {t,shift + t,s,f}" = "bspc node -t {tiled,pseudo_tiled,floating,\~fullscreen}"; # set the window state
       "super + alt + {h,j,k,l}" = ''
-         bspc node -z {left -20 0 || bspc node -z right -20 0, \
-                       bottom 0 20 || bspc node -z top 0 20,\
-                       top 0 -20 || bspc node -z bottom 0 -20,\
-                       right 20 0 || bspc node -z left 20 0}
+        bspc node -z {left -20 0 || bspc node -z right -20 0, \
+                      bottom 0 20 || bspc node -z top 0 20,\
+                      top 0 -20 || bspc node -z bottom 0 -20,\
+                      right 20 0 || bspc node -z left 20 0}
       '';
       "super + {_,shift} + {u,i}" = "bspc {monitor -f,node -m} {prev,next}"; # focus or send to the next monitor
       "super + {1-9,0} + {_,shift}" = ''num={1-9,10}; if [ $(bspc query -D -d focused --names | cut -c 2) != "$num" ]; then bspc {desktop -f,node -d} focused:^"$num"; fi''; # focus / move window to desktop

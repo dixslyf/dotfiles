@@ -214,7 +214,7 @@
                 WAYLAND_FLAGS=""\
             fi\
             ' $out/share/mullvad/mullvad-vpn
-            
+
             sed -i 's|"\$@"|$WAYLAND_FLAGS "\$@"|' $out/share/mullvad/mullvad-vpn
           '';
         });
@@ -222,7 +222,7 @@
     ];
   };
 
-  fonts.fonts = [ pkgs.pvtpkgs.mali ];
+  fonts.fonts = [pkgs.pvtpkgs.mali];
 
   environment.systemPackages = let
     nvidia-offload =
