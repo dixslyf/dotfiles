@@ -71,6 +71,10 @@
       url = "github:folke/neodev.nvim";
       flake = false;
     };
+    editorconfig-nvim = {
+      url = "github:gpanders/editorconfig.nvim";
+      flake = false;
+    };
     vim-nix = {
       url = "github:LnL7/vim-nix";
       flake = false;
