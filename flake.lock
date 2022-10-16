@@ -416,6 +416,22 @@
         "type": "github"
       }
     },
+    "null-ls-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1665675391,
+        "narHash": "sha256-pjh212pnZbD+KXYzWToqb/ppX59YiQJvEg+gvxWAa3M=",
+        "owner": "jose-elias-alvarez",
+        "repo": "null-ls.nvim",
+        "rev": "643c67a296711ff40f1a4d1bec232fa20b179b90",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jose-elias-alvarez",
+        "repo": "null-ls.nvim",
+        "type": "github"
+      }
+    },
     "nvim-lspconfig": {
       "flake": false,
       "locked": {
@@ -479,6 +495,7 @@
         "hydra-nvim": "hydra-nvim",
         "mali": "mali",
         "neodev-nvim": "neodev-nvim",
+        "null-ls-nvim": "null-ls-nvim",
         "nvim-lspconfig": "nvim-lspconfig",
         "nvim-web-devicons": "nvim-web-devicons",
         "plenary-nvim": "plenary-nvim",
@@ -489,12 +506,12 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-jA8JQwe/UOtFyoMXSAtd3REu2pTQCcno4bEvWmN+1Lc=",
-        "path": "/nix/store/x8sb93rcggr58hp1rv320vbn7jghl57w-source/pkgs",
+        "narHash": "sha256-BoFAP28njfMZrZmZs2+TeLZx5cqTodXYy/sBQWlaHdI=",
+        "path": "/nix/store/yda28la2zjx5kv9r462pgivr0fizl9za-source/pkgs",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/x8sb93rcggr58hp1rv320vbn7jghl57w-source/pkgs",
+        "path": "/nix/store/yda28la2zjx5kv9r462pgivr0fizl9za-source/pkgs",
         "type": "path"
       }
     },

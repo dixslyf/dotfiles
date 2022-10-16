@@ -14,6 +14,7 @@ in {
   feline-nvim = build "feline-nvim";
   nvim-web-devicons = build "nvim-web-devicons";
   nvim-lspconfig = build "nvim-lspconfig";
+  null-ls-nvim = build "null-ls-nvim";
   neodev-nvim = build "neodev-nvim";
   vim-nix = build "vim-nix";
   which-key-nvim = build "which-key-nvim";

@@ -63,6 +63,10 @@
       url = "github:neovim/nvim-lspconfig";
       flake = false;
     };
+    null-ls-nvim = {
+      url = "github:jose-elias-alvarez/null-ls.nvim";
+      flake = false;
+    };
     neodev-nvim = {
       url = "github:folke/neodev.nvim";
       flake = false;
