@@ -53,5 +53,6 @@
     wl-clipboard
     stylua
     editorconfig-checker
+    alejandra
   ];
 }
