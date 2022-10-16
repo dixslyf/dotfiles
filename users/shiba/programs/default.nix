@@ -54,5 +54,6 @@
     stylua
     editorconfig-checker
     alejandra
+    clang-tools
   ];
 }
