@@ -116,3 +116,4 @@ end
 require("plugins/lspconfig/null-ls")(on_attach)
 require("plugins/lspconfig/rnix")(on_attach)
 require("plugins/lspconfig/sumneko-lua")(on_attach)
+require("plugins/lspconfig/clangd")(on_attach)
