@@ -19,6 +19,17 @@
       which-key-nvim
       hydra-nvim
       gitsigns-nvim
+    ] ++ [
+      (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: [
+        plugins.tree-sitter-bash
+        plugins.tree-sitter-c
+        plugins.tree-sitter-cpp
+        plugins.tree-sitter-lua
+        plugins.tree-sitter-nix
+        plugins.tree-sitter-rust
+        plugins.tree-sitter-toml
+        plugins.tree-sitter-vim
+      ]))
     ];
     extraPackages = with pkgs; [
       rnix-lsp
