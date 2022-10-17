@@ -15,7 +15,6 @@
       null-ls-nvim
       neodev-nvim
       editorconfig-nvim
-      vim-nix
       which-key-nvim
       hydra-nvim
       gitsigns-nvim
