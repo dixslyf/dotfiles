@@ -17,7 +17,6 @@ in {
   null-ls-nvim = build "null-ls-nvim";
   neodev-nvim = build "neodev-nvim";
   editorconfig-nvim = build "editorconfig-nvim";
-  vim-nix = build "vim-nix";
   which-key-nvim = build "which-key-nvim";
   hydra-nvim = build "hydra-nvim";
   gitsigns-nvim = build "gitsigns-nvim";

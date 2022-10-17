@@ -75,10 +75,6 @@
       url = "github:gpanders/editorconfig.nvim";
       flake = false;
     };
-    vim-nix = {
-      url = "github:LnL7/vim-nix";
-      flake = false;
-    };
     which-key-nvim = {
       url = "github:folke/which-key.nvim";
       flake = false;
