@@ -51,6 +51,7 @@
     slurp
     swappy
     wl-clipboard
+    xclip
     stylua
     editorconfig-checker
     alejandra
