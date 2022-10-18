@@ -10,6 +10,7 @@
       plenary-nvim
       catppuccin-nvim
       feline-nvim
+      telescope-nvim
       nvim-web-devicons
       nvim-lspconfig
       null-ls-nvim
