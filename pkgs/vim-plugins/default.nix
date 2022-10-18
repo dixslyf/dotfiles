@@ -16,6 +16,7 @@ in {
   telescope-nvim = build "telescope-nvim";
   dressing-nvim = build "dressing-nvim";
   nvim-web-devicons = build "nvim-web-devicons";
+  tint-nvim = build "tint-nvim";
   nvim-lspconfig = build "nvim-lspconfig";
   null-ls-nvim = build "null-ls-nvim";
   neodev-nvim = build "neodev-nvim";

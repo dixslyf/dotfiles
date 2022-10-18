@@ -552,17 +552,18 @@
         "plenary-nvim": "plenary-nvim",
         "sddm-sugar-candy": "sddm-sugar-candy",
         "telescope-nvim": "telescope-nvim",
+        "tint-nvim": "tint-nvim",
         "which-key-nvim": "which-key-nvim",
         "wlsunset": "wlsunset"
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-p/gtf4yfVeIdQCBOQmNPfNgkVxP/AAwtPWKdgg/HVpg=",
-        "path": "/nix/store/xbmx53d7766wxzrzqz40r5c4qfb9sk6z-source/pkgs",
+        "narHash": "sha256-ilkGBpovI9iRkVc0LNraXE2BhXz1BzXzMpeWNxBmpEg=",
+        "path": "/nix/store/xzwfka0x8g45vdbsmkfnkd69ywsd947b-source/pkgs",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/xbmx53d7766wxzrzqz40r5c4qfb9sk6z-source/pkgs",
+        "path": "/nix/store/xzwfka0x8g45vdbsmkfnkd69ywsd947b-source/pkgs",
         "type": "path"
       }
     },
@@ -629,6 +630,22 @@
       "original": {
         "owner": "nvim-telescope",
         "repo": "telescope.nvim",
+        "type": "github"
+      }
+    },
+    "tint-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1664292894,
+        "narHash": "sha256-4I+48RvyDyXR6+Slqqsx0fWMG9s9AbgnzTDkmm2Kyzk=",
+        "owner": "levouh",
+        "repo": "tint.nvim",
+        "rev": "f6a259861ba8c0d88afc2ef05140ddf345eb0296",
+        "type": "github"
+      },
+      "original": {
+        "owner": "levouh",
+        "repo": "tint.nvim",
         "type": "github"
       }
     },

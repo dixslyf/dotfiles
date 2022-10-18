@@ -63,6 +63,10 @@
       url = "github:kyazdani42/nvim-web-devicons";
       flake = false;
     };
+    tint-nvim = {
+      url = "github:levouh/tint.nvim";
+      flake = false;
+    };
     telescope-nvim = {
       url = "github:nvim-telescope/telescope.nvim";
       flake = false;
