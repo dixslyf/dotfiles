@@ -16,6 +16,7 @@
       nvim-web-devicons
       tint-nvim
       twilight-nvim
+      nvim-autopairs
       nvim-lspconfig
       null-ls-nvim
       neodev-nvim
