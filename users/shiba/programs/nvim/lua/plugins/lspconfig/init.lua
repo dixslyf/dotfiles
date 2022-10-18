@@ -1,4 +1,6 @@
 -- Mappings.
+local wk = require("which-key")
+
 vim.keymap.set(
    "n",
    "<leader>de",
@@ -20,6 +22,8 @@ vim.keymap.set(
    vim.diagnostic.setloclist,
    { noremap = true, silent = true, desc = "Add diagnostics to the location list" }
 )
+
+wk.register({ ["<leader>d"] = "Diagnostics" })
 
 -- Use an on_attach function to only map the following keys
 local on_attach = function(client, bufnr)
@@ -100,7 +104,6 @@ local on_attach = function(client, bufnr)
       vim.lsp.buf.format({ async = true })
    end, { noremap = true, silent = true, buffer = bufnr, desc = "Format" })
 
-   local wk = require("which-key")
    wk.register({
       ["<leader>l"] = {
          name = "LSP",
@@ -108,7 +111,6 @@ local on_attach = function(client, bufnr)
          w = "Workspaces",
          l = "List",
       },
-      ["<leader>d"] = "Diagnostics",
    })
 end
 
