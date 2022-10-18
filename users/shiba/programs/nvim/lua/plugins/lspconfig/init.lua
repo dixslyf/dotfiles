@@ -26,7 +26,7 @@ local on_attach = function(client, bufnr)
    vim.keymap.set(
       "n",
       "<leader>lgS",
-      tls_builtin.lsp_workspace_symbols,
+      tls_builtin.lsp_dynamic_workspace_symbols,
       { silent = true, buffer = bufnr, desc = "List workspace symbols" }
    )
    vim.keymap.set(
