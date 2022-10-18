@@ -11,6 +11,7 @@
       catppuccin-nvim
       feline-nvim
       telescope-nvim
+      dressing-nvim
       nvim-web-devicons
       nvim-lspconfig
       null-ls-nvim
