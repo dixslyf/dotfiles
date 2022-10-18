@@ -43,6 +43,10 @@
       url = "github:cadsondemak/Mali";
       flake = false;
     };
+    leap-nvim = {
+      url = "github:ggandor/leap.nvim";
+      flake = false;
+    };
     plenary-nvim = {
       url = "github:nvim-lua/plenary.nvim";
       flake = false;
