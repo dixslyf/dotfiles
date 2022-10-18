@@ -63,6 +63,10 @@
       url = "github:nvim-telescope/telescope.nvim";
       flake = false;
     };
+    dressing-nvim = {
+      url = "github:stevearc/dressing.nvim";
+      flake = false;
+    };
     nvim-lspconfig = {
       url = "github:neovim/nvim-lspconfig";
       flake = false;

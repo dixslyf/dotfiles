@@ -13,6 +13,7 @@ in {
   catppuccin-nvim = build "catppuccin-nvim";
   feline-nvim = build "feline-nvim";
   telescope-nvim = build "telescope-nvim";
+  dressing-nvim = build "dressing-nvim";
   nvim-web-devicons = build "nvim-web-devicons";
   nvim-lspconfig = build "nvim-lspconfig";
   null-ls-nvim = build "null-ls-nvim";

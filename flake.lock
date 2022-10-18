@@ -136,6 +136,22 @@
         "type": "github"
       }
     },
+    "dressing-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1664809928,
+        "narHash": "sha256-qn84Ny9JsWRMFMYu/sir2RwlCk6IP+GSr7Zxn/Du+gw=",
+        "owner": "stevearc",
+        "repo": "dressing.nvim",
+        "rev": "12b808a6867e8c38015488ad6cee4e3d58174182",
+        "type": "github"
+      },
+      "original": {
+        "owner": "stevearc",
+        "repo": "dressing.nvim",
+        "type": "github"
+      }
+    },
     "editorconfig-nvim": {
       "flake": false,
       "locked": {
@@ -506,6 +522,7 @@
         "catppuccin-rofi": "catppuccin-rofi",
         "catppuccin-waybar": "catppuccin-waybar",
         "catppuccin-zathura": "catppuccin-zathura",
+        "dressing-nvim": "dressing-nvim",
         "editorconfig-nvim": "editorconfig-nvim",
         "feline-nvim": "feline-nvim",
         "gitsigns-nvim": "gitsigns-nvim",
@@ -523,12 +540,12 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-8a5ylOwabRUmkWbi6rPHFvPjm2RLlezPHUnuKvfbjdA=",
-        "path": "/nix/store/5jhbc1iw49nxl17azx36zb7fwafksa38-source/pkgs",
+        "narHash": "sha256-DMjspEaV9Ostr+4m0OJQcXB7+AGOwgXYdlPlBBKq9Nw=",
+        "path": "/nix/store/14gysipxyfc3jc89a162z8l6v31vmkxn-source/pkgs",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/5jhbc1iw49nxl17azx36zb7fwafksa38-source/pkgs",
+        "path": "/nix/store/14gysipxyfc3jc89a162z8l6v31vmkxn-source/pkgs",
         "type": "path"
       }
     },
