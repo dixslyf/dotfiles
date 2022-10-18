@@ -59,6 +59,10 @@
       url = "github:kyazdani42/nvim-web-devicons";
       flake = false;
     };
+    telescope-nvim = {
+      url = "github:nvim-telescope/telescope.nvim";
+      flake = false;
+    };
     nvim-lspconfig = {
       url = "github:neovim/nvim-lspconfig";
       flake = false;

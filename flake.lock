@@ -517,17 +517,18 @@
         "nvim-web-devicons": "nvim-web-devicons",
         "plenary-nvim": "plenary-nvim",
         "sddm-sugar-candy": "sddm-sugar-candy",
+        "telescope-nvim": "telescope-nvim",
         "which-key-nvim": "which-key-nvim",
         "wlsunset": "wlsunset"
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-cQjpyr/ikbI88O4uimJLamALwovpCUIFzmhM7dtuofU=",
-        "path": "/nix/store/0480v4m9zy3n1hlg15m97zaddcqgs2iy-source/pkgs",
+        "narHash": "sha256-8a5ylOwabRUmkWbi6rPHFvPjm2RLlezPHUnuKvfbjdA=",
+        "path": "/nix/store/5jhbc1iw49nxl17azx36zb7fwafksa38-source/pkgs",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/0480v4m9zy3n1hlg15m97zaddcqgs2iy-source/pkgs",
+        "path": "/nix/store/5jhbc1iw49nxl17azx36zb7fwafksa38-source/pkgs",
         "type": "path"
       }
     },
@@ -578,6 +579,22 @@
       "original": {
         "owner": "Mic92",
         "repo": "sops-nix",
+        "type": "github"
+      }
+    },
+    "telescope-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1665298896,
+        "narHash": "sha256-XSvHYRJ19E8IvYqLbk/NHBpaSajmMMk7sKoXkfM2KsM=",
+        "owner": "nvim-telescope",
+        "repo": "telescope.nvim",
+        "rev": "f174a0367b4fc7cb17710d867e25ea792311c418",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-telescope",
+        "repo": "telescope.nvim",
         "type": "github"
       }
     },
