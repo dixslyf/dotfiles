@@ -16,6 +16,7 @@
     "nvim-web-devicons"
     "tint-nvim"
     "twilight-nvim"
+    "nvim-autopairs"
     "telescope-nvim"
     "dressing-nvim"
     "nvim-lspconfig"

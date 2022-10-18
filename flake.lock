@@ -480,6 +480,22 @@
         "type": "github"
       }
     },
+    "nvim-autopairs": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1664657458,
+        "narHash": "sha256-cv3y0UyHzCvcs6XZGXuXtm0EvINniZt7ZAqo08pRUyU=",
+        "owner": "windwp",
+        "repo": "nvim-autopairs",
+        "rev": "4fc96c8f3df89b6d23e5092d31c866c53a346347",
+        "type": "github"
+      },
+      "original": {
+        "owner": "windwp",
+        "repo": "nvim-autopairs",
+        "type": "github"
+      }
+    },
     "nvim-lspconfig": {
       "flake": false,
       "locked": {
@@ -547,6 +563,7 @@
         "mali": "mali",
         "neodev-nvim": "neodev-nvim",
         "null-ls-nvim": "null-ls-nvim",
+        "nvim-autopairs": "nvim-autopairs",
         "nvim-lspconfig": "nvim-lspconfig",
         "nvim-web-devicons": "nvim-web-devicons",
         "plenary-nvim": "plenary-nvim",
@@ -559,12 +576,12 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-tTtjt37Skc8im4K5W1PzVOtWAZtGXUFO+BEuMBXFDh8=",
-        "path": "/nix/store/87p9vqbs3rqrzwnbbcw6sivp6z6c2z4r-source/pkgs",
+        "narHash": "sha256-WePVEzv3Jftvch2lI2eoOZYWpfVTuozRJMmTcZzrvfA=",
+        "path": "/nix/store/3nx34477krn3j37hxh3h1m7x4f4f0yaq-source/pkgs",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/87p9vqbs3rqrzwnbbcw6sivp6z6c2z4r-source/pkgs",
+        "path": "/nix/store/3nx34477krn3j37hxh3h1m7x4f4f0yaq-source/pkgs",
         "type": "path"
       }
     },

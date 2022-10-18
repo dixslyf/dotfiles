@@ -71,6 +71,10 @@
       url = "github:folke/twilight.nvim";
       flake = false;
     };
+    nvim-autopairs = {
+      url = "github:windwp/nvim-autopairs";
+      flake = false;
+    };
     telescope-nvim = {
       url = "github:nvim-telescope/telescope.nvim";
       flake = false;
