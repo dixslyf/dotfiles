@@ -67,6 +67,10 @@
       url = "github:levouh/tint.nvim";
       flake = false;
     };
+    twilight-nvim = {
+      url = "github:folke/twilight.nvim";
+      flake = false;
+    };
     telescope-nvim = {
       url = "github:nvim-telescope/telescope.nvim";
       flake = false;

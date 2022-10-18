@@ -553,17 +553,18 @@
         "sddm-sugar-candy": "sddm-sugar-candy",
         "telescope-nvim": "telescope-nvim",
         "tint-nvim": "tint-nvim",
+        "twilight-nvim": "twilight-nvim",
         "which-key-nvim": "which-key-nvim",
         "wlsunset": "wlsunset"
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-ilkGBpovI9iRkVc0LNraXE2BhXz1BzXzMpeWNxBmpEg=",
-        "path": "/nix/store/xzwfka0x8g45vdbsmkfnkd69ywsd947b-source/pkgs",
+        "narHash": "sha256-tTtjt37Skc8im4K5W1PzVOtWAZtGXUFO+BEuMBXFDh8=",
+        "path": "/nix/store/87p9vqbs3rqrzwnbbcw6sivp6z6c2z4r-source/pkgs",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/xzwfka0x8g45vdbsmkfnkd69ywsd947b-source/pkgs",
+        "path": "/nix/store/87p9vqbs3rqrzwnbbcw6sivp6z6c2z4r-source/pkgs",
         "type": "path"
       }
     },
@@ -646,6 +647,22 @@
       "original": {
         "owner": "levouh",
         "repo": "tint.nvim",
+        "type": "github"
+      }
+    },
+    "twilight-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1662368627,
+        "narHash": "sha256-ryjYff6ljCTx9wwq3idl5g34Kjr4zbOJLON3oYqvgas=",
+        "owner": "folke",
+        "repo": "twilight.nvim",
+        "rev": "1ffa6a4d89fb2fbb784c6674044bf54f1fca936f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "twilight.nvim",
         "type": "github"
       }
     },
