@@ -15,6 +15,7 @@
       dressing-nvim
       nvim-web-devicons
       tint-nvim
+      twilight-nvim
       nvim-lspconfig
       null-ls-nvim
       neodev-nvim
