@@ -1,5 +1,6 @@
 -- Mappings.
 local wk = require("which-key")
+local tls_builtin = require("telescope.builtin")
 
 vim.keymap.set(
    "n",
@@ -16,12 +17,7 @@ vim.keymap.set(
    vim.diagnostic.goto_prev,
    { noremap = true, silent = true, desc = "Previous diagnostic" }
 )
-vim.keymap.set(
-   "n",
-   "<leader>dq",
-   vim.diagnostic.setloclist,
-   { noremap = true, silent = true, desc = "Add diagnostics to the location list" }
-)
+vim.keymap.set("n", "<leader>dd", tls_builtin.diagnostics, { noremap = true, silent = true, desc = "List diagnostics" })
 
 wk.register({ ["<leader>d"] = "Diagnostics" })
 
@@ -33,6 +29,18 @@ local on_attach = function(client, bufnr)
    -- Mappings.
    vim.keymap.set(
       "n",
+      "<leader>lgs",
+      tls_builtin.lsp_document_symbols,
+      { noremap = true, silent = true, buffer = bufnr, desc = "List document symbols" }
+   )
+   vim.keymap.set(
+      "n",
+      "<leader>lgS",
+      tls_builtin.lsp_workspace_symbols,
+      { noremap = true, silent = true, buffer = bufnr, desc = "List workspace symbols" }
+   )
+   vim.keymap.set(
+      "n",
       "<leader>lgD",
       vim.lsp.buf.declaration,
       { noremap = true, silent = true, buffer = bufnr, desc = "Go to declaration" }
@@ -40,7 +48,7 @@ local on_attach = function(client, bufnr)
    vim.keymap.set(
       "n",
       "<leader>lgd",
-      vim.lsp.buf.definition,
+      tls_builtin.lsp_definitions,
       { noremap = true, silent = true, buffer = bufnr, desc = "Go to definition" }
    )
    vim.keymap.set(
@@ -51,9 +59,9 @@ local on_attach = function(client, bufnr)
    )
    vim.keymap.set(
       "n",
-      "<leader>lli",
-      vim.lsp.buf.implementation,
-      { noremap = true, silent = true, buffer = bufnr, desc = "List implementations in quickfix" }
+      "<leader>lgi",
+      tls_builtin.lsp_implementations,
+      { noremap = true, silent = true, buffer = bufnr, desc = "Go to implementation" }
    )
    vim.keymap.set(
       "n",
@@ -79,7 +87,7 @@ local on_attach = function(client, bufnr)
    vim.keymap.set(
       "n",
       "<leader>lgt",
-      vim.lsp.buf.type_definition,
+      tls_builtin.lsp_type_definitions,
       { noremap = true, silent = true, buffer = bufnr, desc = "Go to type definition" }
    )
    vim.keymap.set(
@@ -96,9 +104,9 @@ local on_attach = function(client, bufnr)
    )
    vim.keymap.set(
       "n",
-      "<leaderr>llr",
-      vim.lsp.buf.references,
-      { noremap = true, silent = true, buffer = bufnr, desc = "List references in quickfix" }
+      "<leader>lgr",
+      tls_builtin.lsp_references,
+      { noremap = true, silent = true, buffer = bufnr, desc = "List references" }
    )
    vim.keymap.set("n", "<leader>lf", function()
       vim.lsp.buf.format({ async = true })
@@ -109,7 +117,6 @@ local on_attach = function(client, bufnr)
          name = "LSP",
          g = "Go to",
          w = "Workspaces",
-         l = "List",
       },
    })
 end
