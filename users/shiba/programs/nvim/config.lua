@@ -1,4 +1,5 @@
 require("options")
+require("plugins/leap")
 require("plugins/catppuccin")
 require("plugins/treesitter")
 require("plugins/feline")

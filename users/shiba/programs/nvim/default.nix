@@ -7,6 +7,7 @@
       luafile ~/.config/nvim/config.lua
     '';
     plugins = with pkgs.pvtpkgs.vimPlugins; [
+      leap-nvim
       plenary-nvim
       catppuccin-nvim
       feline-nvim
