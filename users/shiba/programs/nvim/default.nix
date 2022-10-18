@@ -14,6 +14,7 @@
       telescope-nvim
       dressing-nvim
       nvim-web-devicons
+      tint-nvim
       nvim-lspconfig
       null-ls-nvim
       neodev-nvim
