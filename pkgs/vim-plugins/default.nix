@@ -17,6 +17,7 @@
     "tint-nvim"
     "twilight-nvim"
     "nvim-autopairs"
+    "nvim-navic"
     "telescope-nvim"
     "dressing-nvim"
     "nvim-lspconfig"

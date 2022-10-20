@@ -75,6 +75,10 @@
       url = "github:windwp/nvim-autopairs";
       flake = false;
     };
+    nvim-navic = {
+      url = "github:SmiteshP/nvim-navic";
+      flake = false;
+    };
     telescope-nvim = {
       url = "github:nvim-telescope/telescope.nvim";
       flake = false;

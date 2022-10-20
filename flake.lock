@@ -512,6 +512,22 @@
         "type": "github"
       }
     },
+    "nvim-navic": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1664549457,
+        "narHash": "sha256-OzzH/DNZk2g8HPbYw6ulM+ScxQW6NU3YZxTgLycWQOM=",
+        "owner": "SmiteshP",
+        "repo": "nvim-navic",
+        "rev": "132b273773768b36e9ecab2138b82234a9faf5ed",
+        "type": "github"
+      },
+      "original": {
+        "owner": "SmiteshP",
+        "repo": "nvim-navic",
+        "type": "github"
+      }
+    },
     "nvim-web-devicons": {
       "flake": false,
       "locked": {
@@ -565,6 +581,7 @@
         "null-ls-nvim": "null-ls-nvim",
         "nvim-autopairs": "nvim-autopairs",
         "nvim-lspconfig": "nvim-lspconfig",
+        "nvim-navic": "nvim-navic",
         "nvim-web-devicons": "nvim-web-devicons",
         "plenary-nvim": "plenary-nvim",
         "sddm-sugar-candy": "sddm-sugar-candy",
@@ -576,12 +593,12 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-WePVEzv3Jftvch2lI2eoOZYWpfVTuozRJMmTcZzrvfA=",
-        "path": "/nix/store/3nx34477krn3j37hxh3h1m7x4f4f0yaq-source/pkgs",
+        "narHash": "sha256-gwzzZa7wsUxH/Qmc5CcaX3Q2z4ojsX8D54midE7lcyo=",
+        "path": "/nix/store/qfm7bdr7a7rsyiiq77ckls1jyg6amzg3-source/pkgs",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/3nx34477krn3j37hxh3h1m7x4f4f0yaq-source/pkgs",
+        "path": "/nix/store/qfm7bdr7a7rsyiiq77ckls1jyg6amzg3-source/pkgs",
         "type": "path"
       }
     },
