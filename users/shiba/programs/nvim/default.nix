@@ -17,6 +17,7 @@
       tint-nvim
       twilight-nvim
       nvim-autopairs
+      nvim-navic
       nvim-lspconfig
       null-ls-nvim
       neodev-nvim
