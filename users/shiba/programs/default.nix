@@ -57,5 +57,9 @@
     alejandra
     clang-tools
     gdb
+    cargo
+    rustc
+    rustfmt
+    rust-analyzer
   ];
 }
