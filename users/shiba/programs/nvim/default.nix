@@ -11,6 +11,7 @@
       plenary-nvim
       catppuccin-nvim
       feline-nvim
+      nvim-navic
       telescope-nvim
       telescope-fzf-native-nvim
       dressing-nvim
@@ -18,6 +19,7 @@
       twilight-nvim
       nvim-autopairs
       nvim-lspconfig
+      neodev-nvim
       null-ls-nvim
       editorconfig-nvim
       which-key-nvim
@@ -35,8 +37,6 @@
       ]))
     ] ++ (with pkgs.pvtpkgs.vimPlugins; [
       tint-nvim
-      nvim-navic
-      neodev-nvim
     ]);
     extraPackages = with pkgs; [
       rnix-lsp
