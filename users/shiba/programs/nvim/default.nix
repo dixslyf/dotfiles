@@ -12,6 +12,7 @@
       catppuccin-nvim
       feline-nvim
       telescope-nvim
+      telescope-fzf-native-nvim
       dressing-nvim
       nvim-web-devicons
       twilight-nvim

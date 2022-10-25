@@ -12,6 +12,8 @@ telescope.setup({
    },
 })
 
+telescope.load_extension("fzf")
+
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Files" })
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Grep" })
 vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Buffers" })
