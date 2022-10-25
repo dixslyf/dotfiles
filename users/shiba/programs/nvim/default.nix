@@ -6,7 +6,7 @@
     extraConfig = ''
       luafile ~/.config/nvim/config.lua
     '';
-    plugins = with pkgs.pvtpkgs.vimPlugins; [
+    plugins = with pkgs.vimPlugins; [
       leap-nvim
       plenary-nvim
       catppuccin-nvim
@@ -14,18 +14,14 @@
       telescope-nvim
       dressing-nvim
       nvim-web-devicons
-      tint-nvim
       twilight-nvim
       nvim-autopairs
-      nvim-navic
       nvim-lspconfig
       null-ls-nvim
-      neodev-nvim
       editorconfig-nvim
       which-key-nvim
       hydra-nvim
       gitsigns-nvim
-    ] ++ [
       (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: [
         plugins.tree-sitter-bash
         plugins.tree-sitter-c
@@ -36,7 +32,11 @@
         plugins.tree-sitter-toml
         plugins.tree-sitter-vim
       ]))
-    ];
+    ] ++ (with pkgs.pvtpkgs.vimPlugins; [
+      tint-nvim
+      nvim-navic
+      neodev-nvim
+    ]);
     extraPackages = with pkgs; [
       rnix-lsp
       sumneko-lua-language-server
