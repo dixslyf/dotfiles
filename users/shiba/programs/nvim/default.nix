@@ -37,9 +37,5 @@
     ] ++ (with pkgs.pvtpkgs.vimPlugins; [
       tint-nvim
     ]);
-    extraPackages = with pkgs; [
-      rnix-lsp
-      sumneko-lua-language-server
-    ];
   };
 }

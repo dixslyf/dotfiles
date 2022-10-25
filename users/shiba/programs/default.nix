@@ -62,5 +62,7 @@
     rustfmt
     rust-analyzer
     gcc
+    rnix-lsp
+    sumneko-lua-language-server
   ];
 }
