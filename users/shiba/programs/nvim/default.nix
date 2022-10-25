@@ -8,7 +8,6 @@
     '';
     plugins = with pkgs.vimPlugins; [
       leap-nvim
-      plenary-nvim
       catppuccin-nvim
       feline-nvim
       nvim-navic
