@@ -594,11 +594,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-gwzzZa7wsUxH/Qmc5CcaX3Q2z4ojsX8D54midE7lcyo=",
-        "path": "/nix/store/zjh8q7flhkjr9bgi0rfmzhg3f7lj0bml-source/pkgs",
+        "path": "/nix/store/jqv6369hx9s61hfla5cgra1hgplszmvz-source/pkgs",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/zjh8q7flhkjr9bgi0rfmzhg3f7lj0bml-source/pkgs",
+        "path": "/nix/store/jqv6369hx9s61hfla5cgra1hgplszmvz-source/pkgs",
         "type": "path"
       }
     },

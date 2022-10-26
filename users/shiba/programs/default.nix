@@ -17,12 +17,12 @@
     ./mako
     ./autorandr
     ./rofi
+    ./qutebrowser
   ];
 
   programs = {
     gpg.enable = true;
     ssh.enable = true;
-    qutebrowser.enable = true;
     feh.enable = true;
     nnn.enable = true;
   };
