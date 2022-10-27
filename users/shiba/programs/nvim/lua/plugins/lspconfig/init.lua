@@ -107,6 +107,12 @@ local on_attach = function(client, bufnr)
    end
 end
 
+-- lspkind
+local lspkind = require("lspkind")
+lspkind.init({
+   mode = "symbol_text",
+})
+
 -- Set up servers
 require("plugins/lspconfig/null-ls")(on_attach)
 require("plugins/lspconfig/rnix")(on_attach)

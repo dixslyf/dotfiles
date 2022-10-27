@@ -20,6 +20,7 @@
       nvim-lspconfig
       neodev-nvim
       null-ls-nvim
+      lspkind-nvim
       editorconfig-nvim
       which-key-nvim
       hydra-nvim
