@@ -20,3 +20,12 @@ vim.o.ignorecase = true
 
 -- Set leader to space
 vim.g.mapleader = " "
+
+-- Mappings for omnifunc
+vim.keymap.set({ "n", "i" }, "<C-Space>", [["\<C-x>\<C-o>"]], { expr = true })
+vim.keymap.set({ "n", "i" }, "<C-j>", function()
+   return vim.fn.pumvisible() and "<C-n>" or "<Ignore>"
+end, { expr = true })
+vim.keymap.set({ "n", "i" }, "<C-k>", function()
+   return vim.fn.pumvisible() and "<C-p>" or "<Ignore>"
+end, { expr = true })
