@@ -61,6 +61,7 @@
     rustc
     rustfmt
     rust-analyzer
+    clippy
     gcc
     rnix-lsp
     sumneko-lua-language-server
