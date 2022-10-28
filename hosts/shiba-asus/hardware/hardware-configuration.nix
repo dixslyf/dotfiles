@@ -48,10 +48,10 @@
     options = ["subvol=@nix"];
   };
 
-  boot.initrd.luks.devices."home".device = "/dev/disk/by-uuid/06d59406-97c7-4bb8-a620-152169bcd00d";
+  boot.initrd.luks.devices."home".device = "/dev/disk/by-uuid/a0b00281-a8e6-4b9f-942f-5e975efc9b69";
 
   fileSystems."/persist/home" = {
-    device = "/dev/disk/by-uuid/e506b57c-6940-40a3-9ace-79d0211752ac";
+    device = "/dev/disk/by-uuid/e4cc116c-4044-4b91-8618-86ee4ba59373";
     fsType = "btrfs";
   };
 
