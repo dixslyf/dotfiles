@@ -153,7 +153,7 @@
       settings = {
         START_CHARGE_THRESH_BAT0 = 0;
         STOP_CHARGE_THRESH_BAT0 = 80;
-        DISK_DEVICES = "sda sdb";
+        DISK_DEVICES = "nvme0n1 sda";
       };
     };
     autorandr.enable = true;
