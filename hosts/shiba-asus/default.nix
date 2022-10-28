@@ -154,6 +154,10 @@
         START_CHARGE_THRESH_BAT0 = 0;
         STOP_CHARGE_THRESH_BAT0 = 80;
         DISK_DEVICES = "nvme0n1 sda";
+        DEVICES_TO_DISABLE_ON_LAN_CONNECT = "wifi";
+        DEVICES_TO_ENABLE_ON_LAN_DISCONNECT = "wifi";
+        DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE = "bluetooth";
+        DEVICES_TO_DISABLE_ON_STARTUP = "bluetooth wwan";
       };
     };
     autorandr.enable = true;
