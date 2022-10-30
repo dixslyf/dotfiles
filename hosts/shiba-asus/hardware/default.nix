@@ -80,5 +80,6 @@
       enable = true;
       hsphfpd.enable = true;
     };
+    opentabletdriver.enable = true;
   };
 }
