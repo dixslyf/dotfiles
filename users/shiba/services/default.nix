@@ -4,6 +4,7 @@
     ./mullvad-vpn
     ./flameshot
     ./gpg-agent
+    ./syncthing
   ];
 
   systemd.user.startServices = "sd-switch";

@@ -8,3 +8,9 @@ creation_rules:
         - *shiba
         age:
         - *shiba-asus
+  - path_regex: users/shiba/.*
+    key_groups:
+      - pgp:
+        - *shiba
+        age:
+        - *shiba-asus

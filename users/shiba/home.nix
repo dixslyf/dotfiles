@@ -23,6 +23,7 @@
       "Downloads"
       "Music"
       "Pictures"
+      "Sync"
       "Videos"
       ".gnupg"
       ".local/share/Steam"
