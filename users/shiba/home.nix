@@ -76,8 +76,8 @@
         trim_trailing_whitespace = true;
         indent_style = "space";
       };
-      "*.nix" = { indent_size = 2; };
-      "*.lua" = { indent_size = 3; };
+      "*.nix" = {indent_size = 2;};
+      "*.lua" = {indent_size = 3;};
     };
   };
 }
