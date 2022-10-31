@@ -10,10 +10,6 @@
       url = "github:catppuccin/fish";
       flake = false;
     };
-    catppuccin-macchiato-dark-cursors = {
-      url = "https://github.com/catppuccin/cursors/raw/main/cursors/Catppuccin-Macchiato-Dark-Cursors.zip";
-      flake = false;
-    };
     catppuccin-gtk-macchiato-mauve = {
       type = "file"; # Work around nix#7083
       url = "https://github.com/catppuccin/gtk/raw/main/Releases/Catppuccin-Macchiato-Mauve.zip";
@@ -123,7 +119,6 @@
       pvtpkgs = {
         sddm-sugar-candy = final.callPackage ./sddm-sugar-candy {};
         catppuccin-fish = final.callPackage ./catppuccin-fish {};
-        catppuccin-macchiato-dark-cursors = final.callPackage ./catppuccin-macchiato-dark-cursors {};
         catppuccin-gtk-macchiato-mauve = final.callPackage ./catppuccin-gtk-macchiato-mauve {};
         catppuccin-rofi-basic = final.callPackage ./catppuccin-rofi-basic {};
         catppuccin-waybar = final.callPackage ./catppuccin-waybar {};
