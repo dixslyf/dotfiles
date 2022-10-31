@@ -39,76 +39,8 @@
       url = "github:cadsondemak/Mali";
       flake = false;
     };
-    leap-nvim = {
-      url = "github:ggandor/leap.nvim";
-      flake = false;
-    };
-    plenary-nvim = {
-      url = "github:nvim-lua/plenary.nvim";
-      flake = false;
-    };
-    catppuccin-nvim = {
-      url = "github:catppuccin/nvim";
-      flake = false;
-    };
-    feline-nvim = {
-      url = "github:feline-nvim/feline.nvim";
-      flake = false;
-    };
-    nvim-web-devicons = {
-      url = "github:kyazdani42/nvim-web-devicons";
-      flake = false;
-    };
     tint-nvim = {
       url = "github:levouh/tint.nvim";
-      flake = false;
-    };
-    twilight-nvim = {
-      url = "github:folke/twilight.nvim";
-      flake = false;
-    };
-    nvim-autopairs = {
-      url = "github:windwp/nvim-autopairs";
-      flake = false;
-    };
-    nvim-navic = {
-      url = "github:SmiteshP/nvim-navic";
-      flake = false;
-    };
-    telescope-nvim = {
-      url = "github:nvim-telescope/telescope.nvim";
-      flake = false;
-    };
-    dressing-nvim = {
-      url = "github:stevearc/dressing.nvim";
-      flake = false;
-    };
-    nvim-lspconfig = {
-      url = "github:neovim/nvim-lspconfig";
-      flake = false;
-    };
-    null-ls-nvim = {
-      url = "github:jose-elias-alvarez/null-ls.nvim";
-      flake = false;
-    };
-    neodev-nvim = {
-      url = "github:folke/neodev.nvim";
-      flake = false;
-    };
-    editorconfig-nvim = {
-      url = "github:gpanders/editorconfig.nvim";
-      flake = false;
-    };
-    which-key-nvim = {
-      url = "github:folke/which-key.nvim";
-      flake = false;
-    };
-    hydra-nvim = {
-      url = "github:anuvyklack/hydra.nvim";
-      flake = false;
-    };
-    gitsigns-nvim = {
-      url = "github:lewis6991/gitsigns.nvim";
       flake = false;
     };
   };
