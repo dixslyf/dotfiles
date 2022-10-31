@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   pkgs,
   inputs,
@@ -13,9 +14,9 @@
     recommendedEnvironment = false; # handled in wrapper
     # use extraConfig so that the hyprland flake still adds in the lines for systemd integration
     extraConfig = let
-      config = pkgs.substituteAll {
+      hyprland-config = pkgs.substituteAll {
         src = ./hyprland.conf;
-        setCursor = ''exec-once=hyprctl setcursor "Catppuccin-Macchiato-Dark-Cursors" 32'';
+        setCursor = ''exec-once=hyprctl setcursor "${config.home.pointerCursor.name}" ${toString config.home.pointerCursor.size}'';
         workspaceBindings = let
           keys = [
             "grave"
@@ -79,6 +80,6 @@
             keys);
       };
     in
-      builtins.readFile "${config}";
+      builtins.readFile "${hyprland-config}";
   };
 }
