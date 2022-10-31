@@ -48,7 +48,7 @@
 
   home.pointerCursor = {
     name = "Catppuccin-Macchiato-Dark-Cursors";
-    package = pkgs.pvtpkgs.catppuccin-macchiato-dark-cursors;
+    package = pkgs.catppuccin-cursors.macchiatoDark;
     x11.enable = true;
     gtk.enable = true;
     size = 32;
