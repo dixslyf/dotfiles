@@ -1,5 +1,6 @@
 require("plugins/leap")
 require("plugins/catppuccin")
+require("plugins/colorizer")
 require("plugins/treesitter")
 require("plugins/feline")
 require("plugins/tint")

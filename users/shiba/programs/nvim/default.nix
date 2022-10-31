@@ -9,6 +9,7 @@
     plugins = with pkgs.vimPlugins; [
       leap-nvim
       catppuccin-nvim
+      nvim-colorizer-lua
       feline-nvim
       nvim-navic
       telescope-nvim
