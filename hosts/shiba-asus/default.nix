@@ -30,6 +30,7 @@
     directories = [
       "/var/log"
       "/var/lib/systemd/coredump"
+      "/var/lib/systemd/timers"
       "/var/lib/btrfs"
       "/var/lib/systemd/backlight" # for systemd-backlight to be able to restore brightness
       "/etc/NetworkManager/system-connections"
