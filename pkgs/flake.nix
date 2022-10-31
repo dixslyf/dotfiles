@@ -132,6 +132,7 @@
         wlsunset = final.callPackage ./wlsunset {};
         mali = final.callPackage ./mali {};
         vimPlugins = final.lib.recurseIntoAttrs (final.callPackage ./vim-plugins {});
+        waybar = final.callPackage ./waybar {};
       };
     };
   };

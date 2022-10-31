@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   programs.waybar = {
     enable = true;
-    package = pkgs.waybar.overrideAttrs (oldAttrs: {
+    package = pkgs.pvtpkgs.waybar.overrideAttrs (oldAttrs: {
       mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
     });
     systemd = {
