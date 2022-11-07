@@ -32,6 +32,7 @@
         };
         "home" = {
           keyFile = "/keyfiles/home.bin";
+          allowDiscards = true;
         };
         "swap" = {
           device = "/dev/disk/by-uuid/0a936449-13c7-47d5-a091-2f768b6eb3db";
