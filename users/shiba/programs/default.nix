@@ -66,5 +66,6 @@
     rnix-lsp
     sumneko-lua-language-server
     citra-nightly
+    exa
   ];
 }
