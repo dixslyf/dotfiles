@@ -37,7 +37,7 @@
     ripgrep
     udiskie
     lutris
-    vlc
+    mpv
     inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
     xdragon
     wofi
