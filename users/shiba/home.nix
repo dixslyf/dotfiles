@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   inputs,
   ...
@@ -65,6 +66,12 @@
     theme = {
       package = pkgs.pvtpkgs.catppuccin-gtk-macchiato-mauve;
       name = "Catppuccin-Macchiato-Mauve";
+    };
+    iconTheme = {
+      package = pkgs.pvtpkgs.catppuccin-papirus-icon-theme.override {
+        color = "cat-macchiato-mauve";
+      };
+      name = "Papirus-Dark";
     };
   };
 

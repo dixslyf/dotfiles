@@ -60,6 +60,22 @@
         "type": "github"
       }
     },
+    "catppuccin-papirus-folders": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1664547520,
+        "narHash": "sha256-9IRGxQ3IyOIaXSMKYdZIbuhPNzmuT/zIcAAmyPbXktk=",
+        "owner": "catppuccin",
+        "repo": "papirus-folders",
+        "rev": "5b1e93fa40cbc63e158ac4aa4f453e8028941ab4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "papirus-folders",
+        "type": "github"
+      }
+    },
     "catppuccin-rofi": {
       "flake": false,
       "locked": {
@@ -329,6 +345,7 @@
         "catppuccin-fish": "catppuccin-fish",
         "catppuccin-gtk-macchiato-mauve": "catppuccin-gtk-macchiato-mauve",
         "catppuccin-mako": "catppuccin-mako",
+        "catppuccin-papirus-folders": "catppuccin-papirus-folders",
         "catppuccin-rofi": "catppuccin-rofi",
         "catppuccin-waybar": "catppuccin-waybar",
         "catppuccin-zathura": "catppuccin-zathura",
@@ -339,12 +356,12 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-EjGFF/njxsOCqfsQgW8FXa+QzqZsv1h95pUAuzVzPN8=",
-        "path": "/nix/store/wb0hy35bdcv2y7dmxb4p8y8h8vka0l02-source/pkgs",
+        "narHash": "sha256-6FFGEgKP91a2cEeoOmlJcvtHTl9a7XVMpZFgrJzYQAc=",
+        "path": "/nix/store/vs89sbngcv6mriycx3kbk3qyh7r4ybly-source/pkgs",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/wb0hy35bdcv2y7dmxb4p8y8h8vka0l02-source/pkgs",
+        "path": "/nix/store/vs89sbngcv6mriycx3kbk3qyh7r4ybly-source/pkgs",
         "type": "path"
       }
     },
