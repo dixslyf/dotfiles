@@ -21,7 +21,7 @@ window > box {
 #backlight,
 #battery,
 #network {
-    border-radius: 20px;
+    border-radius: 8px;
     margin: 12px 6px;
     padding: 0 16px;
 }
