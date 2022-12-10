@@ -12,7 +12,7 @@
     };
     catppuccin-gtk-macchiato-mauve = {
       type = "file"; # Work around nix#7083
-      url = "https://github.com/catppuccin/gtk/raw/main/Releases/Catppuccin-Macchiato-Mauve.zip";
+      url = "https://github.com/catppuccin/gtk/raw/v-0.2.7/Releases/Catppuccin-Macchiato-Mauve.zip";
       flake = false;
     };
     catppuccin-papirus-folders = {
