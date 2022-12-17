@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ./polybar
     ./redshift
     ./wlsunset
     ./mullvad-vpn
