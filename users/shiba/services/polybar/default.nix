@@ -38,4 +38,28 @@
 
   # start in bspwm
   xsession.windowManager.bspwm.startupPrograms = [config.systemd.user.services.polybar.Service.ExecStart];
+
+  # sxhxd keybinding to toggle the bar on the current monitor
+  services.sxhkd.keybindings = let
+    toggleScript = pkgs.writeShellScriptBin "toggle-current-polybar" ''
+      monitor="$(${pkgs.bspwm}/bin/bspc query -M -m focused --names)"
+
+      if [ "$monitor" = "eDP-1" ]; then
+          wm="polybar-eDP-1_eDP-1"
+      elif [ "$monitor" = "HDMI-1" ]; then
+          wm="polybar-HDMI-1_HDMI-1"
+      fi
+
+      state=$(${pkgs.xorg.xwininfo}/bin/xwininfo -name "$wm" | ${pkgs.gnugrep}/bin/grep "Map State" | cut -d " " -f 5)
+      if [ "$state" = "IsViewable" ]; then
+          ${pkgs.bspwm}/bin/bspc config -m "$monitor" top_padding 0
+      elif [ "$state" = "IsUnMapped" ]; then
+          ${pkgs.bspwm}/bin/bspc config -m "$monitor" top_padding 40
+      fi
+
+      ${pkgs.polybar}/bin/polybar-msg -p "$(${pkgs.xorg.xprop}/bin/xprop -name "$wm" _NET_WM_PID | cut -d " " -f 3)" cmd toggle
+    '';
+  in {
+    "super + d" = "${toggleScript}/bin/toggle-current-polybar";
+  };
 }
