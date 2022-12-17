@@ -16,11 +16,8 @@ foreground = ${colors.text}
 
 line-size = 2
 
-padding-left = 2
-padding-right = 2
-
-module-margin = 0
-module-padding = 2
+padding = 2
+module-margin = 1
 
 font-0 = "Iosevka:style=regular:pixelsize=14;3"
 font-1 = "Material Design Icons:style=regular:pixelsize=14;3"
@@ -44,6 +41,7 @@ monitor = eDP-1
 modules-right = pulseaudio backlight battery time date
 
 tray-position = left
+tray-offset-x = 2
 tray-padding = 3
 
 [bar/HDMI-1]
@@ -111,7 +109,6 @@ date = "󰃭 %Y-%m-%d"
 label = %date%
 label-foreground = ${colors.mauve}
 label-background = ${colors.base}
-label-padding = ${root.module-padding}
 
 [module/time]
 type = internal/date
@@ -123,7 +120,6 @@ time = "󱑂 %H:%M:%S"
 label = %time%
 label-foreground = ${colors.flamingo}
 label-background = ${colors.base}
-label-padding = ${root.module-padding}
 
 [module/battery]
 type = internal/battery
@@ -136,7 +132,6 @@ poll-interval = 5
 format-charging = <animation-charging> <label-charging>
 format-charging-foreground = ${colors.green}
 format-charging-background = ${colors.base}
-format-charging-padding = ${root.module-padding}
 label-charging = %percentage%%
 
 animation-charging-0 = 󰢜
@@ -153,7 +148,6 @@ animation-charging-9 = 󰂅
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-foreground = ${colors.green}
 format-discharging-background = ${colors.base}
-format-discharging-padding = ${root.module-padding}
 label-discharging = %percentage%%
 
 ramp-capacity-0 = 󰁺
@@ -170,7 +164,6 @@ ramp-capacity-9 = 󰁹
 format-full = <ramp-capacity> <label-full>
 format-full-foreground = ${colors.green}
 format-full-background = ${colors.base}
-format-full-padding = ${root.module-padding}
 label-full = 100%
 
 [module/backlight]
@@ -182,7 +175,6 @@ enable-scroll = true
 format = <ramp> <label>
 format-foreground = ${colors.yellow}
 format-background = ${colors.base}
-format-padding = ${root.module-padding}
 
 ramp-0 = 󰌶
 ramp-1 = 󱩎
@@ -202,7 +194,6 @@ type = internal/pulseaudio
 format-volume = <ramp-volume> <label-volume>
 format-volume-foreground = ${colors.blue}
 format-volume-background = ${colors.base}
-format-volume-padding = ${root.module-padding}
 
 ramp-volume-0 = 󰕿
 ramp-volume-1 = 󰖀
@@ -211,7 +202,6 @@ ramp-volume-2 = 󰕾
 format-muted = <label-muted> mute
 format-muted-foreground = ${colors.blue}
 format-muted-background = ${colors.base}
-format-muted-padding = ${root.module-padding}
 label-muted = 󰝟
 
 interval = 1
