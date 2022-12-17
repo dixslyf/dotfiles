@@ -10,6 +10,10 @@
       url = "github:catppuccin/fish";
       flake = false;
     };
+    catppuccin-gitui = {
+      url = "github:catppuccin/gitui";
+      flake = false;
+    };
     catppuccin-gtk-macchiato-mauve = {
       type = "file"; # Work around nix#7083
       url = "https://github.com/catppuccin/gtk/raw/v-0.2.7/Releases/Catppuccin-Macchiato-Mauve.zip";
@@ -55,6 +59,7 @@
       pvtpkgs = {
         sddm-sugar-candy = final.callPackage ./sddm-sugar-candy {};
         catppuccin-fish = final.callPackage ./catppuccin-fish {};
+        catppuccin-gitui = final.callPackage ./catppuccin-gitui {};
         catppuccin-gtk-macchiato-mauve = final.callPackage ./catppuccin-gtk-macchiato-mauve {};
         catppuccin-papirus-icon-theme = final.callPackage ./catppuccin-papirus {};
         catppuccin-papirus-folders = final.callPackage ./catppuccin-papirus-folders {};
