@@ -20,12 +20,12 @@
         };
         hooks = {
           preswitch = ''
-            if ${pkgs.wmctrl}/bin/wmctrl -m | grep -q "bspwm"; then
-                for node_id in $(bspc query -N -m HDMI-1)
+            if ${pkgs.wmctrl}/bin/wmctrl -m | ${pkgs.gnugrep}/bin/grep -q "bspwm"; then
+                for node_id in $(${pkgs.bspwm}/bin/bspc query -N -m HDMI-1)
                 do
-                    bspc node "$node_id" -m eDP-1
+                    ${pkgs.bspwm}/bin/bspc node "$node_id" -m eDP-1
                 done
-                bspc monitor HDMI-1 -r
+                ${pkgs.bspwm}/bin/bspc monitor HDMI-1 -r
             fi
           '';
         };
@@ -52,8 +52,8 @@
         };
         hooks = {
           postswitch = ''
-            if ${pkgs.wmctrl}/bin/wmctrl -m | grep -q "bspwm"; then
-                bspc monitor HDMI-1 -d h1 h2 h3 h4 h5 h6 h7 h8 h9 h0
+            if ${pkgs.wmctrl}/bin/wmctrl -m | ${pkgs.gnugrep}/bin/grep -q "bspwm"; then
+              ${pkgs.bspwm}/bin/bspc monitor HDMI-1 -d h1 h2 h3 h4 h5 h6 h7 h8 h9 h0
             fi
           '';
         };
