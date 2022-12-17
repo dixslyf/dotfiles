@@ -21,13 +21,12 @@
         hooks = {
           preswitch = ''
             if ${pkgs.wmctrl}/bin/wmctrl -m | ${pkgs.gnugrep}/bin/grep -q "bspwm"; then
-                for node_id in $(${pkgs.bspwm}/bin/bspc query -N -m HDMI-1)
-                do
-                    ${pkgs.bspwm}/bin/bspc node "$node_id" -m eDP-1
-                done
-                ${pkgs.bspwm}/bin/bspc monitor HDMI-1 -r
+              for node_id in $(${pkgs.bspwm}/bin/bspc query -N -m HDMI-1); do
+                ${pkgs.bspwm}/bin/bspc node "$node_id" -m eDP-1
+              done
+              ${pkgs.bspwm}/bin/bspc monitor HDMI-1 -r
 
-                ${pkgs.util-linux}/bin/kill $(${pkgs.xorg.xprop}/bin/xprop -name "polybar-HDMI-1_HDMI-1" _NET_WM_PID | ${pkgs.coreutils}/bin/cut -d " " -f 3)
+              ${pkgs.util-linux}/bin/kill $(${pkgs.xorg.xprop}/bin/xprop -name "polybar-HDMI-1_HDMI-1" _NET_WM_PID | ${pkgs.coreutils}/bin/cut -d " " -f 3)
             fi
           '';
         };

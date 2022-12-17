@@ -45,16 +45,16 @@
       monitor="$(${pkgs.bspwm}/bin/bspc query -M -m focused --names)"
 
       if [ "$monitor" = "eDP-1" ]; then
-          wm="polybar-eDP-1_eDP-1"
+        wm="polybar-eDP-1_eDP-1"
       elif [ "$monitor" = "HDMI-1" ]; then
-          wm="polybar-HDMI-1_HDMI-1"
+        wm="polybar-HDMI-1_HDMI-1"
       fi
 
       state=$(${pkgs.xorg.xwininfo}/bin/xwininfo -name "$wm" | ${pkgs.gnugrep}/bin/grep "Map State" | cut -d " " -f 5)
       if [ "$state" = "IsViewable" ]; then
-          ${pkgs.bspwm}/bin/bspc config -m "$monitor" top_padding 0
+        ${pkgs.bspwm}/bin/bspc config -m "$monitor" top_padding 0
       elif [ "$state" = "IsUnMapped" ]; then
-          ${pkgs.bspwm}/bin/bspc config -m "$monitor" top_padding 40
+        ${pkgs.bspwm}/bin/bspc config -m "$monitor" top_padding 40
       fi
 
       ${pkgs.polybar}/bin/polybar-msg -p "$(${pkgs.xorg.xprop}/bin/xprop -name "$wm" _NET_WM_PID | cut -d " " -f 3)" cmd toggle
