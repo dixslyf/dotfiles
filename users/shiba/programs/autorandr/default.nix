@@ -26,6 +26,8 @@
                     ${pkgs.bspwm}/bin/bspc node "$node_id" -m eDP-1
                 done
                 ${pkgs.bspwm}/bin/bspc monitor HDMI-1 -r
+
+                ${pkgs.util-linux}/bin/kill $(${pkgs.xorg.xprop}/bin/xprop -name "polybar-HDMI-1_HDMI-1" _NET_WM_PID | ${pkgs.coreutils}/bin/cut -d " " -f 3)
             fi
           '';
         };
@@ -54,6 +56,10 @@
           postswitch = ''
             if ${pkgs.wmctrl}/bin/wmctrl -m | ${pkgs.gnugrep}/bin/grep -q "bspwm"; then
               ${pkgs.bspwm}/bin/bspc monitor HDMI-1 -d h1 h2 h3 h4 h5 h6 h7 h8 h9 h0
+              if [ ! $(${pkgs.xorg.xwininfo}/bin/xwininfo -name "polybar-HDMI-1_HDMI-1") ] ; then
+                ${pkgs.polybar}/bin/polybar HDMI-1 -r &
+                ${pkgs.bspwm}/bin/bspc config -m "HDMI-1" top_padding 40
+              fi
             fi
           '';
         };
