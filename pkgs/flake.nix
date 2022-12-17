@@ -27,6 +27,10 @@
       url = "github:catppuccin/rofi";
       flake = false;
     };
+    catppuccin-polybar = {
+      url = "github:catppuccin/polybar";
+      flake = false;
+    };
     catppuccin-waybar = {
       url = "github:catppuccin/waybar";
       flake = false;
@@ -64,6 +68,7 @@
         catppuccin-papirus-icon-theme = final.callPackage ./catppuccin-papirus {};
         catppuccin-papirus-folders = final.callPackage ./catppuccin-papirus-folders {};
         catppuccin-rofi-basic = final.callPackage ./catppuccin-rofi-basic {};
+        catppuccin-polybar = final.callPackage ./catppuccin-polybar {};
         catppuccin-waybar = final.callPackage ./catppuccin-waybar {};
         catppuccin-mako = final.callPackage ./catppuccin-mako {};
         catppuccin-zathura = final.callPackage ./catppuccin-zathura {};
