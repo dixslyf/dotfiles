@@ -77,10 +77,7 @@
         libvdpau-va-gl
       ];
     };
-    bluetooth = {
-      enable = true;
-      hsphfpd.enable = true;
-    };
+    bluetooth.enable = true;
     opentabletdriver.enable = true;
   };
 }
