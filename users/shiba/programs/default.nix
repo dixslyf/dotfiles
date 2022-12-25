@@ -30,7 +30,6 @@
   home.packages = with pkgs; [
     bottom
     keepassxc
-    albert
     neofetch
     xfce.thunar
     fd
