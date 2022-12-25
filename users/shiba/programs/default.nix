@@ -67,5 +67,6 @@
     sumneko-lua-language-server
     citra-nightly
     exa
+    rnote
   ];
 }
