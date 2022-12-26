@@ -1,6 +1,9 @@
 {pkgs, ...}: {
   xdg.configFile."nvim/lua".source = ./lua;
-  xdg.configFile."nvim/config.lua".source = ./config.lua;
+  xdg.configFile."nvim/config.lua".source = pkgs.substituteAll {
+    src = ./config.lua;
+    cppdbgCommand = "${pkgs.vscode-extensions.ms-vscode.cpptools}/share/vscode/extensions/ms-vscode.cpptools/debugAdapters/bin/OpenDebugAD7";
+  };
   programs.neovim = {
     enable = true;
     extraConfig = ''
@@ -20,6 +23,7 @@
         twilight-nvim
         nvim-autopairs
         nvim-lspconfig
+        nvim-dap
         neodev-nvim
         null-ls-nvim
         lspkind-nvim
