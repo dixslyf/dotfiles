@@ -1,8 +1,12 @@
 local tint = require("tint")
+local transforms = require("tint.transforms")
+local cp = require("catppuccin.palettes").get_palette()
 
 tint.setup({
-   tint = -50,
-   saturation = 0.5,
+   transforms = {
+      transforms.tint_with_threshold(-50, cp.base, 50),
+      transforms.saturate(0.5),
+   },
 })
 
 vim.keymap.set("n", "<leader>ti", tint.toggle, { desc = "Toggle tint" })
