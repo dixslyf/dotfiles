@@ -24,6 +24,7 @@
         nvim-autopairs
         nvim-lspconfig
         nvim-dap
+        nvim-dap-ui
         neodev-nvim
         null-ls-nvim
         lspkind-nvim

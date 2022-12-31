@@ -1,4 +1,5 @@
 local dap = require("dap")
+local dapui = require("dapui")
 local wk = require("which-key")
 
 vim.keymap.set("n", "<leader>Db", dap.toggle_breakpoint, { silent = true, desc = "Toggle breakpoint" })
@@ -6,6 +7,7 @@ vim.keymap.set("n", "<leader>Dc", dap.continue, { silent = true, desc = "Continu
 vim.keymap.set("n", "<leader>Ds", dap.step_over, { silent = true, desc = "Step over" })
 vim.keymap.set("n", "<leader>DS", dap.step_over, { silent = true, desc = "Step into" })
 vim.keymap.set("n", "<leader>Dr", dap.repl.open, { silent = true, desc = "Open REPL" })
+vim.keymap.set("n", "<leader>DD", dapui.toggle, { silent = true, desc = "Toggle UI" })
 
 wk.register({ ["<leader>D"] = "Debug" })
 
@@ -37,3 +39,5 @@ dap.configurations.cpp = {
 
 dap.configurations.c = dap.configurations.cpp
 dap.configurations.rust = dap.configurations.cpp
+
+dapui.setup()
