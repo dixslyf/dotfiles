@@ -9,6 +9,18 @@
     extraConfig = ''
       luafile ~/.config/nvim/config.lua
     '';
+    extraPackages = with pkgs; [
+      (python3.withPackages (pyPkgs:
+        with pyPkgs; [
+          python-lsp-server
+          python-lsp-black
+          pyls-isort
+          pylsp-mypy
+          flake8
+          flake8-bugbear
+          rope
+        ]))
+    ];
     plugins = with pkgs.vimPlugins;
       [
         leap-nvim
@@ -32,16 +44,18 @@
         which-key-nvim
         hydra-nvim
         gitsigns-nvim
-        (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: [
-          plugins.tree-sitter-bash
-          plugins.tree-sitter-c
-          plugins.tree-sitter-cpp
-          plugins.tree-sitter-lua
-          plugins.tree-sitter-nix
-          plugins.tree-sitter-rust
-          plugins.tree-sitter-toml
-          plugins.tree-sitter-vim
-        ]))
+        (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins:
+          with plugins; [
+            tree-sitter-bash
+            tree-sitter-c
+            tree-sitter-cpp
+            tree-sitter-lua
+            tree-sitter-nix
+            tree-sitter-python
+            tree-sitter-rust
+            tree-sitter-toml
+            tree-sitter-vim
+          ]))
       ]
       ++ (with pkgs.pvtpkgs.vimPlugins; [
         tint-nvim
