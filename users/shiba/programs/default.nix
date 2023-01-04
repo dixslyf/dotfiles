@@ -18,6 +18,7 @@
     ./autorandr
     ./rofi
     ./qutebrowser
+    ./yuzu
   ];
 
   programs = {
