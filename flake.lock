@@ -187,6 +187,21 @@
         "type": "github"
       }
     },
+    "flake-utils_2": {
+      "locked": {
+        "lastModified": 1659877975,
+        "narHash": "sha256-zllb8aq3YO3h8B/U0/J1WBgAL8EX5yWf5pMj3G0NAmc=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "c0e246b9b83f637f4681389ecabcb2681b4f3af0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -425,11 +440,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-clnWYKKkqVEjf2jPzuaJL3LCiLQUFJZ+zcaGuH/Ofls=",
-        "path": "/nix/store/7k183jcs00q35kv691jxavbjp2acixh1-source/pkgs",
+        "path": "/nix/store/cx2qlq5xhlcn6xw1z4rfp6557c7c06i0-source/pkgs",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/7k183jcs00q35kv691jxavbjp2acixh1-source/pkgs",
+        "path": "/nix/store/cx2qlq5xhlcn6xw1z4rfp6557c7c06i0-source/pkgs",
         "type": "path"
       }
     },
@@ -443,7 +458,29 @@
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs_2",
         "pvtpkgs": "pvtpkgs",
+        "rust-overlay": "rust-overlay",
         "sops-nix": "sops-nix"
+      }
+    },
+    "rust-overlay": {
+      "inputs": {
+        "flake-utils": "flake-utils_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1673058265,
+        "narHash": "sha256-FFigGHIO9BQeIIKjH5dcpB+ey5CSgfy47wHPGeOhCps=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "802ff3314663ec7114f29a6e8b200dfc892023f8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
       }
     },
     "sddm-sugar-candy": {

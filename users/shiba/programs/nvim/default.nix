@@ -17,11 +17,9 @@
       rnix-lsp
       gcc
       clang-tools
-      rustc
-      cargo
-      rustfmt
-      clippy
-      rust-analyzer
+      (rust-bin.stable.latest.default.override {
+        extensions = ["rust-src" "rust-analyzer"];
+      })
       (python3.withPackages (pyPkgs:
         with pyPkgs; [
           python-lsp-server

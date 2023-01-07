@@ -24,6 +24,10 @@
       url = "github:catppuccin/grub";
       flake = false;
     };
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     pvtpkgs.url = "./pkgs";
   };
@@ -41,6 +45,7 @@
         modules = [
           {
             nixpkgs.overlays = [
+              inputs.rust-overlay.overlays.default
               inputs.neovim-nightly-overlay.overlay
               pvtpkgs.overlay
             ];
