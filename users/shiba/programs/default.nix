@@ -53,19 +53,7 @@
     swappy
     wl-clipboard
     xclip
-    stylua
-    editorconfig-checker
-    alejandra
-    clang-tools
     gdb
-    cargo
-    rustc
-    rustfmt
-    rust-analyzer
-    clippy
-    gcc
-    rnix-lsp
-    sumneko-lua-language-server
     exa
     rnote
   ];

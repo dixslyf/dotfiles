@@ -10,6 +10,18 @@
       luafile ~/.config/nvim/config.lua
     '';
     extraPackages = with pkgs; [
+      editorconfig-checker
+      sumneko-lua-language-server
+      stylua
+      alejandra
+      rnix-lsp
+      gcc
+      clang-tools
+      rustc
+      cargo
+      rustfmt
+      clippy
+      rust-analyzer
       (python3.withPackages (pyPkgs:
         with pyPkgs; [
           python-lsp-server
