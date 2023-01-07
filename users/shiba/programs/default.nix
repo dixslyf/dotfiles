@@ -19,6 +19,7 @@
     ./rofi
     ./qutebrowser
     ./yuzu
+    ./citra
   ];
 
   programs = {
@@ -65,7 +66,6 @@
     gcc
     rnix-lsp
     sumneko-lua-language-server
-    citra-nightly
     exa
     rnote
   ];

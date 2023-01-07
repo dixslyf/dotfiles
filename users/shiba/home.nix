@@ -30,7 +30,6 @@
       ".local/share/Steam"
       ".local/share/lutris"
       ".config/lutris"
-      ".local/share/citra-emu"
       ".local/share/osu"
       ".local/share/qutebrowser"
       ".local/state/wireplumber"
