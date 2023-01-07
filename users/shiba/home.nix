@@ -26,7 +26,6 @@
       "Pictures"
       "Sync"
       "Videos"
-      ".gnupg"
       ".local/share/Steam"
       ".local/share/lutris"
       ".config/lutris"

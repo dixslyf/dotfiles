@@ -8,6 +8,7 @@
     ./waybar
     ./bspwm
     ./kitty
+    ./gpg
     ./git
     ./tealdeer
     ./nvim
@@ -23,7 +24,6 @@
   ];
 
   programs = {
-    gpg.enable = true;
     ssh.enable = true;
     feh.enable = true;
     nnn.enable = true;
