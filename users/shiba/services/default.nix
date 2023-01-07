@@ -1,12 +1,12 @@
 {...}: {
   imports = [
-    ./polybar
-    ./redshift
-    ./wlsunset
-    ./mullvad-vpn
     ./flameshot
     ./gpg-agent
+    ./mullvad-vpn
+    ./polybar
+    ./redshift
     ./syncthing
+    ./wlsunset
   ];
 
   systemd.user.startServices = "sd-switch";

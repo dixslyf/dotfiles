@@ -4,26 +4,26 @@
   ...
 }: {
   imports = [
-    ./hyprland
-    ./waybar
+    ./autorandr
     ./bspwm
-    ./kitty
-    ./gpg
-    ./git
-    ./tealdeer
-    ./nvim
-    ./zathura
+    ./citra
     ./firefox
     ./fish
+    ./git
+    ./gpg
+    ./hyprland
+    ./kitty
+    ./lutris
     ./mako
-    ./autorandr
+    ./nvim
+    ./osu-lazer
+    ./qutebrowser
     ./rofi
     ./ssh
-    ./qutebrowser
+    ./tealdeer
+    ./waybar
     ./yuzu
-    ./citra
-    ./osu-lazer
-    ./lutris
+    ./zathura
   ];
 
   programs = {
