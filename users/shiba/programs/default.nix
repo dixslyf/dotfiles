@@ -21,6 +21,7 @@
     ./qutebrowser
     ./yuzu
     ./citra
+    ./osu-lazer
   ];
 
   programs = {
@@ -39,7 +40,6 @@
     udiskie
     lutris
     mpv
-    inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
     xdragon
     wofi
     swaybg
