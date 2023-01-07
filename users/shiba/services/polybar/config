@@ -74,7 +74,7 @@ ws-icon-9 = 0;0
 label-padding = 1
 
 label-focused = %icon%
-label-focused-foreground = ${colors.text}
+label-focused-foreground = ${colors.mauve}
 label-focused-background = ${colors.base}
 label-focused-underline= ${colors.mauve}
 label-focused-padding = ${self.label-padding}
