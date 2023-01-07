@@ -18,6 +18,7 @@
     ./mako
     ./autorandr
     ./rofi
+    ./ssh
     ./qutebrowser
     ./yuzu
     ./citra
@@ -25,7 +26,6 @@
   ];
 
   programs = {
-    ssh.enable = true;
     feh.enable = true;
     nnn.enable = true;
   };
