@@ -104,22 +104,26 @@ type = internal/date
 
 interval = 0.5
 
-date = "󰃭 %Y-%m-%d"
+format = "󰃭 <label>"
+format-foreground = ${colors.mauve}
+format-background = ${colors.base}
+format-underline = "${colors.mauve}"
 
+date = "%Y-%m-%d"
 label = %date%
-label-foreground = ${colors.mauve}
-label-background = ${colors.base}
 
 [module/time]
 type = internal/date
 
 interval = 0.5
 
-time = "󱑂 %H:%M:%S"
+format = "󱑂 <label>"
+format-foreground = ${colors.flamingo}
+format-background = ${colors.base}
+format-underline = "${colors.flamingo}"
 
+time = "%H:%M:%S"
 label = %time%
-label-foreground = ${colors.flamingo}
-label-background = ${colors.base}
 
 [module/battery]
 type = internal/battery
@@ -132,6 +136,7 @@ poll-interval = 5
 format-charging = <animation-charging> <label-charging>
 format-charging-foreground = ${colors.green}
 format-charging-background = ${colors.base}
+format-charging-underline = ${colors.green}
 label-charging = %percentage%%
 
 animation-charging-0 = 󰢜
@@ -148,6 +153,7 @@ animation-charging-9 = 󰂅
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-foreground = ${colors.green}
 format-discharging-background = ${colors.base}
+format-discharging-underline = ${colors.green}
 label-discharging = %percentage%%
 
 ramp-capacity-0 = 󰁺
@@ -164,6 +170,7 @@ ramp-capacity-9 = 󰁹
 format-full = <ramp-capacity> <label-full>
 format-full-foreground = ${colors.green}
 format-full-background = ${colors.base}
+format-full-underline = ${colors.green}
 label-full = 100%
 
 [module/backlight]
@@ -175,6 +182,7 @@ enable-scroll = true
 format = <ramp> <label>
 format-foreground = ${colors.yellow}
 format-background = ${colors.base}
+format-underline = ${colors.yellow}
 
 ramp-0 = 󰌶
 ramp-1 = 󱩎
@@ -194,6 +202,7 @@ type = internal/pulseaudio
 format-volume = <ramp-volume> <label-volume>
 format-volume-foreground = ${colors.blue}
 format-volume-background = ${colors.base}
+format-volume-underline = ${colors.blue}
 
 ramp-volume-0 = 󰕿
 ramp-volume-1 = 󰖀
@@ -202,6 +211,7 @@ ramp-volume-2 = 󰕾
 format-muted = <label-muted> mute
 format-muted-foreground = ${colors.blue}
 format-muted-background = ${colors.base}
+format-muted-underline = ${colors.blue}
 label-muted = 󰝟
 
 interval = 1
