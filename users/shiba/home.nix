@@ -27,8 +27,6 @@
       "Sync"
       "Videos"
       ".local/share/Steam"
-      ".local/share/lutris"
-      ".config/lutris"
       ".local/share/qutebrowser"
       ".local/state/wireplumber"
       ".cache/tealdeer"

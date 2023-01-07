@@ -23,6 +23,7 @@
     ./yuzu
     ./citra
     ./osu-lazer
+    ./lutris
   ];
 
   programs = {
@@ -38,7 +39,6 @@
     fd
     ripgrep
     udiskie
-    lutris
     mpv
     xdragon
     wofi
