@@ -75,6 +75,10 @@
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
     };
+    extraOptions = ''
+      keep-outputs = true
+      keep-derivations = true
+    '';
   };
 
   sops = {age.sshKeyPaths = ["/persist/etc/ssh/ssh_host_ed25519_key"];};

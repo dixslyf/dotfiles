@@ -7,6 +7,7 @@
     ./autorandr
     ./bspwm
     ./citra
+    ./direnv
     ./firefox
     ./fish
     ./git
