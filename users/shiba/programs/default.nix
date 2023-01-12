@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+    ./android
     ./autorandr
     ./bspwm
     ./citra
