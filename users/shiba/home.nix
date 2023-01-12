@@ -30,6 +30,7 @@
       ".local/share/qutebrowser"
       ".local/state/wireplumber"
       ".cache/tealdeer"
+      ".factorio"
     ];
     allowOther = true;
   };
