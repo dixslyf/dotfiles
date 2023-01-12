@@ -57,6 +57,5 @@
     gdb
     exa
     rnote
-    android-studio
   ];
 }
