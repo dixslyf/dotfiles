@@ -43,7 +43,7 @@
   };
 
   fileSystems = {
-    "/" = {options = ["size=2G" "mode=755" "noatime"];};
+    "/" = {options = ["size=4G" "mode=755" "noatime"];};
     "/boot" = {neededForBoot = true;};
     "/efi" = {options = ["noatime"];};
     "/nix" = {options = ["compress=zstd" "noatime"];};
