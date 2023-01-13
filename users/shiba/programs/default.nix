@@ -58,5 +58,6 @@
     gdb
     exa
     rnote
+    android-file-transfer
   ];
 }
