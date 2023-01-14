@@ -145,6 +145,9 @@
         fileSystems = ["/dev/sda3" "/dev/sdb1"];
       };
     };
+    udev.packages = [
+      pkgs.android-udev-rules
+    ];
     udisks2 = {
       enable = true;
       settings = {
