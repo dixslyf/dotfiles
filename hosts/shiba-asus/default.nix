@@ -122,7 +122,7 @@
       # and set the background color of the root window
       sessionCommands = ''
         ${pkgs.autorandr}/bin/autorandr --change
-        ${pkgs.xorg.xsetroot}/bin/xsetroot -solid "#363a4f"
+        ${pkgs.hsetroot}/bin/hsetroot -solid "#363a4f"
       '';
       sddm = {
         enable = true;
