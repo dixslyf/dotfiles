@@ -3,6 +3,7 @@
     ./flameshot
     ./gpg-agent
     ./mullvad-vpn
+    ./picom
     ./polybar
     ./redshift
     ./syncthing
