@@ -156,6 +156,18 @@
         "type": "github"
       }
     },
+    "discord": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-qPK+A3zvmoemWF+FL0VJSZO+s/zbkgZvUs4zNMpH9yA=",
+        "type": "tarball",
+        "url": "https://discord.com/api/download?format=tar.gz&platform=linux"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://discord.com/api/download?format=tar.gz&platform=linux"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -421,6 +433,7 @@
         "catppuccin-rofi": "catppuccin-rofi",
         "catppuccin-waybar": "catppuccin-waybar",
         "catppuccin-zathura": "catppuccin-zathura",
+        "discord": "discord",
         "mali": "mali",
         "sddm-sugar-candy": "sddm-sugar-candy",
         "tint-nvim": "tint-nvim",
@@ -428,12 +441,12 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-clnWYKKkqVEjf2jPzuaJL3LCiLQUFJZ+zcaGuH/Ofls=",
-        "path": "/nix/store/fpc832m6if8h5m730nm5z2qfymrqp1vq-source/pkgs",
+        "narHash": "sha256-f4dC38HUC35MW8WykTeEF4llIr3NZKmBGlX1N4opLBA=",
+        "path": "/nix/store/2hdf6qky2afdcbn9kxnbwsdsl966iijv-source/pkgs",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/fpc832m6if8h5m730nm5z2qfymrqp1vq-source/pkgs",
+        "path": "/nix/store/2hdf6qky2afdcbn9kxnbwsdsl966iijv-source/pkgs",
         "type": "path"
       }
     },

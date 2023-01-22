@@ -9,6 +9,7 @@
     ./bspwm
     ./citra
     ./direnv
+    ./discord
     ./firefox
     ./fish
     ./git
