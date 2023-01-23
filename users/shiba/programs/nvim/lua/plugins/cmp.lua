@@ -1,6 +1,11 @@
 local cmp = require("cmp")
 
 cmp.setup({
+   formatting = {
+      format = require("lspkind").cmp_format({
+         mode = "symbol_text",
+      }),
+   },
    snippet = {
       expand = function(args)
          local luasnip = require("luasnip")
