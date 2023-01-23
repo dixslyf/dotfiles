@@ -54,6 +54,7 @@
         which-key-nvim
         hydra-nvim
         gitsigns-nvim
+        vimtex
         (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins:
           with plugins; [
             tree-sitter-bash
