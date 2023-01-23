@@ -54,6 +54,8 @@
         which-key-nvim
         hydra-nvim
         gitsigns-nvim
+        luasnip
+        vim-snippets
         vimtex
         (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins:
           with plugins; [
