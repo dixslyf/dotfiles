@@ -22,13 +22,4 @@ vim.o.ignorecase = true
 vim.g.mapleader = " "
 
 -- Disable preview window
-vim.o.completeopt = "menu,menuone"
-
--- Mappings for omnifunc
-vim.keymap.set({ "n", "i" }, "<C-Space>", [["\<C-x>\<C-o>"]], { expr = true })
-vim.keymap.set({ "n", "i" }, "<C-j>", function()
-   return vim.fn.pumvisible() and "<C-n>" or "<Ignore>"
-end, { expr = true })
-vim.keymap.set({ "n", "i" }, "<C-k>", function()
-   return vim.fn.pumvisible() and "<C-p>" or "<Ignore>"
-end, { expr = true })
+vim.o.completeopt = "menu,menuone,noselect"

@@ -50,6 +50,17 @@
         neodev-nvim
         null-ls-nvim
         lspkind-nvim
+        nvim-cmp
+        cmp_luasnip
+        cmp-nvim-lsp
+        cmp-nvim-lsp-signature-help
+        cmp-nvim-lsp-document-symbol
+        cmp-buffer
+        cmp-path
+        cmp-cmdline
+        cmp-nvim-lua
+        cmp-dap
+        cmp-latex-symbols
         editorconfig-nvim
         which-key-nvim
         hydra-nvim
