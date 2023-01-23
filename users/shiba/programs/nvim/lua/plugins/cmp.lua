@@ -1,4 +1,5 @@
 local cmp = require("cmp")
+local types = require("cmp.types")
 local luasnip = require("luasnip")
 
 cmp.setup({
@@ -42,6 +43,10 @@ cmp.setup({
             fallback()
          end
       end, { "i", "s" }),
+      ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = types.cmp.SelectBehavior.Insert }),
+      ["<C-j>"] = cmp.mapping.select_next_item({ behavior = types.cmp.SelectBehavior.Insert }),
+      ["<M-k>"] = cmp.mapping.scroll_docs(-4),
+      ["<M-j>"] = cmp.mapping.scroll_docs(4),
       ["<C-b>"] = cmp.mapping.scroll_docs(-4),
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
       ["<C-Space>"] = cmp.mapping.complete(),
@@ -58,8 +63,29 @@ cmp.setup({
    }),
 })
 
+local cmdline_mapping = cmp.mapping.preset.cmdline({
+   ["<C-k>"] = {
+      c = function(fallback)
+         if cmp.visible() then
+            cmp.select_prev_item()
+         else
+            fallback()
+         end
+      end,
+   },
+   ["<C-j>"] = {
+      c = function(fallback)
+         if cmp.visible() then
+            cmp.select_next_item()
+         else
+            fallback()
+         end
+      end,
+   },
+})
+
 cmp.setup.cmdline({ "/", "?" }, {
-   mapping = cmp.mapping.preset.cmdline(),
+   mapping = cmdline_mapping,
    sources = cmp.config.sources({
       { name = "nvim_lsp_document_symbol" },
    }, {
@@ -68,7 +94,7 @@ cmp.setup.cmdline({ "/", "?" }, {
 })
 
 cmp.setup.cmdline(":", {
-   mapping = cmp.mapping.preset.cmdline(),
+   mapping = cmdline_mapping,
    sources = cmp.config.sources({
       { name = "path" },
    }, {
