@@ -21,6 +21,9 @@ vim.o.ignorecase = true
 -- Set leader to space
 vim.g.mapleader = " "
 
+-- Disable preview window
+vim.o.completeopt = "menu,menuone"
+
 -- Mappings for omnifunc
 vim.keymap.set({ "n", "i" }, "<C-Space>", [["\<C-x>\<C-o>"]], { expr = true })
 vim.keymap.set({ "n", "i" }, "<C-j>", function()
