@@ -1,5 +1,5 @@
 local function setup(on_attach, capabilities)
-   capabilities.offsetEncoding = "utf-16"
+   capabilities.offsetEncoding = { "utf-16" }
 
    local lspconfig = require("lspconfig")
    lspconfig.clangd.setup({
