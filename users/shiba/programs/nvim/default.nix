@@ -55,6 +55,7 @@
         cmp-nvim-lsp
         cmp-nvim-lsp-signature-help
         cmp-nvim-lsp-document-symbol
+        cmp-treesitter
         cmp-buffer
         cmp-path
         cmp-cmdline
