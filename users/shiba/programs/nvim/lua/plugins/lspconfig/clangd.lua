@@ -1,5 +1,4 @@
-local function setup(on_attach)
-   local capabilities = vim.lsp.protocol.make_client_capabilities()
+local function setup(on_attach, capabilities)
    capabilities.offsetEncoding = "utf-16"
 
    local lspconfig = require("lspconfig")

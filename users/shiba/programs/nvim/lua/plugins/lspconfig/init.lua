@@ -108,9 +108,10 @@ local on_attach = function(client, bufnr)
 end
 
 -- Set up servers
-require("plugins/lspconfig/null-ls")(on_attach)
-require("plugins/lspconfig/rnix")(on_attach)
-require("plugins/lspconfig/sumneko-lua")(on_attach)
-require("plugins/lspconfig/clangd")(on_attach)
-require("plugins/lspconfig/rust-analyzer")(on_attach)
-require("plugins/lspconfig/python-lsp-server")(on_attach)
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+require("plugins/lspconfig/null-ls")(on_attach, capabilities)
+require("plugins/lspconfig/rnix")(on_attach, capabilities)
+require("plugins/lspconfig/sumneko-lua")(on_attach, capabilities)
+require("plugins/lspconfig/clangd")(on_attach, capabilities)
+require("plugins/lspconfig/rust-analyzer")(on_attach, capabilities)
+require("plugins/lspconfig/python-lsp-server")(on_attach, capabilities)

@@ -1,13 +1,12 @@
-local function setup(on_attach)
+local function setup(on_attach, capabilities)
    require("neodev").setup()
 
-   local lspconfig = require("lspconfig")
-   lspconfig.sumneko_lua.setup({
-      on_attach = function(client, bufnr)
-         on_attach(client, bufnr)
-         -- Disable formatting capabilities to prevent conflict with null-ls stylua
-         client.server_capabilities.documentFormattingProvider = false
-      end,
+   -- Disable formatting capabilities to prevent conflict with null-ls stylua
+   capabilities.documentFormattingProvider = false
+
+   require("lspconfig").sumneko_lua.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
    })
 end
 
