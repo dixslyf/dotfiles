@@ -60,5 +60,6 @@
     exa
     rnote
     android-file-transfer
+    pavucontrol
   ];
 }
