@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   programs.waybar = {
     enable = true;
-    package = pkgs.pvtpkgs.waybar.overrideAttrs (oldAttrs: {
+    package = pkgs.pers-pkgs.waybar.overrideAttrs (oldAttrs: {
       mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
     });
     systemd = {
@@ -72,7 +72,7 @@
     };
     style = pkgs.substituteAll {
       src = ./style.css;
-      themePath = "${pkgs.pvtpkgs.catppuccin-waybar}/share/waybar/themes/catppuccin/macchiato.css";
+      themePath = "${pkgs.pers-pkgs.catppuccin-waybar}/share/waybar/themes/catppuccin/macchiato.css";
     };
   };
 }

@@ -7,7 +7,7 @@
       selection-clipboard = "clipboard";
     };
     extraConfig = ''
-      include ${pkgs.pvtpkgs.catppuccin-zathura}/share/zathura/themes/catppuccin-macchiato
+      include ${pkgs.pers-pkgs.catppuccin-zathura}/share/zathura/themes/catppuccin-macchiato
     '';
   };
 }

@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    pvtpkgs.discord
+    pers-pkgs.discord
   ];
 
   home.persistence."/persist/home/shiba".directories = [

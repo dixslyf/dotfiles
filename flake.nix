@@ -33,13 +33,13 @@
       # Temporary workaround for https://github.com/nix-community/neovim-nightly-overlay/issues/164
       inputs.nixpkgs.url = "github:nixos/nixpkgs?rev=fad51abd42ca17a60fc1d4cb9382e2d79ae31836";
     };
-    pvtpkgs.url = "./pkgs";
+    pers-pkgs.url = "github:PlayerNameHere/nix-pers-pkgs";
   };
 
   outputs = inputs @ {
     self,
     nixpkgs,
-    pvtpkgs,
+    pers-pkgs,
     ...
   }: {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
@@ -51,7 +51,7 @@
             nixpkgs.overlays = [
               inputs.rust-overlay.overlays.default
               inputs.neovim-nightly-overlay.overlay
-              pvtpkgs.overlay
+              pers-pkgs.overlay
             ];
             nix.registry.nixpkgs.flake = nixpkgs;
           }

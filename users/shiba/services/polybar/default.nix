@@ -26,7 +26,7 @@
     '';
     config = pkgs.substituteAll {
       src = ./config;
-      colors = "${pkgs.pvtpkgs.catppuccin-polybar}/share/polybar/themes/catppuccin/macchiato.ini";
+      colors = "${pkgs.pers-pkgs.catppuccin-polybar}/share/polybar/themes/catppuccin/macchiato.ini";
     };
   };
 

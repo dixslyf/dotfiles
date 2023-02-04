@@ -226,7 +226,7 @@
     ];
   };
 
-  fonts.fonts = [pkgs.pvtpkgs.mali];
+  fonts.fonts = [pkgs.pers-pkgs.mali];
 
   environment.systemPackages = let
     nvidia-offload =
@@ -246,7 +246,7 @@
       pamixer
       mullvad-vpn
       sops
-      pvtpkgs.sddm-sugar-candy
+      pers-pkgs.sddm-sugar-candy
       libsForQt5.qt5.qtgraphicaleffects
       libsForQt5.qt5.qtquickcontrols2
       libsForQt5.qt5.qtsvg

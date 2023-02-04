@@ -8,7 +8,7 @@
   };
 
   xdg.configFile."fish/themes" = {
-    source = "${pkgs.pvtpkgs.catppuccin-fish}/share/fish/themes";
+    source = "${pkgs.pers-pkgs.catppuccin-fish}/share/fish/themes";
     recursive = true;
   };
 }

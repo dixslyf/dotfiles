@@ -422,7 +422,7 @@
         "type": "github"
       }
     },
-    "pvtpkgs": {
+    "pers-pkgs": {
       "inputs": {
         "catppuccin-fish": "catppuccin-fish",
         "catppuccin-gitui": "catppuccin-gitui",
@@ -440,14 +440,17 @@
         "wlsunset": "wlsunset"
       },
       "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-f4dC38HUC35MW8WykTeEF4llIr3NZKmBGlX1N4opLBA=",
-        "path": "/nix/store/8y4prdf56lqk3pshg173ri6a5266m0kn-source/pkgs",
-        "type": "path"
+        "lastModified": 1675490676,
+        "narHash": "sha256-2ZePEnf/cCd+WuhBnsoSa0TU0rnRzcpRRnD3BW1V/9w=",
+        "owner": "PlayerNameHere",
+        "repo": "nix-pers-pkgs",
+        "rev": "fe20437e17bcb5dda725c3ce955071de626a87c9",
+        "type": "github"
       },
       "original": {
-        "path": "/nix/store/8y4prdf56lqk3pshg173ri6a5266m0kn-source/pkgs",
-        "type": "path"
+        "owner": "PlayerNameHere",
+        "repo": "nix-pers-pkgs",
+        "type": "github"
       }
     },
     "root": {
@@ -459,7 +462,7 @@
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs_2",
-        "pvtpkgs": "pvtpkgs",
+        "pers-pkgs": "pers-pkgs",
         "rust-overlay": "rust-overlay",
         "sops-nix": "sops-nix"
       }
@@ -574,11 +577,11 @@
     "wlsunset": {
       "flake": false,
       "locked": {
-        "lastModified": 1651655395,
-        "narHash": "sha256-JxcZQ67eCvp9edE2EulIF8dAEGbyNyKaca9njE3AIBg=",
+        "lastModified": 1674482360,
+        "narHash": "sha256-HmVI0XBeR1Qdqc+XtZYlUvlzO5D7JxOV2F5qgvIty7c=",
         "owner": "~kennylevinsen",
         "repo": "wlsunset",
-        "rev": "cee422b440b63a1ee3913872674e95486c37f84e",
+        "rev": "cc9251d5c39ff3e4beb130306722d7b90d1031ab",
         "type": "sourcehut"
       },
       "original": {

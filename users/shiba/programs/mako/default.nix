@@ -11,6 +11,6 @@
     padding = "16";
     borderRadius = 4;
     borderSize = 3;
-    extraConfig = builtins.readFile "${pkgs.pvtpkgs.catppuccin-mako}/share/mako/themes/catppuccin/macchiato";
+    extraConfig = builtins.readFile "${pkgs.pers-pkgs.catppuccin-mako}/share/mako/themes/catppuccin/macchiato";
   };
 }

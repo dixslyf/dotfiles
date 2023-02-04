@@ -82,7 +82,7 @@
             tree-sitter-vim
           ]))
       ]
-      ++ (with pkgs.pvtpkgs.vimPlugins; [
+      ++ (with pkgs.pers-pkgs.vimPlugins; [
         tint-nvim
       ]);
   };
