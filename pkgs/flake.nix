@@ -1,5 +1,5 @@
 {
-  description = "Private Nix flakes";
+  description = "Personal Nix packages";
 
   inputs = {
     sddm-sugar-candy = {
@@ -64,7 +64,7 @@
   outputs = inputs @ {...}: {
     overlay = final: prev: {
       inherit inputs;
-      pvtpkgs = {
+      pers-pkgs = {
         sddm-sugar-candy = final.callPackage ./sddm-sugar-candy {};
         catppuccin-fish = final.callPackage ./catppuccin-fish {};
         catppuccin-gitui = final.callPackage ./catppuccin-gitui {};

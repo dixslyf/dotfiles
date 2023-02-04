@@ -1,6 +1,6 @@
 {
   inputs,
-  pvtpkgs,
+  pers-pkgs,
   papirus-icon-theme,
   color ? null,
   ...
@@ -12,5 +12,5 @@
 }))
 .override {
   inherit color;
-  papirus-folders = pvtpkgs.catppuccin-papirus-folders;
+  papirus-folders = pers-pkgs.catppuccin-papirus-folders;
 }
