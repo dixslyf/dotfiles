@@ -24,6 +24,7 @@
     ./rofi
     ./ssh
     ./tealdeer
+    ./tetrio-desktop
     ./waybar
     ./yuzu
     ./zathura
