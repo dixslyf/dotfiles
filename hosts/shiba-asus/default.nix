@@ -199,32 +199,7 @@
   };
 
   # Packages
-  nixpkgs = {
-    config.allowUnfree = true;
-    overlays = [
-      (final: prev: {
-        mullvad-vpn = prev.mullvad-vpn.overrideAttrs (oldAttrs: {
-          postInstall = ''
-            # Replace $SCRIPT_DIR with the output directory
-            # since with nix, we know exactly where the bin is
-            sed -i "s|\$SCRIPT_DIR|$out/bin|" $out/share/mullvad/mullvad-vpn
-            sed -i "/SCRIPT_DIR/d" $out/share/mullvad/mullvad-vpn
-
-            # Execute with wayland flags if wayland
-            sed -i '/exec.*/i\
-            if [ "''${XDG_SESSION_TYPE:-""}" = "wayland" ]; then\
-                WAYLAND_FLAGS="--ozone-platform=wayland --enable-features=WaylandWindowDecorations"\
-            else\
-                WAYLAND_FLAGS=""\
-            fi\
-            ' $out/share/mullvad/mullvad-vpn
-
-            sed -i 's|"\$@"|$WAYLAND_FLAGS "\$@"|' $out/share/mullvad/mullvad-vpn
-          '';
-        });
-      })
-    ];
-  };
+  nixpkgs.config.allowUnfree = true;
 
   fonts.fonts = [pkgs.pers-pkgs.mali];
 
