@@ -440,11 +440,11 @@
         "wlsunset": "wlsunset"
       },
       "locked": {
-        "lastModified": 1676002965,
-        "narHash": "sha256-AwEO8XDSunR5nLmzauFBa3IJg9VOazUNp87kxxmzCco=",
+        "lastModified": 1676018923,
+        "narHash": "sha256-c7amriuyRucmslXBqG8SWLrsX6P3/f2q3fqEeQrQ5Yg=",
         "owner": "PlayerNameHere",
         "repo": "nix-pers-pkgs",
-        "rev": "edd47c67720b45344f749fd7f767c6646bdd828b",
+        "rev": "98d122a08e0310c77be7aa7fd9beb686e565b716",
         "type": "github"
       },
       "original": {
