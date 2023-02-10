@@ -65,6 +65,7 @@
     overlay = final: prev: {
       inherit inputs;
       pers-pkgs = {
+        nvidia-offload = final.callPackage ./nvidia-offload {};
         sddm-sugar-candy = final.callPackage ./sddm-sugar-candy {};
         catppuccin-fish = final.callPackage ./catppuccin-fish {};
         catppuccin-gitui = final.callPackage ./catppuccin-gitui {};
