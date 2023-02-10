@@ -1,0 +1,240 @@
+{
+  "nodes": {
+    "catppuccin-fish": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1672320165,
+        "narHash": "sha256-wQlYQyqklU/79K2OXRZXg5LvuIugK7vhHgpahpLFaOw=",
+        "owner": "catppuccin",
+        "repo": "fish",
+        "rev": "b90966686068b5ebc9f80e5b90fdf8c02ee7a0ba",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "fish",
+        "type": "github"
+      }
+    },
+    "catppuccin-gitui": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1669172699,
+        "narHash": "sha256-frkGtsk/VuS6MYUf7S2hqNHhTaV6S0Mv2UuttCgvimk=",
+        "owner": "catppuccin",
+        "repo": "gitui",
+        "rev": "ff1e802cfff3d5ff41b0d829a3df1da8087b1265",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "gitui",
+        "type": "github"
+      }
+    },
+    "catppuccin-gtk-macchiato-mauve": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-M6BoZY0Kp06X7WE6x3Vg3V+NOkybHemoC34wXwCBUfk=",
+        "type": "file",
+        "url": "https://github.com/catppuccin/gtk/raw/v-0.2.7/Releases/Catppuccin-Macchiato-Mauve.zip"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/catppuccin/gtk/raw/v-0.2.7/Releases/Catppuccin-Macchiato-Mauve.zip"
+      }
+    },
+    "catppuccin-mako": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1664239314,
+        "narHash": "sha256-J2PaPfBBWcqixQGo3eNVvLz2EZWD92RfD0MfbEDK/wA=",
+        "owner": "catppuccin",
+        "repo": "mako",
+        "rev": "64ef71633528b50e5475755e50071584b54fa291",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "mako",
+        "type": "github"
+      }
+    },
+    "catppuccin-papirus-folders": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1675885559,
+        "narHash": "sha256-3yjIGzN+/moP2OVGDIAy4zPqUroSjx3c2mJjdZGhTsY=",
+        "owner": "catppuccin",
+        "repo": "papirus-folders",
+        "rev": "fcf96737fffc343a1bf129732c37d19f2d77fa5c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "papirus-folders",
+        "type": "github"
+      }
+    },
+    "catppuccin-polybar": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1664945864,
+        "narHash": "sha256-bUbSgMg/sa2faeEUZo80GNmhOX3wn2jLzfA9neF8ERA=",
+        "owner": "catppuccin",
+        "repo": "polybar",
+        "rev": "9ee66f83335404186ce979bac32fcf3cd047396a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "polybar",
+        "type": "github"
+      }
+    },
+    "catppuccin-rofi": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1672491652,
+        "narHash": "sha256-DNorfyl3C4RBclF2KDgwvQQwixpTwSRu7fIvihPN8JY=",
+        "owner": "catppuccin",
+        "repo": "rofi",
+        "rev": "5350da41a11814f950c3354f090b90d4674a95ce",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "rofi",
+        "type": "github"
+      }
+    },
+    "catppuccin-waybar": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1673578738,
+        "narHash": "sha256-sZO0j01LBxhYgI3LiL8dIaETdsWuy9kjecWk3vnTxUU=",
+        "owner": "catppuccin",
+        "repo": "waybar",
+        "rev": "81c0e401d45263596dcdc441878739f95841e129",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "waybar",
+        "type": "github"
+      }
+    },
+    "catppuccin-zathura": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1664239314,
+        "narHash": "sha256-5Vh2bVabuBluVCJm9vfdnjnk32CtsK7wGIWM5+XnacM=",
+        "owner": "catppuccin",
+        "repo": "zathura",
+        "rev": "d85d8750acd0b0247aa10e0653998180391110a4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "zathura",
+        "type": "github"
+      }
+    },
+    "discord": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-qPK+A3zvmoemWF+FL0VJSZO+s/zbkgZvUs4zNMpH9yA=",
+        "type": "tarball",
+        "url": "https://discord.com/api/download?format=tar.gz&platform=linux"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://discord.com/api/download?format=tar.gz&platform=linux"
+      }
+    },
+    "mali": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1603794906,
+        "narHash": "sha256-GOi248zsd1Dl/zFErQMMBBEZEEOsnIlF0vxsmg0FX24=",
+        "owner": "cadsondemak",
+        "repo": "Mali",
+        "rev": "7e11de1301bf785e1b06c24816242ba52dde805f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cadsondemak",
+        "repo": "Mali",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "catppuccin-fish": "catppuccin-fish",
+        "catppuccin-gitui": "catppuccin-gitui",
+        "catppuccin-gtk-macchiato-mauve": "catppuccin-gtk-macchiato-mauve",
+        "catppuccin-mako": "catppuccin-mako",
+        "catppuccin-papirus-folders": "catppuccin-papirus-folders",
+        "catppuccin-polybar": "catppuccin-polybar",
+        "catppuccin-rofi": "catppuccin-rofi",
+        "catppuccin-waybar": "catppuccin-waybar",
+        "catppuccin-zathura": "catppuccin-zathura",
+        "discord": "discord",
+        "mali": "mali",
+        "sddm-sugar-candy": "sddm-sugar-candy",
+        "tint-nvim": "tint-nvim",
+        "wlsunset": "wlsunset"
+      }
+    },
+    "sddm-sugar-candy": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1580585463,
+        "narHash": "sha256-XggFVsEXLYklrfy1ElkIp9fkTw4wvXbyVkaVCZq4ZLU=",
+        "ref": "refs/heads/master",
+        "rev": "2b72ef6c6f720fe0ffde5ea5c7c48152e02f6c4f",
+        "revCount": 53,
+        "type": "git",
+        "url": "https://framagit.org/MarianArlt/sddm-sugar-candy"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://framagit.org/MarianArlt/sddm-sugar-candy"
+      }
+    },
+    "tint-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1664292894,
+        "narHash": "sha256-4I+48RvyDyXR6+Slqqsx0fWMG9s9AbgnzTDkmm2Kyzk=",
+        "owner": "levouh",
+        "repo": "tint.nvim",
+        "rev": "f6a259861ba8c0d88afc2ef05140ddf345eb0296",
+        "type": "github"
+      },
+      "original": {
+        "owner": "levouh",
+        "repo": "tint.nvim",
+        "type": "github"
+      }
+    },
+    "wlsunset": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1674482360,
+        "narHash": "sha256-HmVI0XBeR1Qdqc+XtZYlUvlzO5D7JxOV2F5qgvIty7c=",
+        "owner": "~kennylevinsen",
+        "repo": "wlsunset",
+        "rev": "cc9251d5c39ff3e4beb130306722d7b90d1031ab",
+        "type": "sourcehut"
+      },
+      "original": {
+        "owner": "~kennylevinsen",
+        "repo": "wlsunset",
+        "type": "sourcehut"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
