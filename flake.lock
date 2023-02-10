@@ -79,11 +79,11 @@
     "catppuccin-papirus-folders": {
       "flake": false,
       "locked": {
-        "lastModified": 1670107262,
-        "narHash": "sha256-mFDfRVDA9WyriyFVzsI7iqmPopN56z54FvLkZDS2Dv8=",
+        "lastModified": 1675885559,
+        "narHash": "sha256-3yjIGzN+/moP2OVGDIAy4zPqUroSjx3c2mJjdZGhTsY=",
         "owner": "catppuccin",
         "repo": "papirus-folders",
-        "rev": "1a367642df9cf340770bd7097fbe85b9cea65bcb",
+        "rev": "fcf96737fffc343a1bf129732c37d19f2d77fa5c",
         "type": "github"
       },
       "original": {
@@ -440,11 +440,11 @@
         "wlsunset": "wlsunset"
       },
       "locked": {
-        "lastModified": 1675490676,
-        "narHash": "sha256-2ZePEnf/cCd+WuhBnsoSa0TU0rnRzcpRRnD3BW1V/9w=",
+        "lastModified": 1676002965,
+        "narHash": "sha256-AwEO8XDSunR5nLmzauFBa3IJg9VOazUNp87kxxmzCco=",
         "owner": "PlayerNameHere",
         "repo": "nix-pers-pkgs",
-        "rev": "fe20437e17bcb5dda725c3ce955071de626a87c9",
+        "rev": "edd47c67720b45344f749fd7f767c6646bdd828b",
         "type": "github"
       },
       "original": {
