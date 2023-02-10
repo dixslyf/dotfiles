@@ -1,17 +1,28 @@
-{osConfig, config, ...}: {
+{ config, ... }: {
   services.syncthing = {
     enable = true;
   };
 
-  xdg.configFile."syncthing/config.xml" = {
-    source = config.lib.file.mkOutOfStoreSymlink osConfig.sops.secrets.syncthing-config.path;
+  systemd.user.services.syncthing.Unit.After = [ "sops-nix.service" ];
+
+  sops.secrets.syncthing-config = {
+    format = "binary";
+    sopsFile = ./config.xml;
+    mode = "0600";
+    path = "${config.xdg.configHome}/syncthing/config.xml";
   };
 
-  xdg.configFile."syncthing/cert.pem" = {
-    source = config.lib.file.mkOutOfStoreSymlink osConfig.sops.secrets.syncthing-cert.path;
+  sops.secrets.syncthing-cert = {
+    format = "binary";
+    sopsFile = ./cert.pem;
+    mode = "0644";
+    path = "${config.xdg.configHome}/syncthing/cert.pem";
   };
 
-  xdg.configFile."syncthing/key.pem" = {
-    source = config.lib.file.mkOutOfStoreSymlink osConfig.sops.secrets.syncthing-key.path;
+  sops.secrets.syncthing-key = {
+    format = "binary";
+    sopsFile = ./key.pem;
+    mode = "0600";
+    path = "${config.xdg.configHome}/syncthing/key.pem";
   };
 }

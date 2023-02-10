@@ -12,5 +12,3 @@ creation_rules:
     key_groups:
       - pgp:
         - *shiba
-        age:
-        - *shiba-asus
