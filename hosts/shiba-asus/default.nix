@@ -203,29 +203,18 @@
 
   fonts.fonts = [pkgs.pers-pkgs.mali];
 
-  environment.systemPackages = let
-    nvidia-offload =
-      pkgs.writeShellScriptBin "nvidia-offload"
-      ''
-        export __NV_PRIME_RENDER_OFFLOAD=1
-        export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
-        export __GLX_VENDOR_LIBRARY_NAME=nvidia
-        export __VK_LAYER_NV_optimus=NVIDIA_only
-        exec "$@"
-      '';
-  in
-    with pkgs; [
-      nvidia-offload
-      pciutils
-      light
-      pamixer
-      mullvad-vpn
-      sops
-      pers-pkgs.sddm-sugar-candy
-      libsForQt5.qt5.qtgraphicaleffects
-      libsForQt5.qt5.qtquickcontrols2
-      libsForQt5.qt5.qtsvg
-    ];
+  environment.systemPackages = with pkgs; [
+    pers-pkgs.nvidia-offload
+    pciutils
+    light
+    pamixer
+    mullvad-vpn
+    sops
+    pers-pkgs.sddm-sugar-candy
+    libsForQt5.qt5.qtgraphicaleffects
+    libsForQt5.qt5.qtquickcontrols2
+    libsForQt5.qt5.qtsvg
+  ];
 
   programs = {
     fuse.userAllowOther = true;
