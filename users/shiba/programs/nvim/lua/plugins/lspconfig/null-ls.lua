@@ -7,6 +7,9 @@ local function setup(on_attach, capabilities)
       sources = {
          nls.builtins.formatting.stylua,
          nls.builtins.formatting.alejandra,
+         nls.builtins.formatting.latexindent.with({
+            args = { "-l", "-m" },
+         }),
          nls.builtins.diagnostics.editorconfig_checker.with({
             command = "editorconfig-checker",
          }),

@@ -20,6 +20,9 @@
       (rust-bin.stable.latest.default.override {
         extensions = ["rust-src" "rust-analyzer"];
       })
+      (texlive.combine {
+        inherit (texlive) scheme-minimal latexindent;
+      })
       (python3.withPackages (pyPkgs:
         with pyPkgs; [
           python-lsp-server
