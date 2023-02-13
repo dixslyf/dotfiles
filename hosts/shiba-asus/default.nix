@@ -57,7 +57,7 @@
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 7d";
+      options = "--delete-older-than 14d";
     };
     settings = {
       auto-optimise-store = true;
