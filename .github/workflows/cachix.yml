@@ -18,4 +18,13 @@ jobs:
           name: playernamehere-nixos
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
           extraPullNames: nix-gaming, hyprland, nix-community
-      - run: nix build .#nixosConfigurations.shiba-asus.config.system.build.toplevel
+      - name: Check
+        run: nix flake check
+      - name: Build
+        run: nix build --print-build-logs .#cachix-deploy-spec
+      - name: Deploy
+        env:
+          CACHIX_ACTIVATE_TOKEN: "${{ secrets.CACHIX_ACTIVATE_TOKEN }}"
+        run: |
+          cachix push playernamehere-nixos ./result
+          cachix deploy activate ./result
