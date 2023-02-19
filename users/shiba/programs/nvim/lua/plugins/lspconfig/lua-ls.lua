@@ -4,7 +4,7 @@ local function setup(on_attach, capabilities)
    -- Disable formatting capabilities to prevent conflict with null-ls stylua
    capabilities.documentFormattingProvider = false
 
-   require("lspconfig").sumneko_lua.setup({
+   require("lspconfig").lua_ls.setup({
       on_attach = on_attach,
       capabilities = capabilities,
    })
