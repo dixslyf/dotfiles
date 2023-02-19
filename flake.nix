@@ -9,6 +9,7 @@
     };
     cachix-deploy = {
       url = "github:cachix/cachix-deploy-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
     impermanence.url = "github:nix-community/impermanence";
@@ -32,7 +33,10 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     pers-pkgs.url = "github:PlayerNameHere/nix-pers-pkgs";
   };
 
