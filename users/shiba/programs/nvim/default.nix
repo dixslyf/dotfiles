@@ -48,6 +48,7 @@
         dressing-nvim
         nvim-web-devicons
         twilight-nvim
+        tint-nvim
         nvim-autopairs
         nvim-lspconfig
         nvim-dap
@@ -86,9 +87,6 @@
             tree-sitter-toml
             tree-sitter-vim
           ]))
-      ]
-      ++ (with pkgs.pers-pkgs.vimPlugins; [
-        tint-nvim
-      ]);
+      ];
   };
 }
