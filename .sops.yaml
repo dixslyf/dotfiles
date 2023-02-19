@@ -12,3 +12,9 @@ creation_rules:
     key_groups:
       - pgp:
         - *shiba
+  - path_regex: hosts/shiba-asus/secrets.yaml$
+    key_groups:
+      - pgp:
+        - *shiba
+        age:
+        - *shiba-asus

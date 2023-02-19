@@ -1,7 +1,7 @@
-{
-  pkgs,
-  inputs,
-  ...
+{ config
+, pkgs
+, inputs
+, ...
 }: {
   imports = [
     ./hardware
@@ -81,7 +81,12 @@
     '';
   };
 
-  sops = {age.sshKeyPaths = ["/persist/etc/ssh/ssh_host_ed25519_key"];};
+  sops = {
+    age.sshKeyPaths = [ "/persist/etc/ssh/ssh_host_ed25519_key" ];
+    secrets."CACHIX_AGENT_TOKEN" = {
+      sopsFile = ./secrets.yaml;
+    };
+  };
 
   security = {
     sudo = {
@@ -89,6 +94,11 @@
       extraConfig = "Defaults lecture=never";
     };
     rtkit.enable = true;
+  };
+
+  services.cachix-agent = {
+    enable = true;
+    credentialsFile = config.sops.secrets."CACHIX_AGENT_TOKEN".path;
   };
 
   networking = {
