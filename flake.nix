@@ -63,7 +63,7 @@
               nixpkgs.overlays = [
                 inputs.rust-overlay.overlays.default
                 inputs.neovim-nightly-overlay.overlay
-                pers-pkgs.overlay
+                pers-pkgs.overlays.default
               ];
               nix.registry.nixpkgs.flake = nixpkgs;
             }

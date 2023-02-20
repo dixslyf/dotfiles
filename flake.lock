@@ -578,15 +578,14 @@
         "discord": "discord",
         "mali": "mali",
         "sddm-sugar-candy": "sddm-sugar-candy",
-        "tint-nvim": "tint-nvim",
         "wlsunset": "wlsunset"
       },
       "locked": {
-        "lastModified": 1676018923,
-        "narHash": "sha256-c7amriuyRucmslXBqG8SWLrsX6P3/f2q3fqEeQrQ5Yg=",
+        "lastModified": 1676881133,
+        "narHash": "sha256-zory+9PARcfqUpA+Kup+i1E1dM0Ge8bgqwRWOOhDvtM=",
         "owner": "PlayerNameHere",
         "repo": "nix-pers-pkgs",
-        "rev": "98d122a08e0310c77be7aa7fd9beb686e565b716",
+        "rev": "eaff703e620b0cb7ca8fff07159c3e1f16ed4b6e",
         "type": "github"
       },
       "original": {
@@ -665,22 +664,6 @@
       "original": {
         "owner": "Mic92",
         "repo": "sops-nix",
-        "type": "github"
-      }
-    },
-    "tint-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1664292894,
-        "narHash": "sha256-4I+48RvyDyXR6+Slqqsx0fWMG9s9AbgnzTDkmm2Kyzk=",
-        "owner": "levouh",
-        "repo": "tint.nvim",
-        "rev": "f6a259861ba8c0d88afc2ef05140ddf345eb0296",
-        "type": "github"
-      },
-      "original": {
-        "owner": "levouh",
-        "repo": "tint.nvim",
         "type": "github"
       }
     },
