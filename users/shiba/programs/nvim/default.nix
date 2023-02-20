@@ -14,7 +14,7 @@
       sumneko-lua-language-server
       stylua
       alejandra
-      rnix-lsp
+      nil
       gcc
       clang-tools
       proselint
