@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   programs.gpg.enable = true;
-  home.persistence."/persist/home/shiba".directories = [".gnupg"];
+  home.persistence."/persist/home/shiba".directories = [ ".gnupg" ];
 }

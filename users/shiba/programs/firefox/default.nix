@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   programs.firefox = {
     enable = true;
     profiles.default = {
@@ -11,6 +11,6 @@
   };
 
   home.persistence."/persist/home/shiba" = {
-    directories = [".mozilla"];
+    directories = [ ".mozilla" ];
   };
 }

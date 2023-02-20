@@ -1,16 +1,16 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
+{ config
+, lib
+, pkgs
+, ...
 }:
 with lib; let
   cfg = config.services.wlsunset;
-in {
-  meta.maintainers = [hm.maintainers.matrss];
+in
+{
+  meta.maintainers = [ hm.maintainers.matrss ];
 
   # Disable home-manager's wlsunset module
-  disabledModules = ["services/wlsunset.nix"];
+  disabledModules = [ "services/wlsunset.nix" ];
 
   options.services.wlsunset = {
     enable = mkEnableOption "wlsunset";
@@ -107,56 +107,61 @@ in {
     };
   };
 
-  config = mkIf cfg.enable (let
-    manual = cfg.sunrise != null || cfg.sunset != null;
-    coords = cfg.latitude != null || cfg.longitude != null;
-  in {
-    assertions = [
-      (lib.hm.assertions.assertPlatform "services.wlsunset" pkgs
-        lib.platforms.linux)
-      {
-        assertion = !manual || !coords;
-        message = ''
-          services.wlsunset.latitude and services.wlsunset.longitude cannot be set when services.wlsunset.sunrise and services.wlsunset.sunset are set.
-        '';
-      }
-    ];
+  config = mkIf cfg.enable (
+    let
+      manual = cfg.sunrise != null || cfg.sunset != null;
+      coords = cfg.latitude != null || cfg.longitude != null;
+    in
+    {
+      assertions = [
+        (lib.hm.assertions.assertPlatform "services.wlsunset" pkgs
+          lib.platforms.linux)
+        {
+          assertion = !manual || !coords;
+          message = ''
+            services.wlsunset.latitude and services.wlsunset.longitude cannot be set when services.wlsunset.sunrise and services.wlsunset.sunset are set.
+          '';
+        }
+      ];
 
-    systemd.user.services.wlsunset = {
-      Unit = {
-        Description = "Day/night gamma adjustments for Wayland compositors.";
-        PartOf = ["graphical-session.target"];
+      systemd.user.services.wlsunset = {
+        Unit = {
+          Description = "Day/night gamma adjustments for Wayland compositors.";
+          PartOf = [ "graphical-session.target" ];
+        };
+
+        Service = {
+          ExecStart =
+            let
+              args =
+                [
+                  "-t"
+                  (toString cfg.temperature.night)
+                  "-T"
+                  (toString cfg.temperature.day)
+                  "-g"
+                  (toString cfg.gamma)
+                ]
+                ++ optionals manual [
+                  "-S"
+                  (toString cfg.sunrise)
+                  "-s"
+                  (toString cfg.sunset)
+                  "-d"
+                  (toString cfg.duration)
+                ]
+                ++ optionals coords [
+                  "-l"
+                  (toString cfg.latitude)
+                  "-L"
+                  (toString cfg.longitude)
+                ];
+            in
+            "${cfg.package}/bin/wlsunset ${escapeShellArgs args}";
+        };
+
+        Install = { WantedBy = [ cfg.systemdTarget ]; };
       };
-
-      Service = {
-        ExecStart = let
-          args =
-            [
-              "-t"
-              (toString cfg.temperature.night)
-              "-T"
-              (toString cfg.temperature.day)
-              "-g"
-              (toString cfg.gamma)
-            ]
-            ++ optionals manual [
-              "-S"
-              (toString cfg.sunrise)
-              "-s"
-              (toString cfg.sunset)
-              "-d"
-              (toString cfg.duration)
-            ]
-            ++ optionals coords [
-              "-l"
-              (toString cfg.latitude)
-              "-L"
-              (toString cfg.longitude)
-            ];
-        in "${cfg.package}/bin/wlsunset ${escapeShellArgs args}";
-      };
-
-      Install = {WantedBy = [cfg.systemdTarget];};
-    };
-  });
+    }
+  );
 }

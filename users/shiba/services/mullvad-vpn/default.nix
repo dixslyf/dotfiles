@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  imports = [./module.nix];
+{ pkgs, ... }: {
+  imports = [ ./module.nix ];
   pvt.services.mullvad-vpn = {
     enable = true;
     settings = {

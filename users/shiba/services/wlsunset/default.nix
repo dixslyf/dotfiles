@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  imports = [./module.nix];
+{ pkgs, ... }: {
+  imports = [ ./module.nix ];
   services.wlsunset = {
     enable = true;
     package = pkgs.pers-pkgs.wlsunset;

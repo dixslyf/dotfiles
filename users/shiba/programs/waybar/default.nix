@@ -1,8 +1,8 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.waybar = {
     enable = true;
     package = pkgs.pers-pkgs.waybar.overrideAttrs (oldAttrs: {
-      mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
+      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
     });
     systemd = {
       enable = true;
@@ -13,9 +13,9 @@
         output = "eDP-1";
         layer = "top";
         position = "top";
-        modules-left = ["clock#time" "clock#date" "tray"];
-        modules-center = ["wlr/workspaces"];
-        modules-right = ["pulseaudio" "backlight" "battery" "network"];
+        modules-left = [ "clock#time" "clock#date" "tray" ];
+        modules-center = [ "wlr/workspaces" ];
+        modules-right = [ "pulseaudio" "backlight" "battery" "network" ];
         "clock#time" = {
           format = "󰅐 {:%H\:%M}";
           tooltip = false;
@@ -33,41 +33,41 @@
           format-bluetooth = "{icon}󰂰 {desc} {volume}%";
           format-muted = "󰝟 muted";
           format-icons = {
-            default = ["󰕿" "󰖀" "󰕾"];
-            headphone = ["󰋋󰕿" "󰋋󰖀" "󰋋󰕾"];
-            headset = ["󰋎󰕿" "󰋎󰖀" "󰋎󰕾"];
-            speaker = ["󰓃󰕿" "󰓃󰖀" "󰓃󰕾"];
-            hdmi = ["󰡁󰕿" "󰡁󰖀" "󰡁󰕾"];
-            phone = ["󰏲󰕿" "󰏲󰖀" "󰏲󰕾"];
-            hands-free = ["󱠰󰕿" "󱠰󰖀" "󱠰󰕾"];
-            portable = ["󰸐󰕿" "󰸐󰖀" "󰸐󰕾"];
-            car = ["󰄋󰕿" "󰄋󰖀" "󰄋󰕾"];
-            hifi = ["󰗜󰕿" "󰗜󰖀" "󰗜󰕾"];
+            default = [ "󰕿" "󰖀" "󰕾" ];
+            headphone = [ "󰋋󰕿" "󰋋󰖀" "󰋋󰕾" ];
+            headset = [ "󰋎󰕿" "󰋎󰖀" "󰋎󰕾" ];
+            speaker = [ "󰓃󰕿" "󰓃󰖀" "󰓃󰕾" ];
+            hdmi = [ "󰡁󰕿" "󰡁󰖀" "󰡁󰕾" ];
+            phone = [ "󰏲󰕿" "󰏲󰖀" "󰏲󰕾" ];
+            hands-free = [ "󱠰󰕿" "󱠰󰖀" "󱠰󰕾" ];
+            portable = [ "󰸐󰕿" "󰸐󰖀" "󰸐󰕾" ];
+            car = [ "󰄋󰕿" "󰄋󰖀" "󰄋󰕾" ];
+            hifi = [ "󰗜󰕿" "󰗜󰖀" "󰗜󰕾" ];
           };
         };
         backlight = {
           format = "{icon} {percent}%";
-          format-icons = ["󰌶" "󱩎" "󱩏" "󱩐" "󱩑" "󱩒" "󱩓" "󱩔" "󱩕" "󱩖" "󰛨"];
+          format-icons = [ "󰌶" "󱩎" "󱩏" "󱩐" "󱩑" "󱩒" "󱩓" "󱩔" "󱩕" "󱩖" "󰛨" ];
           on-scroll-up = "light -A 0.2";
           on-scroll-down = "light -U 0.2";
         };
         battery = {
           format = "{icon} {capacity}%";
-          format-icons = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+          format-icons = [ "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
         };
         network = {
           format-disconnected = "󰤮 No connection";
           format-ethernet = "󰈀 Ethernet";
           format-linked = "󰘘 {ifname}";
           format-wifi = "{icon} {essid} {signalStrength}%";
-          format-icons = ["󰤟" "󰤢" "󰤥" "󰤨"];
+          format-icons = [ "󰤟" "󰤢" "󰤥" "󰤨" ];
         };
       };
       topBarExternal = {
         output = "HDMI-A-1";
         layer = "top";
         position = "top";
-        modules-center = ["wlr/workspaces"];
+        modules-center = [ "wlr/workspaces" ];
       };
     };
     style = pkgs.substituteAll {

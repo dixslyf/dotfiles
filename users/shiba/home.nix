@@ -1,8 +1,7 @@
-{
-  lib,
-  pkgs,
-  inputs,
-  ...
+{ lib
+, pkgs
+, inputs
+, ...
 }: {
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
@@ -41,8 +40,8 @@
   home.packages = with pkgs; [
     material-design-icons
     iosevka-bin
-    (iosevka-bin.override {variant = "sgr-iosevka-term";})
-    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+    (iosevka-bin.override { variant = "sgr-iosevka-term"; })
+    (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
   ];
 
   home.pointerCursor = {
@@ -81,8 +80,8 @@
         trim_trailing_whitespace = true;
         indent_style = "space";
       };
-      "*.nix" = {indent_size = 2;};
-      "*.lua" = {indent_size = 3;};
+      "*.nix" = { indent_size = 2; };
+      "*.lua" = { indent_size = 3; };
     };
   };
 }

@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   xdg.configFile."nvim/lua".source = ./lua;
   xdg.configFile."nvim/config.lua".source = pkgs.substituteAll {
     src = ./config.lua;
@@ -20,7 +20,7 @@
       proselint
       ltex-ls
       (rust-bin.stable.latest.default.override {
-        extensions = ["rust-src" "rust-analyzer"];
+        extensions = [ "rust-src" "rust-analyzer" ];
       })
       (texlive.combine {
         inherit (texlive) scheme-minimal latexindent;

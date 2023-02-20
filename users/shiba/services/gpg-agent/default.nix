@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   services.gpg-agent = {
     enable = true;
     enableFishIntegration = true;

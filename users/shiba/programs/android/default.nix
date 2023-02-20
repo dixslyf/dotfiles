@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   home.persistence."/persist/home/shiba".directories = [
     ".gradle"
     ".android"

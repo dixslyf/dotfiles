@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   programs.ssh.enable = true;
-  home.persistence."/persist/home/shiba".directories = [".ssh"];
+  home.persistence."/persist/home/shiba".directories = [ ".ssh" ];
 }

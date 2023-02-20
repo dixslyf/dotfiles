@@ -21,7 +21,7 @@
         "kernel.sysrq" = 1; # https://wiki.archlinux.org/title/Keyboard_shortcuts#Kernel_(SysRq)
       };
     };
-    supportedFilesystems = ["ntfs"]; # ntfs-3g driver; required by udisks to mount due to the "windows_names" mount option
+    supportedFilesystems = [ "ntfs" ]; # ntfs-3g driver; required by udisks to mount due to the "windows_names" mount option
   };
 
   # Opt-in persisted root directories
@@ -61,7 +61,7 @@
     };
     settings = {
       auto-optimise-store = true;
-      experimental-features = ["nix-command" "flakes"];
+      experimental-features = [ "nix-command" "flakes" ];
       substituters = [
         "https://playernamehere-nixos.cachix.org"
         "https://nix-gaming.cachix.org"
@@ -119,7 +119,7 @@
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
-    videoDrivers = ["nvidia"]; # required for nvidia prime
+    videoDrivers = [ "nvidia" ]; # required for nvidia prime
     layout = "us";
     libinput = {
       enable = true;
@@ -152,7 +152,7 @@
     btrfs = {
       autoScrub = {
         enable = true;
-        fileSystems = ["/dev/sda3" "/dev/sdb1"];
+        fileSystems = [ "/dev/sda3" "/dev/sdb1" ];
       };
     };
     udev.packages = [
@@ -204,14 +204,14 @@
     portal = {
       enable = true;
       # xdg-desktop-portal-wlr should already be enabled by hyprland
-      extraPortals = [pkgs.xdg-desktop-portal-gtk];
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     };
   };
 
   # Packages
   nixpkgs.config.allowUnfree = true;
 
-  fonts.fonts = [pkgs.pers-pkgs.mali];
+  fonts.fonts = [ pkgs.pers-pkgs.mali ];
 
   environment.systemPackages = with pkgs; [
     pers-pkgs.nvidia-offload
@@ -245,10 +245,10 @@
       recommendedEnvironment = false; # variables are added below to avoid causing issues in x
       package =
         (inputs.hyprland.packages.${pkgs.system}.default.overrideAttrs (oldAttrs: {
-          buildInputs = oldAttrs.buildInputs ++ [pkgs.makeWrapper];
+          buildInputs = oldAttrs.buildInputs ++ [ pkgs.makeWrapper ];
           postInstall =
             oldAttrs.postInstall
-            or ''
+              or ''
               wrapProgram $out/bin/Hyprland \
                 --set LIBVA_DRIVER_NAME nvidia \
                 --set CLUTTER_BACKEND wayland \
@@ -264,8 +264,7 @@
                 --set _JAVA_AWT_WM_NONREPARENTING 1 \
                 --set NIXOS_OZONE_WL 1
             '';
-        }))
-        .override {nvidiaPatches = true;};
+        })).override { nvidiaPatches = true; };
     };
   };
 }

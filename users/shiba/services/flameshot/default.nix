@@ -1,4 +1,4 @@
-{lib, ...}: {
+{ lib, ... }: {
   services.flameshot = {
     enable = true;
     settings = {
@@ -11,7 +11,7 @@
 
   # disable the service to prevent flameshot from running in wayland sessions
   systemd.user.services.flameshot = {
-    Unit.PartOf = lib.mkForce [];
-    Install.WantedBy = lib.mkForce [];
+    Unit.PartOf = lib.mkForce [ ];
+    Install.WantedBy = lib.mkForce [ ];
   };
 }

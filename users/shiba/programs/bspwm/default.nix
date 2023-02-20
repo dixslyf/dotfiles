@@ -1,10 +1,10 @@
-{...}: {
+{ ... }: {
   # Note that xsession.enable = false so that home-manager doesn't create ~/.xsession.
   # More details: https://github.com/NixOS/nixpkgs/issues/190442
   xsession.windowManager.bspwm = {
     enable = true;
     monitors = {
-      eDP-1 = ["p1" "p2" "p3" "p4" "p5" "p6" "p7" "p8" "p9" "p0"];
+      eDP-1 = [ "p1" "p2" "p3" "p4" "p5" "p6" "p7" "p8" "p9" "p0" ];
     };
     rules = {
       "Steam" = {
@@ -38,7 +38,7 @@
           bspc monitor HDMI-1 -d h1 h2 h3 h4 h5 h6 h7 h8 h9 h0
       fi
     '';
-    startupPrograms = ["flameshot" "redshift"];
+    startupPrograms = [ "flameshot" "redshift" ];
   };
 
   # home-manager starts sxhkd through ~/.xsession, but since xsession.enable = false,

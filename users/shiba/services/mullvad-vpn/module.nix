@@ -1,13 +1,13 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
+{ config
+, lib
+, pkgs
+, ...
 }:
 with lib; let
   cfg = config.pvt.services.mullvad-vpn;
-  jsonFormat = pkgs.formats.json {};
-in {
+  jsonFormat = pkgs.formats.json { };
+in
+{
   options.pvt.services.mullvad-vpn = {
     enable = mkEnableOption "Mullvad VPN";
 
@@ -79,7 +79,7 @@ in {
 
           browsedForSplitTunnelingApplications = mkOption {
             type = types.listOf types.str;
-            default = [];
+            default = [ ];
             description = ''
               A list of filepaths to applications added to the list of applications in the split tunneling view.
             '';
@@ -95,12 +95,12 @@ in {
           };
         };
       };
-      default = {};
+      default = { };
     };
   };
 
   config = mkIf cfg.enable {
-    home.packages = [cfg.package];
+    home.packages = [ cfg.package ];
 
     xdg.configFile."Mullvad VPN/gui_settings.json" = {
       source = jsonFormat.generate "gui_settings.json" cfg.settings;
@@ -109,11 +109,11 @@ in {
     systemd.user.services.mullvad-vpn = {
       Unit = {
         Description = "Mullvad VPN GUI";
-        Requires = ["tray.target"];
-        After = ["graphical-session-pre.target" "tray.target"];
-        PartOf = ["graphical-session.target"];
+        Requires = [ "tray.target" ];
+        After = [ "graphical-session-pre.target" "tray.target" ];
+        PartOf = [ "graphical-session.target" ];
       };
-      Install = {WantedBy = ["graphical-session.target"];};
+      Install = { WantedBy = [ "graphical-session.target" ]; };
       Service = {
         ExecStart = "${cfg.package}/bin/mullvad-vpn";
         ExecReload = "${pkgs.coreutils}/bin/kill -HUP $MAINPID";

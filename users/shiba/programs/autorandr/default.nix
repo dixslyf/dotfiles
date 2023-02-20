@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.autorandr = {
     enable = true;
     profiles = {
