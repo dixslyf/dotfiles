@@ -8,9 +8,7 @@
       version = src.lastModifiedDate;
       src = builtins.getAttr name inputs;
     };
-  plugins = [
-    "tint-nvim"
-  ];
+  plugins = [];
 in
   builtins.listToAttrs (map (p: {
       name = p;

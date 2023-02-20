@@ -51,10 +51,6 @@
       url = "github:cadsondemak/Mali";
       flake = false;
     };
-    tint-nvim = {
-      url = "github:levouh/tint.nvim";
-      flake = false;
-    };
     discord = {
       url = "tarball+https://discord.com/api/download?platform=linux&format=tar.gz";
       flake = false;
@@ -79,7 +75,7 @@
         catppuccin-zathura = final.callPackage ./catppuccin-zathura {};
         wlsunset = final.callPackage ./wlsunset {};
         mali = final.callPackage ./mali {};
-        vimPlugins = final.lib.recurseIntoAttrs (final.callPackage ./vim-plugins {});
+        # vimPlugins = final.lib.recurseIntoAttrs (final.callPackage ./vim-plugins {});
         waybar = final.callPackage ./waybar {};
         discord = final.callPackage ./discord {};
       };

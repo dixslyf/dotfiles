@@ -182,7 +182,6 @@
         "discord": "discord",
         "mali": "mali",
         "sddm-sugar-candy": "sddm-sugar-candy",
-        "tint-nvim": "tint-nvim",
         "wlsunset": "wlsunset"
       }
     },
@@ -200,22 +199,6 @@
       "original": {
         "type": "git",
         "url": "https://framagit.org/MarianArlt/sddm-sugar-candy"
-      }
-    },
-    "tint-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1664292894,
-        "narHash": "sha256-4I+48RvyDyXR6+Slqqsx0fWMG9s9AbgnzTDkmm2Kyzk=",
-        "owner": "levouh",
-        "repo": "tint.nvim",
-        "rev": "f6a259861ba8c0d88afc2ef05140ddf345eb0296",
-        "type": "github"
-      },
-      "original": {
-        "owner": "levouh",
-        "repo": "tint.nvim",
-        "type": "github"
       }
     },
     "wlsunset": {
