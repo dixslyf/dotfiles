@@ -5,7 +5,7 @@ local function setup(on_attach, capabilities)
       settings = {
          ["nil"] = {
             formatting = {
-               command = { "alejandra" },
+               command = { "nixpkgs-fmt" },
             },
          },
       },

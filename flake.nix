@@ -71,7 +71,7 @@
         ];
       };
 
-      formatter.${system} = pkgs.alejandra;
+      formatter.${system} = pkgs.nixpkgs-fmt;
 
       nixosConfigurations = {
         shiba-asus = nixpkgs.lib.nixosSystem {

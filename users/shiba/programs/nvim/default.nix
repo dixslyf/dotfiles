@@ -13,7 +13,7 @@
       editorconfig-checker
       sumneko-lua-language-server
       stylua
-      alejandra
+      nixpkgs-fmt
       nil
       gcc
       clang-tools
