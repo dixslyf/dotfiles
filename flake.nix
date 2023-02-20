@@ -67,6 +67,9 @@
         modules = [
           {
             packages = with pkgs; [ sops ];
+            pre-commit.hooks = {
+              nixpkgs-fmt.enable = true;
+            };
           }
         ];
       };
