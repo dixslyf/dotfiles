@@ -1,4 +1,4 @@
-{ ... }: {
+_: {
   imports = [
     ./flameshot
     ./gpg-agent
