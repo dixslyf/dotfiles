@@ -88,9 +88,7 @@ local on_attach = function(client, bufnr)
       tls_builtin.lsp_references,
       { silent = true, buffer = bufnr, desc = "List references" }
    )
-   vim.keymap.set("n", "<leader>lf", function()
-      vim.lsp.buf.format({ async = true })
-   end, { silent = true, buffer = bufnr, desc = "Format" })
+   vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { silent = true, buffer = bufnr, desc = "Format" })
 
    wk.register({
       ["<leader>l"] = {
