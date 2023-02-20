@@ -203,7 +203,7 @@
     "discord": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-qPK+A3zvmoemWF+FL0VJSZO+s/zbkgZvUs4zNMpH9yA=",
+        "narHash": "sha256-kZuquVq1dxjq2OWux73A2JUrpBw5sjhoJsTfFxeF2Ys=",
         "type": "tarball",
         "url": "https://discord.com/api/download?format=tar.gz&platform=linux"
       },
@@ -581,11 +581,11 @@
         "wlsunset": "wlsunset"
       },
       "locked": {
-        "lastModified": 1676881133,
-        "narHash": "sha256-zory+9PARcfqUpA+Kup+i1E1dM0Ge8bgqwRWOOhDvtM=",
+        "lastModified": 1676886857,
+        "narHash": "sha256-agIleZGc/BDqfcq1L36km0152D8XN7NbDdj+qi8jMHY=",
         "owner": "PlayerNameHere",
         "repo": "nix-pers-pkgs",
-        "rev": "eaff703e620b0cb7ca8fff07159c3e1f16ed4b6e",
+        "rev": "9a0dfca6f3fb5b80376247b07aaf916df8a92c11",
         "type": "github"
       },
       "original": {
