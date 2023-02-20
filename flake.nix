@@ -70,6 +70,7 @@
             pre-commit.hooks = {
               nixpkgs-fmt.enable = true;
               stylua.enable = true;
+              statix.enable = true;
             };
           }
         ];
