@@ -62,7 +62,7 @@
         inherit inputs pkgs;
         modules = [
           {
-            packages = with pkgs; [];
+            packages = with pkgs; [ sops ];
           }
         ];
       };
