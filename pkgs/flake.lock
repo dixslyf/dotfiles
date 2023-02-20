@@ -143,7 +143,7 @@
     "discord": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-qPK+A3zvmoemWF+FL0VJSZO+s/zbkgZvUs4zNMpH9yA=",
+        "narHash": "sha256-kZuquVq1dxjq2OWux73A2JUrpBw5sjhoJsTfFxeF2Ys=",
         "type": "tarball",
         "url": "https://discord.com/api/download?format=tar.gz&platform=linux"
       },
