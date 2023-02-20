@@ -19,6 +19,7 @@
       clang-tools
       proselint
       ltex-ls
+      statix
       (rust-bin.stable.latest.default.override {
         extensions = [ "rust-src" "rust-analyzer" ];
       })
