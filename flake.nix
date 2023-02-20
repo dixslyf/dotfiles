@@ -2,6 +2,10 @@
   description = "My NixOS configuration";
 
   inputs = {
+    devenv = {
+      url = "github:cachix/devenv";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -42,6 +46,7 @@
 
   outputs =
     inputs @ { self
+    , devenv
     , nixpkgs
     , pers-pkgs
     , cachix-deploy
@@ -53,6 +58,15 @@
       cachix-deploy-lib = cachix-deploy.lib pkgs;
     in
     {
+      devShells.${system}.default = devenv.lib.mkShell {
+        inherit inputs pkgs;
+        modules = [
+          {
+            packages = with pkgs; [];
+          }
+        ];
+      };
+
       formatter.${system} = pkgs.alejandra;
 
       nixosConfigurations = {

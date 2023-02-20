@@ -1,1 +1,4 @@
 result
+.devenv*
+.direnv*
+devenv.local.nix
