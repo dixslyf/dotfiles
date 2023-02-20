@@ -58,7 +58,7 @@
   };
 
   outputs = inputs @ {...}: {
-    overlay = final: prev: {
+    overlays.default = final: prev: {
       inherit inputs;
       pers-pkgs = {
         nvidia-offload = final.callPackage ./nvidia-offload {};
