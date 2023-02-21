@@ -69,6 +69,11 @@
     };
   };
 
+  qt = {
+    enable = true;
+    platformTheme = "gtk";
+  };
+
   editorconfig = {
     enable = true;
     settings = {
