@@ -29,7 +29,7 @@
             ];
             nix.registry.nixpkgs.flake = inputs.nixpkgs;
           }
-          ../hosts/shiba-asus
+          ./hosts/shiba-asus
         ];
         specialArgs = { inherit inputs; };
       };
