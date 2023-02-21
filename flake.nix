@@ -70,8 +70,6 @@
         { pkgs
         , ...
         }: {
-          formatter = pkgs.nixpkgs-fmt;
-
           packages.cachix-deploy-spec =
             let
               cachix-deploy-lib = cachix-deploy.lib pkgs;
