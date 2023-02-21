@@ -53,53 +53,15 @@
   };
 
   outputs =
-    inputs @ { self
-    , flake-parts
-    , nixpkgs
-    , pers-pkgs
-    , cachix-deploy
+    inputs @ { flake-parts
     , ...
     }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
         ./devshell/flake-module.nix
+        ./nixos/flake-module.nix
       ];
 
       systems = [ "x86_64-linux" ];
-      perSystem =
-        { pkgs
-        , ...
-        }: {
-          packages.cachix-deploy-spec =
-            let
-              cachix-deploy-lib = cachix-deploy.lib pkgs;
-            in
-            cachix-deploy-lib.spec {
-              agents = {
-                shiba-asus = self.nixosConfigurations.shiba-asus.config.system.build.toplevel;
-              };
-            };
-        };
-
-      flake = {
-        nixosConfigurations = {
-          shiba-asus = nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            modules = [
-              {
-                nixpkgs.overlays = [
-                  inputs.rust-overlay.overlays.default
-                  inputs.neovim-nightly-overlay.overlay
-                  inputs.nil.overlays.default
-                  pers-pkgs.overlays.default
-                ];
-                nix.registry.nixpkgs.flake = nixpkgs;
-              }
-              ./hosts/shiba-asus
-            ];
-            specialArgs = { inherit inputs; };
-          };
-        };
-      };
     };
 }
