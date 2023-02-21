@@ -55,33 +55,21 @@
   outputs =
     inputs @ { self
     , flake-parts
-    , devenv
     , nixpkgs
     , pers-pkgs
     , cachix-deploy
     , ...
     }:
     flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [
+        ./devshell/flake-module.nix
+      ];
+
       systems = [ "x86_64-linux" ];
       perSystem =
         { pkgs
         , ...
         }: {
-          devShells.default = devenv.lib.mkShell {
-            inherit inputs pkgs;
-            modules = [
-              {
-                packages = with pkgs; [ sops nixpkgs-fmt stylua statix deadnix ];
-                pre-commit.hooks = {
-                  nixpkgs-fmt.enable = true;
-                  stylua.enable = true;
-                  statix.enable = true;
-                  deadnix.enable = true;
-                };
-              }
-            ];
-          };
-
           formatter = pkgs.nixpkgs-fmt;
 
           packages.cachix-deploy-spec =
@@ -94,6 +82,7 @@
               };
             };
         };
+
       flake = {
         nixosConfigurations = {
           shiba-asus = nixpkgs.lib.nixosSystem {
