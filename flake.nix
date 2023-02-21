@@ -2,6 +2,10 @@
   description = "My NixOS configuration";
 
   inputs = {
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
     devenv = {
       url = "github:cachix/devenv";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -50,57 +54,64 @@
 
   outputs =
     inputs @ { self
+    , flake-parts
     , devenv
     , nixpkgs
     , pers-pkgs
     , cachix-deploy
     , ...
     }:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-      cachix-deploy-lib = cachix-deploy.lib pkgs;
-    in
-    {
-      devShells.${system}.default = devenv.lib.mkShell {
-        inherit inputs pkgs;
-        modules = [
-          {
-            packages = with pkgs; [ sops nixpkgs-fmt stylua statix deadnix ];
-            pre-commit.hooks = {
-              nixpkgs-fmt.enable = true;
-              stylua.enable = true;
-              statix.enable = true;
-              deadnix.enable = true;
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" ];
+      perSystem =
+        { pkgs
+        , ...
+        }: {
+          devShells.default = devenv.lib.mkShell {
+            inherit inputs pkgs;
+            modules = [
+              {
+                packages = with pkgs; [ sops nixpkgs-fmt stylua statix deadnix ];
+                pre-commit.hooks = {
+                  nixpkgs-fmt.enable = true;
+                  stylua.enable = true;
+                  statix.enable = true;
+                  deadnix.enable = true;
+                };
+              }
+            ];
+          };
+
+          formatter = pkgs.nixpkgs-fmt;
+
+          packages.cachix-deploy-spec =
+            let
+              cachix-deploy-lib = cachix-deploy.lib pkgs;
+            in
+            cachix-deploy-lib.spec {
+              agents = {
+                shiba-asus = self.nixosConfigurations.shiba-asus.config.system.build.toplevel;
+              };
             };
-          }
-        ];
-      };
-
-      formatter.${system} = pkgs.nixpkgs-fmt;
-
-      nixosConfigurations = {
-        shiba-asus = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            {
-              nixpkgs.overlays = [
-                inputs.rust-overlay.overlays.default
-                inputs.neovim-nightly-overlay.overlay
-                inputs.nil.overlays.default
-                pers-pkgs.overlays.default
-              ];
-              nix.registry.nixpkgs.flake = nixpkgs;
-            }
-            ./hosts/shiba-asus
-          ];
-          specialArgs = { inherit inputs; };
         };
-      };
-
-      packages.${system}.cachix-deploy-spec = cachix-deploy-lib.spec {
-        agents = {
-          shiba-asus = self.nixosConfigurations.shiba-asus.config.system.build.toplevel;
+      flake = {
+        nixosConfigurations = {
+          shiba-asus = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            modules = [
+              {
+                nixpkgs.overlays = [
+                  inputs.rust-overlay.overlays.default
+                  inputs.neovim-nightly-overlay.overlay
+                  inputs.nil.overlays.default
+                  pers-pkgs.overlays.default
+                ];
+                nix.registry.nixpkgs.flake = nixpkgs;
+              }
+              ./hosts/shiba-asus
+            ];
+            specialArgs = { inherit inputs; };
+          };
         };
       };
     };
