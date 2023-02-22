@@ -20,4 +20,4 @@ local function setup(on_attach, capabilities)
    })
 end
 
-return setup
+return { setup = setup }
