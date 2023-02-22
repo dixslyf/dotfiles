@@ -1,7 +1,16 @@
 name: Cachix
 
 on:
+  push:
+    branches:
+      - master
   workflow_dispatch:
+    inputs:
+      deploy:
+        description: "Deploy after the build"
+        type: boolean
+        default: true
+        required: true
 
 concurrency:
   group: ${{ github.ref }}
@@ -27,6 +36,7 @@ jobs:
       - name: Build
         run: nix build --print-build-logs .#cachix-deploy-spec
       - name: Deploy
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.deploy
         env:
           CACHIX_ACTIVATE_TOKEN: "${{ secrets.CACHIX_ACTIVATE_TOKEN }}"
         run: |
