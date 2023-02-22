@@ -76,6 +76,7 @@
         gitsigns-nvim
         luasnip
         vim-snippets
+        markdown-preview-nvim
         vimtex
         (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins:
           with plugins; [
