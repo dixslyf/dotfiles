@@ -40,7 +40,7 @@ jobs:
         with:
           name: playernamehere-nixos
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
-          extraPullNames: nix-gaming, hyprland, nix-community, devenv
+          extraPullNames: nix-gaming, hyprland, nix-community
       - name: Build
         run: nix build --print-build-logs .#cachix-deploy-spec
       - name: Deploy
@@ -63,6 +63,6 @@ jobs:
         with:
           name: playernamehere-nixos
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
-          extraPullNames: nix-gaming, hyprland, nix-community, devenv
+          extraPullNames: devenv
       - name: Build
         run: nix build --print-build-logs .#devShells.x86_64-linux.default
