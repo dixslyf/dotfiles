@@ -3,6 +3,10 @@ name: Cachix
 on:
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   cachix:
     runs-on: ubuntu-22.04
