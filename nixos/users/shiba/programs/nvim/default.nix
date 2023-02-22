@@ -82,7 +82,13 @@
             tree-sitter-bash
             tree-sitter-c
             tree-sitter-cpp
+            tree-sitter-haskell
+            tree-sitter-html
+            tree-sitter-javascript
+            tree-sitter-json
             tree-sitter-lua
+            tree-sitter-markdown
+            tree-sitter-markdown-inline
             tree-sitter-nix
             tree-sitter-python
             tree-sitter-rust
