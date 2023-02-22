@@ -1,13 +1,13 @@
 { pkgs, ... }: {
   xdg.configFile."nvim/lua".source = ./lua;
-  xdg.configFile."nvim/config.lua".source = pkgs.substituteAll {
-    src = ./config.lua;
-    cppdbgCommand = "${pkgs.vscode-extensions.ms-vscode.cpptools}/share/vscode/extensions/ms-vscode.cpptools/debugAdapters/bin/OpenDebugAD7";
-  };
   programs.neovim = {
     enable = true;
-    extraConfig = ''
-      luafile ~/.config/nvim/config.lua
+    extraLuaConfig = ''
+      Globals = {
+         cppdbg_command = "${pkgs.vscode-extensions.ms-vscode.cpptools}/share/vscode/extensions/ms-vscode.cpptools/debugAdapters/bin/OpenDebugAD7",
+      }
+      require("options")
+      require("plugins")
     '';
     extraPackages = with pkgs; [
       editorconfig-checker
