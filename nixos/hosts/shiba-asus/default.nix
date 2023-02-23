@@ -53,12 +53,21 @@
     stateVersion = "22.05"; # Did you read the comment?
   };
 
+  # Garbage collection
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 14d";
+  };
+
+  # Tell gc to wait for /persist/home to be mounted to prevent it from
+  # thinking that the gc roots are invalid. Otherwise, my devShells get gc'd.
+  systemd.services.nix-gc.unitConfig = {
+    RequiresMountsFor = "/persist/home";
+  };
+
+  # Other nix settings
   nix = {
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 14d";
-    };
     settings = {
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
@@ -270,3 +279,4 @@
     };
   };
 }
+
