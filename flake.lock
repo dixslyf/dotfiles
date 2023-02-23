@@ -797,19 +797,18 @@
         "catppuccin-rofi": "catppuccin-rofi",
         "catppuccin-waybar": "catppuccin-waybar",
         "catppuccin-zathura": "catppuccin-zathura",
-        "discord": "discord",
         "mali": "mali",
         "sddm-sugar-candy": "sddm-sugar-candy",
         "wlsunset": "wlsunset"
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-IPfKD/KbWod/amSdveV8FzubV7cLZpQbcGgI4ydCnko=",
-        "path": "/nix/store/7lpm2vp9brvm5gx0gdiza7q5hn8i9aw0-source/pkgs",
+        "narHash": "sha256-h5MH/uob2B/kpt0NVmpz9CICfEmYX1ZOYK/iTQjhkJ8=",
+        "path": "/nix/store/7b93rib8mv9z67wzicrq23hd422czq82-source/pkgs",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/7lpm2vp9brvm5gx0gdiza7q5hn8i9aw0-source/pkgs",
+        "path": "/nix/store/7b93rib8mv9z67wzicrq23hd422czq82-source/pkgs",
         "type": "path"
       }
     },
@@ -846,6 +845,7 @@
         "cachix-deploy": "cachix-deploy",
         "catppuccin-grub": "catppuccin-grub",
         "devenv": "devenv",
+        "discord": "discord",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
         "hyprland": "hyprland",

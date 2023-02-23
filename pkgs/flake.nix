@@ -55,10 +55,6 @@
       url = "github:cadsondemak/Mali";
       flake = false;
     };
-    discord = {
-      url = "tarball+https://discord.com/api/download?platform=linux&format=tar.gz";
-      flake = false;
-    };
   };
 
   outputs = inputs @ {...}: {
@@ -82,7 +78,6 @@
         mali = final.callPackage ./mali {};
         # vimPlugins = final.lib.recurseIntoAttrs (final.callPackage ./vim-plugins {});
         waybar = final.callPackage ./waybar {};
-        discord = final.callPackage ./discord {};
       };
     };
   };
