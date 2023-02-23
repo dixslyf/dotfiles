@@ -4,25 +4,25 @@ _: {
       sources = import ./npins;
     in
     {
-      overlays.pers-pkgs = final: _: {
+      overlays.pers-pkgs = _: prev: {
         inherit sources;
         pers-pkgs = {
-          nvidia-offload = final.callPackage ./nvidia-offload { };
-          bspwm = final.callPackage ./bspwm { };
-          sddm-sugar-candy = final.callPackage ./sddm-sugar-candy { };
-          catppuccin-fish = final.callPackage ./catppuccin-fish { };
-          catppuccin-gitui = final.callPackage ./catppuccin-gitui { };
-          catppuccin-papirus-icon-theme = final.callPackage ./catppuccin-papirus { };
-          catppuccin-papirus-folders = final.callPackage ./catppuccin-papirus-folders { };
-          catppuccin-rofi-basic = final.callPackage ./catppuccin-rofi-basic { };
-          catppuccin-polybar = final.callPackage ./catppuccin-polybar { };
-          catppuccin-waybar = final.callPackage ./catppuccin-waybar { };
-          catppuccin-mako = final.callPackage ./catppuccin-mako { };
-          catppuccin-zathura = final.callPackage ./catppuccin-zathura { };
-          wlsunset = final.callPackage ./wlsunset { };
-          mali = final.callPackage ./mali { };
-          # vimPlugins = final.lib.recurseIntoAttrs (final.callPackage ./vim-plugins {});
-          waybar = final.callPackage ./waybar { };
+          nvidia-offload = prev.callPackage ./nvidia-offload { };
+          bspwm = prev.callPackage ./bspwm { };
+          sddm-sugar-candy = prev.callPackage ./sddm-sugar-candy { };
+          catppuccin-fish = prev.callPackage ./catppuccin-fish { };
+          catppuccin-gitui = prev.callPackage ./catppuccin-gitui { };
+          catppuccin-papirus-icon-theme = prev.callPackage ./catppuccin-papirus { };
+          catppuccin-papirus-folders = prev.callPackage ./catppuccin-papirus-folders { };
+          catppuccin-rofi-basic = prev.callPackage ./catppuccin-rofi-basic { };
+          catppuccin-polybar = prev.callPackage ./catppuccin-polybar { };
+          catppuccin-waybar = prev.callPackage ./catppuccin-waybar { };
+          catppuccin-mako = prev.callPackage ./catppuccin-mako { };
+          catppuccin-zathura = prev.callPackage ./catppuccin-zathura { };
+          wlsunset = prev.callPackage ./wlsunset { };
+          mali = prev.callPackage ./mali { };
+          # vimPlugins = prev.lib.recurseIntoAttrs (prev.callPackage ./vim-plugins {});
+          waybar = prev.callPackage ./waybar { };
         };
       };
     };
