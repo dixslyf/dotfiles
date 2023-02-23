@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "bspwm": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1668863273,
+        "narHash": "sha256-y9MC+73KmwQfAVE2c14y3YQifmV3eimAuRp+pgR6d2o=",
+        "owner": "baskerville",
+        "repo": "bspwm",
+        "rev": "527864d8716462e52f85a419f97a776c0643a68c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "baskerville",
+        "repo": "bspwm",
+        "type": "github"
+      }
+    },
     "catppuccin-fish": {
       "flake": false,
       "locked": {
@@ -170,6 +186,7 @@
     },
     "root": {
       "inputs": {
+        "bspwm": "bspwm",
         "catppuccin-fish": "catppuccin-fish",
         "catppuccin-gitui": "catppuccin-gitui",
         "catppuccin-gtk-macchiato-mauve": "catppuccin-gtk-macchiato-mauve",

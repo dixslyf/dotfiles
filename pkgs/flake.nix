@@ -2,6 +2,10 @@
   description = "Personal Nix packages";
 
   inputs = {
+    bspwm = {
+      url = "github:baskerville/bspwm";
+      flake = false;
+    };
     sddm-sugar-candy = {
       url = "git+https://framagit.org/MarianArlt/sddm-sugar-candy";
       flake = false;
@@ -62,6 +66,7 @@
       inherit inputs;
       pers-pkgs = {
         nvidia-offload = final.callPackage ./nvidia-offload {};
+        bspwm = final.callPackage ./bspwm {};
         sddm-sugar-candy = final.callPackage ./sddm-sugar-candy {};
         catppuccin-fish = final.callPackage ./catppuccin-fish {};
         catppuccin-gitui = final.callPackage ./catppuccin-gitui {};
