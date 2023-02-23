@@ -803,17 +803,14 @@
         "wlsunset": "wlsunset"
       },
       "locked": {
-        "lastModified": 1677129999,
+        "lastModified": 1,
         "narHash": "sha256-IPfKD/KbWod/amSdveV8FzubV7cLZpQbcGgI4ydCnko=",
-        "owner": "PlayerNameHere",
-        "repo": "nix-pers-pkgs",
-        "rev": "35fdce9d6931565311d8d882e81ef8befc3f7437",
-        "type": "github"
+        "path": "/nix/store/7lpm2vp9brvm5gx0gdiza7q5hn8i9aw0-source/pkgs",
+        "type": "path"
       },
       "original": {
-        "owner": "PlayerNameHere",
-        "repo": "nix-pers-pkgs",
-        "type": "github"
+        "path": "/nix/store/7lpm2vp9brvm5gx0gdiza7q5hn8i9aw0-source/pkgs",
+        "type": "path"
       }
     },
     "pre-commit-hooks": {

@@ -49,7 +49,7 @@
       url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    pers-pkgs.url = "github:PlayerNameHere/nix-pers-pkgs";
+    pers-pkgs.url = "./pkgs";
   };
 
   outputs =
