@@ -1,8 +1,11 @@
-_: {
+{ pkgs
+, ...
+}: {
   # Note that xsession.enable = false so that home-manager doesn't create ~/.xsession.
   # More details: https://github.com/NixOS/nixpkgs/issues/190442
   xsession.windowManager.bspwm = {
     enable = true;
+    package = pkgs.pers-pkgs.bspwm;
     monitors = {
       eDP-1 = [ "p1" "p2" "p3" "p4" "p5" "p6" "p7" "p8" "p9" "p0" ];
     };
