@@ -23,6 +23,7 @@
           {
             nixpkgs.overlays = [
               self.overlays.pers-pkgs
+              inputs.nix-gaming.overlays.default
               inputs.rust-overlay.overlays.default
               inputs.neovim-nightly-overlay.overlay
               inputs.nil.overlays.default
