@@ -6,7 +6,7 @@ let
   build = name:
     vimUtils.buildVimPluginFrom2Nix rec {
       pname = name;
-      version = src.lastModifiedDate;
+      version = src.revision;
       src = builtins.getAttr name sources;
     };
   plugins = [ ];

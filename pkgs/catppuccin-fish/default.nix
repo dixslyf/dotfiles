@@ -1,12 +1,12 @@
-{ sources
+{ src
 , stdenvNoCC
 , ...
 }:
-stdenvNoCC.mkDerivation rec {
+stdenvNoCC.mkDerivation {
   pname = "catppuccin-fish";
   version = src.revision;
 
-  src = sources.catppuccin-fish;
+  inherit src;
 
   installPhase = ''
     install -d "$out/share/fish/themes"

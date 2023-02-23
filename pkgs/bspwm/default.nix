@@ -1,9 +1,8 @@
-{ sources
+{ src
 , bspwm
 , ...
 }:
-bspwm.overrideAttrs (_:
-let src = sources.bspwm; in {
+bspwm.overrideAttrs (_: {
   inherit src;
   version = src.revision;
 })

@@ -1,12 +1,12 @@
-{ sources
+{ src
 , stdenvNoCC
 , ...
 }:
-stdenvNoCC.mkDerivation rec {
+stdenvNoCC.mkDerivation {
   pname = "catppuccin-polybar";
   version = src.revision;
 
-  src = sources.catppuccin-polybar;
+  inherit src;
 
   installPhase = ''
     install -d "$out/share/polybar/themes/catppuccin"

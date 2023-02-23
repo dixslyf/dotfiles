@@ -1,12 +1,12 @@
-{ sources
+{ src
 , stdenvNoCC
 , ...
 }:
-stdenvNoCC.mkDerivation rec {
+stdenvNoCC.mkDerivation {
   pname = "catppuccin-mako";
   version = src.revision;
 
-  src = sources.catppuccin-mako;
+  inherit src;
 
   installPhase = ''
     install -d "$out/share/mako/themes/catppuccin"
