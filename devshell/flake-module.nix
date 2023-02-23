@@ -5,7 +5,7 @@
       inherit inputs pkgs;
       modules = [
         {
-          packages = with pkgs; [ sops nixpkgs-fmt stylua statix deadnix ];
+          packages = with pkgs; [ sops npins nixpkgs-fmt stylua statix deadnix ];
           pre-commit.hooks = {
             nixpkgs-fmt.enable = true;
             stylua.enable = true;

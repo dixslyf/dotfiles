@@ -1,0 +1,159 @@
+{
+  "pins": {
+    "bspwm": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "baskerville",
+        "repo": "bspwm"
+      },
+      "branch": "master",
+      "revision": "527864d8716462e52f85a419f97a776c0643a68c",
+      "url": "https://github.com/baskerville/bspwm/archive/527864d8716462e52f85a419f97a776c0643a68c.tar.gz",
+      "hash": "0skpg82aczhsp602jykpcmz2516x69g76dji04gh96yappxh5lyb"
+    },
+    "fish": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "fish"
+      },
+      "branch": "main",
+      "revision": "b90966686068b5ebc9f80e5b90fdf8c02ee7a0ba",
+      "url": "https://github.com/catppuccin/fish/archive/b90966686068b5ebc9f80e5b90fdf8c02ee7a0ba.tar.gz",
+      "hash": "1v38qn98cnha3vhvnax0ifwfz4l3awb5v3mdykxlz5d4591mh2f1"
+    },
+    "gitui": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "gitui"
+      },
+      "branch": "master",
+      "revision": "ff1e802cfff3d5ff41b0d829a3df1da8087b1265",
+      "url": "https://github.com/catppuccin/gitui/archive/ff1e802cfff3d5ff41b0d829a3df1da8087b1265.tar.gz",
+      "hash": "0sca5wlb9babv4pl6jvslm6y3ld8l4nys7w566xf8mizr6v0dfby"
+    },
+    "gtk": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "gtk"
+      },
+      "branch": "main",
+      "revision": "41d54ae759aea317562cc23eab7745da46e18c3d",
+      "url": "https://github.com/catppuccin/gtk/archive/41d54ae759aea317562cc23eab7745da46e18c3d.tar.gz",
+      "hash": "0gm78gvzmk5ipnqpq9hwdczmmibilnwply66ljxgr2pv2b3kf4ks"
+    },
+    "mako": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "mako"
+      },
+      "branch": "main",
+      "revision": "64ef71633528b50e5475755e50071584b54fa291",
+      "url": "https://github.com/catppuccin/mako/archive/64ef71633528b50e5475755e50071584b54fa291.tar.gz",
+      "hash": "007zr906q7s31xgn9xw3jl8zdg5wapixva01qniclna1y0yxlqr7"
+    },
+    "mali": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "cadsondemak",
+        "repo": "mali"
+      },
+      "branch": "master",
+      "revision": "7e11de1301bf785e1b06c24816242ba52dde805f",
+      "url": "https://github.com/cadsondemak/mali/archive/7e11de1301bf785e1b06c24816242ba52dde805f.tar.gz",
+      "hash": "0vjz0l6rlv7ws92qk75c8c81j4841h1ssi1izzjm0xzcrkivds0q"
+    },
+    "papirus-folders": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "papirus-folders"
+      },
+      "branch": "main",
+      "revision": "fcf96737fffc343a1bf129732c37d19f2d77fa5c",
+      "url": "https://github.com/catppuccin/papirus-folders/archive/fcf96737fffc343a1bf129732c37d19f2d77fa5c.tar.gz",
+      "hash": "1ijfl68paqv2vbf1v3qjp99flcz36a00qip5v07nmzky6cdwha6z"
+    },
+    "polybar": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "polybar"
+      },
+      "branch": "main",
+      "revision": "9ee66f83335404186ce979bac32fcf3cd047396a",
+      "url": "https://github.com/catppuccin/polybar/archive/9ee66f83335404186ce979bac32fcf3cd047396a.tar.gz",
+      "hash": "040igkhrsgghrp5ni7zhglws3n8q6j7nc571d6gsvc9zr20d4ikd"
+    },
+    "rofi": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "rofi"
+      },
+      "branch": "main",
+      "revision": "5350da41a11814f950c3354f090b90d4674a95ce",
+      "url": "https://github.com/catppuccin/rofi/archive/5350da41a11814f950c3354f090b90d4674a95ce.tar.gz",
+      "hash": "15phrl9qlbzjxmp29hak3a5k015x60w2hxjif90q82vp55zjpnhc"
+    },
+    "sddm-sugar-candy": {
+      "type": "Git",
+      "repository": {
+        "type": "Git",
+        "url": "https://framagit.org/MarianArlt/sddm-sugar-candy.git"
+      },
+      "branch": "master",
+      "revision": "2b72ef6c6f720fe0ffde5ea5c7c48152e02f6c4f",
+      "url": null,
+      "hash": "1db4p2d0k5a6avr7dg9h1r7y9mx711ci5dgwmljqjb8pq5b0a22y"
+    },
+    "waybar": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "waybar"
+      },
+      "branch": "main",
+      "revision": "81c0e401d45263596dcdc441878739f95841e129",
+      "url": "https://github.com/catppuccin/waybar/archive/81c0e401d45263596dcdc441878739f95841e129.tar.gz",
+      "hash": "0if5sgwxx965g4ixkjxfqmv178913nzqijwdh1c1h1sb9n7v94xi"
+    },
+    "wlsunset": {
+      "type": "Git",
+      "repository": {
+        "type": "Git",
+        "url": "https://git.sr.ht/~kennylevinsen/wlsunset"
+      },
+      "branch": "master",
+      "revision": "cc9251d5c39ff3e4beb130306722d7b90d1031ab",
+      "url": null,
+      "hash": "1dyb5pr84sjyv2ai69zvj0xp7yaj4nbbb5ygm4fm8isyf38lhr8y"
+    },
+    "zathura": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "zathura"
+      },
+      "branch": "main",
+      "revision": "d85d8750acd0b0247aa10e0653998180391110a4",
+      "url": "https://github.com/catppuccin/zathura/archive/d85d8750acd0b0247aa10e0653998180391110a4.tar.gz",
+      "hash": "1hv9wzjyg34533qaxc5dc3gy8fcyvpvzcri2aip1kf4varnpcn75"
+    }
+  },
+  "version": 3
+}
