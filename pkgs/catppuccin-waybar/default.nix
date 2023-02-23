@@ -1,12 +1,12 @@
-{ inputs
+{ sources
 , stdenvNoCC
 , ...
 }:
 stdenvNoCC.mkDerivation rec {
   pname = "catppuccin-waybar";
-  version = src.lastModifiedDate;
+  version = src.revision;
 
-  src = inputs.catppuccin-waybar;
+  src = sources.catppuccin-waybar;
 
   installPhase = ''
     install -d "$out/share/waybar/themes/catppuccin"

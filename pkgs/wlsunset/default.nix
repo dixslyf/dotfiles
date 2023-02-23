@@ -1,4 +1,4 @@
-{ inputs
+{ sources
 , stdenv
 , meson
 , pkg-config
@@ -11,9 +11,9 @@
 }:
 stdenv.mkDerivation rec {
   pname = "wlsunset";
-  version = src.lastModifiedDate;
+  version = src.revision;
 
-  src = inputs.wlsunset;
+  src = sources.wlsunset;
 
   strictDeps = true;
   depsBuildBuild = [

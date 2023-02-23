@@ -53,7 +53,6 @@
       url = "tarball+https://discord.com/api/download?platform=linux&format=tar.gz";
       flake = false;
     };
-    pers-pkgs.url = "./pkgs";
   };
 
   outputs =
@@ -63,6 +62,7 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
         ./devshell/flake-module.nix
+        ./pkgs/flake-module.nix
         ./nixos/flake-module.nix
       ];
 

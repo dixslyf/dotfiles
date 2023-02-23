@@ -1,7 +1,9 @@
-{ inputs
+{ sources
 , bspwm
 , ...
 }:
-bspwm.overrideAttrs (_: {
-  src = inputs.bspwm;
+bspwm.overrideAttrs (_:
+let src = sources.bspwm; in {
+  inherit src;
+  version = src.revision;
 })

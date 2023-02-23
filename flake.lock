@@ -773,32 +773,6 @@
         "type": "github"
       }
     },
-    "pers-pkgs": {
-      "inputs": {
-        "bspwm": "bspwm",
-        "catppuccin-fish": "catppuccin-fish",
-        "catppuccin-gitui": "catppuccin-gitui",
-        "catppuccin-mako": "catppuccin-mako",
-        "catppuccin-papirus-folders": "catppuccin-papirus-folders",
-        "catppuccin-polybar": "catppuccin-polybar",
-        "catppuccin-rofi": "catppuccin-rofi",
-        "catppuccin-waybar": "catppuccin-waybar",
-        "catppuccin-zathura": "catppuccin-zathura",
-        "mali": "mali",
-        "sddm-sugar-candy": "sddm-sugar-candy",
-        "wlsunset": "wlsunset"
-      },
-      "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-h0c60gHvPZNUcKLG5ntOWszwUfs/XhNdSQVMR8n9LSw=",
-        "path": "/nix/store/vykv5lara0dyvws3gnq00f0430j7736s-source/pkgs",
-        "type": "path"
-      },
-      "original": {
-        "path": "/nix/store/vykv5lara0dyvws3gnq00f0430j7736s-source/pkgs",
-        "type": "path"
-      }
-    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": [
@@ -841,7 +815,6 @@
         "nil": "nil",
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs_2",
-        "pers-pkgs": "pers-pkgs",
         "rust-overlay": "rust-overlay_2",
         "sops-nix": "sops-nix"
       }

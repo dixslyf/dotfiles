@@ -1,13 +1,13 @@
-{ inputs
+{ sources
 , stdenv
 , getent
 , ...
 }:
 stdenv.mkDerivation rec {
   pname = "catppuccin-papirus-folders";
-  version = src.lastModifiedDate;
+  version = src.revision;
 
-  src = inputs.catppuccin-papirus-folders;
+  src = sources.catppuccin-papirus-folders;
 
   buildInputs = [ getent ];
 

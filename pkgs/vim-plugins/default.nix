@@ -1,4 +1,4 @@
-{ inputs
+{ sources
 , vimUtils
 ,
 }:
@@ -7,7 +7,7 @@ let
     vimUtils.buildVimPluginFrom2Nix rec {
       pname = name;
       version = src.lastModifiedDate;
-      src = builtins.getAttr name inputs;
+      src = builtins.getAttr name sources;
     };
   plugins = [ ];
 in

@@ -1,12 +1,12 @@
-{ inputs
+{ sources
 , stdenvNoCC
 , ...
 }:
 stdenvNoCC.mkDerivation rec {
   pname = "catppuccin-rofi-basic";
-  version = src.lastModifiedDate;
+  version = src.revision;
 
-  src = inputs.catppuccin-rofi;
+  src = sources.catppuccin-rofi;
 
   installPhase = ''
     CONFIG_RASI="basic/.config/rofi/config.rasi"
