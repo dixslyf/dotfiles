@@ -1,7 +1,8 @@
-{ inputs
+{ src
 , bspwm
 , ...
 }:
 bspwm.overrideAttrs (_: {
-  src = inputs.bspwm;
+  inherit src;
+  version = src.revision;
 })

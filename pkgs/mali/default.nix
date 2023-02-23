@@ -1,13 +1,13 @@
-{ inputs
+{ src
 , lib
 , stdenvNoCC
 , ...
 }:
-stdenvNoCC.mkDerivation rec {
+stdenvNoCC.mkDerivation {
   pname = "mali";
-  version = src.lastModifiedDate;
+  version = src.revision;
 
-  src = inputs.mali;
+  inherit src;
 
   installPhase = ''
     fontdir="$out/share/fonts/truetype"

@@ -22,7 +22,7 @@
         modules = [
           {
             nixpkgs.overlays = [
-              inputs.pers-pkgs.overlays.default
+              self.overlays.pers-pkgs
               inputs.rust-overlay.overlays.default
               inputs.neovim-nightly-overlay.overlay
               inputs.nil.overlays.default

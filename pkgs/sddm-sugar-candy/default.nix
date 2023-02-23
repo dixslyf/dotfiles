@@ -1,13 +1,13 @@
-{ inputs
+{ src
 , pkgs
 , stdenvNoCC
 , ...
 }:
-stdenvNoCC.mkDerivation rec {
+stdenvNoCC.mkDerivation {
   pname = "sddm-sugar-candy";
-  version = src.lastModifiedDate;
+  version = src.revision;
 
-  src = inputs.sddm-sugar-candy;
+  inherit src;
 
   installPhase = ''
     ${pkgs.imagemagick}/bin/convert -size 1920x1080 canvas:#363a4f Backgrounds/catppuccin.png

@@ -1,12 +1,12 @@
-{ inputs
+{ src
 , stdenvNoCC
 , ...
 }:
-stdenvNoCC.mkDerivation rec {
+stdenvNoCC.mkDerivation {
   pname = "catppuccin-zathura";
-  version = src.lastModifiedDate;
+  version = src.revision;
 
-  src = inputs.catppuccin-zathura;
+  inherit src;
 
   installPhase = ''
     install -d "$out/share/zathura/themes"

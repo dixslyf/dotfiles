@@ -1,12 +1,12 @@
-{ inputs
+{ src
 , stdenvNoCC
 , ...
 }:
-stdenvNoCC.mkDerivation rec {
+stdenvNoCC.mkDerivation {
   pname = "catppuccin-gitui";
-  version = src.lastModifiedDate;
+  version = src.revision;
 
-  src = inputs.catppuccin-gitui;
+  inherit src;
 
   installPhase = ''
     install -d "$out/share/gitui/"

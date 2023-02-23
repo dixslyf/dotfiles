@@ -1,4 +1,4 @@
-{ inputs
+{ src
 , stdenv
 , meson
 , pkg-config
@@ -9,11 +9,11 @@
 , wayland-protocols
 ,
 }:
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   pname = "wlsunset";
-  version = src.lastModifiedDate;
+  version = src.revision;
 
-  src = inputs.wlsunset;
+  inherit src;
 
   strictDeps = true;
   depsBuildBuild = [

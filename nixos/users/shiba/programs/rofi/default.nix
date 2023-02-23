@@ -7,7 +7,7 @@
     configPath = "${config.xdg.configHome}/rofi/home-manager.rasi";
     font = "Mali 16";
     terminal = "${pkgs.kitty}/bin/kitty";
-    theme = "${pkgs.pers-pkgs.catppuccin-rofi-basic}/share/rofi/themes/catppuccin-basic/catppuccin-macchiato.rasi";
+    theme = "${pkgs.pers-pkgs.catppuccin-rofi}/share/rofi/themes/catppuccin-basic/catppuccin-macchiato.rasi";
     extraConfig = {
       m = -1;
       steal-focus = true;
@@ -20,6 +20,6 @@
 
   xdg.configFile."rofi/config.rasi".text = ''
     @import "${config.programs.rofi.configPath}"
-    ${builtins.readFile "${pkgs.pers-pkgs.catppuccin-rofi-basic}/share/rofi/themes/catppuccin-basic/config.rasi"}
+    ${builtins.readFile "${pkgs.pers-pkgs.catppuccin-rofi}/share/rofi/themes/catppuccin-basic/config.rasi"}
   '';
 }
