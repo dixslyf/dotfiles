@@ -1,4 +1,8 @@
-_: {
+{ self, ... }: {
+  perSystem = { pkgs, ... }: {
+    packages = (self.overlays.pers-pkgs null pkgs).pers-pkgs;
+  };
+
   flake = {
     overlays.pers-pkgs = _: prev:
       let
