@@ -2,6 +2,8 @@ name: Cachix
 
 on:
   push:
+    branches:
+      - master
   workflow_dispatch:
     inputs:
       deploy:
