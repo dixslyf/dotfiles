@@ -62,8 +62,12 @@
       size = 14;
     };
     theme = {
-      package = pkgs.pers-pkgs.catppuccin-gtk-macchiato-mauve;
-      name = "Catppuccin-Macchiato-Mauve";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "mauve" ];
+        variant = "macchiato";
+        tweaks = [ "rimless" ];
+      };
+      name = "Catppuccin-Macchiato-Standard-Mauve-Rimless";
     };
     iconTheme = {
       package = pkgs.pers-pkgs.catppuccin-papirus-icon-theme.override {

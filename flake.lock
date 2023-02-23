@@ -90,18 +90,6 @@
         "type": "github"
       }
     },
-    "catppuccin-gtk-macchiato-mauve": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-M6BoZY0Kp06X7WE6x3Vg3V+NOkybHemoC34wXwCBUfk=",
-        "type": "file",
-        "url": "https://github.com/catppuccin/gtk/raw/v-0.2.7/Releases/Catppuccin-Macchiato-Mauve.zip"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://github.com/catppuccin/gtk/raw/v-0.2.7/Releases/Catppuccin-Macchiato-Mauve.zip"
-      }
-    },
     "catppuccin-mako": {
       "flake": false,
       "locked": {
@@ -790,7 +778,6 @@
         "bspwm": "bspwm",
         "catppuccin-fish": "catppuccin-fish",
         "catppuccin-gitui": "catppuccin-gitui",
-        "catppuccin-gtk-macchiato-mauve": "catppuccin-gtk-macchiato-mauve",
         "catppuccin-mako": "catppuccin-mako",
         "catppuccin-papirus-folders": "catppuccin-papirus-folders",
         "catppuccin-polybar": "catppuccin-polybar",
@@ -803,12 +790,12 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-h5MH/uob2B/kpt0NVmpz9CICfEmYX1ZOYK/iTQjhkJ8=",
-        "path": "/nix/store/7b93rib8mv9z67wzicrq23hd422czq82-source/pkgs",
+        "narHash": "sha256-h0c60gHvPZNUcKLG5ntOWszwUfs/XhNdSQVMR8n9LSw=",
+        "path": "/nix/store/vykv5lara0dyvws3gnq00f0430j7736s-source/pkgs",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/7b93rib8mv9z67wzicrq23hd422czq82-source/pkgs",
+        "path": "/nix/store/vykv5lara0dyvws3gnq00f0430j7736s-source/pkgs",
         "type": "path"
       }
     },
