@@ -1,7 +1,6 @@
-{
-  inputs,
-  stdenvNoCC,
-  ...
+{ inputs
+, stdenvNoCC
+, ...
 }:
 stdenvNoCC.mkDerivation rec {
   pname = "catppuccin-mako";

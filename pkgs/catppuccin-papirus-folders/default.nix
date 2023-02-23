@@ -1,8 +1,7 @@
-{
-  inputs,
-  stdenv,
-  getent,
-  ...
+{ inputs
+, stdenv
+, getent
+, ...
 }:
 stdenv.mkDerivation rec {
   pname = "catppuccin-papirus-folders";
@@ -10,7 +9,7 @@ stdenv.mkDerivation rec {
 
   src = inputs.catppuccin-papirus-folders;
 
-  buildInputs = [getent];
+  buildInputs = [ getent ];
 
   patchPhase = ''
     substituteInPlace ./papirus-folders --replace "getent" "${getent}/bin/getent"

@@ -1,8 +1,7 @@
-{
-  inputs,
-  lib,
-  stdenvNoCC,
-  ...
+{ inputs
+, lib
+, stdenvNoCC
+, ...
 }:
 stdenvNoCC.mkDerivation rec {
   pname = "mali";

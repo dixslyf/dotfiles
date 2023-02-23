@@ -1,48 +1,48 @@
-{
-  lib,
-  stdenv,
-  fetchFromGitHub,
-  meson,
-  pkg-config,
-  ninja,
-  wrapGAppsHook,
-  wayland,
-  wlroots,
-  gtkmm3,
-  libsigcxx,
-  jsoncpp,
-  scdoc,
-  spdlog,
-  gtk-layer-shell,
-  howard-hinnant-date,
-  libxkbcommon,
-  runTests ? true,
-  catch2,
-  traySupport ? true,
-  libdbusmenu-gtk3,
-  pulseSupport ? true,
-  libpulseaudio,
-  sndioSupport ? true,
-  sndio,
-  nlSupport ? true,
-  libnl,
-  udevSupport ? true,
-  udev,
-  evdevSupport ? true,
-  libevdev,
-  swaySupport ? true,
-  sway,
-  mpdSupport ? true,
-  libmpdclient,
-  rfkillSupport ? true,
-  upowerSupport ? true,
-  upower,
-  withMediaPlayer ? false,
-  glib,
-  gobject-introspection,
-  python3,
-  python38Packages,
-  playerctl,
+{ lib
+, stdenv
+, fetchFromGitHub
+, meson
+, pkg-config
+, ninja
+, wrapGAppsHook
+, wayland
+, wlroots
+, gtkmm3
+, libsigcxx
+, jsoncpp
+, scdoc
+, spdlog
+, gtk-layer-shell
+, howard-hinnant-date
+, libxkbcommon
+, runTests ? true
+, catch2
+, traySupport ? true
+, libdbusmenu-gtk3
+, pulseSupport ? true
+, libpulseaudio
+, sndioSupport ? true
+, sndio
+, nlSupport ? true
+, libnl
+, udevSupport ? true
+, udev
+, evdevSupport ? true
+, libevdev
+, swaySupport ? true
+, sway
+, mpdSupport ? true
+, libmpdclient
+, rfkillSupport ? true
+, upowerSupport ? true
+, upower
+, withMediaPlayer ? false
+, glib
+, gobject-introspection
+, python3
+, python38Packages
+, playerctl
+,
 }:
 stdenv.mkDerivation rec {
   pname = "waybar";
@@ -73,7 +73,7 @@ stdenv.mkDerivation rec {
   strictDeps = false;
 
   buildInputs = with lib;
-    [wayland wlroots gtkmm3 libsigcxx jsoncpp spdlog gtk-layer-shell howard-hinnant-date libxkbcommon]
+    [ wayland wlroots gtkmm3 libsigcxx jsoncpp spdlog gtk-layer-shell howard-hinnant-date libxkbcommon ]
     ++ optional traySupport libdbusmenu-gtk3
     ++ optional pulseSupport libpulseaudio
     ++ optional sndioSupport sndio
@@ -84,28 +84,28 @@ stdenv.mkDerivation rec {
     ++ optional mpdSupport libmpdclient
     ++ optional upowerSupport upower;
 
-  checkInputs = [catch2];
+  checkInputs = [ catch2 ];
   doCheck = runTests;
 
   mesonFlags =
     (
       lib.mapAttrsToList
-      (option: enable: "-D${option}=${
+        (option: enable: "-D${option}=${
         if enable
         then "enabled"
         else "disabled"
       }")
-      {
-        dbusmenu-gtk = traySupport;
-        pulseaudio = pulseSupport;
-        sndio = sndioSupport;
-        libnl = nlSupport;
-        libudev = udevSupport;
-        mpd = mpdSupport;
-        rfkill = rfkillSupport;
-        upower_glib = upowerSupport;
-        tests = runTests;
-      }
+        {
+          dbusmenu-gtk = traySupport;
+          pulseaudio = pulseSupport;
+          sndio = sndioSupport;
+          libnl = nlSupport;
+          libudev = udevSupport;
+          mpd = mpdSupport;
+          rfkill = rfkillSupport;
+          upower_glib = upowerSupport;
+          tests = runTests;
+        }
     )
     ++ [
       "-Dsystemd=disabled"
@@ -122,7 +122,7 @@ stdenv.mkDerivation rec {
   meta = with lib; {
     description = "Highly customizable Wayland bar for Sway and Wlroots based compositors";
     license = licenses.mit;
-    maintainers = with maintainers; [FlorianFranzen minijackson synthetica lovesegfault];
+    maintainers = with maintainers; [ FlorianFranzen minijackson synthetica lovesegfault ];
     platforms = platforms.unix;
     homepage = "https://github.com/alexays/waybar";
   };

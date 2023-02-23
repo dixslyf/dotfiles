@@ -1,15 +1,13 @@
-{
-  inputs,
-  lib,
-  stdenv,
-  fetchFromSourcehut,
-  meson,
-  pkg-config,
-  ninja,
-  wayland-scanner,
-  scdoc,
-  wayland,
-  wayland-protocols,
+{ inputs
+, stdenv
+, meson
+, pkg-config
+, ninja
+, wayland-scanner
+, scdoc
+, wayland
+, wayland-protocols
+,
 }:
 stdenv.mkDerivation rec {
   pname = "wlsunset";
@@ -21,6 +19,6 @@ stdenv.mkDerivation rec {
   depsBuildBuild = [
     pkg-config
   ];
-  nativeBuildInputs = [meson pkg-config ninja wayland-scanner scdoc];
-  buildInputs = [wayland wayland-protocols];
+  nativeBuildInputs = [ meson pkg-config ninja wayland-scanner scdoc ];
+  buildInputs = [ wayland wayland-protocols ];
 }

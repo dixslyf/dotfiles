@@ -1,8 +1,7 @@
-{
-  inputs,
-  pkgs,
-  stdenvNoCC,
-  ...
+{ inputs
+, pkgs
+, stdenvNoCC
+, ...
 }:
 stdenvNoCC.mkDerivation rec {
   pname = "sddm-sugar-candy";
