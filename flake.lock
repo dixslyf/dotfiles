@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "bspwm": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1668863273,
+        "narHash": "sha256-y9MC+73KmwQfAVE2c14y3YQifmV3eimAuRp+pgR6d2o=",
+        "owner": "baskerville",
+        "repo": "bspwm",
+        "rev": "527864d8716462e52f85a419f97a776c0643a68c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "baskerville",
+        "repo": "bspwm",
+        "type": "github"
+      }
+    },
     "cachix-deploy": {
       "inputs": {
         "darwin": "darwin",
@@ -771,6 +787,7 @@
     },
     "pers-pkgs": {
       "inputs": {
+        "bspwm": "bspwm",
         "catppuccin-fish": "catppuccin-fish",
         "catppuccin-gitui": "catppuccin-gitui",
         "catppuccin-gtk-macchiato-mauve": "catppuccin-gtk-macchiato-mauve",
@@ -783,17 +800,16 @@
         "discord": "discord",
         "mali": "mali",
         "sddm-sugar-candy": "sddm-sugar-candy",
-        "tint-nvim": "tint-nvim",
         "wlsunset": "wlsunset"
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-f4dC38HUC35MW8WykTeEF4llIr3NZKmBGlX1N4opLBA=",
-        "path": "/nix/store/2d3biph6p3b9pfghbkhpzv3pwkddxszs-source/pkgs",
+        "narHash": "sha256-IPfKD/KbWod/amSdveV8FzubV7cLZpQbcGgI4ydCnko=",
+        "path": "/nix/store/7lpm2vp9brvm5gx0gdiza7q5hn8i9aw0-source/pkgs",
         "type": "path"
       },
       "original": {
-        "path": "/nix/store/2d3biph6p3b9pfghbkhpzv3pwkddxszs-source/pkgs",
+        "path": "/nix/store/7lpm2vp9brvm5gx0gdiza7q5hn8i9aw0-source/pkgs",
         "type": "path"
       }
     },
@@ -923,22 +939,6 @@
       "original": {
         "owner": "Mic92",
         "repo": "sops-nix",
-        "type": "github"
-      }
-    },
-    "tint-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1664292894,
-        "narHash": "sha256-4I+48RvyDyXR6+Slqqsx0fWMG9s9AbgnzTDkmm2Kyzk=",
-        "owner": "levouh",
-        "repo": "tint.nvim",
-        "rev": "f6a259861ba8c0d88afc2ef05140ddf345eb0296",
-        "type": "github"
-      },
-      "original": {
-        "owner": "levouh",
-        "repo": "tint.nvim",
         "type": "github"
       }
     },
