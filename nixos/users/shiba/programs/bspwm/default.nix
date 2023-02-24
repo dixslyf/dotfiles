@@ -43,7 +43,6 @@
 
       systemctl --user start bspwm-session.target
     '';
-    startupPrograms = [ "redshift" ];
   };
 
   # home-manager starts sxhkd through ~/.xsession, but since xsession.enable = false,
