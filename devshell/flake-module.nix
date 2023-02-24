@@ -6,11 +6,18 @@
       modules = [
         {
           packages = with pkgs; [ sops npins nixpkgs-fmt stylua statix deadnix ];
-          pre-commit.hooks = {
-            nixpkgs-fmt.enable = true;
-            stylua.enable = true;
-            statix.enable = true;
-            deadnix.enable = true;
+          pre-commit = {
+            hooks = {
+              nixpkgs-fmt = {
+                enable = true;
+                excludes = [ "^pkgs/npins/" ];
+              };
+              statix.enable = true;
+              stylua.enable = true;
+              deadnix.enable = true;
+            };
+
+            settings.statix.ignore = [ "pkgs/npins/" ];
           };
         }
       ];
