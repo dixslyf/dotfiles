@@ -40,6 +40,8 @@
       if [ "$(bspc query -M | wc -l)" -eq "2" ]; then
           bspc monitor HDMI-1 -d h1 h2 h3 h4 h5 h6 h7 h8 h9 h0
       fi
+
+      systemctl --user start bspwm-session.target
     '';
     startupPrograms = [ "flameshot" "redshift" ];
   };
@@ -72,6 +74,15 @@
       "XF86AudioMute" = "pamixer --toggle-mute";
       "super + r" = "rofi -show drun";
       "Print" = "flameshot gui";
+    };
+  };
+
+  systemd.user.targets.bspwm-session = {
+    Unit = {
+      Description = "Bspwm session";
+      BindsTo = [ "graphical-session.target" ];
+      Wants = [ "graphical-session-pre.target" ];
+      After = [ "graphical-session-pre.target" ];
     };
   };
 }
