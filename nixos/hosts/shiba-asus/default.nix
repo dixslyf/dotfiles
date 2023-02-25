@@ -139,10 +139,8 @@
     displayManager = {
       # disable external monitor in SDDM
       setupCommands = "${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-1 --off";
-      # automatically select the display configuration using autorandr
-      # and set the background color of the root window
+      # set the background color of the root window
       sessionCommands = ''
-        ${pkgs.autorandr}/bin/autorandr --change
         ${pkgs.hsetroot}/bin/hsetroot -solid "#363a4f"
       '';
       sddm = {

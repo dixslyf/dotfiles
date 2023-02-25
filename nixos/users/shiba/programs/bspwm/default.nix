@@ -37,11 +37,8 @@
       pointer_follows_monitor = true;
     };
     extraConfig = ''
-      if [ "$(bspc query -M | wc -l)" -eq "2" ]; then
-          bspc monitor HDMI-1 -d h1 h2 h3 h4 h5 h6 h7 h8 h9 h0
-      fi
-
       systemctl --user start bspwm-session.target
+      autorandr --change
     '';
   };
 
