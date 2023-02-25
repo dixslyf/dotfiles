@@ -1,4 +1,11 @@
-{ pkgs, ... }: {
+{ config
+, ...
+}:
+
+let
+  bspwmPackage = config.xsession.windowManager.bspwm.package;
+in
+{
   programs.autorandr = {
     enable = true;
     profiles = {
@@ -20,13 +27,12 @@
         };
         hooks = {
           preswitch = ''
-            if ${pkgs.wmctrl}/bin/wmctrl -m | ${pkgs.gnugrep}/bin/grep -q "bspwm"; then
-              for node_id in $(${pkgs.bspwm}/bin/bspc query -N -m HDMI-1); do
-                ${pkgs.bspwm}/bin/bspc node "$node_id" -m eDP-1
+            if systemctl is-active --user bspwm-session.target; then
+              for node_id in $(${bspwmPackage}/bin/bspc query -N -m HDMI-1); do
+                ${bspwmPackage}/bin/bspc node "$node_id" -m eDP-1
               done
-              ${pkgs.bspwm}/bin/bspc monitor HDMI-1 -r
-
-              ${pkgs.util-linux}/bin/kill $(${pkgs.xorg.xprop}/bin/xprop -name "polybar-HDMI-1_HDMI-1" _NET_WM_PID | ${pkgs.coreutils}/bin/cut -d " " -f 3)
+              systemctl stop --user polybar-HDMI-1.service
+              ${bspwmPackage}/bin/bspc monitor HDMI-1 -r
             fi
           '';
         };
@@ -53,12 +59,9 @@
         };
         hooks = {
           postswitch = ''
-            if ${pkgs.wmctrl}/bin/wmctrl -m | ${pkgs.gnugrep}/bin/grep -q "bspwm"; then
-              ${pkgs.bspwm}/bin/bspc monitor HDMI-1 -d h1 h2 h3 h4 h5 h6 h7 h8 h9 h0
-              if ! ${pkgs.xorg.xwininfo}/bin/xwininfo -name "polybar-HDMI-1_HDMI-1"; then
-                ${pkgs.polybar}/bin/polybar HDMI-1 -r &
-                ${pkgs.bspwm}/bin/bspc config -m "HDMI-1" top_padding 40
-              fi
+            if systemctl is-active --user bspwm-session.target; then
+              ${bspwmPackage}/bin/bspc monitor HDMI-1 -d h1 h2 h3 h4 h5 h6 h7 h8 h9 h0
+              systemctl start --user polybar-HDMI-1.service
             fi
           '';
         };
