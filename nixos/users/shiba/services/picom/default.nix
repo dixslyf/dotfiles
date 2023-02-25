@@ -1,4 +1,4 @@
-_: {
+{ lib, ... }: {
   services.picom = {
     enable = true;
     backend = "glx";
@@ -29,5 +29,13 @@ _: {
       use-ewmh-active-win = true;
       unredir-if-possible = true;
     };
+  };
+
+
+  # run only in bspwm
+  systemd.user.services.picom = {
+    Unit.After = lib.mkForce [ "bspwm-session.target" ];
+    Unit.PartOf = lib.mkForce [ "bspwm-session.target" ];
+    Install.WantedBy = lib.mkForce [ "bspwm-session.target" ];
   };
 }
