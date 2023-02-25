@@ -10,14 +10,14 @@
             hooks = {
               nixpkgs-fmt = {
                 enable = true;
-                excludes = [ "^pkgs/npins/" ];
+                excludes = [ "^pkgs/npins/" "^pkgs/vim-plugins/npins/" ];
               };
               statix.enable = true;
               stylua.enable = true;
               deadnix.enable = true;
             };
 
-            settings.statix.ignore = [ "pkgs/npins/" ];
+            settings.statix.ignore = [ "pkgs/npins/" "pkgs/vim-plugins/npins/" ];
           };
         }
       ];

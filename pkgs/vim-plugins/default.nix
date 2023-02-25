@@ -1,19 +1,14 @@
-{ sources
-, vimUtils
-,
+{ vimUtils
+, ...
 }:
 let
-  build = name:
-    vimUtils.buildVimPluginFrom2Nix rec {
-      pname = name;
-      version = src.revision;
-      src = builtins.getAttr name sources;
-    };
-  plugins = [ ];
+  sources = import ./npins;
+  build = name: value: vimUtils.buildVimPluginFrom2Nix {
+    pname = name;
+    version = value.revision;
+    src = value;
+  };
 in
-builtins.listToAttrs (map
-  (p: {
-    name = p;
-    value = build p;
-  })
-  plugins)
+builtins.mapAttrs
+  build
+  sources

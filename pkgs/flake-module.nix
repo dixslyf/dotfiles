@@ -18,7 +18,7 @@
             inherit (npinsPackages) catppuccin-papirus-folders;
             catppuccin-papirus-folders-source = sources.catppuccin-papirus-folders;
           };
-          # vimPlugins = prev.lib.recurseIntoAttrs (prev.callPackage ./vim-plugins { inherit sources; });
+          # vimPlugins = prev.lib.recurseIntoAttrs (prev.callPackage ./vim-plugins { });
           waybar = prev.callPackage ./waybar { };
         };
       };
