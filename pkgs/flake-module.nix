@@ -1,6 +1,6 @@
-{ self, ... }: {
+{ self, inputs, ... }: {
   perSystem = { pkgs, ... }: {
-    packages = (self.overlays.pers-pkgs null pkgs).pers-pkgs;
+    packages = inputs.flake-utils.lib.flattenTree (self.overlays.pers-pkgs null pkgs).pers-pkgs;
   };
 
   flake = {
