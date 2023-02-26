@@ -25,7 +25,7 @@ jobs:
           printf '%s' "matrix=$sources" >> "$GITHUB_OUTPUT"
   update-npins:
     needs: generate-npins-matrices
-    if: needs.generate-npins-matrices.result == 'success' && needs.generate-npins-matrices.outputs.npins-matrix != '[]'
+    if: ${{ needs.generate-npins-matrices.result == 'success' && needs.generate-npins-matrices.outputs.npins-matrix != '[]' }}
     strategy:
       max-parallel: 1
       matrix:
@@ -36,7 +36,7 @@ jobs:
       pin: ${{ matrix.pin }}
   update-vim-plugins-npins:
     needs: [generate-npins-matrices, update-npins]
-    if: needs.generate-npins-matrices.result == 'success' && needs.generate-npins-matrices.outputs.vim-plugins-npins-matrix != '[]'
+    if: ${{ needs.generate-npins-matrices.result == 'success' && needs.generate-npins-matrices.outputs.vim-plugins-npins-matrix != '[]' }}
     strategy:
       max-parallel: 1
       matrix:
@@ -48,7 +48,7 @@ jobs:
   update-flake:
     runs-on: ubuntu-22.04
     needs: update-vim-plugins-npins
-    if: !cancelled()
+    if: ${{ !cancelled() }}
     steps:
       - uses: actions/checkout@v3.1.0
         with:
