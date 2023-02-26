@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3.1.0
         with:
-          ref: ${{ github.head_ref }}
+          ref: ${{ github.ref }}
       - uses: cachix/install-nix-action@v18
         with:
           extra_nix_config: |
