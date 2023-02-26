@@ -21,6 +21,7 @@
       ltex-ls
       statix
       deadnix
+      actionlint
       (rust-bin.stable.latest.default.override {
         extensions = [ "rust-src" "rust-analyzer" ];
       })
