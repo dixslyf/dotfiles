@@ -42,6 +42,7 @@ jobs:
     needs: [generate-npins-matrices, update-flake]
     if: ${{ needs.generate-npins-matrices.result == 'success' && needs.generate-npins-matrices.outputs.npins-matrix != '[]' }}
     strategy:
+      fail-fast: false
       max-parallel: 1
       matrix:
         pin: ${{ fromJson(needs.generate-npins-matrices.outputs.npins-matrix) }}
@@ -53,6 +54,7 @@ jobs:
     needs: [generate-npins-matrices, update-flake, update-npins]
     if: ${{ needs.generate-npins-matrices.result == 'success' && needs.generate-npins-matrices.outputs.vim-plugins-npins-matrix != '[]' }}
     strategy:
+      fail-fast: false
       max-parallel: 1
       matrix:
         pin: ${{ fromJson(needs.generate-npins-matrices.outputs.vim-plugins-npins-matrix) }}
