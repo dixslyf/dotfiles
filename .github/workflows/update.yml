@@ -25,8 +25,8 @@ jobs:
           printf '%s' "matrix=$sources" >> "$GITHUB_OUTPUT"
   update-npins:
     needs: generate-npins-matrices
-    concurrency: update
     strategy:
+      max-parallel: 1
       matrix:
         pin: ${{ fromJson(needs.generate-npins-matrices.outputs.npins-matrix) }}
     uses: ./.github/workflows/update-npins.yml
@@ -34,9 +34,9 @@ jobs:
       npins_dir: "pkgs/npins/"
       pin: ${{ matrix.pin }}
   update-vim-plugins-npins:
-    needs: generate-npins-matrices
-    concurrency: update
+    needs: [generate-npins-matrices, update-npins]
     strategy:
+      max-parallel: 1
       matrix:
         pin: ${{ fromJson(needs.generate-npins-matrices.outputs.vim-plugins-npins-matrix) }}
     uses: ./.github/workflows/update-npins.yml
@@ -44,8 +44,8 @@ jobs:
       npins_dir: "pkgs/vim-plugins/npins/"
       pin: ${{ matrix.pin }}
   update-flake:
-    concurrency: update
     runs-on: ubuntu-22.04
+    needs: update-vim-plugins-npins
     steps:
       - uses: actions/checkout@v3.1.0
       - uses: cachix/install-nix-action@v18
