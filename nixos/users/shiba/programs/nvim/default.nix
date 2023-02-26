@@ -23,6 +23,7 @@
       deadnix
       actionlint
       yamllint
+      nodePackages.prettier
       (rust-bin.stable.latest.default.override {
         extensions = [ "rust-src" "rust-analyzer" ];
       })
