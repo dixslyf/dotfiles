@@ -1,0 +1,64 @@
+name: Update
+
+on:
+  schedule:
+    - cron: '0 0 1,15 * *' # run on the 1st and 15th of every month
+  workflow_dispatch:
+
+jobs:
+  update-flake:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3.1.0
+        with:
+          ref: ${{ github.ref }}
+      - uses: cachix/install-nix-action@v18
+        with:
+          extra_nix_config: |
+            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+      - name: Update flake inputs
+        run: nix flake update "$GITHUB_WORKSPACE"
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "chore(flake): update inputs"
+  generate-npins-matrices:
+    runs-on: ubuntu-22.04
+    outputs:
+      npins-matrix: ${{ steps.npins-matrix.outputs.matrix }}
+      vim-plugins-npins-matrix: ${{ steps.vim-plugins-npins-matrix.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v3.1.0
+      - id: npins-matrix
+        name: Generate npins matrix
+        run: |
+          sources=$(jq -c '.pins | keys_unsorted' "$GITHUB_WORKSPACE/pkgs/npins/sources.json")
+          printf '%s' "matrix=$sources" >> "$GITHUB_OUTPUT"
+      - id: vim-plugins-npins-matrix
+        name: Generate Vim plugins npins matrix
+        run: |
+          sources=$(jq -c '.pins | keys_unsorted' "$GITHUB_WORKSPACE/pkgs/vim-plugins/npins/sources.json")
+          printf '%s' "matrix=$sources" >> "$GITHUB_OUTPUT"
+  update-npins:
+    needs: [generate-npins-matrices, update-flake]
+    if: ${{ needs.generate-npins-matrices.result == 'success' && needs.generate-npins-matrices.outputs.npins-matrix != '[]' }}
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        pin: ${{ fromJson(needs.generate-npins-matrices.outputs.npins-matrix) }}
+    uses: ./.github/workflows/update-npins.yml
+    with:
+      npins_dir: "pkgs/npins/"
+      pin: ${{ matrix.pin }}
+  update-vim-plugins-npins:
+    needs: [generate-npins-matrices, update-flake, update-npins]
+    if: ${{ needs.generate-npins-matrices.result == 'success' && needs.generate-npins-matrices.outputs.vim-plugins-npins-matrix != '[]' }}
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        pin: ${{ fromJson(needs.generate-npins-matrices.outputs.vim-plugins-npins-matrix) }}
+    uses: ./.github/workflows/update-npins.yml
+    with:
+      npins_dir: "pkgs/vim-plugins/npins/"
+      pin: ${{ matrix.pin }}
