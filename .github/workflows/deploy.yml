@@ -20,9 +20,9 @@ jobs:
           workflow_conclusion: "completed"
           search_artifacts: true
           if_no_artifact_found: ignore
-      - if: ${{ !steps.download-spec.outputs.found_artifact }}
+      - if: ${{ !fromJson(steps.download-spec.outputs.found_artifact) }}  # https://github.com/actions/runner/issues/2238
         uses: actions/checkout@v3
-      - if: ${{ !steps.download-spec.outputs.found_artifact }}
+      - if: ${{ !fromJson(steps.download-spec.outputs.found_artifact) }}  # see link above
         uses: ./.github/actions/build
         with:  # TODO: find a way to reuse the definition from `build.yml`
           github-token: ${{ secrets.GITHUB_TOKEN }}
