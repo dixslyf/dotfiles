@@ -1,0 +1,44 @@
+name: "Build"
+description: "Builds a flake output and pushes the build output(s) to Cachix"
+inputs:
+  github-token:
+    description: "The GitHub token"
+    required: false
+    type: string
+  cachix-auth-token:
+    description: "The authentication token for Cachix"
+    required: true
+    type: string
+  flake-path:
+    description: "The path to the flake. The path must start with either `/` or `./`. Defaults to $GITHUB_WORKSPACE."
+    required: false
+    tyoe: string
+    default: "$GITHUB_WORKSPACE"
+  flake-output:
+    description: "The flake output to build"
+    required: true
+    type: string
+  cachix-extra-pull-names:
+    description: "Comma-separated list of names for extra cachix caches to pull/substitute"
+    required: false
+    type: string
+  cachix-skip-push:
+    description: "Whether to skip pushing build results"
+    required: false
+    default: false
+
+runs:
+  using: composite
+  steps:
+    - uses: cachix/install-nix-action@v19
+      with:
+        github_access_token: ${{ inputs.github-token }}
+    - uses: cachix/cachix-action@v12
+      with:
+        name: playernamehere-nixos
+        authToken: ${{ inputs.cachix-auth-token }}
+        extraPullNames: ${{ inputs.cachix-extra-pull-names }}
+        skipPush: ${{ inputs.cachix-skip-push }}
+    - name: Build
+      shell: bash
+      run: nix build --print-build-logs ${{ inputs.flake-path }}#${{ inputs.flake-output }}
