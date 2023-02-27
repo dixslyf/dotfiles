@@ -1,0 +1,46 @@
+name: Build flake outputs and push to Cachix
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check-flake:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3.1.0
+      - uses: cachix/install-nix-action@v18
+        with:
+          extra_nix_config: |
+            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+      - name: Check
+        run: nix flake check --keep-going
+  build:
+    runs-on: ubuntu-22.04
+    needs: check-flake
+    strategy:
+      fail-fast: false
+      matrix:
+        build:
+          - flake-output: "devShells.x86_64-linux.default"
+            cachix-extra-pull-names: "devenv"
+          - flake-output: "cachix-deploy-spec"
+            upload-artifact: true
+            artifact-name: deploy-spec-${{ github.sha }}
+            cachix-extra-pull-names: "nix-gaming, hyprland, nix-community"
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/build  # from the checked out repo
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          flake-output: ${{ matrix.build.flake-output }}
+          cachix-extra-pull-names: ${{ matrix.build.cachix-extra-pull-names }}
+          upload-artifact: ${{ matrix.build.upload-artifact }}
+          artifact-name: ${{ matrix.build.artifact-name }}
