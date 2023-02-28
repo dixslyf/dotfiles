@@ -1,0 +1,102 @@
+name: Cachix
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+    inputs:
+      deploy:  # When enabled, only the NixOS configuration is built (if needed)
+        description: "Deploy the NixOS configuration"
+        required: true
+        type: boolean
+        default: false
+
+# Builds and deployments are in separate concurrency groups.
+# Builds can cancel other in-progress builds on the same ref.
+# Deployments will not cancel other in-progress deployments (but will cancel existing pending deployments),
+# no matter what ref.
+concurrency:
+  group: ${{ github.workflow }}-${{ inputs.deploy && 'deploy' || 'build' }}${{ inputs.deploy && '' || format('-{0}', github.ref) }}
+  cancel-in-progress: ${{ !inputs.deploy }}
+
+env:
+  artifact-name: deploy-spec-${{ github.sha }}
+
+jobs:
+  check-flake:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3.1.0
+      - uses: cachix/install-nix-action@v18
+        with:
+          extra_nix_config: |
+            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+      - name: Check flake
+        run: nix flake check --keep-going
+  build-others:
+    runs-on: ubuntu-22.04
+    needs: check-flake
+    strategy:
+      fail-fast: false
+      matrix:
+        build:
+          - flake-output: "devShells.x86_64-linux.default"
+            cachix-extra-pull-names: "devenv"
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build ${{ matrix.build.flake-output }}
+        uses: ./.github/actions/build  # from the checked out repo
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          flake-output: ${{ matrix.build.flake-output }}
+          cachix-extra-pull-names: ${{ matrix.build.cachix-extra-pull-names }}
+  build-nixos:
+    runs-on: ubuntu-22.04
+    needs: check-flake
+    steps:
+      - id: download-spec
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          name: ${{ env.artifact-name }}
+          commit: ${{ github.sha }}
+          search_artifacts: true
+          if_no_artifact_found: ignore
+      - if: ${{ !fromJson(steps.download-spec.outputs.found_artifact) }}  # https://github.com/actions/runner/issues/2238
+        uses: actions/checkout@v3
+      - name: Build deploy specification
+        if: ${{ !fromJson(steps.download-spec.outputs.found_artifact) }}
+        uses: ./.github/actions/build
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          flake-output: "cachix-deploy-spec"
+          cachix-extra-pull-names: "nix-gaming, hyprland, nix-community"
+      - if: ${{ !fromJson(steps.download-spec.outputs.found_artifact) }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ env.artifact-name }}
+          path: ./result
+  deploy:
+    runs-on: ubuntu-22.04
+    needs: build-nixos
+    if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.deploy }}
+    steps:
+      - uses: dawidd6/action-download-artifact@v2
+        with:
+          name: ${{ env.artifact-name }}
+          commit: ${{ github.sha }}
+          search_artifacts: true
+      - uses: cachix/install-nix-action@v19
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: cachix/cachix-action@v12
+        with:
+          name: playernamehere-nixos
+          skipPush: true
+      - name: Deploy
+        env:
+          CACHIX_ACTIVATE_TOKEN: "${{ secrets.CACHIX_ACTIVATE_TOKEN }}"
+        run: |
+          cachix deploy activate ./result
