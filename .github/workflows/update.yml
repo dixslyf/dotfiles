@@ -17,7 +17,7 @@ jobs:
           extra_nix_config: |
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
       - name: Update flake inputs
-        run: nix flake update "$GITHUB_WORKSPACE"
+        run: nix flake update
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "chore(flake): update inputs"
@@ -31,12 +31,12 @@ jobs:
       - id: npins-matrix
         name: Generate npins matrix
         run: |
-          sources=$(jq -c '.pins | keys_unsorted' "$GITHUB_WORKSPACE/pkgs/npins/sources.json")
+          sources=$(jq -c '.pins | keys_unsorted' "pkgs/npins/sources.json")
           printf '%s' "matrix=$sources" >> "$GITHUB_OUTPUT"
       - id: vim-plugins-npins-matrix
         name: Generate Vim plugins npins matrix
         run: |
-          sources=$(jq -c '.pins | keys_unsorted' "$GITHUB_WORKSPACE/pkgs/vim-plugins/npins/sources.json")
+          sources=$(jq -c '.pins | keys_unsorted' "pkgs/vim-plugins/npins/sources.json")
           printf '%s' "matrix=$sources" >> "$GITHUB_OUTPUT"
   update-npins:
     needs: [generate-npins-matrices, update-flake]
