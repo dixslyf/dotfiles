@@ -21,7 +21,7 @@ jobs:
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
       - name: Check
         run: nix flake check --keep-going
-  build:
+  build-others:
     runs-on: ubuntu-22.04
     needs: check-flake
     strategy:
@@ -30,10 +30,6 @@ jobs:
         build:
           - flake-output: "devShells.x86_64-linux.default"
             cachix-extra-pull-names: "devenv"
-          - flake-output: "cachix-deploy-spec"
-            upload-artifact: true
-            artifact-name: deploy-spec-${{ github.sha }}
-            cachix-extra-pull-names: "nix-gaming, hyprland, nix-community"
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/build  # from the checked out repo
@@ -42,5 +38,27 @@ jobs:
           cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
           flake-output: ${{ matrix.build.flake-output }}
           cachix-extra-pull-names: ${{ matrix.build.cachix-extra-pull-names }}
-          upload-artifact: ${{ matrix.build.upload-artifact }}
-          artifact-name: ${{ matrix.build.artifact-name }}
+  build-nixos:
+    runs-on: ubuntu-22.04
+    needs: check-flake
+    env:
+      artifact-name: deploy-spec-${{ github.sha }}
+    steps:
+      - id: download-spec
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          name: ${{ env.artifact-name }}
+          commit: ${{ github.sha }}
+          search_artifacts: true
+          if_no_artifact_found: ignore
+      - if: ${{ !fromJson(steps.download-spec.outputs.found_artifact) }}  # https://github.com/actions/runner/issues/2238
+        uses: actions/checkout@v3
+      - if: ${{ !fromJson(steps.download-spec.outputs.found_artifact) }}
+        uses: ./.github/actions/build
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          flake-output: "cachix-deploy-spec"
+          cachix-extra-pull-names: "nix-gaming, hyprland, nix-community"
+          upload-artifact: true
+          artifact-name: ${{ env.artifact-name }}
