@@ -5,6 +5,8 @@ on:
     - cron: '0 0 1,15 * *' # run on the 1st and 15th of every month
   workflow_dispatch:
 
+run-name: Update flake inputs and npins
+
 env:
   nix-install-url: https://releases.nixos.org/nix/nix-2.13.3/install
 
