@@ -34,6 +34,7 @@ jobs:
           matrix=$(jq -c -s -L .github/workflows "$filter" pkgs/npins/sources.json pkgs/vim-plugins/npins/sources.json)
           printf '%s' "matrix=$matrix" >> "$GITHUB_OUTPUT"
   update-npins:
+    runs-on: ubuntu-22.04
     needs: [generate-npins-matrix, update-flake]
     if: ${{ needs.generate-npins-matrix.result == 'success' && needs.generate-npins-matrix.outputs.npins-matrix != '[]' }}
     strategy:
@@ -41,7 +42,13 @@ jobs:
       max-parallel: 1
       matrix:
         pin: ${{ fromJson(needs.generate-npins-matrix.outputs.npins-matrix) }}
-    uses: ./.github/workflows/update-npins.yml
-    with:
-      npins_dir: ${{ matrix.pin.npins-dir }}
-      pin: ${{ matrix.pin.name }}
+    steps:
+      - uses: actions/checkout@v3.1.0
+      - uses: cachix/install-nix-action@v19
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update ${{ matrix.pin.name }}
+        run: nix develop --command npins -d "${{ matrix.pin.npins-dir }}" update ${{ matrix.pin.name }}
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "chore(pkgs): update ${{ matrix.pin.name }}"
