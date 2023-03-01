@@ -5,6 +5,9 @@ on:
     - cron: '0 0 1,15 * *' # run on the 1st and 15th of every month
   workflow_dispatch:
 
+env:
+  nix-install-url: https://releases.nixos.org/nix/nix-2.13.3/install
+
 jobs:
   update-flake:
     runs-on: ubuntu-22.04
@@ -15,6 +18,7 @@ jobs:
       - uses: cachix/install-nix-action@v19
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
+          install_url: ${{ env.nix-install-url }}
       - name: Update flake inputs
         run: nix flake update
       - uses: stefanzweifel/git-auto-commit-action@v4
@@ -47,6 +51,7 @@ jobs:
       - uses: cachix/install-nix-action@v19
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
+          install_url: ${{ env.nix-install-url }}
       - name: Update ${{ matrix.pin.name }}
         run: nix develop --command npins -d "${{ matrix.pin.npins-dir }}" update ${{ matrix.pin.name }}
       - uses: stefanzweifel/git-auto-commit-action@v4

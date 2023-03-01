@@ -33,6 +33,7 @@ runs:
     - uses: cachix/install-nix-action@v19
       with:
         github_access_token: ${{ inputs.github-token }}
+        install_url: https://releases.nixos.org/nix/nix-2.13.3/install
     - uses: cachix/cachix-action@v12
       with:
         name: playernamehere-nixos

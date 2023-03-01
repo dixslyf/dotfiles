@@ -22,6 +22,7 @@ concurrency:
 
 env:
   artifact-name: deploy-spec-${{ github.sha }}
+  nix-install-url: https://releases.nixos.org/nix/nix-2.13.3/install
 
 jobs:
   check-flake:
@@ -32,6 +33,7 @@ jobs:
         with:
           extra_nix_config: |
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+          install_url: ${{ env.nix-install-url }}
       - name: Check flake
         run: nix flake check --keep-going
   build-others:
@@ -93,6 +95,7 @@ jobs:
       - uses: cachix/install-nix-action@v19
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
+          install_url: ${{ env.nix-install-url }}
       - uses: cachix/cachix-action@v12
         with:
           name: playernamehere-nixos
