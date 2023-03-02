@@ -23,11 +23,26 @@ in
 
   flake = {
     homeConfigurations = withSystem "x86_64-linux"
-      ({ pkgs, ... }: {
-        shiba = inputs.home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = homeUsers.shiba.imports;
-        };
-      });
+      ({ pkgs, ... }:
+        let
+          mkHomeManagerConfiguration = username: inputs.home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            modules = homeUsers.${username}.imports ++ [
+              {
+                home = {
+                  inherit username;
+                  homeDirectory = "/home/${username}";
+                };
+              }
+            ];
+            extraSpecialArgs = {
+              inherit inputs;
+            };
+          };
+        in
+        {
+          shiba = mkHomeManagerConfiguration "shiba";
+        }
+      );
   };
 }
