@@ -40,10 +40,11 @@ in
     homeConfigurations = withSystem "x86_64-linux"
       ({ pkgs, ... }:
         let
-          mkHomeManagerConfiguration = username: inputs.home-manager.lib.homeManagerConfiguration {
+          mkHomeManagerConfiguration = username: extraModule: inputs.home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
             modules = [
               homeUsers.${username}.homeConfiguration
+              extraModule
               {
                 home = {
                   inherit username;
@@ -60,7 +61,14 @@ in
           };
         in
         {
-          shiba = mkHomeManagerConfiguration "shiba";
+          shiba = mkHomeManagerConfiguration "shiba" {
+            # Work around HM #2942.
+            # The fact that this works is accidental due to the way HM
+            # creates its own `nixpkgs`, but it's still nicer than importing
+            # a new `nixpkgs` instance.
+            # https://github.com/nix-community/home-manager/issues/2942#issuecomment-1378627909
+            nixpkgs.config.allowUnfreePredicate = _: true;
+          };
         }
       );
   };
