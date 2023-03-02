@@ -12,7 +12,7 @@ on:
         type: boolean
         default: false
 
-run-name: ${{ inputs.deploy || 'Deploy NixOS configuration' && 'Build flake outputs' }}
+run-name: ${{ inputs.deploy && 'Deploy NixOS configuration' || 'Build flake outputs' }}
 
 # Builds and deployments are in separate concurrency groups.
 # Builds can cancel other in-progress builds on the same ref.
