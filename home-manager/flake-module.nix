@@ -1,4 +1,5 @@
-{ inputs
+{ self
+, inputs
 , withSystem
 , ...
 }:
@@ -6,7 +7,21 @@
 let
   homeUsers = {
     shiba = {
-      imports = [ ./users/shiba ];
+      homeConfiguration = {
+        imports = [ ./users/shiba ];
+      };
+      overlays = [
+        self.overlays.pers-pkgs
+        inputs.nix-gaming.overlays.default
+        inputs.rust-overlay.overlays.default
+        inputs.neovim-nightly-overlay.overlay
+        inputs.nil.overlays.default
+        (_: final: {
+          discord = final.discord.overrideAttrs (_: {
+            src = inputs.discord;
+          });
+        })
+      ];
     };
   };
 in
@@ -27,11 +42,15 @@ in
         let
           mkHomeManagerConfiguration = username: inputs.home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
-            modules = homeUsers.${username}.imports ++ [
+            modules = [
+              homeUsers.${username}.homeConfiguration
               {
                 home = {
                   inherit username;
                   homeDirectory = "/home/${username}";
+                };
+                nixpkgs = {
+                  inherit (homeUsers.${username}) overlays;
                 };
               }
             ];

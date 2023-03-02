@@ -18,7 +18,7 @@
 
   home-manager = {
     users = {
-      inherit (homeUsers) shiba;
+      shiba = homeUsers.shiba.homeConfiguration;
     };
   };
 }
