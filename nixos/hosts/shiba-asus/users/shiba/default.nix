@@ -1,7 +1,9 @@
-{ config, ... }: {
+{ config
+, homeUsers
+, ...
+}: {
   sops.secrets."user-passwords/shiba" = {
     neededForUsers = true;
-    sopsFile = ../secrets.yaml;
   };
 
   users = {
@@ -16,7 +18,7 @@
 
   home-manager = {
     users = {
-      shiba = import ./home.nix;
+      inherit (homeUsers) shiba;
     };
   };
 }

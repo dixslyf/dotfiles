@@ -1,4 +1,8 @@
-{ self, inputs, ... }:
+{ self
+, inputs
+, homeUsers  # From home-manager flake-module via `_module.args`
+, ...
+}:
 {
   perSystem =
     { pkgs
@@ -37,7 +41,13 @@
           }
           ./hosts/shiba-asus
         ];
-        specialArgs = { inherit inputs; };
+        specialArgs = {
+          inherit inputs;
+          homeUsers = {
+            # Pass only specific user(s)
+            inherit (homeUsers) shiba;
+          };
+        };
       };
     };
   };

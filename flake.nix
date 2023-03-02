@@ -65,6 +65,7 @@
         ./devshell/flake-module.nix
         ./pkgs/flake-module.nix
         ./nixos/flake-module.nix
+        ./home-manager/flake-module.nix
       ];
 
       systems = [ "x86_64-linux" ];
