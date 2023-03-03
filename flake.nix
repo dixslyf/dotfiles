@@ -64,7 +64,6 @@
       imports = [
         ./devshell/flake-module.nix
         ./planet/flake-module.nix
-        ./pkgs/flake-module.nix
         ./nixos/flake-module.nix
         ./home-manager/flake-module.nix
       ];
