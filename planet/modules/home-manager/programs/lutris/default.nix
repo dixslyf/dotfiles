@@ -1,6 +1,8 @@
-{ pkgs, ... }: {
+{ pkgs
+, ...
+}: {
   home.packages = with pkgs; [ lutris ];
-  home.persistence."/persist/home/shiba" = {
+  planet.persistence = {
     directories = [
       ".config/lutris"
       ".local/share/lutris"

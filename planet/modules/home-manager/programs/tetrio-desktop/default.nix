@@ -1,4 +1,8 @@
-{ pkgs, ... }: {
-  home.packages = with pkgs; [ (pkgs.tetrio-desktop.override { withTetrioPlus = true; }) ];
-  home.persistence."/persist/home/shiba".directories = [ ".config/tetrio-desktop" ];
+{ pkgs
+, ...
+}: {
+  home.packages = with pkgs; [ (tetrio-desktop.override { withTetrioPlus = true; }) ];
+  planet.persistence = {
+    directories = [ ".config/tetrio-desktop" ];
+  };
 }

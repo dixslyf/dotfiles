@@ -1,5 +1,8 @@
-_: {
+_:
+{
   imports = [
+    ./persistence
     ./programs
   ];
 }
+

@@ -16,21 +16,17 @@
     createDirectories = true;
   };
 
-  home.persistence."/persist/home/shiba" = {
+  planet.persistence = {
+    enable = true;
+    persistXdgUserDirectories = true;
     directories = [
-      "Documents"
-      "Downloads"
-      "Music"
-      "Pictures"
       "Sync"
-      "Videos"
       ".local/share/Steam"
       ".local/share/qutebrowser"
       ".local/state/wireplumber"
       ".cache/tealdeer"
       ".factorio"
     ];
-    allowOther = true;
   };
 
   home.packages = with pkgs; [

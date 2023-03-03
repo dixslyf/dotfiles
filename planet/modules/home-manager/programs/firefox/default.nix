@@ -10,7 +10,7 @@ _: {
     };
   };
 
-  home.persistence."/persist/home/shiba" = {
+  planet.persistence = {
     directories = [ ".mozilla" ];
   };
 }

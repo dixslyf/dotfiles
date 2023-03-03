@@ -4,7 +4,9 @@ _: {
     nix-direnv.enable = true;
   };
 
-  home.persistence."/persist/home/shiba".directories = [
-    ".local/share/direnv"
-  ];
+  planet.persistence = {
+    directories = [
+      ".local/share/direnv"
+    ];
+  };
 }
