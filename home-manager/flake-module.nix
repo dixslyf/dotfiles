@@ -8,7 +8,10 @@ let
   homeUsers = {
     shiba = {
       homeConfiguration = {
-        imports = [ ./users/shiba ];
+        imports = [
+          self.homeManagerModules.planet
+          ./users/shiba
+        ];
       };
       overlays = [
         self.overlays.pers-pkgs

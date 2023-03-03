@@ -6,7 +6,6 @@
     inputs.impermanence.nixosModules.home-manager.impermanence
     ./sops
     ./services
-    ./programs
   ];
 
   home.stateVersion = "22.05";
