@@ -40,6 +40,7 @@
     mako.enable = true;
     osu-lazer.enable = true;
     qutebrowser.enable = true;
+    rofi.enable = true;
   };
 
   home.packages = with pkgs; [
