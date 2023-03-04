@@ -17,7 +17,7 @@
     ./kitty
     ./lutris
     ./mako
-    ./nvim
+    ./neovim
     ./osu-lazer
     ./qutebrowser
     ./rofi
