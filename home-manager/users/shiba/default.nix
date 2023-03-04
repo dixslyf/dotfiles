@@ -40,6 +40,7 @@
     osu-lazer.enable = true;
     qutebrowser.enable = true;
     rofi.enable = true;
+    ssh.enable = true;
     tealdeer.enable = true;
     tetrio-desktop.enable = true;
     waybar = {
