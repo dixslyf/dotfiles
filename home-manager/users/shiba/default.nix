@@ -28,6 +28,10 @@
       ];
     };
     android.enable = true;
+    bspwm = {
+      enable = true;
+      primaryMonitor = "eDP-1";
+    };
     citra.enable = true;
     direnv.enable = true;
     discord.enable = true;
