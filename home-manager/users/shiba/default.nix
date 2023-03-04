@@ -41,6 +41,7 @@
     qutebrowser.enable = true;
     rofi.enable = true;
     tealdeer.enable = true;
+    tetrio-desktop.enable = true;
     waybar = {
       enable = true;
       primaryOutput = "eDP-1";
