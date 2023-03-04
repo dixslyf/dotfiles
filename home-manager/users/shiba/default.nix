@@ -37,6 +37,7 @@
     fish.enable = true;
     gpg.enable = true;
     kitty.enable = true;
+    lutris.enable = true;
   };
 
   home.packages = with pkgs; [
