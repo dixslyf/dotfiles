@@ -40,6 +40,7 @@
     git.enable = true;
     gitui.enable = true;
     gpg.enable = true;
+    hyprland.enable = true;
     kitty.enable = true;
     lutris.enable = true;
     mako.enable = true;
