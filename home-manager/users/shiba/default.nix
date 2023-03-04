@@ -41,6 +41,11 @@
     qutebrowser.enable = true;
     rofi.enable = true;
     tealdeer.enable = true;
+    waybar = {
+      enable = true;
+      primaryOutput = "eDP-1";
+      externalOutput = "HDMI-A-1";
+    };
     yuzu.enable = true;
     zathura.enable = true;
   };
