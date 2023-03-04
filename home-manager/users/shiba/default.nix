@@ -28,6 +28,7 @@
       ];
     };
     android.enable = true;
+    autorandr.enable = true;
     bspwm = {
       enable = true;
       primaryMonitor = "eDP-1";
