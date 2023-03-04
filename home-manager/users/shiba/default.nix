@@ -33,6 +33,7 @@
     discord.enable = true;
     firefox.enable = true;
     fish.enable = true;
+    git.enable = true;
     gitui.enable = true;
     gpg.enable = true;
     kitty.enable = true;
