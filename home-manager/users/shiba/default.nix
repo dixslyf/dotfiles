@@ -16,17 +16,20 @@
     createDirectories = true;
   };
 
-  planet.persistence = {
-    enable = true;
-    persistXdgUserDirectories = true;
-    directories = [
-      "Sync"
-      ".local/share/Steam"
-      ".local/share/qutebrowser"
-      ".local/state/wireplumber"
-      ".cache/tealdeer"
-      ".factorio"
-    ];
+  planet = {
+    persistence = {
+      enable = true;
+      persistXdgUserDirectories = true;
+      directories = [
+        "Sync"
+        ".local/share/Steam"
+        ".local/share/qutebrowser"
+        ".local/state/wireplumber"
+        ".cache/tealdeer"
+        ".factorio"
+      ];
+    };
+    android.enable = true;
   };
 
   home.packages = with pkgs; [
