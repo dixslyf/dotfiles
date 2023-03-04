@@ -35,6 +35,7 @@
     discord.enable = true;
     firefox.enable = true;
     fish.enable = true;
+    gpg.enable = true;
   };
 
   home.packages = with pkgs; [
