@@ -41,6 +41,7 @@
     qutebrowser.enable = true;
     rofi.enable = true;
     tealdeer.enable = true;
+    yuzu.enable = true;
   };
 
   home.packages = with pkgs; [
