@@ -1,5 +1,4 @@
 _: {
-  imports = [ ./gitui ];
 
   programs.git = {
     enable = true;

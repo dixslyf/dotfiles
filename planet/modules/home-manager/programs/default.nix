@@ -11,6 +11,7 @@
     ./firefox
     ./fish
     ./git
+    ./gitui
     ./gpg
     ./hyprland
     ./kitty
