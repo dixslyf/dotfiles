@@ -28,7 +28,10 @@
       ];
     };
     android.enable = true;
-    autorandr.enable = true;
+    autorandr = {
+      enable = true;
+      host = "alpha";
+    };
     bspwm = {
       enable = true;
       primaryMonitor = "eDP-1";

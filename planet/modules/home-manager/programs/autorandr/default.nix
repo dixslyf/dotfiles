@@ -5,11 +5,15 @@
 }: {
   options =
     let
-      inherit (lib) mkEnableOption;
+      inherit (lib) mkEnableOption mkOption types;
     in
     {
       planet.autorandr = {
         enable = mkEnableOption "planet autorandr";
+        host = mkOption {
+          type = types.enum [ "alpha" ];
+          description = "The host name, which specifies which autorandr configuration to use";
+        };
       };
     };
 
@@ -18,9 +22,7 @@
       cfg = config.planet.autorandr;
       inherit (lib) mkIf;
       bspwmPackage = config.xsession.windowManager.bspwm.package;
-    in
-    mkIf cfg.enable {
-      programs.autorandr = {
+      alphaConfiguration = {
         enable = true;
         profiles = {
           mobile = {
@@ -83,5 +85,11 @@
           };
         };
       };
+    in
+    mkIf cfg.enable {
+      programs.autorandr =
+        if (cfg.host == "alpha")
+        then alphaConfiguration
+        else { };
     };
 }
