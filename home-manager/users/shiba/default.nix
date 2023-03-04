@@ -36,6 +36,7 @@
     firefox.enable = true;
     fish.enable = true;
     gpg.enable = true;
+    kitty.enable = true;
   };
 
   home.packages = with pkgs; [
