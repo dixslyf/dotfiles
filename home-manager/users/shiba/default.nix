@@ -42,6 +42,7 @@
     rofi.enable = true;
     tealdeer.enable = true;
     yuzu.enable = true;
+    zathura.enable = true;
   };
 
   home.packages = with pkgs; [
