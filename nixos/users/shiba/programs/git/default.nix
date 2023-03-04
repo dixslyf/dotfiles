@@ -14,6 +14,9 @@ _: {
         conflictStyle = "zdiff3";
         ff = false;
       };
+      pull = {
+        rebase = "merges";
+      };
     };
   };
 }
