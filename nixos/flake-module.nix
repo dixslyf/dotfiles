@@ -14,7 +14,7 @@
         in
         cachix-deploy-lib.spec {
           agents = {
-            shiba-asus = self.nixosConfigurations.shiba-asus.config.system.build.toplevel;
+            alpha = self.nixosConfigurations.alpha.config.system.build.toplevel;
           };
         };
     };
@@ -25,7 +25,7 @@
         inherit (inputs) nixpkgs;
       in
       {
-        shiba-asus = nixpkgs.lib.nixosSystem {
+        alpha = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             {
@@ -36,7 +36,7 @@
               ++ homeUsers.shiba.overlays);
               nix.registry.nixpkgs.flake = nixpkgs;
             }
-            ./hosts/shiba-asus
+            ./hosts/alpha
           ];
           specialArgs = {
             inherit inputs;

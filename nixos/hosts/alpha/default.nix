@@ -112,7 +112,7 @@
   };
 
   networking = {
-    hostName = "shiba-asus";
+    hostName = "alpha";
     networkmanager.enable = true;
   };
 
