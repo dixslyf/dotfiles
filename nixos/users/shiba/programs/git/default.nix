@@ -12,6 +12,7 @@ _: {
     extraConfig = {
       merge = {
         conflictStyle = "zdiff3";
+        ff = false;
       };
     };
   };
