@@ -38,6 +38,7 @@
     gpg.enable = true;
     kitty.enable = true;
     lutris.enable = true;
+    mako.enable = true;
   };
 
   home.packages = with pkgs; [
