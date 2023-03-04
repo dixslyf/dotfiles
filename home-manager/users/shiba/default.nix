@@ -23,7 +23,6 @@
       directories = [
         "Sync"
         ".local/share/Steam"
-        ".local/share/qutebrowser"
         ".local/state/wireplumber"
         ".cache/tealdeer"
         ".factorio"
@@ -40,6 +39,7 @@
     lutris.enable = true;
     mako.enable = true;
     osu-lazer.enable = true;
+    qutebrowser.enable = true;
   };
 
   home.packages = with pkgs; [
