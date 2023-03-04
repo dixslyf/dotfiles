@@ -30,6 +30,7 @@
       ];
     };
     android.enable = true;
+    citra.enable = true;
   };
 
   home.packages = with pkgs; [
