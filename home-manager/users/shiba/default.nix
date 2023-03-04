@@ -24,7 +24,6 @@
         "Sync"
         ".local/share/Steam"
         ".local/state/wireplumber"
-        ".cache/tealdeer"
         ".factorio"
       ];
     };
@@ -41,6 +40,7 @@
     osu-lazer.enable = true;
     qutebrowser.enable = true;
     rofi.enable = true;
+    tealdeer.enable = true;
   };
 
   home.packages = with pkgs; [
