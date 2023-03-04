@@ -39,6 +39,7 @@
     kitty.enable = true;
     lutris.enable = true;
     mako.enable = true;
+    osu-lazer.enable = true;
   };
 
   home.packages = with pkgs; [
