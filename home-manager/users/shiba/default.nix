@@ -32,6 +32,7 @@
     android.enable = true;
     citra.enable = true;
     direnv.enable = true;
+    discord.enable = true;
   };
 
   home.packages = with pkgs; [
