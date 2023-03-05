@@ -80,6 +80,10 @@
       primaryOutput = "eDP-1";
       externalOutput = "HDMI-A-1";
     };
+    wlsunset = {
+      enable = true;
+      systemd.target = "hyprland-session.target";
+    };
     yuzu.enable = true;
     zathura.enable = true;
   };
