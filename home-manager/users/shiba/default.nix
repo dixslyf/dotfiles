@@ -63,6 +63,10 @@
     neovim.enable = true;
     osu-lazer.enable = true;
     qutebrowser.enable = true;
+    redshift = {
+      enable = true;
+      systemd.target = "bspwm-session.target";
+    };
     rofi.enable = true;
     ssh.enable = true;
     tealdeer.enable = true;
