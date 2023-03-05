@@ -53,6 +53,7 @@
         autoConnect = true;
         startMinimized = true;
       };
+      systemd.enable = true;
     };
     neovim.enable = true;
     osu-lazer.enable = true;

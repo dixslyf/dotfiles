@@ -102,6 +102,15 @@ in
             };
           };
         };
+
+        systemd = {
+          enable = mkEnableOption "systemd integration";
+          target = mkOption {
+            type = types.str;
+            default = "graphical-session.target";
+            description = "The systemd target that will automatically start the Mullvad VPN service.";
+          };
+        };
       };
     };
 
@@ -116,14 +125,14 @@ in
         source = jsonFormat.generate "gui_settings.json" cfg.settings;
       };
 
-      systemd.user.services.mullvad-vpn = {
+      systemd.user.services.mullvad-vpn = mkIf cfg.systemd.enable {
         Unit = {
           Description = "Mullvad VPN GUI";
           Requires = [ "tray.target" ];
           After = [ "graphical-session-pre.target" "tray.target" ];
           PartOf = [ "graphical-session.target" ];
         };
-        Install = { WantedBy = [ "graphical-session.target" ]; };
+        Install = { WantedBy = [ cfg.systemd.target ]; };
         Service = {
           ExecStart = "${cfg.package}/bin/mullvad-vpn";
           ExecReload = "${pkgs.coreutils}/bin/kill -HUP $MAINPID";
