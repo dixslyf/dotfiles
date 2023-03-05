@@ -73,6 +73,10 @@
     };
     rofi.enable = true;
     ssh.enable = true;
+    syncthing = {
+      enable = true;
+      host = "alpha";
+    };
     tealdeer.enable = true;
     tetrio-desktop.enable = true;
     waybar = {
