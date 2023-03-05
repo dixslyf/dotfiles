@@ -47,6 +47,7 @@
     git.enable = true;
     gitui.enable = true;
     gpg.enable = true;
+    gpg-agent.enable = true;
     hyprland.enable = true;
     kitty.enable = true;
     lutris.enable = true;
