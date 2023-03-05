@@ -47,6 +47,13 @@
     kitty.enable = true;
     lutris.enable = true;
     mako.enable = true;
+    mullvad-vpn = {
+      enable = true;
+      settings = {
+        autoConnect = true;
+        startMinimized = true;
+      };
+    };
     neovim.enable = true;
     osu-lazer.enable = true;
     qutebrowser.enable = true;
