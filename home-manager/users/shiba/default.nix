@@ -5,7 +5,6 @@
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
     ./sops
-    ./services
   ];
 
   home.stateVersion = "22.05";
