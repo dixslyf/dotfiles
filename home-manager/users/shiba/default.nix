@@ -66,6 +66,7 @@
       enable = true;
       systemd.target = "bspwm-session.target";
     };
+    polybar.enable = true;
     qutebrowser.enable = true;
     redshift = {
       enable = true;
