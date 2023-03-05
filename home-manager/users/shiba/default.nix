@@ -40,6 +40,10 @@
     discord.enable = true;
     firefox.enable = true;
     fish.enable = true;
+    flameshot = {
+      enable = true;
+      systemd.target = "bspwm-session.target";
+    };
     git.enable = true;
     gitui.enable = true;
     gpg.enable = true;

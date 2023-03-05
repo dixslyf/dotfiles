@@ -1,21 +1,47 @@
-{ lib, ... }: {
-  services.flameshot = {
-    enable = true;
-    settings = {
-      General = {
-        disabledTrayIcon = true;
-        showStartupLaunchMessage = false;
+{ config
+, lib
+, ...
+}: {
+  options =
+    let
+      inherit (lib) mkEnableOption mkOption types;
+    in
+    {
+      planet.flameshot = {
+        enable = mkEnableOption "planet flameshot";
+        systemd = {
+          target = mkOption {
+            type = types.str;
+            default = "graphical-session.target";
+            description = "The systemd target that will automatically start the flameshot service.";
+          };
+        };
       };
     };
-  };
 
-  systemd.user.services.flameshot = {
-    # the original configuration lists `tray.target` as a requirement,
-    # which the below removes
-    Unit.Requires = lib.mkForce [ ];
-    Unit.After = lib.mkForce [ "bspwm-session.target" ];
-    # run only in bspwm
-    Unit.PartOf = lib.mkForce [ "bspwm-session.target" ];
-    Install.WantedBy = lib.mkForce [ "bspwm-session.target" ];
-  };
+  config =
+    let
+      cfg = config.planet.flameshot;
+    in
+    {
+      services.flameshot = {
+        enable = true;
+        settings = {
+          General = {
+            disabledTrayIcon = true;
+            showStartupLaunchMessage = false;
+          };
+        };
+      };
+
+      systemd.user.services.flameshot = {
+        # the original configuration lists `tray.target` as a requirement,
+        # which the below removes
+        Unit.Requires = lib.mkForce [ ];
+        Unit.After = lib.mkForce [ cfg.systemd.target ];
+
+        Unit.PartOf = lib.mkForce [ cfg.systemd.target ];
+        Install.WantedBy = lib.mkForce [ cfg.systemd.target ];
+      };
+    };
 }
