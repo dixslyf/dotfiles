@@ -62,6 +62,10 @@
     };
     neovim.enable = true;
     osu-lazer.enable = true;
+    picom = {
+      enable = true;
+      systemd.target = "bspwm-session.target";
+    };
     qutebrowser.enable = true;
     redshift = {
       enable = true;
