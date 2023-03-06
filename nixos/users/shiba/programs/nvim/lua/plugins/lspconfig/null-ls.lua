@@ -10,6 +10,9 @@ local function setup(on_attach, capabilities)
          nls.builtins.formatting.latexindent.with({
             args = { "-l", "-m" },
          }),
+         nls.builtins.formatting.shfmt.with({
+            extra_args = { "--indent", "2" },
+         }),
          nls.builtins.code_actions.shellcheck,
          nls.builtins.code_actions.proselint,
          nls.builtins.diagnostics.shellcheck,

@@ -12,6 +12,7 @@
     extraPackages = with pkgs; [
       editorconfig-checker
       shellcheck
+      shfmt
       sumneko-lua-language-server
       stylua
       nixpkgs-fmt
