@@ -68,7 +68,7 @@
               flake8-bugbear
               rope
             ]))
-        ];
+        ] ++ lib.lists.optionals config.planet.bspwm.enable [ xclip ];
         plugins = with pkgs.vimPlugins;
           [
             leap-nvim

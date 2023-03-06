@@ -121,7 +121,6 @@
 
     # X
     xdragon
-    xclip
 
     # Graphical
     keepassxc
