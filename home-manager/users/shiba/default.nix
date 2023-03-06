@@ -49,6 +49,7 @@
     gpg.enable = true;
     gpg-agent.enable = true;
     hyprland.enable = true;
+    kdenlive.enable = true;
     kitty.enable = true;
     lutris.enable = true;
     mako.enable = true;
@@ -117,8 +118,6 @@
     mpv
     gimp
     inkscape
-    kdenlive
-    mediainfo
 
     # X
     xdragon

@@ -12,6 +12,7 @@ _: {
     ./gitui
     ./gpg
     ./hyprland
+    ./kdenlive
     ./kitty
     ./lutris
     ./mako
