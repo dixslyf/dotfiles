@@ -31,7 +31,6 @@
   ];
 
   programs = {
-    feh.enable = true;
     nnn.enable = true;
   };
 
@@ -62,5 +61,6 @@
     rnote
     android-file-transfer
     pavucontrol
+    feh
   ];
 }
