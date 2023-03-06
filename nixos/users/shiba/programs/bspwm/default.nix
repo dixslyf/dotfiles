@@ -37,8 +37,9 @@
       pointer_follows_monitor = true;
     };
     extraConfig = ''
-      systemctl --user start bspwm-session.target
-      autorandr --change
+      ${pkgs.systemd}/bin/systemctl --user start bspwm-session.target
+
+      ${pkgs.autorandr}/bin/autorandr --change
 
       # TODO: figure out how to set this for all X window managers
       ${pkgs.xorg.xsetroot}/bin/xsetroot -cursor_name left_ptr
