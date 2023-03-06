@@ -100,6 +100,43 @@
 
     # Some programs e.g. inkscape use adwaita by default
     gnome.adwaita-icon-theme
+
+    # CLI
+    jq
+    exa
+    fd
+    ripgrep
+    neofetch
+    bottom
+    udiskie
+    gdb
+
+    # Media
+    pavucontrol
+    feh
+    mpv
+    gimp
+    inkscape
+    kdenlive
+    mediainfo
+
+    # X
+    xdragon
+    xclip
+
+    # Wayland
+    wofi
+    swaybg
+    grim
+    slurp
+    swappy
+    wl-clipboard
+
+    # Graphical
+    keepassxc
+    xfce.thunar
+    rnote
+    android-file-transfer
   ];
 
   fonts.fontconfig.enable = true;

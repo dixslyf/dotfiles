@@ -1,6 +1,4 @@
-{ pkgs
-, ...
-}: {
+_: {
   imports = [
     ./android
     ./autorandr
@@ -28,35 +26,5 @@
     ./wezterm
     ./yuzu
     ./zathura
-  ];
-
-  home.packages = with pkgs; [
-    bottom
-    keepassxc
-    neofetch
-    xfce.thunar
-    fd
-    ripgrep
-    udiskie
-    mpv
-    xdragon
-    wofi
-    swaybg
-    inkscape
-    kdenlive
-    mediainfo
-    gimp
-    jq
-    grim
-    slurp
-    swappy
-    wl-clipboard
-    xclip
-    gdb
-    exa
-    rnote
-    android-file-transfer
-    pavucontrol
-    feh
   ];
 }
