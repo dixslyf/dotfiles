@@ -39,6 +39,9 @@
     extraConfig = ''
       systemctl --user start bspwm-session.target
       autorandr --change
+
+      # TODO: figure out how to set this for all X window managers
+      ${pkgs.xorg.xsetroot}/bin/xsetroot -cursor_name left_ptr
     '';
   };
 
