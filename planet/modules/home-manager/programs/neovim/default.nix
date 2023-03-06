@@ -68,7 +68,8 @@
               flake8-bugbear
               rope
             ]))
-        ] ++ lib.lists.optionals config.planet.bspwm.enable [ xclip ];
+        ] ++ lib.lists.optionals config.planet.bspwm.enable [ xclip ]
+        ++ lib.lists.optionals config.planet.hyprland.enable [ wl-clipboard ];
         plugins = with pkgs.vimPlugins;
           [
             leap-nvim

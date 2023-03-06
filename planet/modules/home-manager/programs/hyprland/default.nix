@@ -28,7 +28,6 @@
         grim
         slurp
         swappy
-        wl-clipboard
       ];
 
       wayland.windowManager.hyprland = {
