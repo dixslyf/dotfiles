@@ -123,14 +123,6 @@
     xdragon
     xclip
 
-    # Wayland
-    wofi
-    swaybg
-    grim
-    slurp
-    swappy
-    wl-clipboard
-
     # Graphical
     keepassxc
     xfce.thunar

@@ -22,6 +22,15 @@
       inherit (lib) mkIf;
     in
     mkIf cfg.enable {
+      home.packages = with pkgs; [
+        wofi
+        swaybg
+        grim
+        slurp
+        swappy
+        wl-clipboard
+      ];
+
       wayland.windowManager.hyprland = {
         enable = true;
         package = null; # required to use the nixOS module to install hyprland
