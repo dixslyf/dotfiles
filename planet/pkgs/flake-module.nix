@@ -4,7 +4,7 @@
   };
 
   flake = {
-    overlays.pers-pkgs = _: prev:
+    overlays.pers-pkgs = inputs.nixpkgs.lib.composeExtensions inputs.hyprland.overlays.default (_: prev:
       let
         sources = import ./npins;
         npinsPackages = builtins.mapAttrs
@@ -12,6 +12,7 @@
           sources;
       in
       {
+        # TODO: figure out lib.makeScope and lib.callPackageWith
         pers-pkgs = npinsPackages // {
           nvidia-offload = prev.callPackage ./nvidia-offload { };
           catppuccin-papirus-icon-theme = prev.callPackage ./catppuccin-papirus {
@@ -20,9 +21,12 @@
           };
           iosevka-custom = prev.callPackage ./iosevka-custom { };
           iosevka-term-custom = prev.callPackage ./iosevka-custom { spacing = "term"; };
+          hyprland-nvidia = prev.callPackage ./hyprland-nvidia {
+            inherit (prev) hyprland-nvidia;
+          };
           # vimPlugins = prev.lib.recurseIntoAttrs (prev.callPackage ./vim-plugins { });
           waybar = prev.callPackage ./waybar { };
         };
-      };
+      });
   };
 }
