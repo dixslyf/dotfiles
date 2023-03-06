@@ -11,6 +11,7 @@
     '';
     extraPackages = with pkgs; [
       editorconfig-checker
+      shellcheck
       sumneko-lua-language-server
       stylua
       nixpkgs-fmt

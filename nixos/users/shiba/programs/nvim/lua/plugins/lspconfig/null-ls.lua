@@ -10,7 +10,9 @@ local function setup(on_attach, capabilities)
          nls.builtins.formatting.latexindent.with({
             args = { "-l", "-m" },
          }),
+         nls.builtins.code_actions.shellcheck,
          nls.builtins.code_actions.proselint,
+         nls.builtins.diagnostics.shellcheck,
          nls.builtins.diagnostics.proselint,
          nls.builtins.diagnostics.statix,
          nls.builtins.diagnostics.deadnix,
