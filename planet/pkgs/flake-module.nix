@@ -21,9 +21,6 @@
           };
           iosevka-custom = prev.callPackage ./iosevka-custom { };
           iosevka-term-custom = prev.callPackage ./iosevka-custom { spacing = "term"; };
-          hyprland-nvidia = prev.callPackage ./hyprland-nvidia {
-            inherit (prev) hyprland-nvidia;
-          };
           # vimPlugins = prev.lib.recurseIntoAttrs (prev.callPackage ./vim-plugins { });
           waybar = prev.callPackage ./waybar { };
         };
