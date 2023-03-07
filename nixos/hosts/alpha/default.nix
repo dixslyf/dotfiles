@@ -250,8 +250,7 @@
     gamemode.enable = true;
     hyprland = {
       enable = true;
-      recommendedEnvironment = false; # variables are added below to avoid causing issues in x
-      package = pkgs.pers-pkgs.hyprland-nvidia;
+      recommendedEnvironment = false; # variables are added in config
     };
   };
 }

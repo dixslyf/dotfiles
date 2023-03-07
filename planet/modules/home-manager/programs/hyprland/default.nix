@@ -8,11 +8,16 @@
 
   options =
     let
-      inherit (lib) mkEnableOption;
+      inherit (lib) mkEnableOption mkOption types;
     in
     {
       planet.hyprland = {
         enable = mkEnableOption "planet Hyprland";
+        nvidiaVariables = mkOption {
+          type = types.bool;
+          description = "Whether to set variables for better Nvidia support.";
+          default = false;
+        };
       };
     };
 
@@ -41,6 +46,13 @@
             hyprland-config = pkgs.substituteAll {
               src = ./hyprland.conf;
               setCursor = ''exec-once=hyprctl setcursor "${config.home.pointerCursor.name}" ${toString config.home.pointerCursor.size}'';
+              nvidiaVariables = lib.strings.optionalString cfg.nvidiaVariables ''
+                env = LIBVA_DRIVER_NAME,nvidia
+                env = XDG_SESSION_TYPE,wayland
+                env = GBM_BACKEND,nvidia-drm
+                env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+                env = WLR_NO_HARDWARE_CURSORS,1
+              '';
               workspaceBindings =
                 let
                   keys = [
