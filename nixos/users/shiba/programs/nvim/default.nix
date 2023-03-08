@@ -88,6 +88,7 @@
             tree-sitter-bash
             tree-sitter-c
             tree-sitter-cpp
+            tree-sitter-fennel
             tree-sitter-haskell
             tree-sitter-html
             tree-sitter-javascript
