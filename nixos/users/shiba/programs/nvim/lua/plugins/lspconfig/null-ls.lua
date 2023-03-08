@@ -6,6 +6,7 @@ local function setup(on_attach, capabilities)
       capabilities = capabilities,
       sources = {
          nls.builtins.formatting.stylua,
+         nls.builtins.formatting.fnlfmt,
          nls.builtins.formatting.prettier,
          nls.builtins.formatting.latexindent.with({
             args = { "-l", "-m" },

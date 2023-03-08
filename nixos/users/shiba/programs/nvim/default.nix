@@ -15,6 +15,7 @@
       shfmt
       sumneko-lua-language-server
       stylua
+      fnlfmt
       nixpkgs-fmt
       nil
       gcc
