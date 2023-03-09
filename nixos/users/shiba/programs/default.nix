@@ -24,6 +24,7 @@
     ./tealdeer
     ./tetrio-desktop
     ./waybar
+    ./wezterm
     ./yuzu
     ./zathura
   ];
