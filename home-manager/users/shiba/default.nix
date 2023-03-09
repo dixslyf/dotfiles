@@ -84,6 +84,7 @@
     };
     tealdeer.enable = true;
     tetrio-desktop.enable = true;
+    udiskie.enable = true;
     waybar = {
       enable = true;
       primaryOutput = "eDP-1";
