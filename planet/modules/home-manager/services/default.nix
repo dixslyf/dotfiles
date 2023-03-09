@@ -3,6 +3,7 @@ _: {
     ./flameshot
     ./gpg-agent
     ./mullvad-vpn
+    ./network-manager-applet
     ./picom
     ./polybar
     ./redshift
@@ -13,7 +14,6 @@ _: {
 
   systemd.user.startServices = "sd-switch";
   services = {
-    network-manager-applet.enable = true;
     blueman-applet.enable = true;
   };
 }

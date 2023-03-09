@@ -65,6 +65,7 @@
       systemd.enable = true;
     };
     neovim.enable = true;
+    network-manager-applet.enable = true;
     osu-lazer.enable = true;
     picom = {
       enable = true;
