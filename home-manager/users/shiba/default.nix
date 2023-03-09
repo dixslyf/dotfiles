@@ -31,6 +31,7 @@
       enable = true;
       host = "alpha";
     };
+    blueman-applet.enable = true;
     bspwm = {
       enable = true;
       primaryMonitor = "eDP-1";

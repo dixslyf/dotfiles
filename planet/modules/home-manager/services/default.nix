@@ -1,5 +1,6 @@
 _: {
   imports = [
+    ./blueman-applet
     ./flameshot
     ./gpg-agent
     ./mullvad-vpn
@@ -13,7 +14,4 @@ _: {
   ];
 
   systemd.user.startServices = "sd-switch";
-  services = {
-    blueman-applet.enable = true;
-  };
 }
