@@ -16,7 +16,7 @@ And a non-exhaustive list of some stuff  I use:
 * **Launchers:** [Rofi](https://github.com/davatorium/rofi) (Xorg), [Wofi](https://hg.sr.ht/~scoopta/wofi) (Wayland)
 * **Bars:** [Polybar](https://github.com/polybar/polybar) (Xorg), [Waybar](https://github.com/Alexays/Waybar) (Wayland)
 * **Shell:** [fish](https://github.com/fish-shell/fish-shell) :fish:
-* **Terminal:** [kitty](https://github.com/kovidgoyal/kitty) :cat2:
+* **Terminals:** [wezterm](https://github.com/wez/wezterm), [kitty](https://github.com/kovidgoyal/kitty) :cat2:
 * **Editor:** [Neovim](https://github.com/neovim/neovim)
 * **File Manager:** `ls`, `cd`, `mv`, `cp`, `rm`; sometimes [Thunar](https://gitlab.xfce.org/xfce/thunar)
 * **Web Browsers:** [qutebrowser](https://github.com/qutebrowser/qutebrowser), [Firefox](https://www.mozilla.org/en-US/firefox/browsers/)
