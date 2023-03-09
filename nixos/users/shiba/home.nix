@@ -37,8 +37,8 @@
   home.packages = with pkgs; [
     # Fonts
     material-design-icons
-    iosevka-bin
-    (iosevka-bin.override { variant = "sgr-iosevka-term"; })
+    pers-pkgs.iosevka-custom
+    pers-pkgs.iosevka-term-custom
     (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
 
     # Some programs e.g. inkscape use adwaita by default

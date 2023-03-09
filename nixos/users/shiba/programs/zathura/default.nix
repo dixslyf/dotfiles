@@ -2,7 +2,7 @@
   programs.zathura = {
     enable = true;
     options = {
-      font = "Iosevka Regular 16";
+      font = "Iosevka Custom 16";
       recolor = "true";
       selection-clipboard = "clipboard";
     };

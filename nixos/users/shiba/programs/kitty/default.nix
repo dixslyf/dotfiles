@@ -6,7 +6,7 @@ _: {
       window_margin_width = "12 24";
     };
     font = {
-      name = "Iosevka Term";
+      name = "Iosevka Term Custom";
       size = 16;
     };
     theme = "Catppuccin-Macchiato";
