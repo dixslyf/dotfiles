@@ -12,6 +12,4 @@ _: {
     ./udiskie
     ./wlsunset
   ];
-
-  systemd.user.startServices = "sd-switch";
 }

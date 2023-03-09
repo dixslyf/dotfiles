@@ -15,6 +15,8 @@
     createDirectories = true;
   };
 
+  systemd.user.startServices = "sd-switch";
+
   planet = {
     persistence = {
       enable = true;
