@@ -100,6 +100,9 @@ local on_attach = function(client, bufnr)
 
    -- nvim-navic
    local navic = require("nvim-navic")
+   navic.setup({
+      highlight = true, -- Required for catppuccin integration
+   })
    if client.server_capabilities.documentSymbolProvider then
       navic.attach(client, bufnr)
    end

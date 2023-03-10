@@ -30,6 +30,9 @@ require("catppuccin").setup({
             information = { "underline" },
          },
       },
+      navic = {
+         enabled = true,
+      },
       treesitter = true,
       telescope = true,
       which_key = true,
