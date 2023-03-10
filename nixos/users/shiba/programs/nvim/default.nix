@@ -47,6 +47,7 @@
     plugins = with pkgs.vimPlugins;
       [
         leap-nvim
+        indent-blankline-nvim
         catppuccin-nvim
         nvim-colorizer-lua
         feline-nvim

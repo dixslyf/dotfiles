@@ -1,4 +1,5 @@
 require("plugins.leap")
+require("plugins.indent-blankline")
 require("plugins.catppuccin")
 require("plugins.colorizer")
 require("plugins.treesitter")
