@@ -113,5 +113,12 @@ local cmp_nvim_lsp = require("cmp_nvim_lsp")
 local servers = { "null-ls", "nil-ls", "lua-ls", "clangd", "rust-analyzer", "python-lsp-server", "ltex" }
 for _, server in ipairs(servers) do
    local capabilities = cmp_nvim_lsp.default_capabilities()
+
+   -- ufo
+   capabilities.textDocument.foldingRange = {
+      dynamicRegistration = false,
+      lineFoldingOnly = true,
+   }
+
    require("plugins.lspconfig." .. server).setup(on_attach, capabilities)
 end

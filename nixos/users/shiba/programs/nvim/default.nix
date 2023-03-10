@@ -48,6 +48,7 @@
       [
         leap-nvim
         indent-blankline-nvim
+        nvim-ufo
         catppuccin-nvim
         nvim-colorizer-lua
         feline-nvim
