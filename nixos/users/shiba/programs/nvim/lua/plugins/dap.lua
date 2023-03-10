@@ -2,6 +2,14 @@ local dap = require("dap")
 local dapui = require("dapui")
 local wk = require("which-key")
 
+-- Catppuccin
+vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = "" })
+vim.fn.sign_define(
+   "DapBreakpointCondition",
+   { text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = "" }
+)
+vim.fn.sign_define("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = "" })
+
 vim.keymap.set("n", "<leader>Db", dap.toggle_breakpoint, { silent = true, desc = "Toggle breakpoint" })
 vim.keymap.set("n", "<leader>Dc", dap.continue, { silent = true, desc = "Continue" })
 vim.keymap.set("n", "<leader>DC", dap.reverse_continue, { silent = true, desc = "Reverse continue" })

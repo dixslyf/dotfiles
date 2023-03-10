@@ -11,6 +11,10 @@ require("catppuccin").setup({
       leap = true,
       markdown = true,
       cmp = true,
+      dap = {
+         enabled = true,
+         enable_ui = true,
+      },
       treesitter = true,
       telescope = true,
       which_key = true,
