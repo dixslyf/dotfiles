@@ -48,6 +48,7 @@
     kitty.enable = true;
     lutris.enable = true;
     mako.enable = true;
+    neovim.enable = true;
     osu-lazer.enable = true;
     qutebrowser.enable = true;
     rofi.enable = true;
