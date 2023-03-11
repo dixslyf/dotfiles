@@ -33,6 +33,7 @@
     citra.enable = true;
     direnv.enable = true;
     discord.enable = true;
+    fish.enable = true;
   };
 
   home.packages = with pkgs; [
