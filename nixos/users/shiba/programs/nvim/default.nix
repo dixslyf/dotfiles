@@ -20,6 +20,10 @@
       nil
       gcc
       clang-tools
+      ghc
+      haskell-language-server
+      ormolu
+      haskellPackages.cabal-fmt
       proselint
       ltex-ls
       statix
