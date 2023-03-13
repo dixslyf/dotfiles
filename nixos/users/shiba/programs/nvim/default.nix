@@ -10,6 +10,7 @@
       require("plugins")
     '';
     extraPackages = with pkgs; [
+      ripgrep # Used by telescope
       editorconfig-checker
       shellcheck
       shfmt
