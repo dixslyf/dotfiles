@@ -89,6 +89,7 @@
         gitsigns-nvim
         luasnip
         vim-snippets
+        todo-comments-nvim
         markdown-preview-nvim
         vimtex
         (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins:
