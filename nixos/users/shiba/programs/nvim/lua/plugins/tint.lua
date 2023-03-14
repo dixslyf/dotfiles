@@ -10,4 +10,4 @@ tint.setup({
    },
 })
 
-vim.keymap.set("n", "<leader>ti", tint.toggle, { desc = "Toggle tint" })
+vim.keymap.set("n", "<leader>ni", tint.toggle, { desc = "Toggle tint" })
