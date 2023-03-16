@@ -3,7 +3,13 @@
     inputs.sops-nix.homeManagerModules.sops
   ];
 
+  home.persistence."/persist/home/shiba" = {
+    directories = [
+      ".config/sops"
+    ];
+  };
+
   sops = {
-    gnupg.home = "/persist/home/shiba/.gnupg";
+    age.keyFile = "/persist/home/shiba/.config/sops/age/keys.txt";
   };
 }
