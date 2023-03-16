@@ -5,16 +5,16 @@ creation_rules:
   - path_regex: nixos/users/secrets.yaml$
     key_groups:
       - pgp:
-        - *shiba
+          - *shiba
         age:
-        - *shiba-asus
+          - *shiba-asus
   - path_regex: nixos/users/shiba/.*
     key_groups:
       - pgp:
-        - *shiba
+          - *shiba
   - path_regex: nixos/hosts/shiba-asus/secrets.yaml$
     key_groups:
       - pgp:
-        - *shiba
+          - *shiba
         age:
-        - *shiba-asus
+          - *shiba-asus
