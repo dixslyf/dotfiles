@@ -5,6 +5,11 @@ inputs:
     description: "The GitHub token"
     required: false
     type: string
+  cachix-cache-name:
+    description: "The name of the Cachix binary cache"
+    required: false
+    type: string
+    default: "playernamehere-nixos"
   cachix-auth-token:
     description: "The authentication token for Cachix"
     required: true
@@ -36,10 +41,13 @@ runs:
         install_url: https://releases.nixos.org/nix/nix-2.13.3/install
     - uses: cachix/cachix-action@v12
       with:
-        name: playernamehere-nixos
+        name: ${{ inputs.cachix-cache-name }}
         authToken: ${{ inputs.cachix-auth-token }}
         extraPullNames: ${{ inputs.cachix-extra-pull-names }}
         skipPush: ${{ inputs.cachix-skip-push }}
+    - name: Cachix watch store
+      shell: bash
+      run: cachix watch-store ${{ inputs.cachix-cache-name }} &
     - name: Build
       shell: bash
       run: nix build --print-build-logs ${{ inputs.flake-path }}#${{ inputs.flake-output }}
