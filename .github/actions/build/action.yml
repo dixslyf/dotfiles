@@ -27,10 +27,6 @@ inputs:
     description: "Comma-separated list of names for extra cachix caches to pull/substitute"
     required: false
     type: string
-  cachix-skip-push:
-    description: "Whether to skip pushing build results"
-    required: false
-    default: false
 
 runs:
   using: composite
@@ -44,7 +40,7 @@ runs:
         name: ${{ inputs.cachix-cache-name }}
         authToken: ${{ inputs.cachix-auth-token }}
         extraPullNames: ${{ inputs.cachix-extra-pull-names }}
-        skipPush: ${{ inputs.cachix-skip-push }}
+        skipPush: true
     - name: Cachix watch store
       shell: bash
       run: cachix watch-store ${{ inputs.cachix-cache-name }} &
