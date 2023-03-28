@@ -141,7 +141,6 @@
   };
 
   planet = {
-    autorandr.enable = true;
     btrfs = {
       enable = true;
       autoScrubFileSystems = [ "/dev/sda3" "/dev/sdb1" ];
@@ -165,6 +164,7 @@
     udev.packages = [
       pkgs.android-udev-rules
     ];
+    autorandr.enable = true;
     resolved.enable = true;
     blueman.enable = true;
   };
