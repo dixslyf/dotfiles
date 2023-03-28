@@ -4,6 +4,7 @@ _: {
     ./btrfs
     ./earlyoom
     ./fstrim
+    ./mullvad-vpn
     ./pipewire
     ./tlp
     ./udisks2

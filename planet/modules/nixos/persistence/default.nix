@@ -93,7 +93,6 @@
         directories = cfg.directories ++ [
           # TODO: move these to their respsective modules
           "/etc/NetworkManager/system-connections"
-          "/etc/mullvad-vpn"
         ] ++ (lists.optionals cfg.persistSystemdDirectories [
           "/var/lib/systemd/coredump"
           "/var/lib/systemd/timers"

@@ -148,6 +148,7 @@
     };
     earlyoom.enable = true;
     fstrim.enable = true;
+    mullvad-vpn.enable = true;
     pipewire = {
       enable = true;
       lowLatency = false; # nix-gaming #58
@@ -165,7 +166,6 @@
       pkgs.android-udev-rules
     ];
     resolved.enable = true;
-    mullvad-vpn.enable = true;
     blueman.enable = true;
   };
 
