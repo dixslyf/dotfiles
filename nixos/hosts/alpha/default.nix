@@ -188,7 +188,6 @@
     pciutils
     light
     pamixer
-    mullvad-vpn
     pers-pkgs.sddm-sugar-candy
     libsForQt5.qt5.qtgraphicaleffects
     libsForQt5.qt5.qtquickcontrols2
