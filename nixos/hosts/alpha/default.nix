@@ -7,7 +7,6 @@
     ./hardware
     ./users
     ./sops
-    inputs.impermanence.nixosModules.impermanence
     inputs.nix-gaming.nixosModules.pipewireLowLatency
   ];
 
