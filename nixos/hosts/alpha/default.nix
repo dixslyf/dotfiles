@@ -146,7 +146,6 @@
       autoScrubFileSystems = [ "/dev/sda3" "/dev/sdb1" ];
     };
     earlyoom.enable = true;
-    fstrim.enable = true;
     mullvad-vpn.enable = true;
     pipewire = {
       enable = true;
@@ -161,6 +160,7 @@
   };
 
   services = {
+    fstrim.enable = true;
     udev.packages = [
       pkgs.android-udev-rules
     ];
