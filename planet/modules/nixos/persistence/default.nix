@@ -90,10 +90,7 @@
       # Opt-in persisted root directories
       environment.persistence.${cfg.persistDirectory} = {
         inherit (cfg) hideMounts;
-        directories = cfg.directories ++ [
-          # TODO: move these to their respsective modules
-          "/etc/NetworkManager/system-connections"
-        ] ++ (lists.optionals cfg.persistSystemdDirectories [
+        directories = cfg.directories ++ (lists.optionals cfg.persistSystemdDirectories [
           "/var/lib/systemd/coredump"
           "/var/lib/systemd/timers"
           "/var/lib/systemd/backlight" # for systemd-backlight to be able to restore brightness

@@ -100,10 +100,7 @@
     credentialsFile = config.sops.secrets."CACHIX_AGENT_TOKEN".path;
   };
 
-  networking = {
-    hostName = "alpha";
-    networkmanager.enable = true;
-  };
+  networking.hostName = "alpha";
 
   # Set your time zone.
   time.timeZone = "Asia/Singapore";
@@ -147,6 +144,7 @@
     };
     earlyoom.enable = true;
     mullvad-vpn.enable = true;
+    networkmanager.enable = true;
     pipewire = {
       enable = true;
       lowLatency = false; # nix-gaming #58
@@ -216,4 +214,3 @@
     };
   };
 }
-
