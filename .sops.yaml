@@ -9,7 +9,7 @@ creation_rules:
           - *shiba-pgp
         age:
           - *shiba-age
-  - path_regex: nixos/hosts/alpha/secrets.yaml$
+  - path_regex: nixos/hosts/alpha/sops/secrets.yaml$
     key_groups:
       - pgp:
           - *shiba-pgp

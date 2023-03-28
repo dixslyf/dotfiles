@@ -6,8 +6,8 @@
   imports = [
     ./hardware
     ./users
+    ./sops
     inputs.impermanence.nixosModules.impermanence
-    inputs.sops-nix.nixosModules.sops
     inputs.nix-gaming.nixosModules.pipewireLowLatency
   ];
 
@@ -78,12 +78,6 @@
       keep-outputs = true
       keep-derivations = true
     '';
-  };
-
-  sops = {
-    age.sshKeyPaths = [ "/persist/etc/ssh/ssh_host_ed25519_key" ];
-    defaultSopsFile = ./secrets.yaml;
-    secrets."CACHIX_AGENT_TOKEN" = { };
   };
 
   security = {

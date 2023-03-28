@@ -2,10 +2,6 @@
 , homeUsers
 , ...
 }: {
-  sops.secrets."user-passwords/shiba" = {
-    neededForUsers = true;
-  };
-
   users = {
     users = {
       shiba = {
