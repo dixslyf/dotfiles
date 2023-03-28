@@ -150,6 +150,7 @@
       enable = true;
       lowLatency = false; # nix-gaming #58
     };
+    steam.enable = true;
     tlp = {
       enable = true;
       diskDevices = [ "nvme0n1" "sda" ];
@@ -196,11 +197,6 @@
 
   programs = {
     light.enable = true;
-    steam = {
-      enable = true;
-      remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-      dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-    };
     gamemode.enable = true;
     hyprland = {
       enable = true;
