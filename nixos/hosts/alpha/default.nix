@@ -24,23 +24,12 @@
     supportedFilesystems = [ "ntfs" ]; # ntfs-3g driver; required by udisks to mount due to the "windows_names" mount option
   };
 
-  # Opt-in persisted root directories
-  environment.persistence."/persist" = {
-    hideMounts = true;
-    directories = [
-      "/var/log"
-      "/var/lib/systemd/coredump"
-      "/var/lib/systemd/timers"
-      "/var/lib/btrfs"
-      "/var/lib/systemd/backlight" # for systemd-backlight to be able to restore brightness
-      "/etc/NetworkManager/system-connections"
-      "/etc/mullvad-vpn"
-    ];
-    files = [
-      "/etc/machine-id"
-      "/etc/ssh/ssh_host_ed25519_key"
-      "/etc/ssh/ssh_host_ed25519_key.pub"
-    ];
+  planet.persistence = {
+    enable = true;
+    persistSystemdDirectories = true;
+    persistLogs = true;
+    persistSsh = true;
+    persistMachineId = true;
   };
 
   system = {

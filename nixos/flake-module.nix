@@ -28,6 +28,7 @@
         alpha = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
+            { imports = [ self.nixosModules.planet ]; }
             {
               nixpkgs.overlays = nixpkgs.lib.lists.unique ([
                 self.overlays.pers-pkgs
