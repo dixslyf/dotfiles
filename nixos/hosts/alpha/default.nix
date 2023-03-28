@@ -108,7 +108,6 @@
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
-    videoDrivers = [ "nvidia" ]; # required for nvidia prime
     layout = "us";
     libinput = {
       enable = true;
@@ -140,6 +139,7 @@
     mullvad-vpn.enable = true;
     neovim.enable = true;
     networkmanager.enable = true;
+    nvidia.enable = true;
     pipewire = {
       enable = true;
       lowLatency = false; # nix-gaming #58
@@ -170,7 +170,6 @@
   fonts.fonts = [ pkgs.pers-pkgs.mali ];
 
   environment.systemPackages = with pkgs; [
-    pers-pkgs.nvidia-offload
     pciutils
     light
     pamixer
