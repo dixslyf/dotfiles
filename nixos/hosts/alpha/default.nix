@@ -144,6 +144,7 @@
     };
     earlyoom.enable = true;
     mullvad-vpn.enable = true;
+    neovim.enable = true;
     networkmanager.enable = true;
     pipewire = {
       enable = true;
@@ -196,12 +197,6 @@
   programs = {
     fuse.userAllowOther = true;
     light.enable = true;
-    neovim = {
-      enable = true;
-      vimAlias = true;
-      viAlias = true;
-      defaultEditor = true;
-    };
     steam = {
       enable = true;
       remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
@@ -214,3 +209,4 @@
     };
   };
 }
+
