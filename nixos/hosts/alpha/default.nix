@@ -8,7 +8,6 @@
     ./users
     inputs.impermanence.nixosModules.impermanence
     inputs.sops-nix.nixosModules.sops
-    inputs.hyprland.nixosModules.default
     inputs.nix-gaming.nixosModules.pipewireLowLatency
   ];
 
@@ -143,6 +142,7 @@
       autoScrubFileSystems = [ "/dev/sda3" "/dev/sdb1" ];
     };
     earlyoom.enable = true;
+    hyprland.enable = true;
     mullvad-vpn.enable = true;
     neovim.enable = true;
     networkmanager.enable = true;
@@ -197,10 +197,6 @@
   programs = {
     light.enable = true;
     gamemode.enable = true;
-    hyprland = {
-      enable = true;
-      recommendedEnvironment = false; # variables are added in config
-    };
   };
 }
 
