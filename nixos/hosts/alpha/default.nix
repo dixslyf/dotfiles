@@ -195,7 +195,6 @@
   ];
 
   programs = {
-    fuse.userAllowOther = true;
     light.enable = true;
     steam = {
       enable = true;

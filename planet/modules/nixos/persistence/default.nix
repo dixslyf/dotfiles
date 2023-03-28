@@ -27,6 +27,13 @@
             this value will be passed to.
           '';
         };
+        fuseAllowOther = mkOption {
+          type = types.bool;
+          default = true;
+          description = ''
+            Allow non-root users to specify the allow_other or allow_root mount options, see mount.fuse3(8).
+          '';
+        };
         persistSystemdDirectories = mkOption {
           type = types.bool;
           default = false;
@@ -100,5 +107,7 @@
         files = cfg.files
           ++ lists.optional cfg.persistMachineId "/etc/machine-id";
       };
+
+      programs.fuse.userAllowOther = cfg.fuseAllowOther;
     };
 }
