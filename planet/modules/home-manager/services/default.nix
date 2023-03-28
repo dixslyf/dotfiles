@@ -4,7 +4,6 @@ _: {
     ./flameshot
     ./gpg-agent
     ./mullvad-vpn
-    ./network-manager-applet
     ./picom
     ./polybar
     ./redshift

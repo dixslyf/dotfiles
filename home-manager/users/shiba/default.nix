@@ -68,7 +68,6 @@
       systemd.enable = true;
     };
     neovim.enable = true;
-    network-manager-applet.enable = true;
     osu-lazer.enable = true;
     picom = {
       enable = true;
@@ -100,6 +99,10 @@
     };
     yuzu.enable = true;
     zathura.enable = true;
+  };
+
+  services = {
+    network-manager-applet.enable = true;
   };
 
   home.packages = with pkgs; [
