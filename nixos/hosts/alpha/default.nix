@@ -140,18 +140,19 @@
     desktopManager.runXdgAutostartIfNone = true;
   };
 
+  planet = {
+    btrfs = {
+      enable = true;
+      autoScrubFileSystems = [ "/dev/sda3" "/dev/sdb1" ];
+    };
+  };
+
   services = {
     earlyoom = {
       enable = true;
       freeMemThreshold = 5;
     };
     fstrim.enable = true;
-    btrfs = {
-      autoScrub = {
-        enable = true;
-        fileSystems = [ "/dev/sda3" "/dev/sdb1" ];
-      };
-    };
     udev.packages = [
       pkgs.android-udev-rules
     ];

@@ -92,7 +92,6 @@
         inherit (cfg) hideMounts;
         directories = cfg.directories ++ [
           # TODO: move these to their respsective modules
-          "/var/lib/btrfs"
           "/etc/NetworkManager/system-connections"
           "/etc/mullvad-vpn"
         ] ++ (lists.optionals cfg.persistSystemdDirectories [
