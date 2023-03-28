@@ -7,5 +7,6 @@ _: {
     ./pipewire
     ./tlp
     ./udisks2
+    ./upower
   ];
 }

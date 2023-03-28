@@ -157,6 +157,7 @@
       diskDevices = [ "nvme0n1" "sda" ];
     };
     udisks2.enable = true;
+    upower.enable = true;
   };
 
   services = {
@@ -165,12 +166,6 @@
     ];
     resolved.enable = true;
     mullvad-vpn.enable = true;
-    upower = {
-      enable = true;
-      percentageLow = 30;
-      percentageCritical = 15;
-      percentageAction = 10;
-    };
     blueman.enable = true;
   };
 
