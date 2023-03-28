@@ -147,22 +147,13 @@
     };
     earlyoom.enable = true;
     fstrim.enable = true;
+    udisks2.enable = true;
   };
 
   services = {
     udev.packages = [
       pkgs.android-udev-rules
     ];
-    udisks2 = {
-      enable = true;
-      settings = {
-        "mount_options.conf" = {
-          defaults = {
-            defaults = "noatime";
-          };
-        };
-      };
-    };
     tlp = {
       enable = true;
       settings = {
