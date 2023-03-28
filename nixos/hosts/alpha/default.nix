@@ -19,7 +19,6 @@
         "kernel.sysrq" = 1; # https://wiki.archlinux.org/title/Keyboard_shortcuts#Kernel_(SysRq)
       };
     };
-    supportedFilesystems = [ "ntfs" ]; # ntfs-3g driver; required by udisks to mount due to the "windows_names" mount option
   };
 
   planet.persistence = {

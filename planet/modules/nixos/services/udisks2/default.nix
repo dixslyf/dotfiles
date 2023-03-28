@@ -28,5 +28,9 @@
           };
         };
       };
+
+      # ntfs-3g driver
+      # Required by udisks to mount due to the "windows_names" mount option
+      boot.supportedFilesystems = [ "ntfs" ];
     };
 }
