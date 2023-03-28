@@ -4,5 +4,6 @@ _: {
     ./network-manager
     ./programs
     ./services
+    ./xdg
   ];
 }

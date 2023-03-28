@@ -157,6 +157,7 @@
     };
     udisks2.enable = true;
     upower.enable = true;
+    xdg.enable = true;
   };
 
   services = {
@@ -167,15 +168,6 @@
     autorandr.enable = true;
     resolved.enable = true;
     blueman.enable = true;
-  };
-
-  xdg = {
-    autostart.enable = true;
-    portal = {
-      enable = true;
-      # xdg-desktop-portal-wlr should already be enabled by hyprland
-      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    };
   };
 
   # Packages
@@ -199,4 +191,3 @@
     gamemode.enable = true;
   };
 }
-
