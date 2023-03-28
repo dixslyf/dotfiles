@@ -148,6 +148,10 @@
     };
     earlyoom.enable = true;
     fstrim.enable = true;
+    pipewire = {
+      enable = true;
+      lowLatency = false; # nix-gaming #58
+    };
     tlp = {
       enable = true;
       diskDevices = [ "nvme0n1" "sda" ];
@@ -159,13 +163,6 @@
     udev.packages = [
       pkgs.android-udev-rules
     ];
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      lowLatency.enable = true;
-    };
     resolved.enable = true;
     mullvad-vpn.enable = true;
     upower = {

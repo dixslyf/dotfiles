@@ -4,6 +4,7 @@ _: {
     ./btrfs
     ./earlyoom
     ./fstrim
+    ./pipewire
     ./tlp
     ./udisks2
   ];
