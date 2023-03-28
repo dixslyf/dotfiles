@@ -145,13 +145,10 @@
       enable = true;
       autoScrubFileSystems = [ "/dev/sda3" "/dev/sdb1" ];
     };
+    earlyoom.enable = true;
   };
 
   services = {
-    earlyoom = {
-      enable = true;
-      freeMemThreshold = 5;
-    };
     fstrim.enable = true;
     udev.packages = [
       pkgs.android-udev-rules
