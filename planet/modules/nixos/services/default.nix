@@ -3,6 +3,7 @@ _: {
     ./btrfs
     ./earlyoom
     ./fstrim
+    ./tlp
     ./udisks2
   ];
 }
