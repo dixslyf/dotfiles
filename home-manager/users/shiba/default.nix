@@ -33,7 +33,6 @@
       enable = true;
       host = "alpha";
     };
-    blueman-applet.enable = true;
     bspwm = {
       enable = true;
       primaryMonitor = "eDP-1";
@@ -103,6 +102,7 @@
 
   services = {
     network-manager-applet.enable = true;
+    blueman-applet.enable = true;
   };
 
   home.packages = with pkgs; [

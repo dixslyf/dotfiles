@@ -1,6 +1,5 @@
 _: {
   imports = [
-    ./blueman-applet
     ./flameshot
     ./gpg-agent
     ./mullvad-vpn
