@@ -1,5 +1,6 @@
 _: {
   imports = [
+    ./autorandr
     ./btrfs
     ./earlyoom
     ./fstrim
