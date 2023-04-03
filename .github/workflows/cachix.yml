@@ -6,7 +6,7 @@ on:
       - master
   workflow_dispatch:
     inputs:
-      deploy:  # When enabled, only the NixOS configuration is built (if needed)
+      deploy: # When enabled, only the NixOS configuration is built (if needed)
         description: "Deploy the NixOS configuration"
         required: true
         type: boolean
@@ -38,28 +38,31 @@ jobs:
           install_url: ${{ env.nix-install-url }}
       - name: Check flake
         run: nix flake check --keep-going
+  generate-flake-outputs-matrix:
+    runs-on: ubuntu-22.04
+    needs: check-flake
+    outputs:
+      flake-outputs-matrix: ${{ steps.flake-outputs-matrix.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v3.1.0
+      - uses: cachix/install-nix-action@v19
+        with:
+          install_url: ${{ env.nix-install-url }}
+      - id: flake-outputs-matrix
+        name: Generate flake outputs matrix
+        run: |
+          # Outputs an array of flake outputs
+          filter='[ paths | select((.[0] == "packages" or .[0] == "devShells") and length == 3) | join(".") ]'
+          matrix=$(nix flake show --json | jq "$filter")
+          printf '%s' "matrix=$matrix" >> "$GITHUB_OUTPUT"
   build-others:
     runs-on: ubuntu-22.04
-    if: ${{ !inputs.deploy }}
-    needs: check-flake
+    needs: [check-flake, generate-flake-outputs-matrix]
+    if: ${{ needs.generate-flake-outputs-matrix.outputs.flake-outputs-matrix != '[]' }}
     strategy:
       fail-fast: false
       matrix:
-        build:
-          - flake-output: "devShells.x86_64-linux.default"
-            cachix-extra-pull-names: "devenv"
-    steps:
-      - uses: actions/checkout@v3
-      - name: Build ${{ matrix.build.flake-output }}
-        uses: ./.github/actions/build  # from the checked out repo
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
-          flake-output: ${{ matrix.build.flake-output }}
-          cachix-extra-pull-names: ${{ matrix.build.cachix-extra-pull-names }}
-  build-nixos:
-    runs-on: ubuntu-22.04
-    needs: check-flake
+        flake-output: ${{ fromJson(needs.generate-flake-outputs-matrix.outputs.flake-outputs-matrix) }}
     steps:
       - id: download-spec
         uses: dawidd6/action-download-artifact@v2
@@ -69,7 +72,29 @@ jobs:
           commit: ${{ github.sha }}
           search_artifacts: true
           if_no_artifact_found: ignore
-      - if: ${{ !fromJson(steps.download-spec.outputs.found_artifact) }}  # https://github.com/actions/runner/issues/2238
+      - if: ${{ !fromJson(steps.download-spec.outputs.found_artifact) }}
+        uses: actions/checkout@v3
+      - name: Build ${{ matrix.flake-output }}
+        if: ${{ !fromJson(steps.download-spec.outputs.found_artifact) }}
+        uses: ./.github/actions/build # from the checked out repo
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          flake-output: ${{ matrix.flake-output }}
+          cachix-extra-pull-names: "devenv"
+  build-nixos:
+    runs-on: ubuntu-22.04
+    needs: [check-flake, build-others]
+    steps:
+      - id: download-spec
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          name: ${{ env.artifact-name }}
+          workflow_conclusion: ""
+          commit: ${{ github.sha }}
+          search_artifacts: true
+          if_no_artifact_found: ignore
+      - if: ${{ !fromJson(steps.download-spec.outputs.found_artifact) }} # https://github.com/actions/runner/issues/2238
         uses: actions/checkout@v3
       - name: Build deploy specification
         if: ${{ !fromJson(steps.download-spec.outputs.found_artifact) }}
