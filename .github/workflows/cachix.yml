@@ -26,8 +26,27 @@ env:
   artifact-name: deploy-spec-${{ github.sha }}
 
 jobs:
+  check-deploy-spec-artifact:
+    runs-on: ubuntu-22.04
+    outputs:
+      # Unfortunately, all outputs are Unicode strings, so `fromJSON` must be used
+      # whenever referencing this output to properly convert it to a boolean
+      # https://github.com/actions/runner/issues/2238#issuecomment-1318973310
+      # https://docs.github.com/en/actions/using-jobs/defining-outputs-for-jobs
+      exists: ${{ steps.download-spec.outputs.found_artifact }}
+    steps:
+      - id: download-spec
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          name: ${{ env.artifact-name }}
+          workflow_conclusion: ""
+          commit: ${{ github.sha }}
+          search_artifacts: true
+          if_no_artifact_found: ignore
   check-flake:
     runs-on: ubuntu-22.04
+    needs: check-deploy-spec-artifact
+    if: ${{ !fromJSON(needs.check-deploy-spec-artifact.outputs.exists) }}
     steps:
       - uses: actions/checkout@v3.1.0
       - uses: cachix/install-nix-action@v20
@@ -37,7 +56,8 @@ jobs:
         run: nix flake check --keep-going
   generate-flake-outputs-matrix:
     runs-on: ubuntu-22.04
-    needs: check-flake
+    needs: [check-deploy-spec-artifact, check-flake]
+    if: ${{ !fromJSON(needs.check-deploy-spec-artifact.outputs.exists) }}
     outputs:
       flake-outputs-matrix: ${{ steps.flake-outputs-matrix.outputs.matrix }}
     steps:
@@ -52,25 +72,15 @@ jobs:
           printf '%s' "matrix=$matrix" >> "$GITHUB_OUTPUT"
   build-others:
     runs-on: ubuntu-22.04
-    needs: [check-flake, generate-flake-outputs-matrix]
-    if: ${{ needs.generate-flake-outputs-matrix.outputs.flake-outputs-matrix != '[]' }}
+    needs: [check-deploy-spec-artifact, check-flake, generate-flake-outputs-matrix]
+    if: ${{ !fromJSON(needs.check-deploy-spec-artifact.outputs.exists) && needs.generate-flake-outputs-matrix.outputs.flake-outputs-matrix != '[]' }}
     strategy:
       fail-fast: false
       matrix:
         flake-output: ${{ fromJson(needs.generate-flake-outputs-matrix.outputs.flake-outputs-matrix) }}
     steps:
-      - id: download-spec
-        uses: dawidd6/action-download-artifact@v2
-        with:
-          name: ${{ env.artifact-name }}
-          workflow_conclusion: ""
-          commit: ${{ github.sha }}
-          search_artifacts: true
-          if_no_artifact_found: ignore
-      - if: ${{ !fromJson(steps.download-spec.outputs.found_artifact) }}
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
       - name: Build ${{ matrix.flake-output }}
-        if: ${{ !fromJson(steps.download-spec.outputs.found_artifact) }}
         uses: ./.github/actions/build # from the checked out repo
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -79,28 +89,18 @@ jobs:
           cachix-extra-pull-names: "devenv"
   build-nixos:
     runs-on: ubuntu-22.04
-    needs: [check-flake, build-others]
+    needs: [check-deploy-spec-artifact, check-flake, build-others]
+    if: ${{ !fromJSON(needs.check-deploy-spec-artifact.outputs.exists) }}
     steps:
-      - id: download-spec
-        uses: dawidd6/action-download-artifact@v2
-        with:
-          name: ${{ env.artifact-name }}
-          workflow_conclusion: ""
-          commit: ${{ github.sha }}
-          search_artifacts: true
-          if_no_artifact_found: ignore
-      - if: ${{ !fromJson(steps.download-spec.outputs.found_artifact) }} # https://github.com/actions/runner/issues/2238
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
       - name: Build deploy specification
-        if: ${{ !fromJson(steps.download-spec.outputs.found_artifact) }}
         uses: ./.github/actions/build
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
           flake-output: "cachix-deploy-spec"
           cachix-extra-pull-names: "nix-gaming, hyprland, nix-community"
-      - if: ${{ !fromJson(steps.download-spec.outputs.found_artifact) }}
-        uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v3
         with:
           name: ${{ env.artifact-name }}
           path: ./result
