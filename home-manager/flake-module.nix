@@ -63,16 +63,7 @@ in
             };
           };
         in
-        {
-          shiba = mkHomeManagerConfiguration "shiba" {
-            # Work around HM #2942.
-            # The fact that this works is accidental due to the way HM
-            # creates its own `nixpkgs`, but it's still nicer than importing
-            # a new `nixpkgs` instance.
-            # https://github.com/nix-community/home-manager/issues/2942#issuecomment-1378627909
-            nixpkgs.config.allowUnfreePredicate = _: true;
-          };
-        }
+        { }
       );
   };
 }
