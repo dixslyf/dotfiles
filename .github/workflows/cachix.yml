@@ -24,18 +24,15 @@ concurrency:
 
 env:
   artifact-name: deploy-spec-${{ github.sha }}
-  nix-install-url: https://releases.nixos.org/nix/nix-2.13.3/install
 
 jobs:
   check-flake:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3.1.0
-      - uses: cachix/install-nix-action@v18
+      - uses: cachix/install-nix-action@v20
         with:
-          extra_nix_config: |
-            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
-          install_url: ${{ env.nix-install-url }}
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Check flake
         run: nix flake check --keep-going
   generate-flake-outputs-matrix:
@@ -45,15 +42,13 @@ jobs:
       flake-outputs-matrix: ${{ steps.flake-outputs-matrix.outputs.matrix }}
     steps:
       - uses: actions/checkout@v3.1.0
-      - uses: cachix/install-nix-action@v19
-        with:
-          install_url: ${{ env.nix-install-url }}
+      - uses: cachix/install-nix-action@v20
       - id: flake-outputs-matrix
         name: Generate flake outputs matrix
         run: |
           # Outputs an array of flake outputs
-          filter='[ paths | select((.[0] == "packages" or .[0] == "devShells") and length == 3) | join(".") ]'
-          matrix=$(nix flake show --json | jq "$filter")
+          filter='[ paths | select((.[0] == "packages" or .[0] == "devShells") and .[2] != "cachix-deploy-spec" and length == 3) | join(".") ]'
+          matrix=$(nix flake show --json | jq -c "$filter")
           printf '%s' "matrix=$matrix" >> "$GITHUB_OUTPUT"
   build-others:
     runs-on: ubuntu-22.04
@@ -120,10 +115,9 @@ jobs:
           workflow_conclusion: ""
           commit: ${{ github.sha }}
           search_artifacts: true
-      - uses: cachix/install-nix-action@v19
+      - uses: cachix/install-nix-action@v20
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
-          install_url: ${{ env.nix-install-url }}
       - uses: cachix/cachix-action@v12
         with:
           name: playernamehere-nixos
