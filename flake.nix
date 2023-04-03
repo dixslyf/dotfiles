@@ -63,8 +63,9 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
         ./devshell/flake-module.nix
-        ./pkgs/flake-module.nix
+        ./planet/flake-module.nix
         ./nixos/flake-module.nix
+        ./home-manager/flake-module.nix
       ];
 
       systems = [ "x86_64-linux" ];

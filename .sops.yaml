@@ -3,19 +3,13 @@ keys:
   - &shiba-pgp 696e2d91121faeef3057400883e06ba3516ce57e
   - &shiba-asus age1gjuaev2c8dx6r66a975uk8fd59k3e2p3ksyzqxg2asvmcvasde3ss29y3m
 creation_rules:
-  - path_regex: nixos/users/secrets.yaml$
-    key_groups:
-      - pgp:
-          - *shiba-pgp
-        age:
-          - *shiba-asus
-  - path_regex: nixos/users/shiba/.*
+  - path_regex: home-manager/users/shiba/.*
     key_groups:
       - pgp:
           - *shiba-pgp
         age:
           - *shiba-age
-  - path_regex: nixos/hosts/shiba-asus/secrets.yaml$
+  - path_regex: nixos/hosts/alpha/sops/secrets.yaml$
     key_groups:
       - pgp:
           - *shiba-pgp

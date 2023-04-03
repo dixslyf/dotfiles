@@ -1,4 +1,8 @@
-{ self, inputs, ... }:
+{ self
+, inputs
+, homeUsers  # From home-manager flake-module via `_module.args`
+, ...
+}:
 {
   perSystem =
     { pkgs
@@ -10,35 +14,39 @@
         in
         cachix-deploy-lib.spec {
           agents = {
-            shiba-asus = self.nixosConfigurations.shiba-asus.config.system.build.toplevel;
+            alpha = self.nixosConfigurations.alpha.config.system.build.toplevel;
           };
         };
     };
 
   flake = {
-    nixosConfigurations = {
-      shiba-asus = inputs.nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          {
-            nixpkgs.overlays = [
-              self.overlays.pers-pkgs
-              inputs.nix-gaming.overlays.default
-              inputs.rust-overlay.overlays.default
-              inputs.neovim-nightly-overlay.overlay
-              inputs.nil.overlays.default
-              (_: final: {
-                discord = final.discord.overrideAttrs (_: {
-                  src = inputs.discord;
-                });
-              })
-            ];
-            nix.registry.nixpkgs.flake = inputs.nixpkgs;
-          }
-          ./hosts/shiba-asus
-        ];
-        specialArgs = { inherit inputs; };
+    nixosConfigurations =
+      let
+        inherit (inputs) nixpkgs;
+      in
+      {
+        alpha = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            { imports = [ self.nixosModules.planet ]; }
+            {
+              nixpkgs.overlays = nixpkgs.lib.lists.unique ([
+                self.overlays.pers-pkgs
+                inputs.neovim-nightly-overlay.overlay
+              ]
+              ++ homeUsers.shiba.overlays);
+              nix.registry.nixpkgs.flake = nixpkgs;
+            }
+            ./hosts/alpha
+          ];
+          specialArgs = {
+            inherit inputs;
+            homeUsers = {
+              # Pass only specific user(s)
+              inherit (homeUsers) shiba;
+            };
+          };
+        };
       };
-    };
   };
 }
