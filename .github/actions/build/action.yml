@@ -14,13 +14,8 @@ inputs:
     description: "The authentication token for Cachix"
     required: true
     type: string
-  flake-path:
-    description: "The path to the flake. The path must start with either `/` or `./`. Defaults to $GITHUB_WORKSPACE."
-    required: false
-    tyoe: string
-    default: "$GITHUB_WORKSPACE"
-  flake-output:
-    description: "The flake output to build"
+  derivation:
+    description: "The derivation to build"
     required: true
     type: string
   cachix-extra-pull-names:
@@ -45,4 +40,4 @@ runs:
       run: cachix watch-store ${{ inputs.cachix-cache-name }} &
     - name: Build
       shell: bash
-      run: nix build --print-build-logs ${{ inputs.flake-path }}#${{ inputs.flake-output }}
+      run: nix build --print-build-logs ${{ inputs.derivation }}

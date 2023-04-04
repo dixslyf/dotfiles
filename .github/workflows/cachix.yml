@@ -81,11 +81,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build ${{ matrix.flake-output }}
-        uses: ./.github/actions/build # from the checked out repo
+        uses: ./.github/actions/build
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
-          flake-output: ${{ matrix.flake-output }}
+          derivation: ".#${{ matrix.flake-output }}"
           cachix-extra-pull-names: "devenv"
   build-nixos:
     runs-on: ubuntu-22.04
@@ -98,7 +98,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
-          flake-output: "cachix-deploy-spec"
+          derivation: ".#cachix-deploy-spec"
           cachix-extra-pull-names: "nix-gaming, hyprland, nix-community"
       - uses: actions/upload-artifact@v3
         with:
