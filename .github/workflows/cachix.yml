@@ -59,11 +59,11 @@ jobs:
     needs: [check-deploy-spec-artifact, check-flake]
     if: ${{ !fromJSON(needs.check-deploy-spec-artifact.outputs.exists) }}
     outputs:
-      flake-outputs-matrix: ${{ steps.flake-outputs-matrix.outputs.matrix }}
+      matrix: ${{ steps.generate.outputs.matrix }}
     steps:
       - uses: actions/checkout@v3.1.0
       - uses: cachix/install-nix-action@v20
-      - id: flake-outputs-matrix
+      - id: generate
         name: Generate flake outputs matrix
         run: |
           # Outputs an array of flake outputs
@@ -73,11 +73,11 @@ jobs:
   build-others:
     runs-on: ubuntu-22.04
     needs: [check-deploy-spec-artifact, check-flake, generate-flake-outputs-matrix]
-    if: ${{ !fromJSON(needs.check-deploy-spec-artifact.outputs.exists) && needs.generate-flake-outputs-matrix.outputs.flake-outputs-matrix != '[]' }}
+    if: ${{ !fromJSON(needs.check-deploy-spec-artifact.outputs.exists) && needs.generate-flake-outputs-matrix.outputs.matrix != '[]' }}
     strategy:
       fail-fast: false
       matrix:
-        flake-output: ${{ fromJson(needs.generate-flake-outputs-matrix.outputs.flake-outputs-matrix) }}
+        flake-output: ${{ fromJson(needs.generate-flake-outputs-matrix.outputs.matrix) }}
     steps:
       - uses: actions/checkout@v3
       - name: Build ${{ matrix.flake-output }}
