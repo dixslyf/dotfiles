@@ -2,13 +2,15 @@ name: Update
 
 on:
   schedule:
-    - cron: '0 0 1,15 * *' # run on the 1st and 15th of every month
+    - cron: "0 0 1,15 * *" # run on the 1st and 15th of every month
   workflow_dispatch:
 
 run-name: Update flake inputs and npins
 
 env:
   nix-install-url: https://releases.nixos.org/nix/nix-2.13.3/install
+  GIT_USERNAME: github-actions[bot]
+  GIT_EMAIL: github-actions[bot]@users.noreply.github.com
 
 jobs:
   update-flake:
@@ -23,9 +25,21 @@ jobs:
           install_url: ${{ env.nix-install-url }}
       - name: Update flake inputs
         run: nix flake update
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - id: generate-patch
+        name: Generate patch
+        run: |
+          git config user.name ${{ env.GIT_USERNAME }}
+          git config user.email ${{ env.GIT_EMAIL }}
+          if git commit -am "chore(flake): update inputs" && git format-patch -1 HEAD --output "flake-update.patch"; then
+            echo "patch=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "patch=false" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/upload-artifact@v3
+        if: ${{ fromJson(steps.generate-patch.outputs.patch) }}
         with:
-          commit_message: "chore(flake): update inputs"
+          name: flake-update-patch
+          path: flake-update.patch
   generate-npins-matrix:
     runs-on: ubuntu-22.04
     outputs:
@@ -56,6 +70,43 @@ jobs:
           install_url: ${{ env.nix-install-url }}
       - name: Update ${{ matrix.pin.name }}
         run: nix develop --command npins -d "${{ matrix.pin.npins-dir }}" update ${{ matrix.pin.name }}
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - id: generate-patch
+        name: Generate patch
+        run: |
+          git config user.name ${{ env.GIT_USERNAME }}
+          git config user.email ${{ env.GIT_EMAIL }}
+          if git commit -am "chore(pkgs): update ${{ matrix.pin.name }}" && git format-patch -1 HEAD --output "${{ matrix.pin.name }}.patch"; then
+            echo "patch=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "patch=false" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/upload-artifact@v3
+        if: ${{ fromJson(steps.generate-patch.outputs.patch) }}
         with:
-          commit_message: "chore(pkgs): update ${{ matrix.pin.name }}"
+          name: ${{ matrix.pin.name }}-patch
+          path: ${{ matrix.pin.name }}.patch
+  create-pull-request:
+    runs-on: ubuntu-22.04
+    needs: [update-flake, update-npins]
+    if: contains(needs.*.result, 'success')
+    steps:
+      - uses: actions/checkout@v3.1.0
+      - name: Configure git
+        run: |
+          git config user.name ${{ env.GIT_USERNAME }}
+          git config user.email ${{ env.GIT_EMAIL }}
+      - uses: actions/download-artifact@v3
+        with:
+          path: patches
+      - name: Apply patches
+        run: |
+          shopt -s globstar
+          git am ./patches/**/*.patch
+      - name: Delete patch files
+        run: |
+          rm -rf ./patches
+      - uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.PR_PAT }}
+          title: Update flake inputs and npins
+          branch: update-flake-inputs-and-npins
