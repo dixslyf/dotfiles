@@ -50,8 +50,8 @@ jobs:
         name: Generate npins matrix
         run: |
           # Outputs a list of { "name": <pin-name>, "npins-dir": <dir> }
-          filter='include "npins_matrix"; (.[0] | npins_matrix("pkgs/npins")) + (.[1] | npins_matrix("pkgs/vim-plugins/npins"))'
-          matrix=$(jq -c -s -L .github/workflows "$filter" pkgs/npins/sources.json pkgs/vim-plugins/npins/sources.json)
+          filter='include "npins_matrix"; (.[0] | npins_matrix("planet/pkgs/npins")) + (.[1] | npins_matrix("planet/pkgs/vim-plugins/npins"))'
+          matrix=$(jq -c -s -L .github/workflows "$filter" planet/pkgs/npins/sources.json planet/pkgs/vim-plugins/npins/sources.json)
           printf '%s' "matrix=$matrix" >> "$GITHUB_OUTPUT"
   update-npins:
     runs-on: ubuntu-22.04
@@ -75,7 +75,7 @@ jobs:
         run: |
           git config user.name ${{ env.GIT_USERNAME }}
           git config user.email ${{ env.GIT_EMAIL }}
-          if git commit -am "chore(pkgs): update ${{ matrix.pin.name }}" && git format-patch -1 HEAD --output "${{ matrix.pin.name }}.patch"; then
+          if git commit -am "chore(planet, pkgs): update ${{ matrix.pin.name }}" && git format-patch -1 HEAD --output "${{ matrix.pin.name }}.patch"; then
             echo "patch=true" >> "$GITHUB_OUTPUT"
           else
             echo "patch=false" >> "$GITHUB_OUTPUT"
