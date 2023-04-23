@@ -1,5 +1,6 @@
 { config
 , lib
+, pkgs
 , ...
 }: {
   options =
@@ -18,7 +19,10 @@
       inherit (lib) mkIf;
     in
     mkIf cfg.enable {
-      services.mullvad-vpn.enable = true;
+      services.mullvad-vpn = {
+        enable = true;
+        package = pkgs.mullvad-vpn;
+      };
 
       planet.persistence = {
         directories = [ "/etc/mullvad-vpn" ];
