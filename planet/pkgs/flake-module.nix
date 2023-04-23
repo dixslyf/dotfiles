@@ -19,6 +19,7 @@
             inherit (npinsPackages) catppuccin-papirus-folders;
             catppuccin-papirus-folders-source = sources.catppuccin-papirus-folders;
           };
+          citra-nightly = prev.callPackage ./citra-nightly { };
           iosevka-custom = prev.callPackage ./iosevka-custom { };
           iosevka-term-custom = prev.callPackage ./iosevka-custom { spacing = "term"; };
           # vimPlugins = prev.lib.recurseIntoAttrs (prev.callPackage ./vim-plugins { });
