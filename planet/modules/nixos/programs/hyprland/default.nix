@@ -1,12 +1,7 @@
 { config
-, inputs
 , lib
 , ...
 }: {
-  imports = [
-    inputs.hyprland.nixosModules.default
-  ];
-
   options =
     let
       inherit (lib) mkEnableOption;
@@ -25,7 +20,7 @@
     mkIf cfg.enable {
       programs.hyprland = {
         enable = true;
-        recommendedEnvironment = false; # Variables are added in HM config
+        nvidiaPatches = true;
       };
     };
 }

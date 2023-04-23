@@ -37,10 +37,9 @@
 
       wayland.windowManager.hyprland = {
         enable = true;
-        package = null; # required to use the nixOS module to install hyprland
-        xwayland.enable = true;
-        recommendedEnvironment = false; # handled in wrapper
-        # use extraConfig so that the hyprland flake still adds in the lines for systemd integration
+        package = null; # Required to use the NixOS module to install hyprland
+        recommendedEnvironment = false; # If `true`, `NIXOS_OZONE_WL` is set to 1, but most packages that require already set it for themselves
+        # Use extraConfig so that the hyprland flake still adds in the lines for systemd integration
         extraConfig =
           let
             hyprland-config = pkgs.substituteAll {
