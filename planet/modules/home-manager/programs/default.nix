@@ -15,7 +15,6 @@ _: {
     ./kdenlive
     ./kitty
     ./lutris
-    ./mako
     ./neovim
     ./osu-lazer
     ./qutebrowser

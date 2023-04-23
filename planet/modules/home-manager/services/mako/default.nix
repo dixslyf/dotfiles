@@ -20,7 +20,7 @@
     in
     mkIf cfg.enable {
       home.packages = with pkgs; [ pers-pkgs.mali ];
-      programs.mako = {
+      services.mako = {
         enable = true;
         anchor = "bottom-right";
         defaultTimeout = 8000;
