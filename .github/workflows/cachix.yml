@@ -79,6 +79,9 @@ jobs:
       fail-fast: false
       matrix:
         flake-output: ${{ fromJson(needs.generate-flake-outputs-matrix.outputs.matrix) }}
+        include:
+          - flake-output: "devShells.x86_64-linux.default"
+            additional-flags: "--impure"  # devenv requires impure
     steps:
       - uses: actions/checkout@v3
       - name: Build ${{ matrix.flake-output }}
@@ -88,6 +91,7 @@ jobs:
           cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
           derivation: ".#${{ matrix.flake-output }}"
           cachix-extra-pull-names: "devenv"
+          additional-flags: ${{ matrix.additional-flags }}
   build-nixos:
     runs-on: ubuntu-22.04
     needs: [check-deploy-spec-artifact, check-flake, build-others]
