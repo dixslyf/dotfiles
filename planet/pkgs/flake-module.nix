@@ -4,7 +4,7 @@
   };
 
   flake = {
-    overlays.pers-pkgs = inputs.nixpkgs.lib.composeExtensions inputs.hyprland.overlays.default (_: prev:
+    overlays.pers-pkgs = _: prev:
       let
         sources = import ./npins;
         npinsPackages = builtins.mapAttrs
@@ -24,6 +24,6 @@
           iosevka-term-custom = prev.callPackage ./iosevka-custom { spacing = "term"; };
           # vimPlugins = prev.lib.recurseIntoAttrs (prev.callPackage ./vim-plugins { });
         };
-      });
+      };
   };
 }
