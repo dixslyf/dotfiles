@@ -33,6 +33,7 @@
               nixpkgs.overlays = nixpkgs.lib.lists.unique ([
                 self.overlays.pers-pkgs
                 inputs.neovim-nightly-overlay.overlay
+                inputs.hyprland.overlays.default
               ]
               ++ homeUsers.shiba.overlays);
               nix.registry.nixpkgs.flake = nixpkgs;
