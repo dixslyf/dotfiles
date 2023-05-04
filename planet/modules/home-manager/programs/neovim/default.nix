@@ -113,6 +113,7 @@
             todo-comments-nvim
             markdown-preview-nvim
             vimtex
+            nvim-neoclip-lua
             (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins:
               with plugins; [
                 tree-sitter-bash
