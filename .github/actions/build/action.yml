@@ -22,6 +22,10 @@ inputs:
     description: "Comma-separated list of names for extra cachix caches to pull/substitute"
     required: false
     type: string
+  additional-flags:
+    description: "Add additional flags (whitespace-separated) to the build command"
+    required: false
+    type: string
 
 runs:
   using: composite
@@ -40,4 +44,4 @@ runs:
       run: cachix watch-store ${{ inputs.cachix-cache-name }} &
     - name: Build
       shell: bash
-      run: nix build --print-build-logs ${{ inputs.derivation }}
+      run: nix build --print-build-logs ${{ inputs.additional-flags }} ${{ inputs.derivation }}

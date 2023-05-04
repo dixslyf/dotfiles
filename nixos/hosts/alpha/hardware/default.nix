@@ -14,7 +14,7 @@
         devices = [ "nodev" ];
       };
     };
-    tmpOnTmpfs = true; # defaults to 50% of RAM
+    tmp.useTmpfs = true; # defaults to 50% of RAM
     initrd = {
       secrets = {
         "/keyfiles/boot.bin" = "/boot/keyfiles/boot.bin";

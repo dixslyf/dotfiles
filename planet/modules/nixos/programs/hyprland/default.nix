@@ -1,7 +1,10 @@
-{ config
+{ inputs
+, config
 , lib
 , ...
 }: {
+  imports = [ inputs.hyprland.nixosModules.default ];
+
   options =
     let
       inherit (lib) mkEnableOption;
