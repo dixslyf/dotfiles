@@ -19,6 +19,7 @@ let
         inputs.rust-overlay.overlays.default
         inputs.neovim-nightly-overlay.overlay
         inputs.nil.overlays.default
+        inputs.wired.overlays.default
       ];
     };
   };
