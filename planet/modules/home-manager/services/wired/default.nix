@@ -38,6 +38,12 @@
         };
       };
 
+      services.sxhkd = {
+        keybindings = {
+          "super + n" = "wired -s 1"; # Show the last notification
+        };
+      };
+
       systemd.user.services.wired = {
         Unit.After = lib.mkForce [ cfg.systemd.target ];
         Unit.PartOf = lib.mkForce [ cfg.systemd.target ];
