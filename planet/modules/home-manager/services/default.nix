@@ -9,6 +9,7 @@ _: {
     ./redshift
     ./syncthing
     ./udiskie
+    ./wired
     ./wlsunset
   ];
 }

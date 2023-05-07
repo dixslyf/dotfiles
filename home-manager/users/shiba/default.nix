@@ -92,6 +92,10 @@
       primaryOutput = "eDP-1";
       externalOutput = "HDMI-A-1";
     };
+    wired = {
+      enable = true;
+      systemd.target = "bspwm-session.target";
+    };
     wlsunset = {
       enable = true;
       systemd.target = "hyprland-session.target";
