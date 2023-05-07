@@ -24,7 +24,7 @@
                 border_color_paused: Color(hex: "#8aadf4"),
 
                 gap: Vec2(x: 0.0, y: -12.0),
-                notification_hook: Hook(parent_anchor: TL, self_anchor: BL),
+                notification_hook: Hook(parent_anchor: TR, self_anchor: BR),
             )),
         ),
 
