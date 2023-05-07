@@ -1,6 +1,6 @@
 (
     max_notifications: 0,
-    timeout: 5000,
+    timeout: 7500,
     poll_interval: 16,
 
     idle_threshold: 300,
