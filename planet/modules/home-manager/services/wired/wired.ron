@@ -18,10 +18,10 @@
                 border_width: 2.0,
                 border_rounding: 4.0,
                 background_color: Color(hex: "#282828"),
-                border_color: Color(hex: "#ebdbb2"),
-                border_color_low: Color(hex: "#282828"),
-                border_color_critical: Color(hex: "#fb4934"),
-                border_color_paused: Color(hex: "#fabd2f"),
+                border_color: Color(hex: "#c6a0f6"),
+                border_color_low: Color(hex: "#a6da95"),
+                border_color_critical: Color(hex: "#ed8796"),
+                border_color_paused: Color(hex: "#8aadf4"),
 
                 gap: Vec2(x: 0.0, y: -12.0),
                 notification_hook: Hook(parent_anchor: TL, self_anchor: BL),
@@ -51,7 +51,7 @@
             params: ScrollingTextBlock((
                 text: "<b>%s</b>",
                 font: "Iosevka Custom 16",
-                color: Color(hex: "#ebdbb2"),
+                color: Color(hex: "#c6a0f6"),
                 padding: Padding(left: 16.0, right: 16.0, top: 16.0, bottom: 4.0),
                 width: (min: 368, max: 368),
                 width_image_hint: (min: 304, max: 304),
@@ -72,7 +72,7 @@
             params: TextBlock((
                 text: "%b",
                 font: "Iosevka Custom 14",
-                color: Color(hex: "#ebdbb2"),
+                color: Color(hex: "#cad3f5"),
                 padding: Padding(left: 16.0, right: 16.0, top: 4.0, bottom: 16.0),
                 dimensions: (width: (min: 368, max: 368), height: (min: 0, max: 70)),
                 dimensions_image_hint: (width: (min: 304, max: 304), height: (min: 0, max: 70)),
