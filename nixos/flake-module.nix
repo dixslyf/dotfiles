@@ -48,6 +48,12 @@
             };
           };
         };
+        bravo = nixpkgs.lib.nixosSystem {
+          system = "aarch64-linux";
+          modules = [
+            ./hosts/bravo
+          ];
+        };
       };
   };
 }
