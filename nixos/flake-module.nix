@@ -49,8 +49,8 @@
           };
         };
         bravo = nixpkgs.lib.nixosSystem {
-          system = "aarch64-linux";
           modules = [
+            { nixpkgs.buildPlatform = "x86_64-linux"; }
             ./hosts/bravo
           ];
         };
