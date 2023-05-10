@@ -2,6 +2,7 @@ keys:
   - &shiba-age age18qeqs7gvds09hdcf80rrzr74khdk3s9srdp2asv6v4w9vnqr3cssuq9wxe
   - &shiba-pgp 696e2d91121faeef3057400883e06ba3516ce57e
   - &shiba-asus age1gjuaev2c8dx6r66a975uk8fd59k3e2p3ksyzqxg2asvmcvasde3ss29y3m
+  - &bravo age1vsflpyynfjxmy2dgxlku4pdk90yccsxpta0l9fntxusyfhvqegestnhcy3
 creation_rules:
   - path_regex: home-manager/users/shiba/.*
     key_groups:
@@ -15,3 +16,9 @@ creation_rules:
           - *shiba-pgp
         age:
           - *shiba-asus
+  - path_regex: nixos/hosts/bravo/sops/secrets.yaml$
+    key_groups:
+      - pgp:
+          - *shiba-pgp
+        age:
+          - *bravo

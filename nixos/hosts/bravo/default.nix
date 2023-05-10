@@ -3,10 +3,11 @@
 }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ./sops
+    ./users
+  ];
 
   boot.loader = {
     grub.enable = false;
@@ -32,17 +33,6 @@
   console = {
     font = "Lat2-Terminus16";
     keyMap = "us";
-  };
-
-  users = {
-    mutableUsers = false;
-    users = {
-      root.initialPassword = "";
-      samoyed = {
-        isNormalUser = true;
-        extraGroups = [ "wheel" ];
-      };
-    };
   };
 
   environment.systemPackages = with pkgs; [
