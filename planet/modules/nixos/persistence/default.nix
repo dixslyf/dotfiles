@@ -46,7 +46,14 @@
             Whether to persist the following systemd directories:
               - `/var/lib/systemd/coredump`
               - `/var/lib/systemd/timers`
-              - `/var/lib/systemd/backlight`
+            This is more of a convenience option.
+          '';
+        };
+        persistSystemdBacklight = mkOption {
+          type = types.bool;
+          default = false;
+          description = ''
+            Whether to persist the `/var/lib/systemd/backlight` directory.
             This is more of a convenience option.
           '';
         };
@@ -105,8 +112,8 @@
         directories = cfg.directories ++ (lists.optionals cfg.persistSystemdDirectories [
           "/var/lib/systemd/coredump"
           "/var/lib/systemd/timers"
-          "/var/lib/systemd/backlight" # for systemd-backlight to be able to restore brightness
         ])
+          ++ (lists.optional cfg.persistSystemdBacklight "/var/lib/systemd/backlight") # for systemd-backlight to be able to restore brightness
           ++ (lists.optional cfg.persistLogs "/var/log")
           ++ (lists.optional cfg.persistSsh "/etc/ssh");
         files = cfg.files
