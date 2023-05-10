@@ -6,6 +6,7 @@
   ];
 
   sops = {
+    gnupg.sshKeyPaths = [ ]; # https://github.com/Mic92/sops-nix/issues/167
     age.sshKeyPaths = [ "/persist/etc/ssh/ssh_host_ed25519_key" ];
     defaultSopsFile = ./secrets.yaml;
     secrets = {
