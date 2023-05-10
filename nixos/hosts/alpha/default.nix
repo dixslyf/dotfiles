@@ -7,7 +7,6 @@
     ./hardware
     ./users
     ./sops
-    inputs.nix-gaming.nixosModules.pipewireLowLatency
   ];
 
   # Kernel
