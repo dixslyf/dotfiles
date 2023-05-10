@@ -50,9 +50,13 @@
         };
         bravo = nixpkgs.lib.nixosSystem {
           modules = [
+            { imports = [ self.nixosModules.planet ]; }
             { nixpkgs.buildPlatform = "x86_64-linux"; }
             ./hosts/bravo
           ];
+          specialArgs = {
+            inherit inputs;
+          };
         };
       };
   };
