@@ -38,7 +38,7 @@
     mutableUsers = false;
     users = {
       root.initialPassword = "";
-      shiba = {
+      samoyed = {
         isNormalUser = true;
         extraGroups = [ "wheel" ];
       };
