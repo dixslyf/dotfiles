@@ -87,9 +87,6 @@
       };
     in
     mkIf cfg.enable {
-      programs.autorandr =
-        if (cfg.host == "alpha")
-        then alphaConfiguration
-        else { };
+      programs.autorandr = mkIf (cfg.host == "alpha") alphaConfiguration;
     };
 }
