@@ -14,7 +14,9 @@
 
   home-manager = {
     users = {
-      shiba = homeUsers.shiba.homeConfiguration;
+      shiba = {
+        imports = homeUsers.shiba.homeConfiguration.imports ++ [ ./syncthing ];
+      };
     };
   };
 }
