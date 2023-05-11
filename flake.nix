@@ -66,6 +66,7 @@
     }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
+        ./lib/flake-module.nix
         ./devshell/flake-module.nix
         ./planet/flake-module.nix
         ./nixos/flake-module.nix
