@@ -1,9 +1,14 @@
 { config
+, inputs
 , lib
 , ...
 }:
 
 {
+  imports = [
+    inputs.impermanence.nixosModules.home-manager.impermanence
+  ];
+
   options =
     let
       inherit (lib) mkEnableOption mkOption types;
