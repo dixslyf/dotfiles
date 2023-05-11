@@ -37,11 +37,6 @@
             }
             ./hosts/alpha
           ];
-          specialArgs = {
-            homeUsers = {
-              inherit (homeUsers) shiba;
-            };
-          };
         };
 
         bravo = self.lib.mkNixosSystem {
@@ -49,11 +44,6 @@
             { nixpkgs.buildPlatform = "x86_64-linux"; }
             ./hosts/bravo
           ];
-          specialArgs = {
-            homeUsers = {
-              inherit (homeUsers) samoyed;
-            };
-          };
         };
       };
   };

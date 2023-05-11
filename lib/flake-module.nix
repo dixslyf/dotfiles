@@ -1,5 +1,6 @@
 { self
 , inputs
+, homeUsers # From home-manager flake-module via `_module.args`
 , ...
 }:
 {
@@ -34,6 +35,7 @@
               ];
               specialArgs = {
                 inherit inputs;
+                inherit homeUsers;
               };
             }
           ];
