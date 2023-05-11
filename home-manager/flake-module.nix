@@ -22,6 +22,14 @@ let
         inputs.wired.overlays.default
       ];
     };
+    samoyed = {
+      homeConfiguration = {
+        imports = [
+          self.homeManagerModules.planet
+          ./users/samoyed
+        ];
+      };
+    };
   };
 in
 {
