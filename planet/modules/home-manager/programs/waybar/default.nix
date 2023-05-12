@@ -1,6 +1,7 @@
 { config
 , lib
 , pkgs
+, pers-pkgs
 , ...
 }: {
   options =
@@ -106,7 +107,7 @@
         };
         style = pkgs.substituteAll {
           src = ./style.css;
-          themePath = "${pkgs.pers-pkgs.catppuccin-waybar}/share/waybar/themes/catppuccin/macchiato.css";
+          themePath = "${pers-pkgs.catppuccin-waybar}/share/waybar/themes/catppuccin/macchiato.css";
         };
       };
     };

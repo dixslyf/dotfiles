@@ -1,6 +1,6 @@
 { config
 , lib
-, pkgs
+, pers-pkgs
 , ...
 }: {
   options =
@@ -19,7 +19,7 @@
       inherit (lib) mkIf;
     in
     mkIf cfg.enable {
-      home.packages = with pkgs; [ pers-pkgs.mali ];
+      home.packages = [ pers-pkgs.mali ];
       services.mako = {
         enable = true;
         anchor = "bottom-right";
@@ -32,7 +32,7 @@
         padding = "16";
         borderRadius = 4;
         borderSize = 3;
-        extraConfig = builtins.readFile "${pkgs.pers-pkgs.catppuccin-mako}/share/mako/themes/catppuccin/macchiato";
+        extraConfig = builtins.readFile "${pers-pkgs.catppuccin-mako}/share/mako/themes/catppuccin/macchiato";
       };
     };
 }

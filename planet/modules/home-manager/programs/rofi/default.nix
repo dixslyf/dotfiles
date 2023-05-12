@@ -1,6 +1,7 @@
 { config
 , lib
 , pkgs
+, pers-pkgs
 , ...
 }: {
   options =
@@ -19,13 +20,13 @@
       inherit (lib) mkIf;
     in
     mkIf cfg.enable {
-      home.packages = with pkgs; [ pers-pkgs.mali ];
+      home.packages = [ pers-pkgs.mali ];
       programs.rofi = {
         enable = true;
         configPath = "${config.xdg.configHome}/rofi/home-manager.rasi";
         font = "Mali 16";
         terminal = "${pkgs.wezterm}/bin/wezterm";
-        theme = "${pkgs.pers-pkgs.catppuccin-rofi}/share/rofi/themes/catppuccin-basic/catppuccin-macchiato.rasi";
+        theme = "${pers-pkgs.catppuccin-rofi}/share/rofi/themes/catppuccin-basic/catppuccin-macchiato.rasi";
         extraConfig = {
           m = -1;
           steal-focus = true;

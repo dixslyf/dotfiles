@@ -1,6 +1,7 @@
 { config
 , lib
 , pkgs
+, pers-pkgs
 , ...
 }: {
   options =
@@ -27,7 +28,7 @@
       # More details: https://github.com/NixOS/nixpkgs/issues/190442
       xsession.windowManager.bspwm = {
         enable = true;
-        package = pkgs.pers-pkgs.bspwm;
+        package = pers-pkgs.bspwm;
         monitors = {
           ${cfg.primaryMonitor} = [ "p1" "p2" "p3" "p4" "p5" "p6" "p7" "p8" "p9" "p0" ];
         };
