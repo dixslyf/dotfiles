@@ -1,9 +1,43 @@
 _:
 {
   imports = [
+    ./android
+    ./autorandr
+    ./bspwm
+    ./citra
+    ./direnv
+    ./discord
+    ./firefox
+    ./fish
+    ./flameshot
+    ./git
+    ./gitui
+    ./gpg
+    ./gpg-agent
+    ./hyprland
+    ./kdenlive
+    ./kitty
+    ./lutris
+    ./mako
+    ./mullvad-vpn
+    ./neovim
+    ./osu-lazer
     ./persistence
-    ./services
-    ./programs
+    ./picom
+    ./polybar
+    ./qutebrowser
+    ./redshift
+    ./rofi
+    ./ssh
+    ./tealdeer
+    ./tetrio-desktop
+    ./udiskie
+    ./waybar
+    ./wezterm
+    ./wired
+    ./wlsunset
+    ./yuzu
+    ./zathura
   ];
 }
 
