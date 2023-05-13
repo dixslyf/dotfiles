@@ -27,6 +27,7 @@ _:
     (importApply ./persistence { inherit inputs; })
     ./picom
     (importApply ./polybar { inherit self'; })
+    ./qt
     ./qutebrowser
     ./redshift
     (importApply ./rofi { inherit self'; })

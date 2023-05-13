@@ -72,6 +72,7 @@
       systemd.target = "bspwm-session.target";
     };
     polybar.enable = true;
+    qt.enable = true;
     qutebrowser.enable = true;
     redshift = {
       enable = true;
@@ -147,11 +148,6 @@
     x11.enable = true;
     gtk.enable = true;
     size = 32;
-  };
-
-  qt = {
-    enable = true;
-    platformTheme = "gtk";
   };
 
   editorconfig = {
