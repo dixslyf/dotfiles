@@ -10,6 +10,7 @@ _: {
     (importApply ./nvidia { inherit self'; })
     (importApply ./persistence { inherit inputs; })
     (importApply ./pipewire { inherit inputs; })
+    (importApply ./sddm { inherit self'; })
     ./steam
     ./tlp
     ./udisks2

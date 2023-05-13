@@ -112,16 +112,10 @@
       touchpad.naturalScrolling = true;
     };
     displayManager = {
-      # disable external monitor in SDDM
-      setupCommands = "${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-1 --off";
       # set the background color of the root window
       sessionCommands = ''
         ${pkgs.hsetroot}/bin/hsetroot -solid "#363a4f"
       '';
-      sddm = {
-        enable = true;
-        theme = "sugar-candy";
-      };
     };
     windowManager.bspwm.enable = true;
     desktopManager.runXdgAutostartIfNone = true;
@@ -142,6 +136,7 @@
       enable = true;
       lowLatency = false; # nix-gaming #58
     };
+    sddm.enable = true;
     steam.enable = true;
     tlp = {
       enable = true;
@@ -171,10 +166,6 @@
     pciutils
     light
     pamixer
-    pers-pkgs.sddm-sugar-candy
-    libsForQt5.qt5.qtgraphicaleffects
-    libsForQt5.qt5.qtquickcontrols2
-    libsForQt5.qt5.qtsvg
   ];
 
   programs = {
