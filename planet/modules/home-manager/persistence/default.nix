@@ -1,5 +1,5 @@
+{ inputs }:
 { config
-, inputs
 , lib
 , ...
 }:

@@ -1,15 +1,25 @@
-{ withSystem, ... }:
+{ inputs, flake-parts-lib, withSystem, ... }:
+
+let
+  inherit (flake-parts-lib) importApply;
+in
 {
   imports = [ ./pkgs/flake-module.nix ];
 
   flake = {
     homeManagerModules.planet = { pkgs, ... }: {
       imports = [
-        ./modules/home-manager
+        (
+          importApply ./modules/home-manager {
+            inherit inputs importApply;
+          }
+        )
       ];
       _module.args.pers-pkgs = withSystem pkgs.stdenv.hostPlatform.system ({ self', ... }: self'.packages);
     };
 
-    nixosModules.planet = import ./modules/nixos;
+    nixosModules.planet = importApply ./modules/nixos {
+      inherit inputs importApply;
+    };
   };
 }

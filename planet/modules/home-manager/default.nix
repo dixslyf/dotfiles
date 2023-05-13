@@ -1,3 +1,4 @@
+{ inputs, importApply }:
 _:
 {
   imports = [
@@ -14,7 +15,7 @@ _:
     ./gitui
     ./gpg
     ./gpg-agent
-    ./hyprland
+    (importApply ./hyprland { inherit inputs; })
     ./kdenlive
     ./kitty
     ./lutris
@@ -22,7 +23,7 @@ _:
     ./mullvad-vpn
     ./neovim
     ./osu-lazer
-    ./persistence
+    (importApply ./persistence { inherit inputs; })
     ./picom
     ./polybar
     ./qutebrowser
@@ -34,7 +35,7 @@ _:
     ./udiskie
     ./waybar
     ./wezterm
-    ./wired
+    (importApply ./wired { inherit inputs; })
     ./wlsunset
     ./yuzu
     ./zathura

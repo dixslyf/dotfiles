@@ -1,14 +1,15 @@
+{ inputs, importApply }:
 _: {
   imports = [
     ./btrfs
     ./earlyoom
-    ./hyprland
+    (importApply ./hyprland { inherit inputs; })
     ./mullvad-vpn
     ./neovim
     ./network-manager
     ./nvidia
-    ./persistence
-    ./pipewire
+    (importApply ./persistence { inherit inputs; })
+    (importApply ./pipewire { inherit inputs; })
     ./steam
     ./tlp
     ./udisks2
