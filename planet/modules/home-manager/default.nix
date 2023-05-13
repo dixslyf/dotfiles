@@ -8,6 +8,7 @@ _:
     (importApply ./citra { inherit self'; })
     ./direnv
     ./discord
+    ./editorconfig
     ./firefox
     (importApply ./fish { inherit self'; })
     ./flameshot
