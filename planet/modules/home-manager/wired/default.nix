@@ -1,4 +1,4 @@
-{ inputs }:
+{ inputs, self' }:
 { config
 , lib
 , pkgs
@@ -29,7 +29,7 @@
       inherit (lib) mkIf;
     in
     mkIf cfg.enable {
-      home.packages = with pkgs; [ pers-pkgs.iosevka-custom ];
+      home.packages = [ self'.packages.iosevka-custom ];
 
       services.wired = {
         enable = true;

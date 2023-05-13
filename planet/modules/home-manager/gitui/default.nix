@@ -1,6 +1,6 @@
+{ self' }:
 { config
 , lib
-, pkgs
 , ...
 }: {
   options =
@@ -22,7 +22,7 @@
       programs.gitui = {
         enable = true;
         keyConfig = builtins.readFile ./key_bindings.ron;
-        theme = builtins.readFile "${pkgs.pers-pkgs.catppuccin-gitui}/share/gitui/macchiato.ron";
+        theme = builtins.readFile "${self'.packages.catppuccin-gitui}/share/gitui/macchiato.ron";
       };
     };
 }

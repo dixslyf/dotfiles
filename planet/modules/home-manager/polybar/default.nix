@@ -1,3 +1,4 @@
+{ self' }:
 { config
 , lib
 , pkgs
@@ -31,7 +32,7 @@
 
       configFile = pkgs.substituteAll {
         src = ./config;
-        colors = "${pkgs.pers-pkgs.catppuccin-polybar}/share/polybar/themes/catppuccin/macchiato.ini";
+        colors = "${self'.packages.catppuccin-polybar}/share/polybar/themes/catppuccin/macchiato.ini";
       };
 
       optionalBspwmTarget = lists.optional cfg.bspwmIntegration "bspwm-session.target";

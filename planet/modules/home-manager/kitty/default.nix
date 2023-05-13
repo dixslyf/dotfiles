@@ -1,6 +1,6 @@
+{ self' }:
 { config
 , lib
-, pkgs
 , ...
 }: {
   options =
@@ -18,7 +18,7 @@
       inherit (lib) mkIf;
     in
     mkIf cfg.enable {
-      home.packages = with pkgs; [ pers-pkgs.iosevka-term-custom ];
+      home.packages = [ self'.packages.iosevka-term-custom ];
       programs.kitty = {
         enable = true;
         settings = {

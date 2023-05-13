@@ -1,6 +1,6 @@
+{ self' }:
 { config
 , lib
-, pkgs
 , ...
 }: {
   options =
@@ -33,7 +33,7 @@
         };
 
       xdg.configFile."fish/themes" = {
-        source = "${pkgs.pers-pkgs.catppuccin-fish}/share/fish/themes";
+        source = "${self'.packages.catppuccin-fish}/share/fish/themes";
         recursive = true;
       };
     };

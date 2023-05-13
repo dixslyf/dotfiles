@@ -1,6 +1,6 @@
+{ self' }:
 { config
 , lib
-, pkgs
 , ...
 }: {
   options =
@@ -19,7 +19,7 @@
       inherit (lib) mkIf;
     in
     mkIf cfg.enable {
-      home.packages = with pkgs; [ pers-pkgs.iosevka-custom ];
+      home.packages = [ self'.packages.iosevka-custom ];
       programs.zathura = {
         enable = true;
         options = {
@@ -28,7 +28,7 @@
           selection-clipboard = "clipboard";
         };
         extraConfig = ''
-          include ${pkgs.pers-pkgs.catppuccin-zathura}/share/zathura/themes/catppuccin-macchiato
+          include ${self'.packages.catppuccin-zathura}/share/zathura/themes/catppuccin-macchiato
         '';
       };
     };

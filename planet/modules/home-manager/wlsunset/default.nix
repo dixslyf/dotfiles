@@ -1,3 +1,4 @@
+{ self' }:
 { config
 , lib
 , pkgs
@@ -17,8 +18,8 @@
 
         package = mkOption {
           type = types.package;
-          default = pkgs.pers-pkgs.wlsunset;
-          defaultText = "pkgs.wlsunset";
+          default = self'.packages.wlsunset;
+          defaultText = "self'.packages.wlsunset";
           description = ''
             wlsunset derivation to use.
           '';

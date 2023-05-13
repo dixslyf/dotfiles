@@ -1,44 +1,44 @@
-{ inputs, importApply }:
+{ inputs, importApply, self' }:
 _:
 {
   imports = [
     ./android
     ./autorandr
-    ./bspwm
-    ./citra
+    (importApply ./bspwm { inherit self'; })
+    (importApply ./citra { inherit self'; })
     ./direnv
     ./discord
     ./firefox
-    ./fish
+    (importApply ./fish { inherit self'; })
     ./flameshot
     ./git
-    ./gitui
+    (importApply ./gitui { inherit self'; })
     ./gpg
     ./gpg-agent
     (importApply ./hyprland { inherit inputs; })
     ./kdenlive
-    ./kitty
+    (importApply ./kitty { inherit self'; })
     ./lutris
-    ./mako
+    (importApply ./mako { inherit self'; })
     ./mullvad-vpn
     ./neovim
     ./osu-lazer
     (importApply ./persistence { inherit inputs; })
     ./picom
-    ./polybar
+    (importApply ./polybar { inherit self'; })
     ./qutebrowser
     ./redshift
-    ./rofi
+    (importApply ./rofi { inherit self'; })
     ./ssh
     ./tealdeer
     ./tetrio-desktop
     ./udiskie
-    ./waybar
+    (importApply ./waybar { inherit self'; })
     ./wezterm
-    (importApply ./wired { inherit inputs; })
-    ./wlsunset
+    (importApply ./wired { inherit inputs self'; })
+    (importApply ./wlsunset { inherit self'; })
     ./yuzu
-    ./zathura
+    (importApply ./zathura { inherit self'; })
   ];
 }
 

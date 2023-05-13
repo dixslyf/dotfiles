@@ -1,6 +1,6 @@
+{ self' }:
 { config
 , lib
-, pkgs
 , ...
 }: {
   options =
@@ -19,7 +19,7 @@
       inherit (lib) mkIf;
     in
     mkIf cfg.enable {
-      home.packages = with pkgs; [ pers-pkgs.citra-nightly ];
+      home.packages = [ self'.packages.citra-nightly ];
       planet.persistence = {
         directories = [
           ".config/citra-emu"
