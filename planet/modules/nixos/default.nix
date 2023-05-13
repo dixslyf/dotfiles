@@ -1,4 +1,4 @@
-{ inputs, importApply }:
+{ inputs, importApply, self' }:
 _: {
   imports = [
     ./btrfs
@@ -7,7 +7,7 @@ _: {
     ./mullvad-vpn
     ./neovim
     ./network-manager
-    ./nvidia
+    (importApply ./nvidia { inherit self'; })
     (importApply ./persistence { inherit inputs; })
     (importApply ./pipewire { inherit inputs; })
     ./steam

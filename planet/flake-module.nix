@@ -6,20 +6,17 @@
 
 let
   inherit (flake-parts-lib) importApply;
+  importPlanetModule = modulePath: moduleWithSystem (
+    { self' }: importApply modulePath {
+      inherit inputs importApply self';
+    }
+  );
 in
 {
   imports = [ ./pkgs/flake-module.nix ];
 
   flake = {
-    homeManagerModules.planet = moduleWithSystem (
-      perSystem @ { self' }: importApply ./modules/home-manager {
-        inherit inputs importApply;
-        inherit (perSystem) self';
-      }
-    );
-
-    nixosModules.planet = importApply ./modules/nixos {
-      inherit inputs importApply;
-    };
+    homeManagerModules.planet = importPlanetModule ./modules/home-manager;
+    nixosModules.planet = importPlanetModule ./modules/nixos;
   };
 }
