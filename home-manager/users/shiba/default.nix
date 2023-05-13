@@ -71,6 +71,7 @@
       enable = true;
       systemd.target = "bspwm-session.target";
     };
+    pointer-cursor.enable = true;
     polybar.enable = true;
     qt.enable = true;
     qutebrowser.enable = true;
@@ -141,14 +142,6 @@
   ];
 
   fonts.fontconfig.enable = true;
-
-  home.pointerCursor = {
-    name = "Catppuccin-Macchiato-Dark-Cursors";
-    package = pkgs.catppuccin-cursors.macchiatoDark;
-    x11.enable = true;
-    gtk.enable = true;
-    size = 32;
-  };
 
   editorconfig = {
     enable = true;

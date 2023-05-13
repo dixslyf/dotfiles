@@ -26,6 +26,7 @@ _:
     ./osu-lazer
     (importApply ./persistence { inherit inputs; })
     ./picom
+    ./pointer-cursor
     (importApply ./polybar { inherit self'; })
     ./qt
     ./qutebrowser
