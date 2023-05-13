@@ -48,6 +48,7 @@
     gitui.enable = true;
     gpg.enable = true;
     gpg-agent.enable = true;
+    gtk.enable = true;
     hyprland = {
       enable = true;
       nvidiaVariables = true;
@@ -146,28 +147,6 @@
     x11.enable = true;
     gtk.enable = true;
     size = 32;
-  };
-
-  gtk = {
-    enable = true;
-    font = {
-      name = "Mali";
-      size = 14;
-    };
-    theme = {
-      package = pkgs.catppuccin-gtk.override {
-        accents = [ "mauve" ];
-        variant = "macchiato";
-        tweaks = [ "rimless" ];
-      };
-      name = "Catppuccin-Macchiato-Standard-Mauve-Dark";
-    };
-    iconTheme = {
-      package = pkgs.pers-pkgs.catppuccin-papirus-icon-theme.override {
-        color = "cat-macchiato-mauve";
-      };
-      name = "Papirus-Dark";
-    };
   };
 
   qt = {

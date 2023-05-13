@@ -15,6 +15,7 @@ _:
     (importApply ./gitui { inherit self'; })
     ./gpg
     ./gpg-agent
+    (importApply ./gtk { inherit self'; })
     (importApply ./hyprland { inherit inputs; })
     ./kdenlive
     (importApply ./kitty { inherit self'; })
