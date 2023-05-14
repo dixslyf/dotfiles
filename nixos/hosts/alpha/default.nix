@@ -7,7 +7,6 @@
     ./hardware
     ./users
     ./sops
-    inputs.nix-gaming.nixosModules.pipewireLowLatency
   ];
 
   # Kernel
@@ -24,6 +23,7 @@
   planet.persistence = {
     enable = true;
     persistSystemdDirectories = true;
+    persistSystemdBacklight = true;
     persistLogs = true;
     persistSsh = true;
     persistMachineId = true;

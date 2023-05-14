@@ -48,6 +48,25 @@
             };
           };
         };
+        bravo = nixpkgs.lib.nixosSystem {
+          modules = [
+            { imports = [ self.nixosModules.planet ]; }
+            {
+              nixpkgs.overlays = [
+                self.overlays.pers-pkgs
+              ];
+              nix.registry.nixpkgs.flake = nixpkgs;
+            }
+            { nixpkgs.buildPlatform = "x86_64-linux"; }
+            ./hosts/bravo
+          ];
+          specialArgs = {
+            inherit inputs;
+            homeUsers = {
+              inherit (homeUsers) samoyed;
+            };
+          };
+        };
       };
   };
 }

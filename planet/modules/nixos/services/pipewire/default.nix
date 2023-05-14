@@ -1,7 +1,9 @@
 { config
+, inputs
 , lib
 , ...
 }: {
+  imports = [ inputs.nix-gaming.nixosModules.pipewireLowLatency ];
   options =
     let
       inherit (lib) mkEnableOption;

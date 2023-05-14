@@ -7,7 +7,6 @@ _: {
     ./picom
     ./polybar
     ./redshift
-    ./syncthing
     ./udiskie
     ./wired
     ./wlsunset
