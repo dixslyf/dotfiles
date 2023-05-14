@@ -6,11 +6,30 @@
 }: {
   options =
     let
-      inherit (lib) mkEnableOption;
+      inherit (lib) mkEnableOption mkOption types;
     in
     {
       planet.neovim = {
         enable = mkEnableOption "planet neovim";
+        rustToolchain = mkOption {
+          type = types.package;
+          default = inputs'.fenix.packages.stable.withComponents [
+            # Minimal
+            "rustc"
+            "rust-std"
+            "cargo"
+
+            # Default
+            "rust-docs"
+            "rustfmt"
+            "clippy"
+
+            # Extra
+            "rust-analyzer"
+            "rust-src"
+          ];
+          description = "Rust toolchain to use.";
+        };
       };
     };
 
@@ -53,21 +72,7 @@
           actionlint
           yamllint
           nodePackages.prettier
-          (inputs'.fenix.packages.stable.withComponents [
-            # Minimal
-            "rustc"
-            "rust-std"
-            "cargo"
-
-            # Default
-            "rust-docs"
-            "rustfmt"
-            "clippy"
-
-            # Extra
-            "rust-analyzer"
-            "rust-src"
-          ])
+          cfg.rustToolchain
           (texlive.combine {
             inherit (texlive) scheme-minimal latexindent;
           })
