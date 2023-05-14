@@ -30,6 +30,11 @@
           ];
           description = "Rust toolchain to use.";
         };
+        nilPackage = mkOption {
+          type = types.package;
+          default = pkgs.nil;
+          description = "The `nil` package to use.";
+        };
       };
     };
 
@@ -58,7 +63,7 @@
           stylua
           fnlfmt
           nixpkgs-fmt
-          nil
+          cfg.nilPackage
           gcc
           clang-tools
           ghc
