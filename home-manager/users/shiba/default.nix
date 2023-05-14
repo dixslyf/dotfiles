@@ -1,4 +1,8 @@
-{ importModule, localFlakeInputs, ... }:
+{ importModule
+, localFlakeInputs
+, localFlakeInputs'
+, ...
+}:
 
 { pkgs, ... }: {
   imports = [
@@ -9,7 +13,6 @@
     config.allowUnfree = true;
     overlays = [
       localFlakeInputs.neovim-nightly-overlay.overlay
-      localFlakeInputs.nil.overlays.default
     ];
   };
 
@@ -74,7 +77,10 @@
       };
       systemd.enable = true;
     };
-    neovim.enable = true;
+    neovim = {
+      enable = true;
+      nilPackage = localFlakeInputs'.nil.packages.default;
+    };
     osu-lazer.enable = true;
     picom = {
       enable = true;
