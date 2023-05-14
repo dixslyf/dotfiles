@@ -28,7 +28,7 @@ _:
     ./lutris
     (importApply ./mako { inherit self'; })
     ./mullvad-vpn
-    ./neovim
+    (importApply ./neovim { inherit inputs'; })
     ./osu-lazer
     (importApply ./persistence { inherit inputs; })
     ./picom

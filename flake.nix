@@ -42,8 +42,8 @@
       url = "github:catppuccin/grub";
       flake = false;
     };
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
+    fenix = {
+      url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     neovim-nightly-overlay = {

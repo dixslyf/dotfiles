@@ -1,3 +1,4 @@
+{ inputs' }:
 { config
 , lib
 , pkgs
@@ -52,9 +53,21 @@
           actionlint
           yamllint
           nodePackages.prettier
-          (rust-bin.stable.latest.default.override {
-            extensions = [ "rust-src" "rust-analyzer" ];
-          })
+          (inputs'.fenix.packages.stable.withComponents [
+            # Minimal
+            "rustc"
+            "rust-std"
+            "cargo"
+
+            # Default
+            "rust-docs"
+            "rustfmt"
+            "clippy"
+
+            # Extra
+            "rust-analyzer"
+            "rust-src"
+          ])
           (texlive.combine {
             inherit (texlive) scheme-minimal latexindent;
           })
