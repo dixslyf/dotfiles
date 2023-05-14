@@ -1,6 +1,4 @@
-{ inputs
-, importApply
-, self'
+{ importPlanetModule
 , ...
 }:
 
@@ -8,14 +6,14 @@ _: {
   imports = [
     ./btrfs
     ./earlyoom
-    (importApply ./hyprland { inherit inputs; })
+    (importPlanetModule ./hyprland { })
     ./mullvad-vpn
     ./neovim
     ./network-manager
-    (importApply ./nvidia { inherit self'; })
-    (importApply ./persistence { inherit inputs; })
-    (importApply ./pipewire { inherit inputs; })
-    (importApply ./sddm { inherit self'; })
+    (importPlanetModule ./nvidia { })
+    (importPlanetModule ./persistence { })
+    (importPlanetModule ./pipewire { })
+    (importPlanetModule ./sddm { })
     ./steam
     ./tlp
     ./udisks2

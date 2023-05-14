@@ -1,4 +1,4 @@
-{ self' }:
+{ localFlake', ... }:
 { config
 , lib
 , ...
@@ -18,7 +18,7 @@
       inherit (lib) mkIf;
     in
     mkIf cfg.enable {
-      home.packages = [ self'.packages.iosevka-term-custom ];
+      home.packages = [ localFlake'.packages.iosevka-term-custom ];
       programs.kitty = {
         enable = true;
         settings = {

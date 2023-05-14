@@ -1,4 +1,4 @@
-{ self' }:
+{ localFlake', ... }:
 { config
 , lib
 , pkgs
@@ -20,7 +20,7 @@
       inherit (lib) mkIf;
     in
     mkIf cfg.enable {
-      home.packages = [ self'.packages.mali ];
+      home.packages = [ localFlake'.packages.mali ];
 
       gtk = {
         enable = true;
@@ -37,7 +37,7 @@
           name = "Catppuccin-Macchiato-Standard-Mauve-Dark";
         };
         iconTheme = {
-          package = self'.packages.catppuccin-papirus-icon-theme.override {
+          package = localFlake'.packages.catppuccin-papirus-icon-theme.override {
             color = "cat-macchiato-mauve";
           };
           name = "Papirus-Dark";

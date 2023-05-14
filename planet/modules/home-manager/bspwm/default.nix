@@ -1,4 +1,4 @@
-{ self' }:
+{ localFlake', ... }:
 { config
 , lib
 , pkgs
@@ -28,7 +28,7 @@
       # More details: https://github.com/NixOS/nixpkgs/issues/190442
       xsession.windowManager.bspwm = {
         enable = true;
-        package = self'.packages.bspwm;
+        package = localFlake'.packages.bspwm;
         monitors = {
           ${cfg.primaryMonitor} = [ "p1" "p2" "p3" "p4" "p5" "p6" "p7" "p8" "p9" "p0" ];
         };

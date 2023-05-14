@@ -1,4 +1,4 @@
-{ self' }:
+{ localFlake', ... }:
 { config
 , lib
 , pkgs
@@ -107,7 +107,7 @@
         };
         style = pkgs.substituteAll {
           src = ./style.css;
-          themePath = "${self'.packages.catppuccin-waybar}/share/waybar/themes/catppuccin/macchiato.css";
+          themePath = "${localFlake'.packages.catppuccin-waybar}/share/waybar/themes/catppuccin/macchiato.css";
         };
       };
     };

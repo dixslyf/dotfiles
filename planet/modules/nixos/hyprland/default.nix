@@ -1,9 +1,9 @@
-{ inputs }:
+{ localFlakeInputs, ... }:
 { config
 , lib
 , ...
 }: {
-  imports = [ inputs.hyprland.nixosModules.default ];
+  imports = [ localFlakeInputs.hyprland.nixosModules.default ];
 
   options =
     let

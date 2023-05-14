@@ -1,10 +1,15 @@
-{ inputs, self', inputs' }:
+{ localFlakeInputs
+, localFlake'
+, localFlakeInputs'
+, ...
+}:
+
 { config
 , lib
 , pkgs
 , ...
 }: {
-  imports = [ inputs.wired.homeManagerModules.default ];
+  imports = [ localFlakeInputs.wired.homeManagerModules.default ];
 
   options =
     let
@@ -29,11 +34,11 @@
       inherit (lib) mkIf;
     in
     mkIf cfg.enable {
-      home.packages = [ self'.packages.iosevka-custom ];
+      home.packages = [ localFlake'.packages.iosevka-custom ];
 
       services.wired = {
         enable = true;
-        package = inputs'.wired.packages.default;
+        package = localFlakeInputs'.wired.packages.default;
         config = pkgs.substituteAll {
           src = ./wired.ron;
         };

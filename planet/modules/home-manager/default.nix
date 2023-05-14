@@ -1,53 +1,49 @@
-{ inputs
-, importApply
-, self'
-, inputs'
-}:
+{ importPlanetModule, ... }:
 
 _:
 {
   imports = [
     ./android
     ./autorandr
-    (importApply ./bspwm { inherit self'; })
-    (importApply ./citra { inherit self'; })
+    (importPlanetModule ./bspwm { })
+    (importPlanetModule ./citra { })
     ./direnv
     ./discord
     ./editorconfig
     ./firefox
-    (importApply ./fish { inherit self'; })
+    (importPlanetModule ./fish { })
     ./flameshot
     ./git
-    (importApply ./gitui { inherit self'; })
+    (importPlanetModule ./gitui { })
     ./gpg
     ./gpg-agent
-    (importApply ./gtk { inherit self'; })
-    (importApply ./hyprland { inherit inputs; })
+    (importPlanetModule ./gtk { })
+    (importPlanetModule ./hyprland { })
     ./kdenlive
-    (importApply ./kitty { inherit self'; })
+    (importPlanetModule ./kitty { })
     ./lutris
-    (importApply ./mako { inherit self'; })
+    (importPlanetModule ./mako { })
     ./mullvad-vpn
-    (importApply ./neovim { inherit inputs'; })
+    (importPlanetModule ./neovim { })
     ./osu-lazer
-    (importApply ./persistence { inherit inputs; })
+    (importPlanetModule ./persistence { })
     ./picom
     ./pointer-cursor
-    (importApply ./polybar { inherit self'; })
+    (importPlanetModule ./polybar { })
     ./qt
     ./qutebrowser
     ./redshift
-    (importApply ./rofi { inherit self'; })
+    (importPlanetModule ./rofi { })
     ./ssh
     ./tealdeer
     ./tetrio-desktop
     ./udiskie
-    (importApply ./waybar { inherit self'; })
+    (importPlanetModule ./waybar { })
     ./wezterm
-    (importApply ./wired { inherit inputs self' inputs'; })
-    (importApply ./wlsunset { inherit self'; })
+    (importPlanetModule ./wired { })
+    (importPlanetModule ./wlsunset { })
     ./yuzu
-    (importApply ./zathura { inherit self'; })
+    (importPlanetModule ./zathura { })
   ];
 }
 

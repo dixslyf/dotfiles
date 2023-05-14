@@ -1,4 +1,4 @@
-{ self' }:
+{ localFlake', ... }:
 { config
 , lib
 , ...
@@ -19,7 +19,7 @@
       inherit (lib) mkIf;
     in
     mkIf cfg.enable {
-      home.packages = [ self'.packages.mali ];
+      home.packages = [ localFlake'.packages.mali ];
       services.mako = {
         enable = true;
         anchor = "bottom-right";
@@ -32,7 +32,7 @@
         padding = "16";
         borderRadius = 4;
         borderSize = 3;
-        extraConfig = builtins.readFile "${self'.packages.catppuccin-mako}/share/mako/themes/catppuccin/macchiato";
+        extraConfig = builtins.readFile "${localFlake'.packages.catppuccin-mako}/share/mako/themes/catppuccin/macchiato";
       };
     };
 }

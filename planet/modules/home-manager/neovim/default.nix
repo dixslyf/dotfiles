@@ -1,4 +1,4 @@
-{ inputs' }:
+{ localFlakeInputs', ... }:
 { config
 , lib
 , pkgs
@@ -13,7 +13,7 @@
         enable = mkEnableOption "planet neovim";
         rustToolchain = mkOption {
           type = types.package;
-          default = inputs'.fenix.packages.stable.withComponents [
+          default = localFlakeInputs'.fenix.packages.stable.withComponents [
             # Minimal
             "rustc"
             "rust-std"

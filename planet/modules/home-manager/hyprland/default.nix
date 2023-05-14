@@ -1,10 +1,10 @@
-{ inputs }:
+{ localFlakeInputs, ... }:
 { config
 , lib
 , pkgs
 , ...
 }: {
-  imports = [ inputs.hyprland.homeManagerModules.default ];
+  imports = [ localFlakeInputs.hyprland.homeManagerModules.default ];
 
   options =
     let

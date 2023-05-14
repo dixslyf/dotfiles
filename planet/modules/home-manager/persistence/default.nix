@@ -1,4 +1,4 @@
-{ inputs }:
+{ localFlakeInputs, ... }:
 { config
 , lib
 , ...
@@ -6,7 +6,7 @@
 
 {
   imports = [
-    inputs.impermanence.nixosModules.home-manager.impermanence
+    localFlakeInputs.impermanence.nixosModules.home-manager.impermanence
   ];
 
   options =

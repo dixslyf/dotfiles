@@ -1,4 +1,4 @@
-{ self' }:
+{ localFlake', ... }:
 { config
 , lib
 , ...
@@ -21,7 +21,7 @@
     mkIf cfg.enable {
       # Required for nvidia prime
       services.xserver.videoDrivers = [ "nvidia" ];
-      environment.systemPackages = [ self'.packages.nvidia-offload ];
+      environment.systemPackages = [ localFlake'.packages.nvidia-offload ];
     };
 }
 

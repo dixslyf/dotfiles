@@ -1,9 +1,9 @@
-{ inputs }:
+{ localFlakeInputs, ... }:
 { config
 , lib
 , ...
 }: {
-  imports = [ inputs.nix-gaming.nixosModules.pipewireLowLatency ];
+  imports = [ localFlakeInputs.nix-gaming.nixosModules.pipewireLowLatency ];
   options =
     let
       inherit (lib) mkEnableOption;

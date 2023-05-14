@@ -1,4 +1,4 @@
-{ self' }:
+{ localFlake', ... }:
 { config
 , lib
 , pkgs
@@ -18,8 +18,8 @@
 
         package = mkOption {
           type = types.package;
-          default = self'.packages.wlsunset;
-          defaultText = "self'.packages.wlsunset";
+          default = localFlake'.packages.wlsunset;
+          defaultText = "localFlake'.packages.wlsunset";
           description = ''
             wlsunset derivation to use.
           '';
