@@ -21,7 +21,7 @@
         );
     in
     {
-      recursiveMerge = recursiveMergeAttrs;
+      inherit recursiveMergeAttrs;
 
       mkNixosSystem = extraConfig:
         let
