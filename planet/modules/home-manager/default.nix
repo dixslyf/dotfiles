@@ -25,7 +25,7 @@ _:
     (importModule ./mako { })
     ./mullvad-vpn
     (importModule ./neovim { })
-    ./osu-lazer
+    (importModule ./osu-lazer { })
     (importModule ./persistence { })
     ./picom
     ./pointer-cursor

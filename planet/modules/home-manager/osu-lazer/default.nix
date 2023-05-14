@@ -1,6 +1,6 @@
+{ localFlakeInputs', ... }:
 { config
 , lib
-, pkgs
 , ...
 }: {
   options =
@@ -19,7 +19,7 @@
       inherit (lib) mkIf;
     in
     mkIf cfg.enable {
-      home.packages = with pkgs; [ osu-lazer-bin ];
+      home.packages = [ localFlakeInputs'.nix-gaming.packages.osu-lazer-bin ];
       planet.persistence = {
         directories = [ ".local/share/osu" ];
       };
