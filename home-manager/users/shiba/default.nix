@@ -1,16 +1,15 @@
-{ inputs
-, pkgs
-, ...
-}: {
+{ importModule, localFlakeInputs, ... }:
+
+{ pkgs, ... }: {
   imports = [
-    ./sops
+    (importModule ./sops { })
   ];
 
   nixpkgs = {
     config.allowUnfree = true;
     overlays = [
-      inputs.neovim-nightly-overlay.overlay
-      inputs.nil.overlays.default
+      localFlakeInputs.neovim-nightly-overlay.overlay
+      localFlakeInputs.nil.overlays.default
     ];
   };
 

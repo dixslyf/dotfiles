@@ -10,7 +10,7 @@ let
       homeConfiguration = {
         imports = [
           self.homeManagerModules.planet
-          ./users/shiba
+          (self.lib.importModule ./users/shiba { })
         ];
       };
     };

@@ -1,6 +1,8 @@
-{ inputs, ... }: {
+{ localFlakeInputs, ... }:
+
+_: {
   imports = [
-    inputs.sops-nix.homeManagerModules.sops
+    localFlakeInputs.sops-nix.homeManagerModules.sops
   ];
 
   home.persistence."/persist/home/shiba" = {
