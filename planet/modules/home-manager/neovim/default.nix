@@ -11,6 +11,11 @@
     {
       planet.neovim = {
         enable = mkEnableOption "planet neovim";
+        package = mkOption {
+          type = types.package;
+          default = pkgs.neovim-unwrapped;
+          description = "The `neovim` package to use.";
+        };
         rustToolchain = mkOption {
           type = types.package;
           default = localFlakeInputs'.fenix.packages.stable.withComponents [
@@ -46,6 +51,7 @@
     mkIf cfg.enable {
       xdg.configFile."nvim/lua".source = ./lua;
       programs.neovim = {
+        inherit (cfg) package;
         enable = true;
         extraLuaConfig = ''
           Globals = {
