@@ -1,9 +1,19 @@
-{ pkgs
+{ inputs
+, pkgs
 , ...
 }: {
   imports = [
     ./sops
   ];
+
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [
+      inputs.rust-overlay.overlays.default
+      inputs.neovim-nightly-overlay.overlay
+      inputs.nil.overlays.default
+    ];
+  };
 
   home.stateVersion = "22.05";
   programs.home-manager.enable = true;

@@ -1,6 +1,5 @@
 { self
 , inputs
-, homeUsers  # From home-manager flake-module via `_module.args`
 , ...
 }:
 {
@@ -21,19 +20,15 @@
 
   flake = {
     nixosConfigurations =
-      let
-        inherit (inputs) nixpkgs;
-      in
       {
         alpha = self.lib.mkNixosSystem {
           system = "x86_64-linux";
           modules = [
             {
-              nixpkgs.overlays = nixpkgs.lib.lists.unique ([
+              nixpkgs.overlays = [
                 inputs.neovim-nightly-overlay.overlay
                 inputs.hyprland.overlays.default
-              ]
-              ++ homeUsers.shiba.overlays);
+              ];
             }
             ./hosts/alpha
           ];
