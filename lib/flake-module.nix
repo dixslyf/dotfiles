@@ -1,4 +1,6 @@
 { self
+, flake-parts-lib
+, moduleWithSystem
 , inputs
 , homeUsers # From home-manager flake-module via `_module.args`
 , ...
@@ -19,9 +21,20 @@
           then recursiveMergeAttrs values
           else abort "Conflicting unmergeable values for ${name}"
         );
+
+      importModule = modulePath: args: moduleWithSystem (
+        { self', inputs' }:
+        flake-parts-lib.importApply modulePath ({
+          inherit importModule;
+          localFlake = self;
+          localFlakeInputs = inputs;
+          localFlake' = self';
+          localFlakeInputs' = inputs';
+        } // args)
+      );
     in
     {
-      inherit recursiveMergeAttrs;
+      inherit recursiveMergeAttrs importModule;
 
       mkNixosSystem = extraConfig:
         let

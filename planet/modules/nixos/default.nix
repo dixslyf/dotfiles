@@ -1,4 +1,4 @@
-{ importPlanetModule
+{ importModule
 , ...
 }:
 
@@ -6,14 +6,14 @@ _: {
   imports = [
     ./btrfs
     ./earlyoom
-    (importPlanetModule ./hyprland { })
+    (importModule ./hyprland { })
     ./mullvad-vpn
     ./neovim
     ./network-manager
-    (importPlanetModule ./nvidia { })
-    (importPlanetModule ./persistence { })
-    (importPlanetModule ./pipewire { })
-    (importPlanetModule ./sddm { })
+    (importModule ./nvidia { })
+    (importModule ./persistence { })
+    (importModule ./pipewire { })
+    (importModule ./sddm { })
     ./steam
     ./tlp
     ./udisks2

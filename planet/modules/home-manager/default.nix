@@ -1,49 +1,49 @@
-{ importPlanetModule, ... }:
+{ importModule, ... }:
 
 _:
 {
   imports = [
     ./android
     ./autorandr
-    (importPlanetModule ./bspwm { })
-    (importPlanetModule ./citra { })
+    (importModule ./bspwm { })
+    (importModule ./citra { })
     ./direnv
     ./discord
     ./editorconfig
     ./firefox
-    (importPlanetModule ./fish { })
+    (importModule ./fish { })
     ./flameshot
     ./git
-    (importPlanetModule ./gitui { })
+    (importModule ./gitui { })
     ./gpg
     ./gpg-agent
-    (importPlanetModule ./gtk { })
-    (importPlanetModule ./hyprland { })
+    (importModule ./gtk { })
+    (importModule ./hyprland { })
     ./kdenlive
-    (importPlanetModule ./kitty { })
+    (importModule ./kitty { })
     ./lutris
-    (importPlanetModule ./mako { })
+    (importModule ./mako { })
     ./mullvad-vpn
-    (importPlanetModule ./neovim { })
+    (importModule ./neovim { })
     ./osu-lazer
-    (importPlanetModule ./persistence { })
+    (importModule ./persistence { })
     ./picom
     ./pointer-cursor
-    (importPlanetModule ./polybar { })
+    (importModule ./polybar { })
     ./qt
     ./qutebrowser
     ./redshift
-    (importPlanetModule ./rofi { })
+    (importModule ./rofi { })
     ./ssh
     ./tealdeer
     ./tetrio-desktop
     ./udiskie
-    (importPlanetModule ./waybar { })
+    (importModule ./waybar { })
     ./wezterm
-    (importPlanetModule ./wired { })
-    (importPlanetModule ./wlsunset { })
+    (importModule ./wired { })
+    (importModule ./wlsunset { })
     ./yuzu
-    (importPlanetModule ./zathura { })
+    (importModule ./zathura { })
   ];
 }
 
