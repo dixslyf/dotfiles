@@ -1,5 +1,4 @@
 { importModule
-, localFlakeInputs
 , localFlakeInputs'
 , ...
 }:
@@ -11,9 +10,6 @@
 
   nixpkgs = {
     config.allowUnfree = true;
-    overlays = [
-      localFlakeInputs.neovim-nightly-overlay.overlay
-    ];
   };
 
   home.stateVersion = "22.05";
@@ -79,6 +75,7 @@
     };
     neovim = {
       enable = true;
+      package = localFlakeInputs'.neovim-nightly-overlay.packages.default;
       nilPackage = localFlakeInputs'.nil.packages.default;
     };
     osu-lazer.enable = true;
