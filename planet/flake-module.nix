@@ -7,8 +7,8 @@
 let
   inherit (flake-parts-lib) importApply;
   importPlanetModule = modulePath: moduleWithSystem (
-    { self' }: importApply modulePath {
-      inherit inputs importApply self';
+    { self', inputs' }: importApply modulePath {
+      inherit inputs importApply self' inputs';
     }
   );
 in

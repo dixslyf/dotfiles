@@ -1,4 +1,4 @@
-{ inputs, self' }:
+{ inputs, self', inputs' }:
 { config
 , lib
 , pkgs
@@ -33,6 +33,7 @@
 
       services.wired = {
         enable = true;
+        package = inputs'.wired.packages.default;
         config = pkgs.substituteAll {
           src = ./wired.ron;
         };

@@ -1,4 +1,9 @@
-{ inputs, importApply, self' }:
+{ inputs
+, importApply
+, self'
+, inputs'
+}:
+
 _:
 {
   imports = [
@@ -39,7 +44,7 @@ _:
     ./udiskie
     (importApply ./waybar { inherit self'; })
     ./wezterm
-    (importApply ./wired { inherit inputs self'; })
+    (importApply ./wired { inherit inputs self' inputs'; })
     (importApply ./wlsunset { inherit self'; })
     ./yuzu
     (importApply ./zathura { inherit self'; })

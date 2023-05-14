@@ -1,4 +1,9 @@
-{ inputs, importApply, self' }:
+{ inputs
+, importApply
+, self'
+, ...
+}:
+
 _: {
   imports = [
     ./btrfs
