@@ -1,8 +1,4 @@
-{ self
-, inputs
-, withSystem
-, ...
-}:
+{ self, ... }:
 
 let
   homeUsers = {
@@ -29,33 +25,5 @@ in
   # In particular, make it available to the NixOS configuration
   _module.args = {
     inherit homeUsers;
-  };
-
-  flake = {
-    homeConfigurations = withSystem "x86_64-linux"
-      ({ pkgs, ... }:
-        let
-          mkHomeManagerConfiguration = username: extraModule: inputs.home-manager.lib.homeManagerConfiguration {
-            inherit pkgs;
-            modules = [
-              homeUsers.${username}.homeConfiguration
-              extraModule
-              {
-                home = {
-                  inherit username;
-                  homeDirectory = "/home/${username}";
-                };
-                nixpkgs = {
-                  inherit (homeUsers.${username}) overlays;
-                };
-              }
-            ];
-            extraSpecialArgs = {
-              inherit inputs;
-            };
-          };
-        in
-        { }
-      );
   };
 }
