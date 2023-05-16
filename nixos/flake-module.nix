@@ -6,6 +6,7 @@
   perSystem = { pkgs, ... }: {
     packages = {
       alpha-deploy-spec = self.lib.mkDeploySpec pkgs "alpha";
+      bravo-deploy-spec = self.lib.mkDeploySpec pkgs "bravo";
     };
   };
 
