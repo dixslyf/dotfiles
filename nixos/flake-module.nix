@@ -3,20 +3,11 @@
 , ...
 }:
 {
-  perSystem =
-    { pkgs
-    , ...
-    }: {
-      packages.cachix-deploy-spec =
-        let
-          cachix-deploy-lib = inputs.cachix-deploy.lib pkgs;
-        in
-        cachix-deploy-lib.spec {
-          agents = {
-            alpha = self.nixosConfigurations.alpha.config.system.build.toplevel;
-          };
-        };
+  perSystem = { pkgs, ... }: {
+    packages = {
+      alpha-deploy-spec = self.lib.mkDeploySpec pkgs "alpha";
     };
+  };
 
   flake = {
     nixosConfigurations =
