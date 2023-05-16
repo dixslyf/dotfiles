@@ -1,4 +1,5 @@
-{ pkgs
+{ config
+, pkgs
 , ...
 }:
 
@@ -55,6 +56,11 @@
     persistLogs = true;
     persistSsh = true;
     persistMachineId = true;
+  };
+
+  services.cachix-agent = {
+    enable = true;
+    credentialsFile = config.sops.secrets."CACHIX_AGENT_TOKEN".path;
   };
 }
 
