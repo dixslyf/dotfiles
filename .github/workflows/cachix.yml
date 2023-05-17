@@ -23,9 +23,6 @@ concurrency:
   group: ${{ github.workflow }}-${{ inputs.deploy && 'deploy' || 'build' }}${{ inputs.deploy && '' || format('-{0}', github.ref) }}
   cancel-in-progress: ${{ !inputs.deploy }}
 
-env:
-  artifact-name: deploy-spec-${{ github.sha }}
-
 jobs:
   check-deploy-spec-artifact:
     runs-on: ubuntu-22.04
@@ -55,10 +52,29 @@ jobs:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Check flake
         run: nix flake check --keep-going --impure # devenv requires impure
-  build-nixos:
+  generate-deploy-spec-matrix:
     runs-on: ubuntu-22.04
     needs: [check-deploy-spec-artifact, check-flake]
     if: ${{ !fromJSON(needs.check-deploy-spec-artifact.outputs.exists) }}
+    outputs:
+      matrix: ${{ steps.generate.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v3.1.0
+      - uses: cachix/install-nix-action@v20
+      - id: generate
+        name: Generate matrix of deploy specs
+        run: |
+          CI_ATTR="ci"
+          CI_SUFFIX_REGEX="\"^$CI_ATTR.\""
+          matrix=$(nix search ".#$CI_ATTR" --json | jq -c 'keys_unsorted | map({ "name": (. | sub('"$CI_SUFFIX_REGEX"'; "")), "flake-output": . })')
+          printf '%s' "matrix=$matrix" >> "$GITHUB_OUTPUT"
+  build-deploy-specs:
+    runs-on: ubuntu-22.04
+    needs: [generate-deploy-spec-matrix]
+    strategy:
+      fail-fast: false
+      matrix:
+        deploy-spec: ${{ fromJson(needs.generate-deploy-spec-matrix.outputs.matrix) }}
     steps:
       - name: Free up space
         run: |
@@ -74,15 +90,15 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
-          derivation: ".#cachix-deploy-spec"
+          derivation: ".#${{ matrix.deploy-spec.flake-output }}"
           cachix-extra-pull-names: "nix-gaming, hyprland, nix-community"
       - uses: actions/upload-artifact@v3
         with:
-          name: ${{ env.artifact-name }}
+          name: ${{ matrix.deploy-spec.name }}-${{ github.sha }}
           path: ./result
   deploy:
     runs-on: ubuntu-22.04
-    needs: build-nixos
+    needs: build-deploy-specs
     if: ${{ github.event_name == 'workflow_dispatch' && inputs.deploy }}
     steps:
       - uses: dawidd6/action-download-artifact@v2
