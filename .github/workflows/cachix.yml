@@ -55,46 +55,9 @@ jobs:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Check flake
         run: nix flake check --keep-going --impure # devenv requires impure
-  generate-flake-outputs-matrix:
-    runs-on: ubuntu-22.04
-    needs: [check-deploy-spec-artifact, check-flake]
-    if: ${{ !fromJSON(needs.check-deploy-spec-artifact.outputs.exists) }}
-    outputs:
-      matrix: ${{ steps.generate.outputs.matrix }}
-    steps:
-      - uses: actions/checkout@v3.1.0
-      - uses: cachix/install-nix-action@v20
-      - id: generate
-        name: Generate flake outputs matrix
-        run: |
-          # Outputs an array of flake outputs
-          filter='[ paths | select((.[0] == "packages" or .[0] == "devShells") and .[2] != "cachix-deploy-spec" and length == 3) | join(".") ]'
-          matrix=$(nix flake show --json | jq -c "$filter")
-          printf '%s' "matrix=$matrix" >> "$GITHUB_OUTPUT"
-  build-others:
-    runs-on: ubuntu-22.04
-    needs: [check-deploy-spec-artifact, check-flake, generate-flake-outputs-matrix]
-    if: ${{ !fromJSON(needs.check-deploy-spec-artifact.outputs.exists) && needs.generate-flake-outputs-matrix.outputs.matrix != '[]' }}
-    strategy:
-      fail-fast: false
-      matrix:
-        flake-output: ${{ fromJson(needs.generate-flake-outputs-matrix.outputs.matrix) }}
-        include:
-          - flake-output: "devShells.x86_64-linux.default"
-            additional-flags: "--impure"  # devenv requires impure
-    steps:
-      - uses: actions/checkout@v3
-      - name: Build ${{ matrix.flake-output }}
-        uses: ./.github/actions/build
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
-          derivation: ".#${{ matrix.flake-output }}"
-          cachix-extra-pull-names: "devenv"
-          additional-flags: ${{ matrix.additional-flags }}
   build-nixos:
     runs-on: ubuntu-22.04
-    needs: [check-deploy-spec-artifact, check-flake, build-others]
+    needs: [check-deploy-spec-artifact, check-flake]
     if: ${{ !fromJSON(needs.check-deploy-spec-artifact.outputs.exists) }}
     steps:
       - name: Free up space
