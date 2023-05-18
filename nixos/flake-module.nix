@@ -1,15 +1,9 @@
 { self
 , inputs
+, withSystem
 , ...
 }:
 {
-  perSystem = { pkgs, ... }: {
-    packages = {
-      alpha-deploy-spec = self.lib.mkDeploySpec pkgs "alpha";
-      bravo-deploy-spec = self.lib.mkDeploySpec pkgs "bravo";
-    };
-  };
-
   flake = {
     nixosConfigurations =
       {
@@ -28,10 +22,14 @@
 
         bravo = self.lib.mkNixosSystem {
           modules = [
-            { nixpkgs.buildPlatform = "x86_64-linux"; }
             ./hosts/bravo
           ];
         };
       };
+
+    ci = withSystem "x86_64-linux" ({ pkgs, ... }: {
+      alpha-deploy-spec = self.lib.mkDeploySpec pkgs "alpha";
+      bravo-deploy-spec = self.lib.mkDeploySpec pkgs "bravo";
+    });
   };
 }
