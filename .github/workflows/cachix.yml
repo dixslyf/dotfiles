@@ -7,44 +7,26 @@ on:
   pull_request:
   workflow_dispatch:
     inputs:
-      deploy: # When enabled, only the NixOS configuration is built (if needed)
-        description: "Deploy the NixOS configuration"
-        required: true
-        type: boolean
-        default: false
+      deployments:
+        description: |
+          JSON array of machines to deploy to.
+          Each machine should be represented by its hostname.
+          For example, `[ "alpha", "bravo" ]`.
+        type: string
 
-run-name: ${{ inputs.deploy && 'Deploy NixOS configuration' || 'Build flake outputs' }}
+run-name: ${{ inputs.deployments != '' && 'Deploy NixOS configuration' || 'Build flake outputs' }}
 
 # Builds and deployments are in separate concurrency groups.
 # Builds can cancel other in-progress builds on the same ref.
 # Deployments will not cancel other in-progress deployments (but will cancel existing pending deployments),
 # no matter what ref.
 concurrency:
-  group: ${{ github.workflow }}-${{ inputs.deploy && 'deploy' || 'build' }}${{ inputs.deploy && '' || format('-{0}', github.ref) }}
-  cancel-in-progress: ${{ !inputs.deploy }}
+  group: ${{ github.workflow }}-${{ inputs.deployments != '' && 'deploy' || 'build' }}${{ inputs.deployments != '' && '' || format('-{0}', github.ref) }}
+  cancel-in-progress: ${{ inputs.deployments == '' }}
 
 jobs:
-  check-deploy-spec-artifact:
-    runs-on: ubuntu-22.04
-    outputs:
-      # Unfortunately, all outputs are Unicode strings, so `fromJSON` must be used
-      # whenever referencing this output to properly convert it to a boolean
-      # https://github.com/actions/runner/issues/2238#issuecomment-1318973310
-      # https://docs.github.com/en/actions/using-jobs/defining-outputs-for-jobs
-      exists: ${{ steps.download-spec.outputs.found_artifact }}
-    steps:
-      - id: download-spec
-        uses: dawidd6/action-download-artifact@v2
-        with:
-          name: ${{ env.artifact-name }}
-          workflow_conclusion: ""
-          commit: ${{ github.sha }}
-          search_artifacts: true
-          if_no_artifact_found: ignore
   check-flake:
     runs-on: ubuntu-22.04
-    needs: check-deploy-spec-artifact
-    if: ${{ !fromJSON(needs.check-deploy-spec-artifact.outputs.exists) }}
     steps:
       - uses: actions/checkout@v3.1.0
       - uses: cachix/install-nix-action@v20
@@ -54,8 +36,7 @@ jobs:
         run: nix flake check --keep-going --impure # devenv requires impure
   generate-deploy-spec-matrix:
     runs-on: ubuntu-22.04
-    needs: [check-deploy-spec-artifact, check-flake]
-    if: ${{ !fromJSON(needs.check-deploy-spec-artifact.outputs.exists) }}
+    needs: [check-flake]
     outputs:
       matrix: ${{ steps.generate.outputs.matrix }}
     steps:
@@ -76,7 +57,20 @@ jobs:
       matrix:
         deploy-spec: ${{ fromJson(needs.generate-deploy-spec-matrix.outputs.matrix) }}
     steps:
+      - id: check-deploy-spec-artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          name: ${{ matrix.deploy-spec.name }}-${{ github.sha }}
+          workflow_conclusion: ""
+          commit: ${{ github.sha }}
+          search_artifacts: true
+          if_no_artifact_found: ignore
       - name: Free up space
+        # Unfortunately, all outputs are Unicode strings, so `fromJSON` must be used
+        # whenever referencing this output to properly convert it to a boolean
+        # https://github.com/actions/runner/issues/2238#issuecomment-1318973310
+        # https://docs.github.com/en/actions/using-jobs/defining-outputs-for-jobs
+        if: ${{ !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
         run: |
           # Taken from https://github.com/easimon/maximize-build-space/blob/67afc2d7662c9d296547435e7605cc57a1df46f3/action.yml#L110
           sudo rm -rf /usr/share/dotnet
@@ -84,26 +78,34 @@ jobs:
           sudo rm -rf /usr/local/lib/android
           sudo rm -rf /opt/hostedtoolcache/CodeQL
           sudo docker image prune --all --force
-      - uses: actions/checkout@v3
+      - if: ${{ !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
+        uses: actions/checkout@v3
       - name: Build deploy specification
+        if: ${{ !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
         uses: ./.github/actions/build
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
           derivation: ".#${{ matrix.deploy-spec.flake-output }}"
           cachix-extra-pull-names: "nix-gaming, hyprland, nix-community"
-      - uses: actions/upload-artifact@v3
+      - if: ${{ !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
+        uses: actions/upload-artifact@v3
         with:
           name: ${{ matrix.deploy-spec.name }}-${{ github.sha }}
           path: ./result
   deploy:
     runs-on: ubuntu-22.04
-    needs: build-deploy-specs
-    if: ${{ github.event_name == 'workflow_dispatch' && inputs.deploy }}
+    needs: [build-deploy-specs]
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.deployments != '' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        hostname: ${{ fromJSON(inputs.deployments) }}
     steps:
-      - uses: dawidd6/action-download-artifact@v2
+      - id: download-deploy-spec-artifact
+        uses: dawidd6/action-download-artifact@v2
         with:
-          name: ${{ env.artifact-name }}
+          name: ${{ matrix.hostname }}-deploy-spec-${{ github.sha }}
           workflow_conclusion: ""
           commit: ${{ github.sha }}
           search_artifacts: true
