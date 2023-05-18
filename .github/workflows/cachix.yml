@@ -44,10 +44,21 @@ jobs:
       - uses: cachix/install-nix-action@v20
       - id: generate
         name: Generate matrix of deploy specs
+        env:
+          DEPLOYMENTS: ${{ inputs.deployments }}
         run: |
           CI_ATTR="ci"
           CI_SUFFIX_REGEX="\"^$CI_ATTR.\""
-          matrix=$(nix search ".#$CI_ATTR" --json | jq -c 'keys_unsorted | map({ "name": (. | sub('"$CI_SUFFIX_REGEX"'; "")), "flake-output": . })')
+          matrix=$(
+            nix search ".#$CI_ATTR" --json |
+              jq -c 'keys_unsorted | map({ "hostname": (. | sub('"$CI_SUFFIX_REGEX"'; "") | sub("-deploy-spec$"; "")), "flake-output": . })'
+          )
+
+          # Only build hosts to be deployed, if deploying
+          if [ -n "$DEPLOYMENTS" ]; then
+              matrix=$(jq -c --argjson deployments "$DEPLOYMENTS" 'map(select(.hostname | IN($deployments[])))' <<< "$matrix")
+          fi
+
           printf '%s' "matrix=$matrix" >> "$GITHUB_OUTPUT"
   build-deploy-specs:
     runs-on: ubuntu-22.04
@@ -60,7 +71,7 @@ jobs:
       - id: check-deploy-spec-artifact
         uses: dawidd6/action-download-artifact@v2
         with:
-          name: ${{ matrix.deploy-spec.name }}-${{ github.sha }}
+          name: ${{ matrix.deploy-spec.hostname }}-deploy-spec-${{ github.sha }}
           workflow_conclusion: ""
           commit: ${{ github.sha }}
           search_artifacts: true
@@ -91,7 +102,7 @@ jobs:
       - if: ${{ !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ matrix.deploy-spec.name }}-${{ github.sha }}
+          name: ${{ matrix.deploy-spec.hostname }}-deploy-spec-${{ github.sha }}
           path: ./result
   deploy:
     runs-on: ubuntu-22.04
