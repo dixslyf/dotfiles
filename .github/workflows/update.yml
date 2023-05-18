@@ -68,7 +68,7 @@ jobs:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
           install_url: ${{ env.nix-install-url }}
       - name: Update ${{ matrix.pin.name }}
-        run: nix develop --command npins -d "${{ matrix.pin.npins-dir }}" update ${{ matrix.pin.name }}
+        run: nix develop --impure --command npins -d "${{ matrix.pin.npins-dir }}" update ${{ matrix.pin.name }}
       - id: generate-patch
         name: Generate patch
         run: |
