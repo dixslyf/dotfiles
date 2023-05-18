@@ -22,8 +22,9 @@
   config =
     let
       cfg = config.planet.flameshot;
+      inherit (lib) mkIf;
     in
-    {
+    mkIf cfg.enable {
       services.flameshot = {
         enable = true;
         settings = {
