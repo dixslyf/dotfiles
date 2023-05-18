@@ -22,7 +22,6 @@
 
         bravo = self.lib.mkNixosSystem {
           modules = [
-            { nixpkgs.buildPlatform = "x86_64-linux"; }
             ./hosts/bravo
           ];
         };
