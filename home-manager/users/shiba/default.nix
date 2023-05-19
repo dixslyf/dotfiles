@@ -71,7 +71,9 @@
     };
     neovim = {
       enable = true;
-      package = localFlakeInputs'.neovim-nightly-overlay.packages.default;
+      # FIXME: uncomment once fixed upstream
+      # Context: https://github.com/nvim-treesitter/nvim-treesitter/issues/4805
+      # package = localFlakeInputs'.neovim-nightly-overlay.packages.default;
       nilPackage = localFlakeInputs'.nil.packages.default;
     };
     osu-lazer.enable = true;
