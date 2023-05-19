@@ -38,7 +38,9 @@ runs:
       with:
         github_access_token: ${{ inputs.github-token }}
         extra_nix_config: |
-          extra-platforms = aarch64-linux
+          # `i686-linux` must be present for 32-bit software
+          # More context: https://github.com/NixOS/nixpkgs/issues/86506#issuecomment-623746883
+          extra-platforms = i686-linux aarch64-linux
     - uses: cachix/cachix-action@v12
       with:
         name: ${{ inputs.cachix-cache-name }}
