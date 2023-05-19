@@ -18,6 +18,8 @@
 
   nix = {
     settings = {
+      auto-optimise-store = true;
+      experimental-features = [ "nix-command" "flakes" ];
       substituters = [
         "https://playernamehere-nixos.cachix.org"
         "https://nix-community.cachix.org"
