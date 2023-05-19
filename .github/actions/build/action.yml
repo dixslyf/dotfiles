@@ -1,3 +1,5 @@
+---
+
 name: "Build"
 description: "Builds a flake output and pushes the build output(s) to Cachix"
 inputs:

@@ -1,8 +1,10 @@
+---
+
 name: Update
 
 on:
   schedule:
-    - cron: "0 0 1,15 * *" # run on the 1st and 15th of every month
+    - cron: "0 0 1,15 * *"  # run on the 1st and 15th of every month
   workflow_dispatch:
 
 run-name: Update flake inputs and npins

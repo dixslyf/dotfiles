@@ -1,3 +1,5 @@
+---
+
 name: Cachix
 
 on:
@@ -33,7 +35,7 @@ jobs:
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Check flake
-        run: nix flake check --keep-going --impure # devenv requires impure
+        run: nix flake check --keep-going --impure  # devenv requires impure
   generate-deploy-spec-matrix:
     runs-on: ubuntu-22.04
     needs: [check-flake]
