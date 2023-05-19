@@ -12,7 +12,6 @@
           modules = [
             {
               nixpkgs.overlays = [
-                inputs.neovim-nightly-overlay.overlay
                 inputs.hyprland.overlays.default
               ];
             }
