@@ -29,6 +29,7 @@ _:
     (importModule ./persistence { })
     ./picom
     ./pointer-cursor
+    ./polkit-agent
     (importModule ./polybar { })
     ./qt
     ./qutebrowser
