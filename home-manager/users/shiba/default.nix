@@ -82,6 +82,7 @@
       systemd.target = "bspwm-session.target";
     };
     pointer-cursor.enable = true;
+    polkit-agent.enable = true;
     polybar.enable = true;
     qt.enable = true;
     qutebrowser.enable = true;
