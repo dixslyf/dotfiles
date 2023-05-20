@@ -31,7 +31,7 @@
       };
 
       configFile = pkgs.substituteAll {
-        src = ./config;
+        src = ./config.ini;
         colors = "${localFlake'.packages.catppuccin-polybar}/share/polybar/themes/catppuccin/macchiato.ini";
       };
 
