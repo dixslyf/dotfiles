@@ -1,5 +1,10 @@
-{ pkgs, ... }: {
-  imports = [ ./hardware-configuration.nix ];
+{ pkgs
+, modulesPath
+, ...
+}: {
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+  ];
 
   boot = {
     loader = {
@@ -14,24 +19,34 @@
         devices = [ "nodev" ];
       };
     };
-    tmp.useTmpfs = true; # defaults to 50% of RAM
+
+    kernelModules = [ "kvm-intel" ];
+    extraModulePackages = [ ];
+
     initrd = {
+      availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "uas" "sd_mod" ];
+      kernelModules = [ ];
+
       secrets = {
         "/keyfiles/boot.bin" = "/boot/keyfiles/boot.bin";
         "/keyfiles/root.bin" = "/boot/keyfiles/root.bin";
         "/keyfiles/swap.bin" = "/boot/keyfiles/swap.bin";
         "/keyfiles/home.bin" = "/boot/keyfiles/home.bin";
       };
+
       luks.devices = {
         "boot" = {
+          device = "/dev/disk/by-uuid/cbc19986-1e63-4af0-9730-bbbe2f3b28f7";
           keyFile = "/keyfiles/boot.bin";
           allowDiscards = true;
         };
         "root" = {
+          device = "/dev/disk/by-uuid/b9004b54-8415-4754-81c4-61ae7c8580bd";
           keyFile = "/keyfiles/root.bin";
           allowDiscards = true;
         };
         "home" = {
+          device = "/dev/disk/by-uuid/a0b00281-a8e6-4b9f-942f-5e975efc9b69";
           keyFile = "/keyfiles/home.bin";
           allowDiscards = true;
         };
@@ -41,22 +56,51 @@
         };
       };
     };
+    tmp.useTmpfs = true; # defaults to 50% of RAM
   };
 
   fileSystems = {
-    "/" = { options = [ "size=4G" "mode=755" "noatime" ]; };
-    "/boot" = { neededForBoot = true; };
-    "/efi" = { options = [ "noatime" ]; };
-    "/nix" = { options = [ "compress=zstd" "noatime" ]; };
-    "/persist" = {
+    "/" = {
+      device = "none";
+      fsType = "tmpfs";
+      options = [ "size=4G" "mode=755" "noatime" ];
+    };
+    "/boot" = {
+      device = "/dev/disk/by-uuid/40fcf0a0-13cc-47c4-83bb-f83df975df8e";
+      fsType = "ext4";
       neededForBoot = true;
-      options = [ "compress=zstd" "noatime" ];
+    };
+    "/efi" = {
+      device = "/dev/disk/by-uuid/CDE8-57B1";
+      fsType = "vfat";
+      options = [ "noatime" ];
+    };
+    "/nix" = {
+      device = "/dev/disk/by-uuid/5315a5dd-a383-409a-b8b0-33bbc9d57a17";
+      fsType = "btrfs";
+      options = [ "subvol=@nix" "compress=zstd" "noatime" ];
+    };
+    "/persist" = {
+      device = "/dev/disk/by-uuid/5315a5dd-a383-409a-b8b0-33bbc9d57a17";
+      fsType = "btrfs";
+      neededForBoot = true;
+      options = [ "subvol=@persist" "compress=zstd" "noatime" ];
     };
     "/persist/home" = {
+      device = "/dev/disk/by-uuid/e4cc116c-4044-4b91-8618-86ee4ba59373";
+      fsType = "btrfs";
       neededForBoot = true;
       options = [ "compress=zstd" "noatime" ];
     };
   };
+
+  swapDevices = [
+    { device = "/dev/disk/by-uuid/24ea210c-9f50-4de4-8900-49a851dbe94e"; }
+  ];
+
+  # `intel_pstate` only has either `powersave` and `performance`
+  # https://wiki.archlinux.org/title/CPU_frequency_scaling#Scaling_governors
+  powerManagement.cpuFreqGovernor = "powersave";
 
   hardware = {
     cpu.intel.updateMicrocode = true;
