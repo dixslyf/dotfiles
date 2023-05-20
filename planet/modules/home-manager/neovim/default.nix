@@ -50,6 +50,7 @@
     in
     mkIf cfg.enable {
       xdg.configFile."nvim/lua".source = ./lua;
+      xdg.configFile."nvim/ftplugin".source = ./ftplugin;
       programs.neovim = {
         inherit (cfg) package;
         enable = true;
@@ -83,6 +84,7 @@
           actionlint
           yamllint
           nodePackages.prettier
+          zk
           cfg.rustToolchain
           (texlive.combine {
             inherit (texlive) scheme-minimal latexindent;
@@ -143,6 +145,7 @@
             markdown-preview-nvim
             vimtex
             nvim-neoclip-lua
+            zk-nvim
             (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins:
               with plugins; [
                 tree-sitter-bash
