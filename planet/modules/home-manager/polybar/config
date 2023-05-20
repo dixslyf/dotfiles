@@ -60,44 +60,38 @@ enable-scroll = true
 reverse-scroll = true
 
 fuzzy-match = true
-ws-icon-0 = 1;1
-ws-icon-1 = 2;2
-ws-icon-2 = 3;3
-ws-icon-3 = 4;4
-ws-icon-4 = 5;5
-ws-icon-5 = 6;6
-ws-icon-6 = 7;7
-ws-icon-7 = 8;8
-ws-icon-8 = 9;9
-ws-icon-9 = 0;0
+ws-icon-0 = 1;󰝥
+ws-icon-1 = 2;󰝥
+ws-icon-2 = 3;󰝥
+ws-icon-3 = 4;󰝥
+ws-icon-4 = 5;󰝥
+ws-icon-5 = 6;󰝥
+ws-icon-6 = 7;󰝥
+ws-icon-7 = 8;󰝥
+ws-icon-8 = 9;󰝥
+ws-icon-9 = 0;󰝥
 
-label-padding = 1
+label-padding = 4pt
 
 label-focused = %icon%
 label-focused-foreground = ${colors.mauve}
 label-focused-background = ${colors.base}
-label-focused-underline= ${colors.mauve}
 label-focused-padding = ${self.label-padding}
 
 label-occupied = %icon%
-label-occupied-underline = ${colors.teal}
+label-occupied-foreground = ${colors.overlay1}
 label-occupied-padding = ${self.label-padding}
 
 label-urgent = %icon%
-label-urgent-foreground = ${colors.text}
+label-urgent-foreground = ${colors.surface1}
 label-urgent-background = ${colors.base}
-label-urgent-underline = ${colors.peach}
 label-urgent-padding = ${self.label-padding}
 
 label-empty = %icon%
-label-empty-foreground = ${colors.text}
+label-empty-foreground = ${colors.surface1}
 label-empty-padding = ${self.label-padding}
 
-label-dimmed-foreground = ${colors.overlay1}
-label-dimmed-focused-underline = ${colors.overlay1}
-label-dimmed-occupied-underline = ${colors.overlay1}
-label-dimmed-urgent-underline = ${colors.peach}
-label-dimmed-focused-background = ${colors.base}
+label-dimmed-focused-foreground = ${colors.blue}
 
 [module/date]
 type = internal/date
