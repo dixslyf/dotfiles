@@ -4,8 +4,6 @@ name: Cachix
 
 on:
   push:
-    branches:
-      - master
   pull_request:
   workflow_dispatch:
     inputs:
