@@ -1,18 +1,6 @@
 { self, inputs, ... }: {
-  perSystem = { pkgs, system, ... }: {
-    packages =
-      let
-        inherit (inputs) nixpkgs;
-        p = inputs.flake-utils.lib.flattenTree (self.overlays.pers-pkgs null pkgs).pers-pkgs;
-      in
-      # Exclude `citra-nightly` on `aarch64-linux` as it is marked as broken on that platform
-      if system == "aarch64-linux"
-      then
-        nixpkgs.lib.filterAttrs
-          (name: _: name != "citra-nightly")
-          p
-      else
-        p;
+  perSystem = { pkgs, ... }: {
+    packages = inputs.flake-utils.lib.flattenTree (self.overlays.pers-pkgs null pkgs).pers-pkgs;
   };
 
   flake = {
