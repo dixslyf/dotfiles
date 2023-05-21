@@ -112,6 +112,7 @@
       touchpad.naturalScrolling = true;
     };
     displayManager = {
+      defaultSession = "none+bspwm";
       # set the background color of the root window
       sessionCommands = ''
         ${pkgs.hsetroot}/bin/hsetroot -solid "#363a4f"
