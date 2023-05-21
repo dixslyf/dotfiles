@@ -109,6 +109,6 @@ jobs:
       - uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.PR_PAT }}
-          branch: update-flake-inputs-and-npins
+          branch: ${{ vars.UPDATE_BRANCH }}
           title: Update flake inputs and npins
           body: Automated periodic update via [create-pull-request](https://github.com/peter-evans/create-pull-request) GitHub action.

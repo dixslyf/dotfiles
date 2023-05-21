@@ -5,7 +5,7 @@ name: Cachix
 on:
   push:
     branches-ignore:
-      - update-flake-inputs-and-npins
+      - ${{ vars.UPDATE_BRANCH }}
   pull_request:
   workflow_dispatch:
     inputs:
