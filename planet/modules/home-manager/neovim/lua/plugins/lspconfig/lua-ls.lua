@@ -1,7 +1,11 @@
-local function setup(on_attach, capabilities)
-   require("neodev").setup()
+local M = {}
 
-   require("lspconfig").lua_ls.setup({
+local neodev = require("neodev")
+local lspconfig = require("lspconfig")
+function M.setup(on_attach, capabilities)
+   neodev.setup()
+
+   lspconfig.lua_ls.setup({
       on_attach = on_attach,
       capabilities = capabilities,
       settings = {
@@ -14,4 +18,4 @@ local function setup(on_attach, capabilities)
    })
 end
 
-return { setup = setup }
+return M
