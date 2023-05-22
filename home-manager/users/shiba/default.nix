@@ -78,6 +78,7 @@
       nilPackage = localFlakeInputs'.nil.packages.default;
     };
     osu-lazer.enable = true;
+    papis.enable = true;
     picom = {
       enable = true;
       systemd.target = "bspwm-session.target";

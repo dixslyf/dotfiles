@@ -27,6 +27,7 @@ _:
     ./mullvad-vpn
     (importModule ./neovim { })
     (importModule ./osu-lazer { })
+    ./papis
     (importModule ./persistence { })
     ./picom
     ./pointer-cursor
