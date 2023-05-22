@@ -14,6 +14,7 @@ _:
     (importModule ./fish { })
     ./flameshot
     ./git
+    ./gh
     (importModule ./gitui { })
     ./gpg
     ./gpg-agent
