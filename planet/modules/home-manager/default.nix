@@ -6,7 +6,7 @@ _:
     ./android
     ./autorandr
     (importModule ./bspwm { })
-    (importModule ./citra { })
+    ./citra
     ./direnv
     ./discord
     ./editorconfig
