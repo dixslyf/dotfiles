@@ -34,7 +34,7 @@
 
 % Use graphics from `./graphics/`
 % https://ctan.org/pkg/graphicx
-% \graphicspath{ {./graphics/} }
+\graphicspath{ {./graphics/} }
 
 % Use references from `references.bib`
 % https://ctan.org/pkg/biblatex
@@ -126,6 +126,16 @@ The following is an itemization: \begin{APAitemize}
 		\bottomrule
 	\end{tabularx}
 \end{table}
+
+\section{Graphics}
+
+This is an image:
+
+\includegraphics{example}
+
+This is the same image, but included using \texttt{\textbackslash fitbitmap}:
+
+\fitbitmap{example}
 
 \printbibliography
 
