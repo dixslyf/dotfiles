@@ -1,0 +1,19 @@
+.devenv*
+.direnv
+.pre-commit-config.yaml
+
+# LaTeX-related files
+*.pdf
+*.aux
+*.fls
+*.log
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.bcf
+*.blg
+*.xml
+*.out
+*.toc
+*.fff
+*.ttt

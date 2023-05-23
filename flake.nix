@@ -71,6 +71,7 @@
         ./planet/flake-module.nix
         ./nixos/flake-module.nix
         ./home-manager/flake-module.nix
+        ./templates/flake-module.nix
       ];
 
       systems = [ "x86_64-linux" "aarch64-linux" ];
