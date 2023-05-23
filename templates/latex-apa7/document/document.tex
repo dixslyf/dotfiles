@@ -1,0 +1,64 @@
+% APA7
+% https://ctan.org/pkg/apa7
+\documentclass[stu,12pt,a4paper,biblatex,floatsintext]{apa7}
+
+% Improves full justification and other micro-typographic aspects
+% https://ctan.org/pkg/microtype
+\usepackage{microtype}
+
+% Times-like fonts
+% https://ctan.org/pkg/newtx
+% https://ctan.org/pkg/newtxtt
+\usepackage{newtx, newtxtt}
+
+% Avoid widows
+% https://ctan.org/pkg/nowidow
+\usepackage[all]{nowidow}
+
+% Tabulars with adjustable-width columns
+% https://ctan.org/pkg/tabularx
+\usepackage{tabularx}
+
+% For centering columns with `tabularx`
+% Taken from: https://tex.stackexchange.com/a/89932
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+% For creating tabular cells that span multiple rows
+% https://ctan.org/pkg/multirow
+\usepackage{multirow}
+
+% Extra break points for URLs
+% Particularly useful for long URLs
+% https://ctan.org/pkg/xurl
+\usepackage{xurl}
+
+% Use graphics from `./graphics/`
+% https://ctan.org/pkg/graphicx
+% \graphicspath{ {./graphics/} }
+
+% Use references from `references.bib`
+% https://ctan.org/pkg/biblatex
+\addbibresource{references.bib}
+
+% Preamble from `apa7`
+% See the `apa7` documentation for more commands
+\title{Title}
+\author{Author}
+\affiliation{Affiliation}
+\course{Course}
+\professor{Professor}
+\duedate{Due date}
+
+\begin{document}
+
+% From the `apa7` documentation:
+% "The `\maketitle` command formats the document title, page headers, author list,
+% author affiliations, Author Note (if provided), abstract according to whether `jou`,
+% `man`, `stu`, or `doc` mode has been specified."
+\maketitle
+
+This is some introductory text.
+
+\printbibliography
+
+\end{document}
