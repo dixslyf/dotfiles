@@ -90,7 +90,6 @@ jobs:
         with:
           name: ${{ matrix.deploy-spec.hash-name }}
           workflow_conclusion: ""
-          commit: ${{ github.sha }}
           search_artifacts: true
           if_no_artifact_found: ignore
       - name: Free up space
@@ -135,7 +134,6 @@ jobs:
         with:
           name: ${{ matrix.deploy-spec.hash-name }}
           workflow_conclusion: ""
-          commit: ${{ github.sha }}
           search_artifacts: true
       - uses: cachix/install-nix-action@v20
         with:
