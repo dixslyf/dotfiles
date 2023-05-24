@@ -22,7 +22,7 @@ function M.setup()
    require("plugins.markdown-preview").setup()
    require("plugins.vimtex")
    require("plugins.cmp").setup()
-   require("plugins.neoclip")
+   require("plugins.neoclip").setup()
    require("plugins.zk")
 end
 
