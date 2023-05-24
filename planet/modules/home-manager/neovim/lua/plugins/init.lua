@@ -21,7 +21,7 @@ function M.setup()
    require("plugins.todo-comments")
    require("plugins.markdown-preview")
    require("plugins.vimtex")
-   require("plugins.cmp")
+   require("plugins.cmp").setup()
    require("plugins.neoclip")
    require("plugins.zk")
 end
