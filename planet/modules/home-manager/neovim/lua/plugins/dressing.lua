@@ -1,5 +1,14 @@
-require("dressing").setup({
-   select = {
-      telescope = require("telescope.themes").get_cursor(),
-   },
-})
+local M = {}
+
+local dressing = require("dressing")
+local tls_themes = require("telescope.themes")
+
+function M.setup()
+   dressing.setup({
+      select = {
+         telescope = tls_themes.get_cursor(),
+      },
+   })
+end
+
+return M
