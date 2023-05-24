@@ -51,9 +51,24 @@ jobs:
         run: |
           CI_ATTR="ci"
           CI_SUFFIX_REGEX="\"^$CI_ATTR.\""
-          matrix=$(
+
+          # JSON array of the flake outputs under `ci` e.g., `["ci.alpha-deploy-spec","ci.bravo-deploy-spec"]`
+          FLAKE_OUTPUTS_JSON=$(
             nix search ".#$CI_ATTR" --json |
-              jq -c 'keys_unsorted | map({ "hostname": (. | sub('"$CI_SUFFIX_REGEX"'; "") | sub("-deploy-spec$"; "")), "flake-output": . })'
+              jq -rc 'keys_unsorted'
+          )
+
+          # `jq` filter that conceptually takes an element of `FLAKE_OUTPUTS_JSON` and the output of `nix path-info --json <flake-output>` as inputs, and
+          # returns the hostname, flake output and hash + name.
+          # The hostname and flake output are derived from an element of `FLAKE_OUTPUTS_JSON`,
+          # while the hash + name is derived from the output of `nix path-info --json <flake-output>`.
+          # Literal single quotes around because arguments passed to `parallel` are expanded by the shell twice
+          PATH_INFO_FILTER=\''{ "hostname": ($FLAKE_OUTPUT | sub('"$CI_SUFFIX_REGEX"'; "") | sub("-deploy-spec$"; "")), "flake-output": $FLAKE_OUTPUT, "hash-name": (.[] | .path | sub("/nix/store/"; ""))}'\'
+
+          matrix=$(
+            jq -rc '.[]' <<<"$FLAKE_OUTPUTS_JSON" |
+              parallel nix path-info '.#{}' --json '|' jq -c --arg FLAKE_OUTPUT '{}' "$PATH_INFO_FILTER" |
+              jq -sc # Combine the JSON objects into an array
           )
 
           # Only build hosts to be deployed, if deploying
@@ -73,7 +88,7 @@ jobs:
       - id: check-deploy-spec-artifact
         uses: dawidd6/action-download-artifact@v2
         with:
-          name: ${{ matrix.deploy-spec.hostname }}-deploy-spec-${{ github.sha }}
+          name: ${{ matrix.deploy-spec.hash-name }}
           workflow_conclusion: ""
           commit: ${{ github.sha }}
           search_artifacts: true
@@ -104,21 +119,21 @@ jobs:
       - if: ${{ !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ matrix.deploy-spec.hostname }}-deploy-spec-${{ github.sha }}
+          name: ${{ matrix.deploy-spec.hash-name }}
           path: ./result
   deploy:
     runs-on: ubuntu-22.04
-    needs: [build-deploy-specs]
+    needs: [generate-deploy-spec-matrix, build-deploy-specs]
     if: ${{ github.event_name == 'workflow_dispatch' && inputs.deployments != '' }}
     strategy:
       fail-fast: false
       matrix:
-        hostname: ${{ fromJSON(inputs.deployments) }}
+        deploy-spec: ${{ fromJson(needs.generate-deploy-spec-matrix.outputs.matrix) }}
     steps:
       - id: download-deploy-spec-artifact
         uses: dawidd6/action-download-artifact@v2
         with:
-          name: ${{ matrix.hostname }}-deploy-spec-${{ github.sha }}
+          name: ${{ matrix.deploy-spec.hash-name }}
           workflow_conclusion: ""
           commit: ${{ github.sha }}
           search_artifacts: true
