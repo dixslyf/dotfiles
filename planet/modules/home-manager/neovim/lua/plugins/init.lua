@@ -23,7 +23,7 @@ function M.setup()
    require("plugins.vimtex").setup()
    require("plugins.cmp").setup()
    require("plugins.neoclip").setup()
-   require("plugins.zk")
+   require("plugins.zk").setup()
 end
 
 return M
