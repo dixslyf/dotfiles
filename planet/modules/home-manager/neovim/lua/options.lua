@@ -1,25 +1,31 @@
--- UTF-8
-vim.o.encoding = "UTF-8"
+local M = {}
 
-vim.o.termguicolors = true
+function M.setup()
+   -- UTF-8
+   vim.o.encoding = "UTF-8"
 
--- Line numbers
-vim.o.number = true
-vim.o.relativenumber = true
+   vim.o.termguicolors = true
 
--- Use system CLIPBOARD (not PRIMARY)
-vim.o.clipboard = "unnamedplus"
+   -- Line numbers
+   vim.o.number = true
+   vim.o.relativenumber = true
 
--- Use 4 spaces for tabs
-vim.o.tabstop = 4
-vim.o.shiftwidth = 4
-vim.o.expandtab = true
+   -- Use system CLIPBOARD (not PRIMARY)
+   vim.o.clipboard = "unnamedplus"
 
--- Case insensitive searches by default
-vim.o.ignorecase = true
+   -- Use 4 spaces for tabs
+   vim.o.tabstop = 4
+   vim.o.shiftwidth = 4
+   vim.o.expandtab = true
 
--- Set leader to space
-vim.g.mapleader = " "
+   -- Case insensitive searches by default
+   vim.o.ignorecase = true
 
--- Disable preview window
-vim.o.completeopt = "menu,menuone,noselect"
+   -- Set leader to space
+   vim.g.mapleader = " "
+
+   -- Disable preview window
+   vim.o.completeopt = "menu,menuone,noselect"
+end
+
+return M

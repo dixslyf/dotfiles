@@ -58,7 +58,7 @@
           Globals = {
              cppdbg_command = "${pkgs.vscode-extensions.ms-vscode.cpptools}/share/vscode/extensions/ms-vscode.cpptools/debugAdapters/bin/OpenDebugAD7",
           }
-          require("options")
+          require("options").setup()
           require("plugins")
         '';
         extraPackages = with pkgs; [
