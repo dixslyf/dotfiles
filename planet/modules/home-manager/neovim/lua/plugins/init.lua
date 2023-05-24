@@ -2,7 +2,7 @@ local M = {}
 
 function M.setup()
    require("plugins.leap")
-   require("plugins.indent-blankline")
+   require("plugins.indent-blankline").setup()
    require("plugins.catppuccin").setup()
    require("plugins.colorizer").setup()
    require("plugins.treesitter")
