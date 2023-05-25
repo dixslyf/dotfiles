@@ -6,6 +6,12 @@ on:
   schedule:
     - cron: "0 0 1,15 * *"  # run on the 1st and 15th of every month
   workflow_dispatch:
+    inputs:
+      dry-run:
+        description: "Dry run: if `true`, a pull request will not be made."
+        type: boolean
+        required: true
+        default: false
 
 run-name: Update flake inputs and npins
 
@@ -106,9 +112,10 @@ jobs:
       - name: Delete patch files
         run: |
           rm -rf ./patches
-      - uses: peter-evans/create-pull-request@v5
+      - if: ${{ !inputs.dry-run }}
+        uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.PR_PAT }}
           branch: update-flake-inputs-and-npins
           title: Update flake inputs and npins
-          body: Automated periodic update via [create-pull-request](https://github.com/peter-evans/create-pull-request) GitHub action.
+          body: ${{ github.event_name == 'workflow_dispatch' && 'Manually triggered update.' || 'Automated periodic update.' }}
