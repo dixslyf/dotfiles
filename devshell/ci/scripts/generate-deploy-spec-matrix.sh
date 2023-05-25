@@ -12,6 +12,10 @@ usage() {
   exit 1
 }
 
+# Workaround for `resholve`.
+# The `nix` invoked by `parallel` does not get substituted otherwise.
+NIX_COMMAND="nix"
+
 CI_ATTR="ci"
 CI_SUFFIX_REGEX="\"^$CI_ATTR.\""
 
@@ -33,7 +37,7 @@ if [ $# -eq 1 ] || [ $# -eq 2 ]; then
   matrix=$(
     ci_outputs_json "$1" |
       jq -rc '.[]' |
-      parallel nix path-info "$1#{}" --json '|' jq -c --arg FLAKE_OUTPUT '{}' "$PATH_INFO_FILTER" |
+      parallel "$NIX_COMMAND" path-info "$1#{}" --json '|' jq -c --arg FLAKE_OUTPUT '{}' "$PATH_INFO_FILTER" |
       jq -sc # Combine the JSON objects into an array
   )
 
