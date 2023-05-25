@@ -18,4 +18,14 @@
       ];
     }
     (builtins.readFile ./generate-deploy-spec-matrix.sh);
+
+  generate-npins-matrix = pkgs.resholve.writeScriptBin "generate-npins-matrix.sh"
+    {
+      interpreter = "${pkgs.bash}/bin/bash";
+      inputs = with pkgs; [
+        coreutils
+        jq
+      ];
+    }
+    (builtins.readFile ./generate-npins-matrix.sh);
 }
