@@ -1,5 +1,7 @@
-local function setup(on_attach, capabilities)
-   local lspconfig = require("lspconfig")
+local M = {}
+
+local lspconfig = require("lspconfig")
+function M.setup(on_attach, capabilities)
    lspconfig.rust_analyzer.setup({
       on_attach = on_attach,
       capabilities = capabilities,
@@ -21,4 +23,4 @@ local function setup(on_attach, capabilities)
    })
 end
 
-return { setup = setup }
+return M

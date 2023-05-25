@@ -1,6 +1,7 @@
-local nls = require("null-ls")
+local M = {}
 
-local function setup(on_attach, capabilities)
+local nls = require("null-ls")
+function M.setup(on_attach, capabilities)
    nls.setup({
       on_attach = on_attach,
       capabilities = capabilities,
@@ -29,4 +30,4 @@ local function setup(on_attach, capabilities)
    })
 end
 
-return { setup = setup }
+return M

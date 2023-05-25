@@ -1,5 +1,8 @@
-local function setup(on_attach, capabilities)
-   require("lspconfig").nil_ls.setup({
+local M = {}
+
+local lspconfig = require("lspconfig")
+function M.setup(on_attach, capabilities)
+   lspconfig.nil_ls.setup({
       on_attach = on_attach,
       capabilities = capabilities,
       settings = {
@@ -12,4 +15,4 @@ local function setup(on_attach, capabilities)
    })
 end
 
-return { setup = setup }
+return M
