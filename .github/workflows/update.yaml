@@ -118,4 +118,4 @@ jobs:
           token: ${{ secrets.PR_PAT }}
           branch: update-flake-inputs-and-npins
           title: Update flake inputs and npins
-          body: Automated periodic update via [create-pull-request](https://github.com/peter-evans/create-pull-request) GitHub action.
+          body: ${{ github.event_name == 'workflow_dispatch' && 'Manually triggered update.' || 'Automated periodic update via [create-pull-request](https://github.com/peter-evans/create-pull-request) GitHub action.' }}
