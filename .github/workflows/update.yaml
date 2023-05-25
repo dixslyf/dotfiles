@@ -91,6 +91,7 @@ jobs:
     if: contains(needs.*.result, 'success')
     steps:
       - uses: actions/checkout@v3.1.0
+      - uses: cachix/install-nix-action@v19
       - name: Configure git
         run: nix develop .#ci --impure --command configure-git-user.sh "${{ env.GIT_USERNAME }}" "${{ env.GIT_EMAIL }}"
       - uses: actions/download-artifact@v3
