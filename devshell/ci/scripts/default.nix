@@ -41,4 +41,17 @@
       ];
     }
     (builtins.readFile ./configure-git-user.sh);
+
+  commit-and-format-patch = pkgs.resholve.writeScriptBin "commit-and-format-patch.sh"
+    {
+      interpreter = "${pkgs.bash}/bin/bash";
+      inputs = with pkgs; [
+        coreutils
+        git
+      ];
+      execer = [
+        "cannot:${pkgs.git}/bin/git"
+      ];
+    }
+    (builtins.readFile ./commit-and-format-patch.sh);
 }
