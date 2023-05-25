@@ -63,11 +63,11 @@ jobs:
           # The hostname and flake output are derived from an element of `FLAKE_OUTPUTS_JSON`,
           # while the hash + name is derived from the output of `nix path-info --json <flake-output>`.
           # Literal single quotes around because arguments passed to `parallel` are expanded by the shell twice
-          PATH_INFO_FILTER=\''{ "hostname": ($FLAKE_OUTPUT | sub('"$CI_SUFFIX_REGEX"'; "") | sub("-deploy-spec$"; "")), "flake-output": $FLAKE_OUTPUT, "hash-name": (sub("/nix/store/"; ""))}'\'
+          PATH_INFO_FILTER=\''{ "hostname": ($FLAKE_OUTPUT | sub('"$CI_SUFFIX_REGEX"'; "") | sub("-deploy-spec$"; "")), "flake-output": $FLAKE_OUTPUT, "hash-name": (.[] | .path | sub("/nix/store/"; ""))}'\'
 
           matrix=$(
             jq -rc '.[]' <<<"$FLAKE_OUTPUTS_JSON" |
-              parallel nix eval '.#{}.outPath' --json '|' jq -c --arg FLAKE_OUTPUT '{}' "$PATH_INFO_FILTER" |
+              parallel nix path-info '.#{}' --json '|' jq -c --arg FLAKE_OUTPUT '{}' "$PATH_INFO_FILTER" |
               jq -sc # Combine the JSON objects into an array
           )
 
