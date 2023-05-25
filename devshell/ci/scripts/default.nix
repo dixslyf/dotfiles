@@ -10,6 +10,10 @@
         jq
         parallel
       ];
+      fix = {
+        # Workaround to get `resholve` to substitute the `nix` called by `parallel`
+        "$NIX_COMMAND" = [ "${pkgs.nix}/bin/nix" ];
+      };
       execer = [
         "cannot:${pkgs.nix}/bin/nix"
         # This is a lie, but `resholve` doesn't seem to be able to handle `parallel` properly.
