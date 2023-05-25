@@ -36,9 +36,9 @@ jobs:
       - id: generate-patch
         name: Generate patch
         run: |
-          git config user.name ${{ env.GIT_USERNAME }}
-          git config user.email ${{ env.GIT_EMAIL }}
-          if git commit -am "chore(flake): update inputs" && git format-patch -1 HEAD --output "flake-update.patch"; then
+          nix develop .#ci --impure --command configure-git-user.sh "${{ env.GIT_USERNAME }}" "${{ env.GIT_EMAIL }}"
+          if nix develop .#ci --impure --command commit-and-format-patch.sh "chore(flake): update inputs" "flake-update.patch"
+          then
             echo "patch=true" >> "$GITHUB_OUTPUT"
           else
             echo "patch=false" >> "$GITHUB_OUTPUT"
@@ -54,12 +54,11 @@ jobs:
       npins-matrix: ${{ steps.npins-matrix.outputs.matrix }}
     steps:
       - uses: actions/checkout@v3.1.0
+      - uses: cachix/install-nix-action@v20
       - id: npins-matrix
         name: Generate npins matrix
         run: |
-          # Outputs a list of { "name": <pin-name>, "npins-dir": <dir> }
-          filter='include "npins_matrix"; (.[0] | npins_matrix("planet/pkgs/npins")) + (.[1] | npins_matrix("planet/pkgs/vim-plugins/npins"))'
-          matrix=$(jq -c -s -L .github/workflows "$filter" planet/pkgs/npins/sources.json planet/pkgs/vim-plugins/npins/sources.json)
+          matrix=$(nix develop .#ci --impure --command generate-npins-matrix.sh planet/pkgs/npins/sources.json planet/pkgs/vim-plugins/npins/sources.json)
           printf '%s' "matrix=$matrix" >> "$GITHUB_OUTPUT"
   update-npins:
     runs-on: ubuntu-22.04
@@ -76,13 +75,13 @@ jobs:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
           install_url: ${{ env.nix-install-url }}
       - name: Update ${{ matrix.pin.name }}
-        run: nix develop --impure --command npins -d "${{ matrix.pin.npins-dir }}" update ${{ matrix.pin.name }}
+        run: nix develop .#ci --impure --command npins -d "$(dirname ${{ matrix.pin.sources-file }})" update ${{ matrix.pin.name }}
       - id: generate-patch
         name: Generate patch
         run: |
-          git config user.name ${{ env.GIT_USERNAME }}
-          git config user.email ${{ env.GIT_EMAIL }}
-          if git commit -am "chore(planet, pkgs): update \`${{ matrix.pin.name }}\`" && git format-patch -1 HEAD --output "${{ matrix.pin.name }}.patch"; then
+          nix develop .#ci --impure --command configure-git-user.sh "${{ env.GIT_USERNAME }}" "${{ env.GIT_EMAIL }}"
+          if nix develop .#ci --impure --command commit-and-format-patch.sh "chore(planet, pkgs): update \`${{ matrix.pin.name }}\`" "${{ matrix.pin.name }}.patch"
+          then
             echo "patch=true" >> "$GITHUB_OUTPUT"
           else
             echo "patch=false" >> "$GITHUB_OUTPUT"
@@ -98,10 +97,9 @@ jobs:
     if: contains(needs.*.result, 'success')
     steps:
       - uses: actions/checkout@v3.1.0
+      - uses: cachix/install-nix-action@v19
       - name: Configure git
-        run: |
-          git config user.name ${{ env.GIT_USERNAME }}
-          git config user.email ${{ env.GIT_EMAIL }}
+        run: nix develop .#ci --impure --command configure-git-user.sh "${{ env.GIT_USERNAME }}" "${{ env.GIT_EMAIL }}"
       - uses: actions/download-artifact@v3
         with:
           path: patches
