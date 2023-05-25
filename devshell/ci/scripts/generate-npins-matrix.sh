@@ -13,5 +13,6 @@ usage() {
 if [ $# -eq 0 ]; then
   usage
 else
-  jq -sc 'map(.pins | keys_unsorted | { name: .[], "sources-file": input_filename })' "$@"
+  # https://stackoverflow.com/questions/51217020/jq-convert-array-to-object-indexed-by-filename
+  jq -cn '[ inputs | .pins | keys_unsorted | { name: .[], "sources-file": input_filename } ]' "$@"
 fi
