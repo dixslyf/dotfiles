@@ -6,42 +6,25 @@ usage() {
   printf "%s\n" "<flake-url> refers to the URL of the target flake."
   printf "%s\n\n" "<deployment-hostnames> should be a JSON array of hostnames, e.g., '[\"alpha\", \"bravo\"]'."
   printf "%s\n" "Each object in the output contains the following keys:"
-  printf "  %s\n" "\"hostname\": the hostname the deployment is for, e.g., \"alpha\""
-  printf "  %s\n" "\"flake-output\": the flake output path, e.g., \"ci.alpha-deploy-spec\""
-  printf "  %s\n" "\"hash-name\": the hash + name of the deploy specification that appears in the store path, e.g., \"4cpf0llp2kq6k2m4zrfgd4v4lfbh7igj-cachix-deploy.json\""
+  printf "  %s\n" "\"hostname\": the hostname the deployment specification is for, e.g., \"alpha\""
+  printf "  %s\n" "\"drvPath\": the path to the deploy specification's derivation file, e.g., \"/nix/store/2vw9kybixrpa6ymvpmh8ff1a8fnd07ki-cachix-deploy.json.drv\""
+  printf "  %s\n" "\"hashName\": the hash + name that appears in the store path of the deploy specification's derivation file, e.g., \"2vw9kybixrpa6ymvpmh8ff1a8fnd07ki-cachix-deploy.json.drv\""
   exit 1
 }
 
-# Workaround for `resholve`.
-# The `nix` invoked by `parallel` does not get substituted otherwise.
-NIX_COMMAND="nix"
-
 CI_ATTR="ci"
-CI_SUFFIX_REGEX="\"^$CI_ATTR.\""
-
-# JSON array of the flake outputs under `ci` e.g., `["ci.alpha-deploy-spec","ci.bravo-deploy-spec"]`
-ci_outputs_json() {
-  nix search "$1#$CI_ATTR" --json |
-    jq -rc 'keys_unsorted'
-}
 
 if [ $# -eq 1 ] || [ $# -eq 2 ]; then
-  # `jq` filter that conceptually takes an element of `ci_outputs_json` and the output of `nix path-info --json <flake-output>` as inputs, and
-  # returns the hostname, flake output and hash + name.
-  # The hostname and flake output are derived from an element of `ci_outputs_json`,
-  # while the hash + name is derived from the output of `nix path-info --json <flake-output>`.
-  # Literal single quotes around because arguments passed to `parallel` are expanded by the shell twice
-  # shellcheck disable=SC2016
-  PATH_INFO_FILTER=\''{ "hostname": ($FLAKE_OUTPUT | sub('"$CI_SUFFIX_REGEX"'; "") | sub("-deploy-spec$"; "")), "flake-output": $FLAKE_OUTPUT, "hash-name": (.[] | .path | sub("/nix/store/"; ""))}'\'
-
+  # Use `nix-eval-jobs` to evaluate each job under the `ci` attribute
   matrix=$(
-    ci_outputs_json "$1" |
-      jq -rc '.[]' |
-      parallel "$NIX_COMMAND" path-info "$1#{}" --json '|' jq -c --arg FLAKE_OUTPUT '{}' "$PATH_INFO_FILTER" |
-      jq -sc # Combine the JSON objects into an array
+    nix-eval-jobs --flake "$1#$CI_ATTR" |
+      jq -sc --arg CI_ATTR "$CI_ATTR" \
+        'map({ "hostname": (.attr | sub("-deploy-spec$"; "")), "drvPath": .drvPath, "hashName": (.drvPath | sub("/nix/store/"; "")) })'
   )
 
-  # Only build hosts to be deployed, if deploying
+  # Only keep the hosts to be deployed, if deploying
+  # Ideally, this should be done before or within `nix-eval-jobs` to prevent unnecessary evaluation, but
+  # this is blocked by https://github.com/nix-community/nix-eval-jobs/issues/149.
   if [ -n "$2" ]; then
     matrix=$(jq -c --argjson deployments "$2" 'map(select(.hostname | IN($deployments[])))' <<<"$matrix")
   fi

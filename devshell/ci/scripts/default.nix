@@ -5,20 +5,9 @@
     {
       interpreter = "${pkgs.bash}/bin/bash";
       inputs = with pkgs; [
-        nix
         coreutils
+        nix-eval-jobs
         jq
-        parallel
-      ];
-      fix = {
-        # Workaround to get `resholve` to substitute the `nix` called by `parallel`
-        "$NIX_COMMAND" = [ "${pkgs.nix}/bin/nix" ];
-      };
-      execer = [
-        "cannot:${pkgs.nix}/bin/nix"
-        # This is a lie, but `resholve` doesn't seem to be able to handle `parallel` properly.
-        # Changing `cannot` to `can` or `might` results in an error.
-        "cannot:${pkgs.parallel}/bin/parallel"
       ];
     }
     (builtins.readFile ./generate-deploy-spec-matrix.sh);

@@ -62,7 +62,7 @@ jobs:
       - id: check-deploy-spec-artifact
         uses: dawidd6/action-download-artifact@v2
         with:
-          name: ${{ matrix.deploy-spec.hash-name }}
+          name: ${{ matrix.deploy-spec.hashName }}
           workflow_conclusion: ""
           search_artifacts: true
           if_no_artifact_found: ignore
@@ -87,12 +87,12 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
-          derivation: ".#${{ matrix.deploy-spec.flake-output }}"
+          derivation: ${{ matrix.deploy-spec.drvPath }}
           cachix-extra-pull-names: "nix-gaming, hyprland, nix-community"
       - if: ${{ !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ matrix.deploy-spec.hash-name }}
+          name: ${{ matrix.deploy-spec.hashName }}
           path: ./result
   deploy:
     runs-on: ubuntu-22.04
@@ -106,7 +106,7 @@ jobs:
       - id: download-deploy-spec-artifact
         uses: dawidd6/action-download-artifact@v2
         with:
-          name: ${{ matrix.deploy-spec.hash-name }}
+          name: ${{ matrix.deploy-spec.hashName }}
           workflow_conclusion: ""
           search_artifacts: true
       - uses: cachix/install-nix-action@v20
