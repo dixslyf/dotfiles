@@ -1,5 +1,4 @@
 ---
-
 name: Cachix
 
 on:
@@ -26,6 +25,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ inputs.deployments != '' && 'deploy' || 'build' }}${{ inputs.deployments != '' && '' || format('-{0}', github.ref) }}
   cancel-in-progress: ${{ inputs.deployments == '' }}
 
+env:
+  NIX_CACHE_PATH: /tmp/nixcache
+
 jobs:
   check-flake:
     runs-on: ubuntu-22.04
@@ -41,6 +43,7 @@ jobs:
     needs: [check-flake]
     outputs:
       matrix: ${{ steps.generate.outputs.matrix }}
+      cache-key: ${{ steps.generate.outputs.cache-key }}
     steps:
       - uses: actions/checkout@v3.1.0
       - uses: cachix/install-nix-action@v20
@@ -51,6 +54,15 @@ jobs:
         run: |
           matrix=$(nix develop .#ci --impure --command generate-deploy-spec-matrix.sh . "$DEPLOYMENTS")
           printf '%s' "matrix=$matrix" >> "$GITHUB_OUTPUT"
+
+          cache_key=$(nix develop .#ci --impure --command generate-cache-key.sh <<<"$matrix")
+          printf '%s' "cache-key=$cache_key" >> "$GITHUB_OUTPUT"
+      - name: Export Nix store cache  # https://github.com/cachix/install-nix-action/issues/56#issuecomment-1300421537
+        run: nix copy --all --to "${{ env.NIX_CACHE_PATH }}"
+      - uses: actions/cache/save@v3
+        with:
+          path: ${{ env.NIX_CACHE_PATH }}
+          key: ${{ steps.generate.outputs.cache-key }}
   build-deploy-specs:
     runs-on: ubuntu-22.04
     needs: [generate-deploy-spec-matrix]
@@ -81,11 +93,20 @@ jobs:
           sudo docker image prune --all --force
       - if: ${{ !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
         uses: actions/checkout@v3
+      - uses: actions/cache/restore@v3  # https://github.com/cachix/install-nix-action/issues/56#issuecomment-1300421537
+        with:
+          path: ${{ env.NIX_CACHE_PATH }}
+          key: ${{ needs.generate-deploy-spec-matrix.outputs.cache-key }}
+          fail-on-cache-miss: true
+      - uses: cachix/install-nix-action@v20
+      - name: Import Nix store cache
+        run: nix copy --from ${{ env.NIX_CACHE_PATH }} --all
       - name: Build deploy specification
         if: ${{ !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
         uses: ./.github/actions/build
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          install-nix: false  # Already installed above
           cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
           derivation: ${{ matrix.deploy-spec.drvPath }}
           cachix-extra-pull-names: "nix-gaming, hyprland, nix-community"
