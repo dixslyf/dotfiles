@@ -7,6 +7,11 @@ inputs:
     description: "The GitHub token"
     required: false
     type: string
+  install-nix:
+    description: "Whether to install `nix`"
+    required: false
+    type: boolean  # Warning: https://github.com/actions/runner/issues/2238
+    default: true
   cachix-cache-name:
     description: "The name of the Cachix binary cache"
     required: false
@@ -36,7 +41,8 @@ runs:
       uses: docker/setup-qemu-action@v2
       with:
         platforms: "arm64"
-    - uses: cachix/install-nix-action@v20
+    - if: ${{ fromJSON(inputs.install-nix) }}
+      uses: cachix/install-nix-action@v20
       with:
         github_access_token: ${{ inputs.github-token }}
         extra_nix_config: |
