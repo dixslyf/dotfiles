@@ -7,7 +7,7 @@ usage() {
 }
 
 generate_key() {
-  jq -c 'map(.hashName | sub("-cachix-deploy.json.drv$"; "")) | join("")'
+  jq -rc 'map(.hashName | sub("-cachix-deploy.json.drv$"; "")) | join("")'
 }
 
 if [ $# -eq 0 ]; then
