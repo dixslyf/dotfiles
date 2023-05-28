@@ -47,6 +47,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3.1.0
       - uses: cachix/install-nix-action@v20
+        with:
+          extra_nix_config: |
+            trusted-public-keys = playernamehere-nixos.cachix.org-1:oUHiXCIHbB+VbjDIlckfjwaYkJEvpkW3250+FhF5Vi4= nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4= hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc= nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs= devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=
       - id: generate
         name: Generate matrix of deploy specs
         env:
@@ -99,6 +102,9 @@ jobs:
           key: ${{ needs.generate-deploy-spec-matrix.outputs.cache-key }}
           fail-on-cache-miss: true
       - uses: cachix/install-nix-action@v20
+        with:
+          extra_nix_config: |
+            trusted-public-keys = playernamehere-nixos.cachix.org-1:oUHiXCIHbB+VbjDIlckfjwaYkJEvpkW3250+FhF5Vi4= nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4= hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc= nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs= devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=
       - name: Import Nix store cache
         run: nix copy --from ${{ env.NIX_CACHE_PATH }} --all
       - name: Build deploy specification
