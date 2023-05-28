@@ -59,7 +59,7 @@ jobs:
         name: Generate npins matrix
         run: |
           matrix=$(nix develop .#ci --impure --command generate-npins-matrix.sh planet/pkgs/npins/sources.json planet/pkgs/vim-plugins/npins/sources.json)
-          printf '%s' "matrix=$matrix" >> "$GITHUB_OUTPUT"
+          echo "matrix=$matrix" >> "$GITHUB_OUTPUT"
   update-npins:
     runs-on: ubuntu-22.04
     needs: [generate-npins-matrix, update-flake]

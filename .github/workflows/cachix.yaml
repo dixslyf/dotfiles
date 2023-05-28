@@ -58,10 +58,10 @@ jobs:
           DEPLOYMENTS: ${{ inputs.deployments }}
         run: |
           matrix=$(nix develop .#ci --impure --command generate-deploy-spec-matrix.sh . "$DEPLOYMENTS")
-          printf '%s' "matrix=$matrix" >> "$GITHUB_OUTPUT"
+          echo "matrix=$matrix" >> "$GITHUB_OUTPUT"
 
           cache_key=$(nix develop .#ci --impure --command generate-cache-key.sh <<<"$matrix")
-          printf '%s' "cache-key=$cache_key" >> "$GITHUB_OUTPUT"
+          echo "cache-key=$cache_key" >> "$GITHUB_OUTPUT"
       - name: Export Nix store cache  # https://github.com/cachix/install-nix-action/issues/56#issuecomment-1300421537
         run: nix copy --no-check-sigs --all --to "${{ env.NIX_CACHE_PATH }}"
       - uses: actions/cache/save@v3
