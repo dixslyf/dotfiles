@@ -152,6 +152,7 @@
     xfce.thunar
     rnote
     android-file-transfer
+    drawio
   ];
 
   fonts.fontconfig.enable = true;
