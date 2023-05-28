@@ -27,6 +27,7 @@ concurrency:
 
 env:
   NIX_CACHE_PATH: /tmp/nixcache
+  CACHIX_CACHE: "playernamehere-nixos"
 
 jobs:
   check-flake:
@@ -96,27 +97,45 @@ jobs:
           sudo rm -rf /opt/hostedtoolcache/CodeQL
           sudo docker image prune --all --force
       - if: ${{ !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
-        uses: actions/checkout@v3
-      - uses: actions/cache/restore@v3  # https://github.com/cachix/install-nix-action/issues/56#issuecomment-1300421537
+        uses: cachix/install-nix-action@v20
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+          extra_nix_config: |
+            # `i686-linux` must be present for 32-bit software
+            # More context: https://github.com/NixOS/nixpkgs/issues/86506#issuecomment-623746883
+            extra-platforms = i686-linux aarch64-linux
+      - if: ${{ !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
+        uses: cachix/cachix-action@v12
+        with:
+          name: ${{ env.CACHIX_CACHE }}
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          extraPullNames: "nix-gaming, hyprland, nix-community, devenv"
+          skipPush: true  # `cachix watch-store` is used below, so this is not needed
+      - if: ${{ !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
+        uses: actions/cache/restore@v3  # https://github.com/cachix/install-nix-action/issues/56#issuecomment-1300421537
         with:
           path: ${{ env.NIX_CACHE_PATH }}
           key: ${{ needs.generate-deploy-spec-matrix.outputs.cache-key }}
           fail-on-cache-miss: true
-      - uses: cachix/install-nix-action@v20
-        with:
-          extra_nix_config: |
-            trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= playernamehere-nixos.cachix.org-1:oUHiXCIHbB+VbjDIlckfjwaYkJEvpkW3250+FhF5Vi4= nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4= hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc= nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs= devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=
-      - name: Import Nix store cache
+      - if: ${{ !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
+        name: Import Nix store cache
         run: nix copy --from ${{ env.NIX_CACHE_PATH }} --all
-      - name: Build deploy specification
-        if: ${{ !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
-        uses: ./.github/actions/build
+      - if: ${{ !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          install-nix: false  # Already installed above
-          cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
-          derivation: ${{ matrix.deploy-spec.drvPath }}
-          cachix-extra-pull-names: "nix-gaming, hyprland, nix-community"
+          platforms: "arm64"  # Required to build `bravo` since it is `aarch64`
+      - if: ${{ !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
+        uses: actions/checkout@v3
+      - if: ${{ !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
+        name: Watch store and push new paths to binary cache
+        run: cachix watch-store ${{ env.CACHIX_CACHE }} &
+      - if: ${{ !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
+        name: Build `${{ matrix.deploy-spec.drvPath }}`
+        run: nix build --print-build-logs ${{ matrix.deploy-spec.drvPath }}
+      - if: ${{ !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
+        name: Push result to binary cache
+        run: cachix push ${{ env.CACHIX_CACHE }} ./result
       - if: ${{ !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
         uses: actions/upload-artifact@v3
         with:
