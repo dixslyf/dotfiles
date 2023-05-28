@@ -63,7 +63,7 @@ jobs:
           cache_key=$(nix develop .#ci --impure --command generate-cache-key.sh <<<"$matrix")
           printf '%s' "cache-key=$cache_key" >> "$GITHUB_OUTPUT"
       - name: Export Nix store cache  # https://github.com/cachix/install-nix-action/issues/56#issuecomment-1300421537
-        run: nix copy --all --to "${{ env.NIX_CACHE_PATH }}"
+        run: nix copy --no-check-sigs --all --to "${{ env.NIX_CACHE_PATH }}"
       - uses: actions/cache/save@v3
         with:
           path: ${{ env.NIX_CACHE_PATH }}
@@ -119,7 +119,7 @@ jobs:
           fail-on-cache-miss: true
       - if: ${{ !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
         name: Import Nix store cache
-        run: nix copy --from ${{ env.NIX_CACHE_PATH }} --all
+        run: nix copy --no-check-sigs --from ${{ env.NIX_CACHE_PATH }} --all
       - if: ${{ !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
