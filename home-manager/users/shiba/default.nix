@@ -11,9 +11,12 @@
   home.stateVersion = "22.05";
   programs.home-manager.enable = true;
 
-  xdg.userDirs = {
-    enable = true;
-    createDirectories = true;
+  xdg = {
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+    };
+    mimeApps.enable = true;
   };
 
   systemd.user.startServices = "sd-switch";
