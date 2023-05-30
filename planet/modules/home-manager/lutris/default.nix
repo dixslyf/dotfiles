@@ -5,11 +5,21 @@
 }: {
   options =
     let
-      inherit (lib) mkEnableOption;
+      inherit (lib) mkEnableOption mkOption types;
     in
     {
       planet.lutris = {
         enable = mkEnableOption "planet lutris";
+        defaultApplication = {
+          enable = mkEnableOption "MIME default application configuration";
+          mimeTypes = mkOption {
+            type = types.listOf types.str;
+            default = [ "x-scheme-handler/lutris" ];
+            description = ''
+              MIME types to be the default application for.
+            '';
+          };
+        };
       };
     };
 
@@ -26,5 +36,8 @@
           ".local/share/lutris"
         ];
       };
+      xdg.mimeApps.defaultApplications = mkIf cfg.defaultApplication.enable (
+        lib.genAttrs cfg.defaultApplication.mimeTypes (_: "net.lutris.Lutris.desktop")
+      );
     };
 }
