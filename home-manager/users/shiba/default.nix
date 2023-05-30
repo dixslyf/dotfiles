@@ -66,7 +66,10 @@
       defaultApplication.enable = true;
     };
     kitty.enable = true;
-    lutris.enable = true;
+    lutris = {
+      enable = true;
+      defaultApplication.enable = true;
+    };
     mako.enable = true;
     mullvad-vpn = {
       enable = true;
