@@ -90,7 +90,10 @@
     polkit-agent.enable = true;
     polybar.enable = true;
     qt.enable = true;
-    qutebrowser.enable = true;
+    qutebrowser = {
+      enable = true;
+      defaultApplication.enable = true;
+    };
     redshift = {
       enable = true;
       systemd.target = "bspwm-session.target";
