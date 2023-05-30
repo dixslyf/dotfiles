@@ -114,7 +114,10 @@
       systemd.target = "hyprland-session.target";
     };
     yuzu.enable = true;
-    zathura.enable = true;
+    zathura = {
+      enable = true;
+      defaultApplication.enable = true;
+    };
   };
 
   services = {
