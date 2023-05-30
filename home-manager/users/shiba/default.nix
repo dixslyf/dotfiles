@@ -61,7 +61,10 @@
       enable = true;
       nvidiaVariables = true;
     };
-    kdenlive.enable = true;
+    kdenlive = {
+      enable = true;
+      defaultApplication.enable = true;
+    };
     kitty.enable = true;
     lutris.enable = true;
     mako.enable = true;
