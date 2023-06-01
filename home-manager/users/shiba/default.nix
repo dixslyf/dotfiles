@@ -116,6 +116,10 @@
     ssh.enable = true;
     tealdeer.enable = true;
     tetrio-desktop.enable = true;
+    thunar = {
+      enable = true;
+      defaultApplication.enable = true;
+    };
     udiskie.enable = true;
     waybar = {
       enable = true;
@@ -171,7 +175,6 @@
 
     # Graphical
     keepassxc
-    xfce.thunar
     rnote
     android-file-transfer
     drawio
