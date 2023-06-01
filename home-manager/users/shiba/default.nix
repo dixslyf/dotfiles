@@ -125,6 +125,7 @@
       primaryOutput = "eDP-1";
       externalOutput = "HDMI-A-1";
     };
+    wezterm.enable = true;
     wired = {
       enable = true;
       systemd.target = "bspwm-session.target";

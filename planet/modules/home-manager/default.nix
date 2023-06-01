@@ -44,7 +44,7 @@ _:
     ./thunar
     ./udiskie
     (importModule ./waybar { })
-    ./wezterm
+    (importModule ./wezterm { })
     (importModule ./wired { })
     (importModule ./wlsunset { })
     ./yuzu
