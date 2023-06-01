@@ -94,6 +94,13 @@ jobs:
         with:
           name: ${{ matrix.deploy-spec.hash-name }}
           path: ./result
+  build-result:  # https://github.com/orgs/community/discussions/26822#discussioncomment-5122101
+    runs-on: ubuntu-22.04
+    needs: [build-deploy-specs]
+    if: ${{ always() }}
+    steps:
+      - if: ${{ contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') }}
+        run: exit 1
   deploy:
     runs-on: ubuntu-22.04
     needs: [generate-deploy-spec-matrix, build-deploy-specs]
