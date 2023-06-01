@@ -41,6 +41,7 @@ _:
     ./ssh
     ./tealdeer
     ./tetrio-desktop
+    ./thunar
     ./udiskie
     (importModule ./waybar { })
     ./wezterm
