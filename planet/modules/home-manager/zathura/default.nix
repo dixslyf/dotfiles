@@ -34,7 +34,6 @@
               "application/x-7z-compressed"
               "application/x-cbt"
               "application/x-tar"
-              "inode/directory"
             ];
             description = ''
               MIME types to be the default application for.
