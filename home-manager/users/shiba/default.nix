@@ -69,7 +69,6 @@
       enable = true;
       defaultApplication.enable = true;
     };
-    kitty.enable = true;
     lutris = {
       enable = true;
       defaultApplication.enable = true;
