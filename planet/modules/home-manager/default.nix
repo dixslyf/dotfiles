@@ -10,6 +10,7 @@ _:
     ./direnv
     ./discord
     ./editorconfig
+    ./feh
     ./firefox
     (importModule ./fish { })
     ./flameshot
