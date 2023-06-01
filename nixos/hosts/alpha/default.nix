@@ -120,6 +120,7 @@
     };
     windowManager.bspwm.enable = true;
     desktopManager.runXdgAutostartIfNone = true;
+    excludePackages = with pkgs; [ xterm ];
   };
 
   planet = {
