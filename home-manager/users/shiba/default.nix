@@ -86,7 +86,10 @@
       # package = localFlakeInputs'.neovim-nightly-overlay.packages.default;
       nilPackage = localFlakeInputs'.nil.packages.default;
     };
-    osu-lazer.enable = true;
+    osu-lazer = {
+      enable = true;
+      defaultApplication.enable = true;
+    };
     papis.enable = true;
     picom = {
       enable = true;
