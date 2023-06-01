@@ -45,6 +45,10 @@
     direnv.enable = true;
     discord.enable = true;
     editorconfig.enable = true;
+    feh = {
+      enable = true;
+      defaultApplication.enable = true;
+    };
     firefox.enable = true;
     fish.enable = true;
     flameshot = {
@@ -158,7 +162,6 @@
 
     # Media
     pavucontrol
-    feh
     mpv
     gimp
     inkscape
