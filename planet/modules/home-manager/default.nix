@@ -12,6 +12,7 @@ _:
     ./discord
     ./editorconfig
     ./feh
+    ./file-roller
     ./firefox
     (importModule ./fish { })
     ./flameshot
