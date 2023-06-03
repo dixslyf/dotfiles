@@ -27,9 +27,14 @@
     let
       cfg = config.planet.thunar;
       inherit (lib) mkIf;
+      uca = pkgs.substituteAll {
+        src = ./uca.xml;
+        startInDirectoryScript = pkgs.writeShellScript "exec-terminal-in-directory" config.planet.default-terminal.startInDirectoryCommand;
+      };
     in
     mkIf cfg.enable {
       home.packages = with pkgs; [ xfce.thunar ];
+      xdg.configFile."Thunar/uca.xml".source = uca;
       xdg.mimeApps.defaultApplications = mkIf cfg.defaultApplication.enable (
         lib.genAttrs cfg.defaultApplication.mimeTypes (_: "thunar.desktop")
       );
