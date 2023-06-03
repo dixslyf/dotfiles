@@ -47,6 +47,7 @@ _:
     (importModule ./wezterm { })
     (importModule ./wired { })
     (importModule ./wlsunset { })
+    ./xdg-terminal-exec
     ./yuzu
     (importModule ./zathura { })
   ];
