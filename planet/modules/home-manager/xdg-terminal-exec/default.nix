@@ -7,14 +7,18 @@
     let
       inherit (lib)
         mkOption
-        mkEnableOption
         types;
     in
     {
       planet.xdg-terminal-exec = {
-        enable = mkEnableOption "planet xdg-terminal-exec";
+        enable = mkOption {
+          type = types.bool;
+          default = config.planet.default-terminal.startCommand != null;
+          description = "Whether to enable planet xdg-terminal-exec";
+        };
         command = mkOption {
-          type = types.str;
+          type = with types; nullOr str;
+          default = config.planet.default-terminal.startCommand;
           description = ''
             The command to execute to open the preferred terminal.
             This command will be written to a bash script via `pkgs.writeShellScriptBin`.
