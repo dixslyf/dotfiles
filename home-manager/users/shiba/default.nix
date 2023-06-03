@@ -49,6 +49,10 @@
       enable = true;
       defaultApplication.enable = true;
     };
+    file-roller = {
+      enable = true;
+      defaultApplication.enable = true;
+    };
     firefox.enable = true;
     fish.enable = true;
     flameshot = {
