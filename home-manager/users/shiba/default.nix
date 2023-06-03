@@ -11,9 +11,12 @@
   home.stateVersion = "22.05";
   programs.home-manager.enable = true;
 
-  xdg.userDirs = {
-    enable = true;
-    createDirectories = true;
+  xdg = {
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+    };
+    mimeApps.enable = true;
   };
 
   systemd.user.startServices = "sd-switch";
@@ -42,6 +45,14 @@
     direnv.enable = true;
     discord.enable = true;
     editorconfig.enable = true;
+    feh = {
+      enable = true;
+      defaultApplication.enable = true;
+    };
+    file-roller = {
+      enable = true;
+      defaultApplication.enable = true;
+    };
     firefox.enable = true;
     fish.enable = true;
     flameshot = {
@@ -58,10 +69,19 @@
       enable = true;
       nvidiaVariables = true;
     };
-    kdenlive.enable = true;
-    kitty.enable = true;
-    lutris.enable = true;
+    kdenlive = {
+      enable = true;
+      defaultApplication.enable = true;
+    };
+    lutris = {
+      enable = true;
+      defaultApplication.enable = true;
+    };
     mako.enable = true;
+    mpv = {
+      enable = true;
+      defaultApplication.enable = true;
+    };
     mullvad-vpn = {
       enable = true;
       settings = {
@@ -76,8 +96,12 @@
       # Context: https://github.com/nvim-treesitter/nvim-treesitter/issues/4805
       # package = localFlakeInputs'.neovim-nightly-overlay.packages.default;
       nilPackage = localFlakeInputs'.nil.packages.default;
+      defaultApplication.enable = true;
     };
-    osu-lazer.enable = true;
+    osu-lazer = {
+      enable = true;
+      defaultApplication.enable = true;
+    };
     papis.enable = true;
     picom = {
       enable = true;
@@ -87,7 +111,10 @@
     polkit-agent.enable = true;
     polybar.enable = true;
     qt.enable = true;
-    qutebrowser.enable = true;
+    qutebrowser = {
+      enable = true;
+      defaultApplication.enable = true;
+    };
     redshift = {
       enable = true;
       systemd.target = "bspwm-session.target";
@@ -96,11 +123,19 @@
     ssh.enable = true;
     tealdeer.enable = true;
     tetrio-desktop.enable = true;
+    thunar = {
+      enable = true;
+      defaultApplication.enable = true;
+    };
     udiskie.enable = true;
     waybar = {
       enable = true;
       primaryOutput = "eDP-1";
       externalOutput = "HDMI-A-1";
+    };
+    wezterm = {
+      enable = true;
+      defaultTerminal = true;
     };
     wired = {
       enable = true;
@@ -111,7 +146,10 @@
       systemd.target = "hyprland-session.target";
     };
     yuzu.enable = true;
-    zathura.enable = true;
+    zathura = {
+      enable = true;
+      defaultApplication.enable = true;
+    };
   };
 
   services = {
@@ -139,8 +177,6 @@
 
     # Media
     pavucontrol
-    feh
-    mpv
     gimp
     inkscape
 
@@ -149,7 +185,6 @@
 
     # Graphical
     keepassxc
-    xfce.thunar
     rnote
     android-file-transfer
     drawio

@@ -40,6 +40,16 @@
           default = pkgs.nil;
           description = "The `nil` package to use.";
         };
+        defaultApplication = {
+          enable = mkEnableOption "MIME default application configuration";
+          mimeTypes = mkOption {
+            type = types.listOf types.str;
+            default = [ "text/plain" ];
+            description = ''
+              MIME types to be the default application for.
+            '';
+          };
+        };
       };
     };
 
@@ -167,5 +177,8 @@
               ]))
           ];
       };
+      xdg.mimeApps.defaultApplications = mkIf cfg.defaultApplication.enable (
+        lib.genAttrs cfg.defaultApplication.mimeTypes (_: "nvim.desktop")
+      );
     };
 }

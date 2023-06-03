@@ -5,11 +5,26 @@
 }: {
   options =
     let
-      inherit (lib) mkEnableOption;
+      inherit (lib) mkEnableOption mkOption types;
     in
     {
       planet.osu-lazer = {
         enable = mkEnableOption "planet osu-lazer";
+        defaultApplication = {
+          enable = mkEnableOption "MIME default application configuration";
+          mimeTypes = mkOption {
+            type = types.listOf types.str;
+            default = [
+              "application/x-osu-skin-archive"
+              "application/x-osu-replay"
+              "application/x-osu-beatmap-archive"
+              "x-scheme-handler/osu"
+            ];
+            description = ''
+              MIME types to be the default application for.
+            '';
+          };
+        };
       };
     };
 
@@ -23,5 +38,8 @@
       planet.persistence = {
         directories = [ ".local/share/osu" ];
       };
+      xdg.mimeApps.defaultApplications = mkIf cfg.defaultApplication.enable (
+        lib.genAttrs cfg.defaultApplication.mimeTypes (_: "osu-lazer-bin.desktop")
+      );
     };
 }

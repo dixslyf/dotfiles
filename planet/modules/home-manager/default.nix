@@ -7,9 +7,12 @@ _:
     ./autorandr
     (importModule ./bspwm { })
     ./citra
+    ./default-terminal
     ./direnv
     ./discord
     ./editorconfig
+    ./feh
+    ./file-roller
     ./firefox
     (importModule ./fish { })
     ./flameshot
@@ -24,6 +27,7 @@ _:
     (importModule ./kitty { })
     ./lutris
     (importModule ./mako { })
+    ./mpv
     ./mullvad-vpn
     (importModule ./neovim { })
     (importModule ./osu-lazer { })
@@ -40,11 +44,13 @@ _:
     ./ssh
     ./tealdeer
     ./tetrio-desktop
+    ./thunar
     ./udiskie
     (importModule ./waybar { })
-    ./wezterm
+    (importModule ./wezterm { })
     (importModule ./wired { })
     (importModule ./wlsunset { })
+    ./xdg-terminal-exec
     ./yuzu
     (importModule ./zathura { })
   ];
