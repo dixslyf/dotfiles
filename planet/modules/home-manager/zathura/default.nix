@@ -27,13 +27,9 @@
               "image/eps"
               "image/x-eps"
               "application/x-cbr"
-              "application/x-rar"
               "application/x-cbz"
-              "application/zip"
               "application/x-cb7"
-              "application/x-7z-compressed"
               "application/x-cbt"
-              "application/x-tar"
             ];
             description = ''
               MIME types to be the default application for.
