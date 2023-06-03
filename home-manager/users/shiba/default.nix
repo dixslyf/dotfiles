@@ -74,6 +74,10 @@
       defaultApplication.enable = true;
     };
     mako.enable = true;
+    mpv = {
+      enable = true;
+      defaultApplication.enable = true;
+    };
     mullvad-vpn = {
       enable = true;
       settings = {
@@ -169,7 +173,6 @@
 
     # Media
     pavucontrol
-    mpv
     gimp
     inkscape
 
