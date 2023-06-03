@@ -7,6 +7,7 @@ _:
     ./autorandr
     (importModule ./bspwm { })
     ./citra
+    ./default-terminal
     ./direnv
     ./discord
     ./editorconfig
