@@ -26,6 +26,7 @@ _:
     (importModule ./kitty { })
     ./lutris
     (importModule ./mako { })
+    ./mpv
     ./mullvad-vpn
     (importModule ./neovim { })
     (importModule ./osu-lazer { })
