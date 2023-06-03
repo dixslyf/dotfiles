@@ -33,7 +33,9 @@
       };
     in
     mkIf cfg.enable {
-      home.packages = with pkgs; [ xfce.thunar ];
+      home.packages = with pkgs; [
+        (xfce.thunar.override { thunarPlugins = [ xfce.thunar-archive-plugin ]; })
+      ];
       xdg.configFile."Thunar/uca.xml".source = uca;
       xdg.mimeApps.defaultApplications = mkIf cfg.defaultApplication.enable (
         lib.genAttrs cfg.defaultApplication.mimeTypes (_: "thunar.desktop")
