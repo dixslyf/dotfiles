@@ -20,6 +20,7 @@ local function setup_mappings()
    vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Buffers" })
    vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help tags" })
    vim.keymap.set("n", "<leader>fm", builtin.man_pages, { desc = "Man pages" })
+   vim.keymap.set("n", "<leader>fd", builtin.git_status, { desc = "Git status" })
 
    wk.register({ ["<leader>f"] = "Find" })
 end
