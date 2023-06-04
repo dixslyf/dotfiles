@@ -20,7 +20,6 @@
     in
     mkIf cfg.enable {
       xdg = {
-        autostart.enable = true;
         portal = {
           enable = true;
           # xdg-desktop-portal-wlr should already be enabled by hyprland
