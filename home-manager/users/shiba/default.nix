@@ -59,6 +59,7 @@
       enable = true;
       systemd.target = "bspwm-session.target";
     };
+    fzf.enable = true;
     gh.enable = true;
     git.enable = true;
     gitui.enable = true;
