@@ -53,6 +53,7 @@ _:
     ./xdg-terminal-exec
     ./yuzu
     (importModule ./zathura { })
+    ./zoxide
   ];
 }
 
