@@ -16,6 +16,7 @@ _:
     ./firefox
     (importModule ./fish { })
     ./flameshot
+    ./fzf
     ./git
     ./gh
     (importModule ./gitui { })
