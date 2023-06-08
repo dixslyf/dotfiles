@@ -18,7 +18,7 @@ And a non-exhaustive list of some stuff  I use:
 * **Shell:** [fish](https://github.com/fish-shell/fish-shell) :fish:
 * **Terminals:** [wezterm](https://github.com/wez/wezterm), [kitty](https://github.com/kovidgoyal/kitty) :cat2:
 * **Editor:** [Neovim](https://github.com/neovim/neovim)
-* **File Manager:** `ls`, `cd`, `mv`, `cp`, `rm`; sometimes [Thunar](https://gitlab.xfce.org/xfce/thunar)
+* **File Manager:** [zoxide](https://github.com/ajeetdsouza/zoxide), [fzf](https://github.com/junegunn/fzf), `ls`, `cd`, `mv`, `cp`, `rm`; sometimes [Thunar](https://gitlab.xfce.org/xfce/thunar)
 * **Web Browsers:** [qutebrowser](https://github.com/qutebrowser/qutebrowser), [Firefox](https://www.mozilla.org/en-US/firefox/browsers/)
 * **Color scheme:** [Catppuccin](https://github.com/catppuccin/catppuccin)
 * **Fonts:** [Mali](https://fonts.google.com/specimen/Mali), [Iosevka](https://github.com/be5invis/Iosevka), [Material Design Icons](https://github.com/Templarian/MaterialDesign)
