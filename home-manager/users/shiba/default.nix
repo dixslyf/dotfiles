@@ -150,6 +150,7 @@
       enable = true;
       defaultApplication.enable = true;
     };
+    zoxide.enable = true;
   };
 
   services = {
