@@ -146,6 +146,7 @@
       enable = true;
       systemd.target = "hyprland-session.target";
     };
+    xmonad.enable = true;
     yuzu.enable = true;
     zathura = {
       enable = true;
