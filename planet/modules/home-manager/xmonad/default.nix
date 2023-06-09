@@ -18,6 +18,8 @@
       inherit (lib) mkIf;
     in
     mkIf cfg.enable {
+      # https://github.com/nix-community/home-manager/issues/2825
+      xsession.windowManager.command = lib.mkForce "";
       xsession.windowManager.xmonad = {
         enable = true;
         config = ./haskell/Main.hs;

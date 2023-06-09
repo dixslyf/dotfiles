@@ -24,6 +24,9 @@
       inherit (lib) mkIf;
     in
     mkIf cfg.enable {
+      # https://github.com/nix-community/home-manager/issues/2825
+      xsession.windowManager.command = lib.mkForce "";
+
       # Note that xsession.enable = false so that home-manager doesn't create ~/.xsession.
       # More details: https://github.com/NixOS/nixpkgs/issues/190442
       xsession.windowManager.bspwm = {
