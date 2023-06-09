@@ -52,6 +52,7 @@ _:
     (importModule ./wired { })
     (importModule ./wlsunset { })
     ./xdg-terminal-exec
+    ./xmonad
     ./yuzu
     (importModule ./zathura { })
     ./zoxide
