@@ -24,7 +24,7 @@
       };
 
       planet.persistence = {
-        directories = [ "${config.xdg.dataHome}/zoxide" ];
+        directories = [ ".local/share/zoxide" ];
       };
     };
 }
