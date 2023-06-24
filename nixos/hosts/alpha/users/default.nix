@@ -16,4 +16,6 @@
     useUserPackages = true;
     useGlobalPkgs = true;
   };
+
+  nix.settings.trusted-users = [ "root" "@wheel" ];
 }
