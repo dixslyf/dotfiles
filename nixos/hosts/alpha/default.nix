@@ -56,6 +56,8 @@
   nix = {
     settings = {
       auto-optimise-store = true;
+      keep-outputs = true;
+      keep-derivations = true;
       experimental-features = [ "nix-command" "flakes" ];
       substituters = [
         "https://playernamehere-nixos.cachix.org"
@@ -72,10 +74,6 @@
         "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
       ];
     };
-    extraOptions = ''
-      keep-outputs = true
-      keep-derivations = true
-    '';
   };
 
   security = {
