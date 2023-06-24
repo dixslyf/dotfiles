@@ -22,7 +22,7 @@
       xsession.windowManager.command = lib.mkForce "";
       xsession.windowManager.xmonad = {
         enable = true;
-        config = ./haskell/Main.hs;
+        config = ./src/Main.hs;
       };
 
       systemd.user.targets.xmonad-session = {
