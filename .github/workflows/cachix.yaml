@@ -99,7 +99,7 @@ jobs:
     needs: [build-deploy-specs]
     if: ${{ always() }}
     steps:
-      - if: ${{ contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') }}
+      - if: ${{ contains(needs.*.result, 'failure') }}
         run: exit 1
   deploy:
     runs-on: ubuntu-22.04
