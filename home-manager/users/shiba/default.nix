@@ -190,7 +190,6 @@
     rnote
     android-file-transfer
     drawio
-    pencil
   ];
 
   fonts.fontconfig.enable = true;
