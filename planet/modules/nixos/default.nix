@@ -18,6 +18,7 @@ _: {
     ./tlp
     ./udisks2
     ./upower
+    ./virtualisation
     ./xdg
   ];
 }
