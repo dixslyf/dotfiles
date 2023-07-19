@@ -128,7 +128,6 @@ in
       systemd.user.services.mullvad-vpn = mkIf cfg.systemd.enable {
         Unit = {
           Description = "Mullvad VPN GUI";
-          Requires = [ "tray.target" ];
           After = [ "graphical-session-pre.target" "tray.target" ];
           PartOf = [ "graphical-session.target" ];
         };
