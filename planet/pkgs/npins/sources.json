@@ -44,9 +44,9 @@
         "repo": "mako"
       },
       "branch": "main",
-      "revision": "64ef71633528b50e5475755e50071584b54fa291",
-      "url": "https://github.com/catppuccin/mako/archive/64ef71633528b50e5475755e50071584b54fa291.tar.gz",
-      "hash": "007zr906q7s31xgn9xw3jl8zdg5wapixva01qniclna1y0yxlqr7"
+      "revision": "9dd088aa5f4529a3dd4d9760415e340664cb86df",
+      "url": "https://github.com/catppuccin/mako/archive/9dd088aa5f4529a3dd4d9760415e340664cb86df.tar.gz",
+      "hash": "097x9jrkzvml6ngnhxwkzzl1l2awwv73yli1mhmpw83c0n8xck4x"
     },
     "catppuccin-papirus-folders": {
       "type": "Git",
