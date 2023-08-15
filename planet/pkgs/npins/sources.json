@@ -56,9 +56,9 @@
         "repo": "papirus-folders"
       },
       "branch": "main",
-      "revision": "fcf96737fffc343a1bf129732c37d19f2d77fa5c",
-      "url": "https://github.com/catppuccin/papirus-folders/archive/fcf96737fffc343a1bf129732c37d19f2d77fa5c.tar.gz",
-      "hash": "1ijfl68paqv2vbf1v3qjp99flcz36a00qip5v07nmzky6cdwha6z"
+      "revision": "6f8292748e508373dea59cb7dacc0ddc3c6b287d",
+      "url": "https://github.com/catppuccin/papirus-folders/archive/6f8292748e508373dea59cb7dacc0ddc3c6b287d.tar.gz",
+      "hash": "00k8r5panb4g8297hihijzvfjh67m1jml5xjanqaaky6f3gjalrd"
     },
     "catppuccin-polybar": {
       "type": "Git",
