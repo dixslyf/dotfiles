@@ -159,7 +159,7 @@
   # Packages
   nixpkgs.config.allowUnfree = true;
 
-  fonts.fonts = [ pkgs.pers-pkgs.mali ];
+  fonts.packages = [ pkgs.pers-pkgs.mali ];
 
   environment.systemPackages = with pkgs; [
     pciutils
