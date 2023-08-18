@@ -126,7 +126,6 @@
       autoScrubFileSystems = [ "/dev/sda3" "/dev/sdb1" ];
     };
     earlyoom.enable = true;
-    hyprland.enable = true;
     mullvad-vpn.enable = true;
     neovim.enable = true;
     networkmanager.enable = true;
@@ -159,7 +158,7 @@
   # Packages
   nixpkgs.config.allowUnfree = true;
 
-  fonts.fonts = [ pkgs.pers-pkgs.mali ];
+  fonts.packages = [ pkgs.pers-pkgs.mali ];
 
   environment.systemPackages = with pkgs; [
     pciutils
