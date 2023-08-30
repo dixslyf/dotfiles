@@ -60,6 +60,8 @@
 
         xdg.configFile."polybar/config.ini".source = configFile;
 
+        planet.tray-target.enable = true;
+
         # TODO: May want to make template services for Polybar instead.
         # If I add a different WM in the future and still want to use Polybar,
         # then I can at least re-use the service. For now, since I'm only using
