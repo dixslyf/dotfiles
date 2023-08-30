@@ -46,6 +46,7 @@ _:
     ./tealdeer
     ./tetrio-desktop
     ./thunar
+    ./tray-target
     ./udiskie
     (importModule ./waybar { })
     (importModule ./wezterm { })
