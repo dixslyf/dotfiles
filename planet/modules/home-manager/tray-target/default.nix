@@ -15,6 +15,12 @@
           description = "Whether to enable `tray.target` systemd user target";
           type = types.bool;
         };
+        providers = mkOption {
+          internal = true;
+          default = [ ];
+          description = "List of systemd units which provide a system tray";
+          type = with types; listOf str;
+        };
       };
     };
 
@@ -26,8 +32,15 @@
     mkIf cfg.enable {
       systemd.user.targets.tray = {
         Unit = {
-          Description = "Home Manager System Tray";
-          Requires = [ "graphical-session-pre.target" ];
+          Description = "System tray";
+          PartOf = cfg.providers;
+          Before = cfg.providers;
+          RefuseManualStart = true;
+          RefuseManualStop = true;
+          StopWhenUnneeded = true;
+        };
+        Install = {
+          UpheldBy = cfg.providers;
         };
       };
     };
