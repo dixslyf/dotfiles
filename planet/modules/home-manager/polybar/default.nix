@@ -60,7 +60,10 @@
 
         xdg.configFile."polybar/config.ini".source = configFile;
 
-        planet.tray-target.enable = true;
+        planet.tray-target = {
+          enable = true;
+          providers = [ "polybar-eDP-1.service" ];
+        };
 
         # TODO: May want to make template services for Polybar instead.
         # If I add a different WM in the future and still want to use Polybar,
@@ -69,7 +72,7 @@
         systemd.user.services.polybar-eDP-1 = {
           Unit = {
             Description = "Polybar status bar on eDP-1";
-            PartOf = [ "tray.target" ] ++ optionalBspwmTarget;
+            PartOf = optionalBspwmTarget;
             After = optionalBspwmTarget;
             X-Restart-Triggers = "${configFile}";
           };
@@ -80,8 +83,7 @@
             ExecStart = "${polybarPackage}/bin/polybar eDP-1";
           };
 
-          # TODO: We don't always want polybar to be triggered by `tray.target`.
-          Install = { WantedBy = [ "tray.target" ] ++ optionalBspwmTarget; };
+          Install = { WantedBy = optionalBspwmTarget; };
         };
 
         systemd.user.services.polybar-HDMI-1 = {
