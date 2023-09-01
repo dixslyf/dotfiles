@@ -8,9 +8,9 @@
         "repo": "bspwm"
       },
       "branch": "master",
-      "revision": "8fc2269fe0f29a785885bcd9122812eae7226d7b",
-      "url": "https://github.com/baskerville/bspwm/archive/8fc2269fe0f29a785885bcd9122812eae7226d7b.tar.gz",
-      "hash": "1j2klj4wxvi75g33m9mkvgzckx2pc06ziq038xv8zdk1aw9r7nsq"
+      "revision": "af3bd8b4351f4478fe0fe3cfd6c09e44cb108b4b",
+      "url": "https://github.com/baskerville/bspwm/archive/af3bd8b4351f4478fe0fe3cfd6c09e44cb108b4b.tar.gz",
+      "hash": "1dhby9kba41mfbcv6282g83xr7k7qs67fp0by7qai9zp6rv3111v"
     },
     "catppuccin-fish": {
       "type": "Git",
