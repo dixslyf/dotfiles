@@ -116,7 +116,6 @@
         ${pkgs.hsetroot}/bin/hsetroot -solid "#363a4f"
       '';
     };
-    windowManager.bspwm.enable = true;
     excludePackages = with pkgs; [ xterm ];
   };
 
@@ -135,6 +134,7 @@
       lowLatency = false; # nix-gaming #58
     };
     sddm.enable = true;
+    sessions.bspwm.enable = true;
     steam.enable = true;
     tlp = {
       enable = true;
