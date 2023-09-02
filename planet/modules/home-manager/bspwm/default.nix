@@ -67,10 +67,18 @@
         '';
       };
 
-      # home-manager starts sxhkd through ~/.xsession, but since xsession.enable = false,
-      # the NixOS module for bspwm must be enabled in order for sxhkd to start (through
-      # the none+bspwm.desktop file, and yes, the module for bspwm starts sxhkd with
-      # seemingly no option not to even though sxhkd is separate from bspwm).
+      systemd.user.services.sxhkd = {
+        Unit = {
+          Description = "sxhkd";
+          PartOf = [ "bspwm-session.target" ];
+          After = [ "bspwm-session.target" ];
+        };
+
+        Service.ExecStart = "${config.services.sxhkd.package}/bin/sxhkd";
+
+        Install = { WantedBy = [ "bspwm-session.target" ]; };
+      };
+
       services.sxhkd = {
         enable = true;
         keybindings = {
