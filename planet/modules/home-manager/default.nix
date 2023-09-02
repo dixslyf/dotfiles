@@ -5,7 +5,7 @@ _:
   imports = [
     ./android
     ./autorandr
-    (importModule ./bspwm { })
+    ./bspwm
     ./citra
     ./default-terminal
     ./direnv

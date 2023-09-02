@@ -1,5 +1,5 @@
-{ localFlake', ... }:
-{ config
+{ osConfig
+, config
 , lib
 , pkgs
 , ...
@@ -27,8 +27,10 @@
       # Note that xsession.enable = false so that home-manager doesn't create ~/.xsession.
       # More details: https://github.com/NixOS/nixpkgs/issues/190442
       xsession.windowManager.bspwm = {
+        # This shouldn't actually change anything since it only controls the bspwm binary in ~/.xsession,
+        # but just in case, I'm setting it.
+        inherit (osConfig.planet.sessions.bspwm) package;
         enable = true;
-        package = localFlake'.packages.bspwm;
         monitors = {
           ${cfg.primaryMonitor} = [ "p1" "p2" "p3" "p4" "p5" "p6" "p7" "p8" "p9" "p0" ];
         };
