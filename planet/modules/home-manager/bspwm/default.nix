@@ -60,8 +60,6 @@
           pointer_follows_monitor = true;
         };
         extraConfig = ''
-          ${pkgs.systemd}/bin/systemctl --user start bspwm-session.target
-
           ${pkgs.autorandr}/bin/autorandr --change
 
           # TODO: figure out how to set this for all X window managers
@@ -97,15 +95,6 @@
           "XF86AudioMute" = "pamixer --toggle-mute";
           "super + r" = "rofi -show drun";
           "Print" = "flameshot gui";
-        };
-      };
-
-      systemd.user.targets.bspwm-session = {
-        Unit = {
-          Description = "Bspwm session";
-          BindsTo = [ "graphical-session.target" ];
-          Wants = [ "graphical-session-pre.target" ];
-          After = [ "graphical-session-pre.target" ];
         };
       };
     };

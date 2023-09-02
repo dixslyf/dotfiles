@@ -14,6 +14,7 @@ _: {
     (importModule ./persistence { })
     (importModule ./pipewire { })
     (importModule ./sddm { })
+    (importModule ./sessions { })
     ./steam
     ./tlp
     ./udisks2
