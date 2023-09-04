@@ -105,18 +105,6 @@
         "type": "github"
       }
     },
-    "discord": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-p1L7yu+82e1Z6QzhuG6aFpumYwWPABIeKHH6egazKiY=",
-        "type": "tarball",
-        "url": "https://discord.com/api/download?format=tar.gz&platform=linux"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://discord.com/api/download?format=tar.gz&platform=linux"
-      }
-    },
     "disko": {
       "inputs": {
         "nixpkgs": [
@@ -929,7 +917,6 @@
         "cachix-deploy": "cachix-deploy",
         "catppuccin-grub": "catppuccin-grub",
         "devenv": "devenv",
-        "discord": "discord",
         "fenix": "fenix",
         "flake-parts": "flake-parts_2",
         "flake-utils": "flake-utils_2",

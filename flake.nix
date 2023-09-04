@@ -50,10 +50,6 @@
       url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    discord = {
-      url = "tarball+https://discord.com/api/download?platform=linux&format=tar.gz";
-      flake = false;
-    };
     wired = {
       url = "github:Toqozz/wired-notify";
       inputs.nixpkgs.follows = "nixpkgs";
