@@ -64,6 +64,9 @@
       programs.neovim = {
         inherit (cfg) package;
         enable = true;
+        vimAlias = true;
+        viAlias = true;
+        defaultEditor = true;
         extraLuaConfig = ''
           Globals = {
              cppdbg_command = "${pkgs.vscode-extensions.ms-vscode.cpptools}/share/vscode/extensions/ms-vscode.cpptools/debugAdapters/bin/OpenDebugAD7",
