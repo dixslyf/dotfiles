@@ -9,6 +9,9 @@ on:
   pull_request:
   workflow_dispatch:
     inputs:
+      force-rebuild:
+        description: Force a rebuild by skipping the check for the deployment specification artifact.
+        type: boolean
       deployments:
         description: |
           JSON array of machines to deploy to.
@@ -60,6 +63,7 @@ jobs:
         deploy-spec: ${{ fromJson(needs.generate-deploy-spec-matrix.outputs.matrix) }}
     steps:
       - id: check-deploy-spec-artifact
+        if: ${{ !inputs.force-rebuild }}
         uses: dawidd6/action-download-artifact@v2
         with:
           name: ${{ matrix.deploy-spec.hash-name }}
@@ -71,7 +75,7 @@ jobs:
         # whenever referencing this output to properly convert it to a boolean
         # https://github.com/actions/runner/issues/2238#issuecomment-1318973310
         # https://docs.github.com/en/actions/using-jobs/defining-outputs-for-jobs
-        if: ${{ !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
+        if: ${{ inputs.force-rebuild || !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
         run: |
           # Taken from https://github.com/easimon/maximize-build-space/blob/67afc2d7662c9d296547435e7605cc57a1df46f3/action.yml#L110
           sudo rm -rf /usr/share/dotnet
@@ -79,17 +83,17 @@ jobs:
           sudo rm -rf /usr/local/lib/android
           sudo rm -rf /opt/hostedtoolcache/CodeQL
           sudo docker image prune --all --force
-      - if: ${{ !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
+      - if: ${{ inputs.force-rebuild || !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
         uses: actions/checkout@v3
       - name: Build deploy specification
-        if: ${{ !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
+        if: ${{ inputs.force-rebuild || !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
         uses: ./.github/actions/build
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
           derivation: ".#${{ matrix.deploy-spec.flake-output }}"
           cachix-extra-pull-names: "nix-gaming, hyprland, nix-community"
-      - if: ${{ !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
+      - if: ${{ inputs.force-rebuild || !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
         uses: actions/upload-artifact@v3
         with:
           name: ${{ matrix.deploy-spec.hash-name }}
