@@ -42,6 +42,7 @@
           };
           services.bspwm = {
             description = "bspwm";
+            path = [ cfg.bspwm.package ];
             bindsTo = [ "bspwm-session.target" ];
             before = [ "bspwm-session.target" ];
             after = [ "graphical-session-pre.target" ];
