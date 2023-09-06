@@ -42,7 +42,8 @@
         enable = true;
         keybindings = {
           "super + Escape" = "pkill -USR1 -x sxhkd"; # reload sxhkd config
-          "super + shift + {q,r}" = "bspc {quit,wm -r}"; # quit / restart bspwm
+          "super + shift + q" = "systemctl stop --user bspwm.service"; # quit bspwm (see planet/nixos/sessions)
+          "super + shift + r" = "bspc wm -r"; # restart bspwm
           "super + {shift,ctrl} + c" = "bspc node -{c,k}"; # close / kill window
           "super + {_,shift} + {j,k}" = ''bspc node -{f,s} {next,prev}.local.!hidden.window''; # focus / move window
           "super + {t,shift + t,s,f}" = "bspc node -t {tiled,pseudo_tiled,floating,\~fullscreen}"; # set the window state

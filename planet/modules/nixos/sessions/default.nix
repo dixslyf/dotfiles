@@ -52,6 +52,7 @@
             serviceConfig = {
               Type = "exec";
               ExecStart = "${cfg.bspwm.package}/bin/bspwm";
+              ExecStop = "${cfg.bspwm.package}/bin/bspc quit";
             };
           };
         };
