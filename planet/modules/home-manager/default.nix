@@ -43,6 +43,7 @@ _:
     ./redshift
     (importModule ./rofi { })
     ./ssh
+    ./sxhkd
     ./tealdeer
     ./tetrio-desktop
     ./thunar
