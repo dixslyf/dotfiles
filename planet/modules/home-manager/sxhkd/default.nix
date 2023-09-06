@@ -21,7 +21,9 @@
     let
       cfg = config.planet.sxhkd;
       inherit (lib) mkIf;
-      sxhkdCommand = "${config.services.sxhkd.package}/bin/sxhkd ${toString config.services.sxhkd.extraOptions}";
+      sxhkdCommand = ''
+        /bin/sh -login -c '${config.services.sxhkd.package}/bin/sxhkd ${toString config.services.sxhkd.extraOptions}'
+      '';
     in
     mkIf cfg.enable {
       systemd.user.services.sxhkd = {
