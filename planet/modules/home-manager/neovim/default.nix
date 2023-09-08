@@ -70,6 +70,7 @@
         extraLuaConfig = ''
           Globals = {
              cppdbg_command = "${pkgs.vscode-extensions.ms-vscode.cpptools}/share/vscode/extensions/ms-vscode.cpptools/debugAdapters/bin/OpenDebugAD7",
+             jdt_ls = "${pkgs.jdt-language-server}/bin/jdt-language-server",
           }
           require("options").setup()
           require("plugins").setup()
@@ -159,6 +160,7 @@
             vimtex
             nvim-neoclip-lua
             zk-nvim
+            nvim-jdtls
             (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins:
               with plugins; [
                 tree-sitter-bash
