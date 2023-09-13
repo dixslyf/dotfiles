@@ -77,6 +77,7 @@
           Globals = {
              cppdbg_command = "${pkgs.vscode-extensions.ms-vscode.cpptools}/share/vscode/extensions/ms-vscode.cpptools/debugAdapters/bin/OpenDebugAD7",
              jdt_ls = "${pkgs.jdt-language-server}/bin/jdt-language-server",
+             java_debug_server_dir = "${pkgs.vscode-extensions.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server",
           }
           require("options").setup()
           require("plugins").setup()

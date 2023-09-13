@@ -22,6 +22,11 @@ jdtls.start_or_attach({
       "-data",
       data_dir,
    },
+   init_options = {
+      bundles = {
+         vim.fn.glob(Globals.java_debug_server_dir .. "/com.microsoft.java.debug.plugin-*.jar", true),
+      },
+   },
    root_dir = root_dir,
    capabilities = lsp_common.capabilities(),
    on_attach = function(client, bufnr)
