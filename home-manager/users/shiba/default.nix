@@ -79,6 +79,7 @@
       enable = true;
       defaultApplication.enable = true;
     };
+    mullvad-browser.enable = true;
     mullvad-vpn = {
       enable = true;
       settings = {
