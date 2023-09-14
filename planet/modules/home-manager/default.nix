@@ -29,6 +29,7 @@ _:
     ./lutris
     (importModule ./mako { })
     ./mpv
+    ./mullvad-browser
     ./mullvad-vpn
     (importModule ./neovim { })
     (importModule ./osu-lazer { })
