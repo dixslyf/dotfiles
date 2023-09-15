@@ -166,7 +166,7 @@
 
     # CLI
     jq
-    exa
+    eza
     fd
     ripgrep
     neofetch
