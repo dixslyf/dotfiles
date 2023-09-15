@@ -9,7 +9,7 @@ local root_dir = jdtls_setup.find_root(root_markers)
 
 local data_dir
 if root_dir == nil then
-   -- If no `root_dir` was found, then use `~/.cache/jdtls` concatenated with the current working directory.
+   -- If no `root_dir` was found, then use `~/.cache/nvim/jdtls` concatenated with the current working directory.
    -- `:h` removes the trailing `/`.
    data_dir = vim.fn.stdpath("cache") .. "/jdtls" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h")
 else
