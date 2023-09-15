@@ -18,6 +18,7 @@
         "kernel.sysrq" = 1; # https://wiki.archlinux.org/title/Keyboard_shortcuts#Kernel_(SysRq)
       };
     };
+    swraid.enable = false; # https://github.com/NixOS/nixpkgs/issues/254807
   };
 
   planet.persistence = {
