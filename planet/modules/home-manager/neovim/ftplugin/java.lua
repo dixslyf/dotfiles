@@ -9,11 +9,21 @@ local root_dir = jdtls_setup.find_root(root_markers)
 
 local data_dir
 if root_dir == nil then
-   -- If no `root_dir` was found, then use `~/.cache/jdtls` concatenated with the current working directory.
+   -- If no `root_dir` was found, then use `~/.cache/nvim/jdtls` concatenated with the current working directory.
    -- `:h` removes the trailing `/`.
    data_dir = vim.fn.stdpath("cache") .. "/jdtls" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h")
 else
    data_dir = root_dir .. "/.jdtls"
+end
+
+local bundles
+do
+   local b = { vim.fn.glob(Globals.java_debug_server_dir .. "/com.microsoft.java.debug.plugin-*.jar", true) }
+
+   -- Add `vscode-java-test` `.jar` files to `bundles`.
+   vim.list_extend(b, vim.split(vim.fn.glob(Globals.java_test_server_dir .. "/*.jar", true), "\n"))
+
+   bundles = b
 end
 
 jdtls.start_or_attach({
@@ -22,6 +32,7 @@ jdtls.start_or_attach({
       "-data",
       data_dir,
    },
+   init_options = { bundles = bundles },
    root_dir = root_dir,
    capabilities = lsp_common.capabilities(),
    on_attach = function(client, bufnr)
@@ -60,5 +71,9 @@ jdtls.start_or_attach({
          "<ESC><CMD>lua require('jdtls').extract_method(true)<CR>",
          { buffer = bufnr, desc = "Method" }
       )
+
+      vim.keymap.set("n", "<leader>ltc", jdtls.test_class, { buffer = bufnr, desc = "Class" })
+
+      vim.keymap.set("n", "<leader>ltm", jdtls.test_nearest_method, { buffer = bufnr, desc = "Nearest method" })
    end,
 })
