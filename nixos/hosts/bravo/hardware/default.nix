@@ -8,33 +8,34 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "usbhid" "usb_storage" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
-  boot.extraModulePackages = [ ];
-
-  fileSystems."/" = {
-    device = "none";
-    fsType = "tmpfs";
-    options = [ "size=1G" "mode=755" "noatime" ];
+  boot = {
+    initrd.availableKernelModules = [ "xhci_pci" "usbhid" "usb_storage" ];
+    initrd.kernelModules = [ ];
+    kernelModules = [ ];
+    extraModulePackages = [ ];
   };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/CFAE-72EC";
-    fsType = "vfat";
-  };
-
-  fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/ff035932-080a-418d-860b-aec6443ac211";
-    fsType = "btrfs";
-    options = [ "subvol=@nix" "compress=zstd" "noatime" ];
-  };
-
-  fileSystems."/persist" = {
-    device = "/dev/disk/by-uuid/ff035932-080a-418d-860b-aec6443ac211";
-    fsType = "btrfs";
-    options = [ "subvol=@persist" "compress=zstd" "noatime" ];
-    neededForBoot = true;
+  fileSystems = {
+    "/" = {
+      device = "none";
+      fsType = "tmpfs";
+      options = [ "size=1G" "mode=755" "noatime" ];
+    };
+    "/boot" = {
+      device = "/dev/disk/by-uuid/CFAE-72EC";
+      fsType = "vfat";
+    };
+    "/nix" = {
+      device = "/dev/disk/by-uuid/ff035932-080a-418d-860b-aec6443ac211";
+      fsType = "btrfs";
+      options = [ "subvol=@nix" "compress=zstd" "noatime" ];
+    };
+    "/persist" = {
+      device = "/dev/disk/by-uuid/ff035932-080a-418d-860b-aec6443ac211";
+      fsType = "btrfs";
+      options = [ "subvol=@persist" "compress=zstd" "noatime" ];
+      neededForBoot = true;
+    };
   };
 
   swapDevices = [

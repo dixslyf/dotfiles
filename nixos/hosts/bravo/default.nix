@@ -10,10 +10,13 @@
     ./users
   ];
 
-  boot.loader = {
-    grub.enable = false;
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
+  boot = {
+    loader = {
+      grub.enable = false;
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+    swraid.enable = false; # https://github.com/NixOS/nixpkgs/issues/254807
   };
 
   nix = {

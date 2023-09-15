@@ -36,12 +36,14 @@
       };
 
       systemd.user.services.flameshot = {
-        # the original configuration lists `tray.target` as a requirement,
-        # which the below removes
-        Unit.Requires = lib.mkForce [ ];
-        Unit.After = lib.mkForce [ cfg.systemd.target ];
+        # The original configuration lists `tray.target` as a requirement,
+        # so force the Unit configuration to remove it.
+        Unit = {
+          Requires = lib.mkForce [ ];
+          After = lib.mkForce [ cfg.systemd.target ];
 
-        Unit.PartOf = lib.mkForce [ cfg.systemd.target ];
+          PartOf = lib.mkForce [ cfg.systemd.target ];
+        };
         Install.WantedBy = lib.mkForce [ cfg.systemd.target ];
       };
     };

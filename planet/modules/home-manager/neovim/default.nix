@@ -59,8 +59,14 @@
       inherit (lib) mkIf;
     in
     mkIf cfg.enable {
-      xdg.configFile."nvim/lua".source = ./lua;
-      xdg.configFile."nvim/ftplugin".source = ./ftplugin;
+      xdg = {
+        configFile."nvim/lua".source = ./lua;
+        configFile."nvim/ftplugin".source = ./ftplugin;
+        mimeApps.defaultApplications = mkIf cfg.defaultApplication.enable (
+          lib.genAttrs cfg.defaultApplication.mimeTypes (_: "nvim.desktop")
+        );
+      };
+
       programs.neovim = {
         inherit (cfg) package;
         enable = true;
@@ -182,8 +188,5 @@
               ]))
           ];
       };
-      xdg.mimeApps.defaultApplications = mkIf cfg.defaultApplication.enable (
-        lib.genAttrs cfg.defaultApplication.mimeTypes (_: "nvim.desktop")
-      );
     };
 }

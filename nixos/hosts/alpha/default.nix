@@ -18,6 +18,7 @@
         "kernel.sysrq" = 1; # https://wiki.archlinux.org/title/Keyboard_shortcuts#Kernel_(SysRq)
       };
     };
+    swraid.enable = false; # https://github.com/NixOS/nixpkgs/issues/254807
   };
 
   planet.persistence = {
@@ -84,11 +85,6 @@
     rtkit.enable = true;
   };
 
-  services.cachix-agent = {
-    enable = true;
-    credentialsFile = config.sops.secrets."CACHIX_AGENT_TOKEN".path;
-  };
-
   networking.hostName = "alpha";
 
   # Set your time zone.
@@ -101,23 +97,35 @@
     useXkbConfig = true; # use xkbOptions in tty.
   };
 
-  # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-    layout = "us";
-    libinput = {
+  services = {
+    cachix-agent = {
       enable = true;
-      touchpad.naturalScrolling = true;
+      credentialsFile = config.sops.secrets."CACHIX_AGENT_TOKEN".path;
     };
-    displayManager = {
-      defaultSession = "none+bspwm";
-      # set the background color of the root window
-      sessionCommands = ''
-        ${pkgs.hsetroot}/bin/hsetroot -solid "#363a4f"
-      '';
+    xserver = {
+      enable = true;
+      layout = "us";
+      libinput = {
+        enable = true;
+        touchpad.naturalScrolling = true;
+      };
+      displayManager = {
+        defaultSession = "none+bspwm";
+        # set the background color of the root window
+        sessionCommands = ''
+          ${pkgs.hsetroot}/bin/hsetroot -solid "#363a4f"
+        '';
+      };
+      windowManager.bspwm.enable = true;
+      excludePackages = with pkgs; [ xterm ];
     };
-    windowManager.bspwm.enable = true;
-    excludePackages = with pkgs; [ xterm ];
+    fstrim.enable = true;
+    udev.packages = with pkgs; [
+      android-udev-rules
+    ];
+    autorandr.enable = true;
+    resolved.enable = true;
+    blueman.enable = true;
   };
 
   planet = {
@@ -143,16 +151,6 @@
     udisks2.enable = true;
     upower.enable = true;
     xdg.enable = true;
-  };
-
-  services = {
-    fstrim.enable = true;
-    udev.packages = [
-      pkgs.android-udev-rules
-    ];
-    autorandr.enable = true;
-    resolved.enable = true;
-    blueman.enable = true;
   };
 
   # Packages
