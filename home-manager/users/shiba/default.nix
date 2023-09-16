@@ -173,6 +173,7 @@
     bottom
     udiskie
     gdb
+    ouch
 
     # Media
     pavucontrol
