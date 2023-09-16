@@ -134,6 +134,7 @@
       autoScrubFileSystems = [ "/dev/sda3" "/dev/sdb1" ];
     };
     earlyoom.enable = true;
+    flatpak.enable = true;
     mullvad-vpn.enable = true;
     neovim.enable = true;
     networkmanager.enable = true;

@@ -30,6 +30,8 @@
         ".local/share/Steam"
         ".local/state/wireplumber"
         ".factorio"
+        ".local/share/flatpak"
+        ".var" # Used by `flatpak`
       ];
     };
     android.enable = true;
