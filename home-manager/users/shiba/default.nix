@@ -71,6 +71,7 @@
       enable = true;
       defaultApplication.enable = true;
     };
+    logseq.enable = true;
     lutris = {
       enable = true;
       defaultApplication.enable = true;
