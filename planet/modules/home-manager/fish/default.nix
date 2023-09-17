@@ -1,6 +1,7 @@
 { localFlake', ... }:
 { config
 , lib
+, pkgs
 , ...
 }: {
   options =
@@ -30,6 +31,9 @@
           enable = true;
           loginShellInit = shellInit;
           interactiveShellInit = shellInit;
+          functions = {
+            fish_greeting = "${pkgs.haskellPackages.misfortune}/bin/misfortune -s -L 2";
+          };
         };
 
       xdg.configFile."fish/themes" = {
