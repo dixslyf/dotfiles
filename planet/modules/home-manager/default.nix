@@ -26,6 +26,7 @@ _:
     (importModule ./hyprland { })
     ./kdenlive
     (importModule ./kitty { })
+    ./logseq
     ./lutris
     (importModule ./mako { })
     ./mpv
