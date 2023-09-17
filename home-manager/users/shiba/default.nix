@@ -27,7 +27,6 @@
       persistXdgUserDirectories = true;
       directories = [
         "Sync"
-        ".local/share/Steam"
         ".local/state/wireplumber"
         ".factorio"
         ".local/share/flatpak"

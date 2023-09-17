@@ -144,7 +144,6 @@
       lowLatency = false; # nix-gaming #58
     };
     sddm.enable = true;
-    steam.enable = true;
     tlp = {
       enable = true;
       diskDevices = [ "nvme0n1" "sda" ];
