@@ -6,6 +6,7 @@ _: {
   imports = [
     ./btrfs
     ./earlyoom
+    ./flatpak
     (importModule ./hyprland { })
     ./mullvad-vpn
     ./neovim
