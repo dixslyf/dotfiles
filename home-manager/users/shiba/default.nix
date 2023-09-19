@@ -190,6 +190,7 @@
     rnote
     android-file-transfer
     drawio
+    libreoffice
   ];
 
   fonts.fontconfig.enable = true;
