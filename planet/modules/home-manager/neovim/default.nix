@@ -172,6 +172,7 @@
             tree-sitter-fennel
             tree-sitter-haskell
             tree-sitter-html
+            tree-sitter-java
             tree-sitter-javascript
             tree-sitter-json
             tree-sitter-lua
