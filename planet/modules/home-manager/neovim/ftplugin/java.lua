@@ -7,14 +7,11 @@ local wk = require("which-key")
 local root_markers = { "gradlew", ".git", "mvnw" }
 local root_dir = jdtls_setup.find_root(root_markers)
 
-local data_dir
-if root_dir == nil then
-   -- If no `root_dir` was found, then use `~/.cache/nvim/jdtls` concatenated with the current working directory.
-   -- `:h` removes the trailing `/`.
-   data_dir = vim.fn.stdpath("cache") .. "/jdtls" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h")
-else
-   data_dir = root_dir .. "/.jdtls"
-end
+-- Use `~/.cache/nvim/jdtls` appended with `root_dir` for the data directory.
+-- If no `root_dir` was found, then concatenate with the current directory.
+-- `:h` removes the trailing `/`. See `:help filename-modifiers`.
+local data_dir_suffix = root_dir or vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h")
+local data_dir = vim.fn.stdpath("cache") .. "/jdtls" .. data_dir_suffix
 
 local bundles
 do
