@@ -4,7 +4,7 @@ local jdtls = require("jdtls")
 local jdtls_setup = require("jdtls.setup")
 local wk = require("which-key")
 
-local root_markers = { "gradlew", ".git", "mvnw" }
+local root_markers = { "gradlew", ".git", "mvnw", "pom.xml" }
 local root_dir = jdtls_setup.find_root(root_markers)
 
 -- Use `~/.cache/nvim/jdtls` appended with `root_dir` for the data directory.
