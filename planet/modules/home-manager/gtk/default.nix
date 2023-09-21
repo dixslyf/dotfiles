@@ -42,6 +42,13 @@
           };
           name = "Papirus-Dark";
         };
+        gtk3.bookmarks = builtins.map (dir: "file://" + config.home.homeDirectory + "/" + dir) [
+          "Documents"
+          "Downloads"
+          "Music"
+          "Pictures"
+          "Videos"
+        ];
       };
     };
 }
