@@ -2,7 +2,7 @@
 { config
 , lib
 , ...
-}:
+} @ args:
 
 {
   imports = [
@@ -12,6 +12,7 @@
   options =
     let
       inherit (lib) mkEnableOption mkOption types;
+      cfg = config.planet.persistence;
     in
     {
       planet.persistence = {
@@ -44,12 +45,44 @@
             this value will be passed to.
           '';
         };
+        useBindMounts = mkOption {
+          type = types.bool;
+          default = false;
+          description = ''
+            By default, `impermanence`'s `home-manager` module uses `bindfs` and not
+            regular bind mounts because regular users cannot create them.
+
+            When this option is enabled, regular bind mounts will be used instead
+            through `impermanence`'s NixOS module. `planet.persistence` in the NixOS
+            configuration must be enabled, otherwise no mounts will be created.
+
+            Note that if attrsets are specified in the list of directories, they must
+            only contain keys that are recognised by `impermanence`'s NixOS module.
+          '';
+        };
         directories = mkOption {
           type = with types; listOf anything;
           default = [ ];
           description = ''
             List of directories to persist.
             This list will be passed to the corresponding option in the `impermanence` module.
+          '';
+        };
+        finalDirectories = mkOption {
+          type = with types; listOf anything;
+          internal = true;
+          default = cfg.directories ++ (lib.lists.optionals cfg.persistXdgUserDirectories [
+            "Desktop"
+            "Documents"
+            "Downloads"
+            "Music"
+            "Pictures"
+            "Public"
+            "Templates"
+            "Videos"
+          ]);
+          description = ''
+            The final list of directories to persist.
           '';
         };
         files = mkOption {
@@ -66,21 +99,26 @@
   config =
     let
       cfg = config.planet.persistence;
-      inherit (lib) mkIf lists;
+      inherit (lib) mkMerge mkIf;
     in
-    mkIf cfg.enable {
-      home.persistence.${cfg.persistDirectory} = {
-        inherit (cfg) allowOther files;
-        directories = cfg.directories ++ (lists.optionals cfg.persistXdgUserDirectories [
-          "Desktop"
-          "Documents"
-          "Downloads"
-          "Music"
-          "Pictures"
-          "Public"
-          "Templates"
-          "Videos"
-        ]);
-      };
-    };
+    mkMerge [
+      {
+        assertions = [
+          {
+            assertion = !cfg.useBindMounts || args ? osConfig && args.osConfig.planet.persistence.enable;
+            message = ''
+              `planet.persistence.useBindMounts` (`home-manager`) can only be enabled when
+              using NixOS and `planet.persistence.enable = true` (NixOS) on the host configuration.
+            '';
+          }
+        ];
+      }
+
+      (mkIf (cfg.enable && !cfg.useBindMounts) {
+        home.persistence.${cfg.persistDirectory} = {
+          inherit (cfg) allowOther files;
+          directories = cfg.finalDirectories;
+        };
+      })
+    ];
 }
