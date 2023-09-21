@@ -7,7 +7,7 @@
     localFlakeInputs.sops-nix.homeManagerModules.sops
   ];
 
-  home.persistence."/persist/home/shiba" = {
+  planet.persistence = {
     directories = [
       ".config/sops"
     ];
