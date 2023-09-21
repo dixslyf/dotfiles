@@ -12,6 +12,11 @@ function M.setup()
          transforms.tint_with_threshold(-50, cp_palette.base, 50),
          transforms.saturate(0.5),
       },
+      window_ignore_function = function(winid)
+         -- Don't tint floating windows
+         local floating = vim.api.nvim_win_get_config(winid).relative ~= ""
+         return buftype == "terminal" or floating
+      end,
    })
 
    vim.keymap.set("n", "<leader>ni", tint.toggle, { desc = "Toggle tint" })
