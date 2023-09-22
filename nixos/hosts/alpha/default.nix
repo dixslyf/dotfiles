@@ -12,7 +12,26 @@
   # Kernel
   boot = {
     loader.grub.theme = inputs.catppuccin-grub.outPath + "/src/catppuccin-macchiato-grub-theme";
-    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_latest;
+    extraModulePackages = with config.boot.kernelPackages; [
+      # TODO: remove override once https://github.com/NixOS/nixpkgs/pull/256611 makes it to unstable
+      (ddcci-driver.overrideAttrs (previousAttrs:
+        let
+          inherit (previousAttrs) pname;
+          version = "0.4.4";
+        in
+        {
+          inherit version;
+          src = pkgs.fetchFromGitLab {
+            owner = "${pname}-linux";
+            repo = "${pname}-linux";
+            rev = "v${version}";
+            hash = "sha256-4pCfXJcteWwU6cK8OOSph4XlhKTk289QqLxsSWY7cac=";
+          };
+          patches = [ ];
+        }))
+    ];
+    kernelModules = [ "ddcci" "ddcci_backlight" ];
     kernel = {
       sysctl = {
         "kernel.sysrq" = 1; # https://wiki.archlinux.org/title/Keyboard_shortcuts#Kernel_(SysRq)
