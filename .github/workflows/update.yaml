@@ -24,10 +24,10 @@ jobs:
   update-flake:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3.1.0
+      - uses: actions/checkout@v4
         with:
           ref: ${{ github.ref }}
-      - uses: cachix/install-nix-action@v19
+      - uses: cachix/install-nix-action@v22
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
           install_url: ${{ env.nix-install-url }}
@@ -53,8 +53,8 @@ jobs:
     outputs:
       npins-matrix: ${{ steps.npins-matrix.outputs.matrix }}
     steps:
-      - uses: actions/checkout@v3.1.0
-      - uses: cachix/install-nix-action@v20
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v22
       - id: npins-matrix
         name: Generate npins matrix
         run: |
@@ -69,8 +69,8 @@ jobs:
       matrix:
         pin: ${{ fromJson(needs.generate-npins-matrix.outputs.npins-matrix) }}
     steps:
-      - uses: actions/checkout@v3.1.0
-      - uses: cachix/install-nix-action@v19
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v22
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
           install_url: ${{ env.nix-install-url }}
@@ -96,8 +96,8 @@ jobs:
     needs: [update-flake, update-npins]
     if: contains(needs.*.result, 'success')
     steps:
-      - uses: actions/checkout@v3.1.0
-      - uses: cachix/install-nix-action@v19
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v22
       - name: Configure git
         run: nix develop .#ci --impure --command configure-git-user.sh "${{ env.GIT_USERNAME }}" "${{ env.GIT_EMAIL }}"
       - uses: actions/download-artifact@v3
