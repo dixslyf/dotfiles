@@ -14,8 +14,7 @@
     kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
     loader = {
       grub.enable = false;
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
+      generic-extlinux-compatible.enable = true;
     };
     swraid.enable = false; # https://github.com/NixOS/nixpkgs/issues/254807
   };
