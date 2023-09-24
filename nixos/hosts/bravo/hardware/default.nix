@@ -15,6 +15,8 @@
     extraModulePackages = [ ];
   };
 
+  hardware.enableRedistributableFirmware = true;
+
   fileSystems = {
     "/" = {
       device = "none";
