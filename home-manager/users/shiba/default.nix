@@ -24,6 +24,7 @@
   planet = {
     persistence = {
       enable = true;
+      useBindMounts = true;
       persistXdgUserDirectories = true;
       directories = [
         "Sync"

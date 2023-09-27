@@ -104,11 +104,22 @@
     let
       cfg = config.planet.persistence;
       inherit (lib) mkIf lists;
+
+      getUserPersistence = user: config.home-manager.users.${user}.planet.persistence;
+      users = builtins.attrNames config.home-manager.users;
+      target-users = builtins.filter
+        (user:
+          let
+            user-persistence = getUserPersistence user;
+          in
+          user-persistence.enable && user-persistence.useBindMounts)
+        users;
     in
     mkIf cfg.enable {
       # Opt-in persisted root directories
       environment.persistence.${cfg.persistDirectory} = {
         inherit (cfg) hideMounts;
+
         directories = cfg.directories ++ (lists.optionals cfg.persistSystemdDirectories [
           "/var/lib/systemd/coredump"
           "/var/lib/systemd/timers"
@@ -116,8 +127,18 @@
           ++ (lists.optional cfg.persistSystemdBacklight "/var/lib/systemd/backlight") # for systemd-backlight to be able to restore brightness
           ++ (lists.optional cfg.persistLogs "/var/log")
           ++ (lists.optional cfg.persistSsh "/etc/ssh");
+
         files = cfg.files
           ++ lists.optional cfg.persistMachineId "/etc/machine-id";
+
+        users = lib.attrsets.genAttrs target-users (user:
+          let
+            user-persistence = getUserPersistence user;
+          in
+          {
+            inherit (user-persistence) files;
+            directories = user-persistence.finalDirectories;
+          });
       };
 
       programs.fuse.userAllowOther = cfg.fuseAllowOther;
