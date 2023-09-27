@@ -172,7 +172,6 @@
     fd
     ripgrep
     bottom
-    udiskie
     ouch
 
     # Media

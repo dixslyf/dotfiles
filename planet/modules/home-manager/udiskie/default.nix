@@ -1,5 +1,6 @@
 { config
 , lib
+, pkgs
 , ...
 }: {
   options =
@@ -24,6 +25,9 @@
         notify = true;
         tray = "auto";
       };
+
+      # For CLI tools like `udiskie-mount`.
+      home.packages = with pkgs; [ udiskie ];
     };
 }
 
