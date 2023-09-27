@@ -168,14 +168,10 @@
     gnome.adwaita-icon-theme
 
     # CLI
-    jq
     eza
     fd
     ripgrep
-    neofetch
     bottom
-    udiskie
-    gdb
     ouch
 
     # Media
@@ -186,9 +182,8 @@
     # X
     xdragon
 
-    # Graphical
+    # Miscellaneous
     keepassxc
-    rnote
     android-file-transfer
     drawio
     libreoffice
