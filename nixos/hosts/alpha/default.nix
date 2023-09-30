@@ -141,7 +141,7 @@
     nvidia.enable = true;
     pipewire = {
       enable = true;
-      lowLatency = false; # nix-gaming #58
+      lowLatency = true;
     };
     sddm.enable = true;
     tlp = {
