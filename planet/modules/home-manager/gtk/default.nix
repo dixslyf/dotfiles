@@ -34,7 +34,7 @@
             variant = "macchiato";
             tweaks = [ "rimless" ];
           };
-          name = "Catppuccin-Macchiato-Standard-Mauve-dark";
+          name = "Catppuccin-Macchiato-Standard-Mauve-Dark";
         };
         iconTheme = {
           package = localFlake'.packages.catppuccin-papirus-icon-theme.override {
