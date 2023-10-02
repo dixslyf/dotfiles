@@ -9,7 +9,7 @@
 
   users = {
     mutableUsers = false;
-    users.root.passwordFile = config.sops.secrets."user-passwords/root".path;
+    users.root.hashedPasswordFile = config.sops.secrets."user-passwords/root".path;
   };
 
   home-manager = {

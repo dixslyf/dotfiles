@@ -7,7 +7,7 @@
       samoyed = {
         isNormalUser = true;
         extraGroups = [ "wheel" ];
-        passwordFile = config.sops.secrets."user-passwords/samoyed".path;
+        hashedPasswordFile = config.sops.secrets."user-passwords/samoyed".path;
       };
     };
   };
