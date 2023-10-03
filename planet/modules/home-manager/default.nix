@@ -4,6 +4,7 @@ _:
 {
   imports = [
     ./android
+    ./anki
     ./autorandr
     (importModule ./bspwm { })
     ./citra

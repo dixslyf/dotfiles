@@ -35,6 +35,7 @@
       ];
     };
     android.enable = true;
+    anki.enable = true;
     autorandr = {
       enable = true;
       host = "alpha";
