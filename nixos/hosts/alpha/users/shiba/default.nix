@@ -7,7 +7,7 @@
       shiba = {
         isNormalUser = true;
         extraGroups = [ "networkmanager" "video" "wheel" ];
-        passwordFile = config.sops.secrets."user-passwords/shiba".path;
+        hashedPasswordFile = config.sops.secrets."user-passwords/shiba".path;
       };
     };
   };
