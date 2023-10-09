@@ -96,6 +96,7 @@
           "{XF86AudioRaiseVolume,XF86AudioLowerVolume} + {_,shift}" = "pamixer -{i,d} {1,2}";
           "XF86AudioMute" = "pamixer --toggle-mute";
           "super + r" = "rofi -show drun";
+          "super + g" = "if [ \"$(bspc config window_gap)\" -eq 0 ]; then bspc config window_gap 12; bspc config border_width 2; else bspc config window_gap 0; bspc config border_width 0; fi";
           "Print" = "flameshot gui";
         };
       };
