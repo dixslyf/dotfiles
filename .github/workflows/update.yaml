@@ -16,7 +16,6 @@ on:
 run-name: Update flake inputs and npins
 
 env:
-  nix-install-url: https://releases.nixos.org/nix/nix-2.13.3/install
   GIT_USERNAME: github-actions[bot]
   GIT_EMAIL: github-actions[bot]@users.noreply.github.com
 
@@ -30,7 +29,6 @@ jobs:
       - uses: cachix/install-nix-action@v22
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
-          install_url: ${{ env.nix-install-url }}
       - name: Update flake inputs
         run: nix flake update
       - id: generate-patch
@@ -73,7 +71,6 @@ jobs:
       - uses: cachix/install-nix-action@v22
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
-          install_url: ${{ env.nix-install-url }}
       - name: Update ${{ matrix.pin.name }}
         run: nix develop .#ci --impure --command npins -d "$(dirname ${{ matrix.pin.sources-file }})" update ${{ matrix.pin.name }}
       - id: generate-patch
