@@ -18,6 +18,8 @@ run-name: Update flake inputs and npins
 env:
   GIT_USERNAME: github-actions[bot]
   GIT_EMAIL: github-actions[bot]@users.noreply.github.com
+  MACHINE_USERNAME: dixslyf-machine
+  MACHINE_REPO: dotfiles
 
 jobs:
   update-flake:
@@ -110,7 +112,8 @@ jobs:
       - if: ${{ !inputs.dry-run }}
         uses: peter-evans/create-pull-request@v5
         with:
-          token: ${{ secrets.PR_PAT }}
+          token: ${{ secrets.MACHINE_USER_PAT }}
+          push-to-fork: ${{ env.MACHINE_USERNAME }}/${{ env.MACHINE_REPO }}
           branch: update-flake-inputs-and-npins
           title: Update flake inputs and npins
           body: ${{ github.event_name == 'workflow_dispatch' && 'Manually triggered update.' || 'Automated periodic update.' }}
