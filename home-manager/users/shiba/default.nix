@@ -152,6 +152,7 @@
       enable = true;
       defaultApplication.enable = true;
     };
+    zotero.enable = true;
     zoxide.enable = true;
   };
 
