@@ -139,7 +139,6 @@
           nvim-dap
           nvim-dap-ui
           neodev-nvim
-          null-ls-nvim
           lspkind-nvim
           nvim-cmp
           cmp_luasnip
