@@ -38,6 +38,10 @@ local editorconfig_checker = {
    lintStdin = false,
    lintFormats = { "\t%l: %m", "\t%m" },
 }
+local google_java_format = {
+   formatCommand = "google-java-format -aosp -",
+   formatStdin = true,
+}
 
 function M.setup(on_attach, capabilities)
    local languages = {
@@ -79,6 +83,7 @@ function M.setup(on_attach, capabilities)
          statix,
          deadnix,
       },
+      java = { google_java_format },
       -- Wildcard (https://github.com/mattn/efm-langserver/blob/95f915ad7e125a3995a86445fc76818307fa3ca8/langserver/lsp.go#L3)
       ["="] = { editorconfig_checker },
    }
