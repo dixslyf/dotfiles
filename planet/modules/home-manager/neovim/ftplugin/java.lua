@@ -32,6 +32,11 @@ jdtls.start_or_attach({
    init_options = { bundles = bundles },
    root_dir = root_dir,
    capabilities = lsp_common.capabilities(),
+   settings = {
+      java = {
+         format = false,
+      },
+   },
    on_attach = function(client, bufnr)
       lsp_common.on_attach(client, bufnr)
 

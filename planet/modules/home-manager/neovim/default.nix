@@ -104,6 +104,8 @@
           yamllint
           nodePackages.prettier
           zk
+          efm-langserver
+          jq
           cfg.rustToolchain
           (texlive.combine {
             inherit (texlive) scheme-minimal latexindent;
@@ -139,7 +141,6 @@
           nvim-dap
           nvim-dap-ui
           neodev-nvim
-          null-ls-nvim
           lspkind-nvim
           nvim-cmp
           cmp_luasnip
@@ -165,6 +166,7 @@
           nvim-neoclip-lua
           zk-nvim
           nvim-jdtls
+          efmls-configs-nvim
           (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: with plugins; [
             tree-sitter-bash
             tree-sitter-c
