@@ -16,6 +16,7 @@ local function setup_mappings()
 end
 
 local servers = {
+   "efm",
    "nil-ls",
    "lua-ls",
    "clangd",
