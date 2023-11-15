@@ -20,9 +20,9 @@
         "repo": "fish"
       },
       "branch": "main",
-      "revision": "91e6d6721362be05a5c62e235ed8517d90c567c9",
-      "url": "https://github.com/catppuccin/fish/archive/91e6d6721362be05a5c62e235ed8517d90c567c9.tar.gz",
-      "hash": "046016ilgf1zxdcj3l49l4rmmn3mbay3apdf5y1i4nn9qxh7pmcp"
+      "revision": "0ce27b518e8ead555dec34dd8be3df5bd75cff8e",
+      "url": "https://github.com/catppuccin/fish/archive/0ce27b518e8ead555dec34dd8be3df5bd75cff8e.tar.gz",
+      "hash": "1a6yj6zhccpg5jpcrxjzxyydh5ldwlvwf3vz6lwl60gk2xvz7kqd"
     },
     "catppuccin-gitui": {
       "type": "Git",
