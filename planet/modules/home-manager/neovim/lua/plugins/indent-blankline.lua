@@ -1,11 +1,9 @@
 local M = {}
 
-local indent_blankline = require("indent_blankline")
+local ibl = require("ibl")
 
 function M.setup()
-   indent_blankline.setup({
-      char_priority = 50, -- For compatibility with ufo
-   })
+   ibl.setup()
 end
 
 return M
