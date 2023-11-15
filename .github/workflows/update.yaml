@@ -80,7 +80,7 @@ jobs:
         name: Generate patch
         run: |
           nix develop .#ci --impure --command configure-git-user.sh "${{ env.GIT_USERNAME }}" "${{ env.GIT_EMAIL }}"
-          if nix develop .#ci --impure --command commit-and-format-patch.sh "chore(planet, pkgs): update \`${{ matrix.pin.name }}\`" "${{ matrix.pin.name }}.patch"
+          if nix develop .#ci --impure --command commit-and-format-patch.sh "chore(planet/pkgs): update \`${{ matrix.pin.name }}\`" "${{ matrix.pin.name }}.patch"
           then
             echo "patch=true" >> "$GITHUB_OUTPUT"
           else
