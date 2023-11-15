@@ -175,6 +175,7 @@
     ripgrep
     bottom
     ouch
+    localFlakeInputs'.devenv.packages.default
 
     # Media
     pavucontrol
