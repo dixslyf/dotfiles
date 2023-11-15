@@ -32,9 +32,9 @@
         "repo": "gitui"
       },
       "branch": "main",
-      "revision": "3c97c7af7247b1e0f4366a4d8fab650bcce54100",
-      "url": "https://github.com/catppuccin/gitui/archive/3c97c7af7247b1e0f4366a4d8fab650bcce54100.tar.gz",
-      "hash": "0rsbizm5ak98qff6m7g3jx8i0h5hznzvvbprvzcr7nc03rrf794v"
+      "revision": "39978362b2c88b636cacd55b65d2f05c45a47eb9",
+      "url": "https://github.com/catppuccin/gitui/archive/39978362b2c88b636cacd55b65d2f05c45a47eb9.tar.gz",
+      "hash": "10kwkkp2zlzzmj7c6bkhxmk21r5g5qckpw9myc9sp8dfbx1qfrli"
     },
     "catppuccin-mako": {
       "type": "Git",
