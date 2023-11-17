@@ -34,7 +34,9 @@ jdtls.start_or_attach({
    capabilities = lsp_common.capabilities(),
    settings = {
       java = {
-         format = false,
+         format = {
+            enabled = false,
+         },
       },
    },
    on_attach = function(client, bufnr)
