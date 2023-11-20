@@ -27,7 +27,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.ref }}
-      - uses: cachix/install-nix-action@v22
+      - uses: cachix/install-nix-action@v23
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
           install_url: ${{ env.nix-install-url }}
@@ -54,7 +54,7 @@ jobs:
       npins-matrix: ${{ steps.npins-matrix.outputs.matrix }}
     steps:
       - uses: actions/checkout@v4
-      - uses: cachix/install-nix-action@v22
+      - uses: cachix/install-nix-action@v23
       - id: npins-matrix
         name: Generate npins matrix
         run: |
@@ -70,7 +70,7 @@ jobs:
         pin: ${{ fromJson(needs.generate-npins-matrix.outputs.npins-matrix) }}
     steps:
       - uses: actions/checkout@v4
-      - uses: cachix/install-nix-action@v22
+      - uses: cachix/install-nix-action@v23
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
           install_url: ${{ env.nix-install-url }}
@@ -97,7 +97,7 @@ jobs:
     if: contains(needs.*.result, 'success')
     steps:
       - uses: actions/checkout@v4
-      - uses: cachix/install-nix-action@v22
+      - uses: cachix/install-nix-action@v23
       - name: Configure git
         run: nix develop .#ci --impure --command configure-git-user.sh "${{ env.GIT_USERNAME }}" "${{ env.GIT_EMAIL }}"
       - uses: actions/download-artifact@v3
