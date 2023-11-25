@@ -33,6 +33,7 @@
   sw (layer-toggle layout-switch)
   qw (layer-switch qwerty)
   pdv (layer-switch programmer-dvorak)
+  th (layer-switch touhou)
 )
 
 (deflayer qwerty
@@ -50,7 +51,7 @@
 (deflayer layout-switch
   _     _     _     _     _     _     _     _     _     _     _     _     _    _
   _     _     _     _     _     _     _     _     _     _     _     _     _    _
-  _     @qw   _     _     _     _     _     _     _     _     _     _     _    _
+  _     @qw   _     _     _     @th   _     _     _     _     _     _     _    _
                                       _           _     _     _     _     _
   _     _     _     @pdv  _     _     _     _     _     _     _     _     _
                                       _     _     _     _     _     _
@@ -85,4 +86,16 @@
   _     "     Q     J     K     X     B     M     W     V     Z     _
                                       _     _     _     _
   _     _     _                 _                       _     _           _
+)
+
+(deflayer touhou
+  esc   _     _     _     _     _     _     _     _     _     _     _     _    _
+  _     _     _     _     _     _     _     _     _     _     _     _     _    _
+  _     _     _     _     _     _     _     _     up    _     _     _     _    _
+                                      _           _     _     _     _     _
+  _     _     lsft  x     z     _     _     left  down  rght  _     _     ret
+                                      _     _     _     _     _     _
+  lsft  _     _     _     _     _     _     _     _     _     _     rsft
+                                      _     _     _     _
+  _     _     _                 spc                     @sw   _           _
 )
