@@ -106,6 +106,7 @@
           zk
           efm-langserver
           jq
+          google-java-format
           cfg.rustToolchain
           (texlive.combine {
             inherit (texlive) scheme-minimal latexindent;
