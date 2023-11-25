@@ -497,6 +497,28 @@
         "type": "github"
       }
     },
+    "kmonad": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "dir": "nix",
+        "lastModified": 1700205230,
+        "narHash": "sha256-jF6Qb47maZHTwexI+eY4tL0QAnHJX+MVu74DEWeazA0=",
+        "owner": "kmonad",
+        "repo": "kmonad",
+        "rev": "cec7d4ac3644c96737da23124e473e13ace5156c",
+        "type": "github"
+      },
+      "original": {
+        "dir": "nix",
+        "owner": "kmonad",
+        "repo": "kmonad",
+        "type": "github"
+      }
+    },
     "lowdown-src": {
       "flake": false,
       "locked": {
@@ -834,6 +856,7 @@
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "impermanence": "impermanence",
+        "kmonad": "kmonad",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nil": "nil",
         "nix-gaming": "nix-gaming",
