@@ -33,6 +33,7 @@
   sw (layer-toggle layout-switch)
   qw (layer-switch qwerty)
   pdv (layer-switch programmer-dvorak)
+  cny (layer-switch canary)
   th (layer-switch touhou)
 )
 
@@ -55,7 +56,7 @@
                                       _           _     _     _     _     _
   _     _     _     @pdv  _     _     _     _     _     _     _     _     _
                                       _     _     _     _     _     _
-  _     _     _     _     _     _     _     _     _     _     _     _
+  _     _     _     @cny  _     _     _     _     _     _     _     _
                                       _     _     _     _
   _     _     _                 _                       _     _           _
 )
@@ -86,6 +87,18 @@
   _     "     Q     J     K     X     B     M     W     V     Z     _
                                       _     _     _     _
   _     _     _                 _                       _     _           _
+)
+
+(deflayer canary
+  esc   1     2     3     4     5     6     7     8     9     0     -     =    bspc
+  grv   f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12  del
+  tab   w     l     y     p     k     z     x     o     u     ;     [     ]    \
+                                      ins         up    pause pgup  home  ssrq
+  caps  c     r     s     t     b     f     n     e     i     a     '     ret
+                                      slck  left  down  rght  pgdn  end
+  lsft j     v     d     g     q     m     h     /     ,     .     rsft
+                                      calc  mute  volu  vold
+  lctl  lmet  lalt              spc                     @sw   rmet        rctl
 )
 
 (deflayer touhou
