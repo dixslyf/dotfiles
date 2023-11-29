@@ -20,6 +20,7 @@
     mkIf cfg.enable {
       programs.git = {
         enable = true;
+        lfs.enable = true;
         userEmail = "dixonseanlow@protonmail.com";
         userName = "Dixon Sean Low Yan Feng";
         signing = {
