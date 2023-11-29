@@ -60,8 +60,13 @@
     in
     mkIf cfg.enable {
       xdg = {
-        configFile."nvim/lua".source = ./lua;
-        configFile."nvim/ftplugin".source = ./ftplugin;
+        configFile = {
+          "nvim/lua".source = ./lua;
+          "nvim/ftplugin".source = ./ftplugin;
+
+          # See https://github.com/nvim-treesitter/nvim-treesitter#adding-queries.
+          "nvim/queries/typst".source = "${pkgs.tree-sitter-grammars.tree-sitter-typst}/queries";
+        };
         mimeApps.defaultApplications = mkIf cfg.defaultApplication.enable (
           lib.genAttrs cfg.defaultApplication.mimeTypes (_: "nvim.desktop")
         );
@@ -107,6 +112,7 @@
           efm-langserver
           jq
           google-java-format
+          typst-lsp
           cfg.rustToolchain
           (texlive.combine {
             inherit (texlive) scheme-minimal latexindent;
@@ -185,6 +191,7 @@
             tree-sitter-python
             tree-sitter-rust
             tree-sitter-toml
+            tree-sitter-typst
             tree-sitter-vim
           ]))
         ];

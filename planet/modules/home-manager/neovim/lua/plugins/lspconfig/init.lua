@@ -24,6 +24,7 @@ local servers = {
    "python-lsp-server",
    "ltex",
    "hls",
+   "typst-lsp",
 }
 
 local function setup_servers()

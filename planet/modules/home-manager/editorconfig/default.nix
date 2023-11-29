@@ -30,6 +30,7 @@
           };
           "*.nix" = { indent_size = 2; };
           "*.lua" = { indent_size = 3; };
+          "*.typ" = { indent_size = 2; };
         };
       };
     };
