@@ -54,6 +54,10 @@
       url = "github:Toqozz/wired-notify";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    kmonad = {
+      url = "github:kmonad/kmonad?dir=nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
