@@ -103,6 +103,7 @@
       enable = true;
       credentialsFile = config.sops.secrets."CACHIX_AGENT_TOKEN".path;
     };
+    logind.powerKey = "ignore";
     xserver = {
       enable = true;
       layout = "us";
