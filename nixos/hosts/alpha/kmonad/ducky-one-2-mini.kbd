@@ -43,7 +43,7 @@
   pdv (layer-switch programmer-dvorak)
   pdvs (layer-toggle programmer-dvorak-shift)
   cny (layer-switch canary)
-  th (layer-switch touhou)
+  th (layer-switch bullet-hell)
 )
 
 (deflayer qwerty
@@ -126,17 +126,17 @@
   lctl   lmet   lalt                   spc                   @sw    rmet       rctl
 )
 
-(deflayer touhou
-  esc   _     _     _     _     _     _     _     _     _     _     _     _       _
+(deflayer bullet-hell
+  esc   1     2     3     4     5     6     7     8     9     0     _     _       _
   _     _     _     _     _     _     _     _     _     _     _     _     _       _
 
-  _       _     _     _     _     _     _     _     up    _     _     _     _     _
+  _       _     _     d     f     _     _     _     up    _     _     _     _     _
                                         _           _     _     _     _     _
 
   _         _     lsft  x     z     _     _     left  down  rght  _     _       ret
                                           _     _     _     _     _     _
 
-  lsft        _     _     _     _     _     _     _     _     _     _          rsft
+  lsft        _     _     c     v     _     _     _     _     _     _          rsft
                                             _     _     _     _
 
   _      _      _                     spc                    @sw    _             _
