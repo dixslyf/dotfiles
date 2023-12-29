@@ -22,6 +22,7 @@
         enable = true;
         enableFishIntegration = config.planet.fish.enable;
         enableSshSupport = true;
+        pinentryFlavor = "qt";
       };
     };
 }
