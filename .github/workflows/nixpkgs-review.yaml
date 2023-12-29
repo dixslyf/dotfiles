@@ -1,0 +1,39 @@
+---
+name: Nixpkgs Review
+
+on:
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: "The number of the pull request to review."
+        type: number
+        required: true
+
+run-name: "Review Nixpkgs PR ${{ inputs.pr }} with nixpkgs-review"
+
+jobs:
+  review:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: "NixOS/nixpkgs"
+          fetch-depth:
+            # Infinite depth (source: https://git-scm.com/docs/shallow)
+            2147483647
+      - uses: cachix/install-nix-action@v23
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Configure committer identity
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+      - name: Run nixpkgs-review
+        env:
+          NIXPKGS_REVIEW_ATTR: "github:${{ github.repository }}/${{ github.sha }}#nixpkgs-review"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_COMMAND: >-
+            find logs/ -type f -exec awk 'FNR==1{print FILENAME}1' {} +;
+            cat report.md >> $GITHUB_STEP_SUMMARY;
+            jq -e '.failed == []' < report.json
+        run: nix run "${{ env.NIXPKGS_REVIEW_ATTR }}" -- pr ${{ inputs.pr }} --run "${{ env.RUN_COMMAND }}"
