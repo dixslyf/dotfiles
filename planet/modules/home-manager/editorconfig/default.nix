@@ -31,6 +31,7 @@
           "*.nix" = { indent_size = 2; };
           "*.lua" = { indent_size = 3; };
           "*.typ" = { indent_size = 2; };
+          "{Makefile,makefile}" = { indent_style = "tab"; };
         };
       };
     };
