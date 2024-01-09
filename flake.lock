@@ -753,22 +753,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-logseq-0.10.3": {
-      "locked": {
-        "lastModified": 1703658985,
-        "narHash": "sha256-18uCV9E+PiDC6ak1lmEeHCWFbt0GlfKpBL2zieoTn3c=",
-        "owner": "kilianar",
-        "repo": "Nixpkgs",
-        "rev": "8de164c9152a31d7b5e510df1546d257a64a4374",
-        "type": "github"
-      },
-      "original": {
-        "owner": "kilianar",
-        "ref": "logseq-electron",
-        "repo": "Nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-regression": {
       "locked": {
         "lastModified": 1643052045,
@@ -877,7 +861,6 @@
         "nil": "nil",
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs_2",
-        "nixpkgs-logseq-0.10.3": "nixpkgs-logseq-0.10.3",
         "sops-nix": "sops-nix",
         "wired": "wired"
       }

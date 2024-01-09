@@ -1,6 +1,6 @@
-{ localFlakeInputs', ... }:
 { config
 , lib
+, pkgs
 , ...
 }: {
   options =
@@ -19,8 +19,7 @@
       inherit (lib) mkIf;
     in
     mkIf cfg.enable {
-      # FIXME: use package from Nixpkgs once #274180 lands
-      home.packages = [ localFlakeInputs'."nixpkgs-logseq-0.10.3".legacyPackages.logseq ];
+      home.packages = with pkgs; [ logseq ];
 
       planet.persistence = {
         directories = [
