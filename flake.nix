@@ -58,7 +58,6 @@
       url = "github:kmonad/kmonad?dir=nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    "nixpkgs-logseq-0.10.3".url = "github:kilianar/Nixpkgs/logseq-electron";
   };
 
   outputs =
