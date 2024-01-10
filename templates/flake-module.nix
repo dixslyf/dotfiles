@@ -6,5 +6,9 @@ _:
       path = ./latex-apa7;
       description = "A LaTeX document project set up for APA7";
     };
+    java-maven = {
+      path = ./java-maven;
+      description = "A Java and Maven project";
+    };
   };
 }
