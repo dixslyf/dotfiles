@@ -84,6 +84,7 @@
           jdt_ls = "${pkgs.jdt-language-server}/bin/jdt-language-server";
           java_debug_server_dir = "${pkgs.vscode-extensions.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server";
           java_test_server_dir = "${pkgs.vscode-extensions.vscjava.vscode-java-test}/share/vscode/extensions/vscjava.vscode-java-test/server";
+          vscode_eslint_language_server_node_path = "${pkgs.nodePackages.eslint}/lib/node_modules";
         });
         extraPackages = with pkgs; [
           ripgrep # Used by telescope
