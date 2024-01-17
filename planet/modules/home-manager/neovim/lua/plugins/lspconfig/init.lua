@@ -28,6 +28,7 @@ local servers = {
    "tsserver",
    "vscode-html-language-server",
    "vscode-json-language-server",
+   "vscode-css-language-server",
 }
 
 local function setup_servers()
