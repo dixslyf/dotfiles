@@ -33,10 +33,16 @@ jobs:
   check-flake:
     runs-on: ubuntu-22.04
     steps:
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+        with:
+          platforms: "arm64"
       - uses: actions/checkout@v4
       - uses: cachix/install-nix-action@v23
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
+          extra_nix_config: |
+            extra-platforms = i686-linux aarch64-linux
       - name: Check flake
         run: nix flake check --keep-going --impure  # devenv requires impure
   generate-deploy-spec-matrix:
