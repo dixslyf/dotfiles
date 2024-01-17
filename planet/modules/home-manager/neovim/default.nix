@@ -114,6 +114,7 @@
           google-java-format
           typst-lsp
           cfg.rustToolchain
+          nodePackages.typescript-language-server
           (texlive.combine {
             inherit (texlive) scheme-minimal latexindent;
           })
