@@ -115,6 +115,7 @@
           typst-lsp
           cfg.rustToolchain
           nodePackages.typescript-language-server
+          vscode-langservers-extracted
           (texlive.combine {
             inherit (texlive) scheme-minimal latexindent;
           })

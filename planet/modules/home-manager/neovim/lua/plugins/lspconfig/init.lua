@@ -26,6 +26,7 @@ local servers = {
    "hls",
    "typst-lsp",
    "tsserver",
+   "vscode-html-language-server",
 }
 
 local function setup_servers()
