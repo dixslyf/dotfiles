@@ -117,6 +117,7 @@
           cfg.rustToolchain
           nodePackages.typescript-language-server
           vscode-langservers-extracted
+          htmlhint
           (texlive.combine {
             inherit (texlive) scheme-minimal latexindent;
           })
