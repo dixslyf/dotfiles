@@ -21,6 +21,7 @@ _:
     ./git
     ./gh
     (importModule ./gitui { })
+    ./glab
     ./gpg
     ./gpg-agent
     (importModule ./gtk { })

@@ -66,6 +66,7 @@
     gh.enable = true;
     git.enable = true;
     gitui.enable = true;
+    glab.enable = true;
     gpg.enable = true;
     gpg-agent.enable = true;
     gtk.enable = true;
