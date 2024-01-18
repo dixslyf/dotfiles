@@ -21,6 +21,10 @@
         mode = "0600";
         path = "${config.xdg.configHome}/gh/hosts.yml";
       };
+      glab_config = {
+        mode = "0600";
+        path = "${config.xdg.configHome}/glab-cli/config.yml";
+      };
     };
   };
 }
