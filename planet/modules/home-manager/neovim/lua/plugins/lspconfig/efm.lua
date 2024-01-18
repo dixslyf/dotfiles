@@ -42,6 +42,13 @@ local google_java_format = {
    formatCommand = "google-java-format -aosp -",
    formatStdin = true,
 }
+local htmlhint = {
+   prefix = "HTMLHint",
+   lintSource = efmls_configs_utils.sourceText("HTMLHint"),
+   lintCommand = "htmlhint --nocolor --format unix stdin",
+   lintStdin = true,
+   lintFormats = { "%f:%l:%c: %m" },
+}
 
 function M.setup(on_attach, capabilities)
    local languages = {
@@ -56,7 +63,10 @@ function M.setup(on_attach, capabilities)
       css = { prettier },
       scss = { prettier },
       less = { prettier },
-      html = { prettier },
+      html = {
+         prettier,
+         htmlhint,
+      },
       json = { prettier },
       jsonc = { prettier },
       yaml = {
