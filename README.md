@@ -1,8 +1,8 @@
-# <h1 align="center">`~/.` `PlayerNameHere/dotfiles`</h1>
+# <h1 align="center">`~/.` `dixslyf/dotfiles`</h1>
 
-Hello there! This repository contains my system configuration written in [Nix](https://nixos.org/).
+This repository contains my system configurations written in [Nix](https://nixos.org/).
 
-Here is an overview of my system setup:
+Here is an overview of some characteristics and tools you might see in my configurations:
 * :snowflake: [NixOS](https://nixos.org/) + [Home Manager](https://github.com/nix-community/home-manager) + [Nix flakes](https://www.tweag.io/blog/2020-05-25-flakes/) + [flake-parts](https://github.com/hercules-ci/flake-parts)
 * :floppy_disk: Opt-in persistence using [tmpfs](https://en.wikipedia.org/wiki/Tmpfs) as root + [Impermanence](https://github.com/nix-community/impermanence)
 * :minidisc: [btrfs](https://btrfs.readthedocs.io/en/latest/Introduction.html) with [zstd](https://en.wikipedia.org/wiki/Zstd) compression + full disk encryption via [LUKS](https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup)
@@ -10,7 +10,7 @@ Here is an overview of my system setup:
 * :cloud: Deployments with [Cachix](https://www.cachix.org/) + [GitHub Actions](https://docs.github.com/en/actions)
 * :office: [devenv](https://devenv.sh/) + [direnv](https://direnv.net/) for local shell environment
 
-And a non-exhaustive list of some stuff  I use:
+Application software I use include:
 * **Window Managers:** [bspwm](https://github.com/baskerville/bspwm) (Xorg), [Hyprland](https://github.com/hyprwm/Hyprland) (Wayland)
 * **Compositors:** [picom](https://github.com/yshui/picom) (Xorg), [Hyprland](https://github.com/hyprwm/Hyprland) (Wayland)
 * **Launchers:** [Rofi](https://github.com/davatorium/rofi) (Xorg), [Wofi](https://hg.sr.ht/~scoopta/wofi) (Wayland)
