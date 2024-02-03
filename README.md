@@ -11,14 +11,14 @@ Here is an overview of some characteristics and tools you might see in my config
 * :office: [devenv](https://devenv.sh/) + [direnv](https://direnv.net/) for local shell environment
 
 Application software I use include:
-* **Window Managers:** [bspwm](https://github.com/baskerville/bspwm) (Xorg), [Hyprland](https://github.com/hyprwm/Hyprland) (Wayland)
-* **Compositors:** [picom](https://github.com/yshui/picom) (Xorg), [Hyprland](https://github.com/hyprwm/Hyprland) (Wayland)
-* **Launchers:** [Rofi](https://github.com/davatorium/rofi) (Xorg), [Wofi](https://hg.sr.ht/~scoopta/wofi) (Wayland)
-* **Bars:** [Polybar](https://github.com/polybar/polybar) (Xorg), [Waybar](https://github.com/Alexays/Waybar) (Wayland)
+* **Window Manager:** [bspwm](https://github.com/baskerville/bspwm)
+* **Compositor:** [picom](https://github.com/yshui/picom)
+* **Launcher:** [Rofi](https://github.com/davatorium/rofi)
+* **Bar:** [Polybar](https://github.com/polybar/polybar)
 * **Shell:** [fish](https://github.com/fish-shell/fish-shell) :fish:
-* **Terminals:** [wezterm](https://github.com/wez/wezterm), [kitty](https://github.com/kovidgoyal/kitty) :cat2:
+* **Terminal:** [wezterm](https://github.com/wez/wezterm)
 * **Editor:** [Neovim](https://github.com/neovim/neovim)
 * **File Manager:** [zoxide](https://github.com/ajeetdsouza/zoxide), [fzf](https://github.com/junegunn/fzf), `ls`, `cd`, `mv`, `cp`, `rm`; sometimes [Thunar](https://gitlab.xfce.org/xfce/thunar)
-* **Web Browsers:** [qutebrowser](https://github.com/qutebrowser/qutebrowser), [Firefox](https://www.mozilla.org/en-US/firefox/browsers/)
+* **Web Browsers:** [Firefox](https://www.mozilla.org/en-US/firefox/browsers/), [qutebrowser](https://github.com/qutebrowser/qutebrowser)
 * **Color scheme:** [Catppuccin](https://github.com/catppuccin/catppuccin)
-* **Fonts:** [Mali](https://fonts.google.com/specimen/Mali), [Iosevka](https://github.com/be5invis/Iosevka), [Material Design Icons](https://github.com/Templarian/MaterialDesign)
+* **Fonts:** [Iosevka](https://github.com/be5invis/Iosevka), [Material Design Icons](https://github.com/Templarian/MaterialDesign), [Mali](https://fonts.google.com/specimen/Mali)
