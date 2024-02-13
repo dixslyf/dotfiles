@@ -13,6 +13,9 @@ function M.setup(on_attach, capabilities)
    lspconfig.typst_lsp.setup({
       on_attach = on_attach,
       capabilities = capabilities,
+      settings = {
+         exportPdf = "never",
+      },
    })
 end
 
