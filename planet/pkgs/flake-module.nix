@@ -20,7 +20,7 @@
           nvidia-offload = prev.callPackage ./nvidia-offload { };
           iosevka-custom = prev.callPackage ./iosevka-custom { };
           iosevka-term-custom = prev.callPackage ./iosevka-custom { spacing = "term"; };
-          # vimPlugins = prev.lib.recurseIntoAttrs (prev.callPackage ./vim-plugins { });
+          vimPlugins = prev.lib.recurseIntoAttrs (prev.callPackage ./vim-plugins { });
         };
       };
   };
