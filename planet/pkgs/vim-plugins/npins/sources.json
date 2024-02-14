@@ -1,4 +1,77 @@
 {
-  "pins": {},
+  "pins": {
+    "mini.ai": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "echasnovski",
+        "repo": "mini.ai"
+      },
+      "branch": "main",
+      "revision": "858cee0a97726c7941e3b5ef8d0e1cbefe35890a",
+      "url": "https://github.com/echasnovski/mini.ai/archive/858cee0a97726c7941e3b5ef8d0e1cbefe35890a.tar.gz",
+      "hash": "0l4gxc8mik4qkznzscy6iqcsk1gf41divkmqrgqn980vsg5n3nh7"
+    },
+    "mini.bufremove": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "echasnovski",
+        "repo": "mini.bufremove"
+      },
+      "branch": "main",
+      "revision": "931a3bb514147d9e812767275c4beba6b779b1d3",
+      "url": "https://github.com/echasnovski/mini.bufremove/archive/931a3bb514147d9e812767275c4beba6b779b1d3.tar.gz",
+      "hash": "0dzlg1a1h54rsj7jyxnwrxfr1a797vvn40nqy8mcx5nmh0kp5v7h"
+    },
+    "mini.comment": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "echasnovski",
+        "repo": "mini.comment"
+      },
+      "branch": "main",
+      "revision": "68a1e9de2ea47268205503ab1dcd48ff79648251",
+      "url": "https://github.com/echasnovski/mini.comment/archive/68a1e9de2ea47268205503ab1dcd48ff79648251.tar.gz",
+      "hash": "0k1y8ivwax1ijq7hq1ddvld6x5mi3f5c0i7pg299i45jqn6c40hs"
+    },
+    "mini.indentscope": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "echasnovski",
+        "repo": "mini.indentscope"
+      },
+      "branch": "main",
+      "revision": "cf07f19e718ebb0bcc5b00999083ce11c37b8d40",
+      "url": "https://github.com/echasnovski/mini.indentscope/archive/cf07f19e718ebb0bcc5b00999083ce11c37b8d40.tar.gz",
+      "hash": "0hrjaxs878vh0ks2yblqq2n00wb65nymz0kdxzi1v3da227g7hd2"
+    },
+    "mini.pairs": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "echasnovski",
+        "repo": "mini.pairs"
+      },
+      "branch": "main",
+      "revision": "04f58f2545ed80ac3b52dd4826e93f33e15b2af6",
+      "url": "https://github.com/echasnovski/mini.pairs/archive/04f58f2545ed80ac3b52dd4826e93f33e15b2af6.tar.gz",
+      "hash": "1s1cmy1qrjd7b2pr5wbw54dakb6pzrghjb0pbki60p0dr97g48kg"
+    },
+    "mini.surround": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "echasnovski",
+        "repo": "mini.surround"
+      },
+      "branch": "main",
+      "revision": "a1b590cc3b676512de507328d6bbab5e43794720",
+      "url": "https://github.com/echasnovski/mini.surround/archive/a1b590cc3b676512de507328d6bbab5e43794720.tar.gz",
+      "hash": "1wq25czvr7q6q2mj0bnd7cn2mrn8cqi522ybszyc8hf0q00iqd01"
+    }
+  },
   "version": 3
 }
