@@ -1,14 +1,6 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-   -- bootstrap lazy.nvim
-   vim.fn.system({
-      "git",
-      "clone",
-      "--filter=blob:none",
-      "https://github.com/folke/lazy.nvim.git",
-      "--branch=stable",
-      lazypath,
-   })
+   vim.api.nvim_err_writeln("Failed to find lazy.nvim!")
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
