@@ -3,7 +3,7 @@
 }:
 let
   sources = import ./npins;
-  build = name: value: vimUtils.buildVimPluginFrom2Nix {
+  build = name: value: vimUtils.buildVimPlugin {
     pname = name;
     version = value.revision;
     src = value;
