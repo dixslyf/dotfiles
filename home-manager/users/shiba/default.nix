@@ -97,12 +97,8 @@
       };
       systemd.enable = true;
     };
-    neovim = {
+    lazyvim = {
       enable = true;
-      # FIXME: uncomment once fixed upstream
-      # Context: https://github.com/nvim-treesitter/nvim-treesitter/issues/4805
-      # package = localFlakeInputs'.neovim-nightly-overlay.packages.default;
-      nilPackage = localFlakeInputs'.nil.packages.default;
       defaultApplication.enable = true;
     };
     osu-lazer = {

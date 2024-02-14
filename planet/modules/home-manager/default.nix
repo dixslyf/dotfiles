@@ -29,6 +29,7 @@ _:
     (importModule ./hyprland { })
     ./kdenlive
     (importModule ./kitty { })
+    (importModule ./lazyvim { })
     ./logseq
     ./lutris
     (importModule ./mako { })
