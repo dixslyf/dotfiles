@@ -1,17 +1,20 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-   vim.api.nvim_err_writeln("Failed to find lazy.nvim!")
-end
-vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
+local lazypath = Globals.lazy_nvim_path
+vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-   spec = {
-      -- Add LazyVim and import its plugins.
-      { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+   spec = vim.list_extend(
+      -- Override directories for plugins loaded by LazyVim.
+      vim.list_extend(dofile(Globals.plugin_dirs_lua_path), {
+         -- Add LazyVim and import its plugins.
+         { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 
-      -- Import specs from the `plugins/` directory.
-      { import = "plugins" },
-   },
+         -- Import specs from the `plugins/` directory.
+         { import = "plugins" },
+      }),
+      -- Due to the bug below, `dir` gets overwritten back to the default, so we set it again.
+      -- https://github.com/folke/lazy.nvim/issues/1328
+      dofile(Globals.plugin_dirs_lua_path)
+   ),
    -- Since the plugins are managed through Nix,
    -- we don't need lazy.nvim to install or check them.
    install = { missing = false },
