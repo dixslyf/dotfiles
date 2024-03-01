@@ -104,9 +104,9 @@
         "repo": "zathura"
       },
       "branch": "main",
-      "revision": "d85d8750acd0b0247aa10e0653998180391110a4",
-      "url": "https://github.com/catppuccin/zathura/archive/d85d8750acd0b0247aa10e0653998180391110a4.tar.gz",
-      "hash": "1hv9wzjyg34533qaxc5dc3gy8fcyvpvzcri2aip1kf4varnpcn75"
+      "revision": "1bda9d8274dd327b7931886ef0c5c1eb33903814",
+      "url": "https://github.com/catppuccin/zathura/archive/1bda9d8274dd327b7931886ef0c5c1eb33903814.tar.gz",
+      "hash": "104qmrmb249ly2zp797m652bgsvs09q22p65a73lz0fmv7k9qqqx"
     },
     "mali": {
       "type": "Git",
