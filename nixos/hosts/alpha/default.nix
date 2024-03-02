@@ -106,8 +106,10 @@
     logind.powerKey = "ignore";
     xserver = {
       enable = true;
-      layout = "us";
-      xkbOptions = "compose:ralt"; # Use right alt as the compose key.
+      xkb = {
+        layout = "us";
+        options = "compose:ralt"; # Use right alt as the compose key.
+      };
       libinput = {
         enable = true;
         touchpad.naturalScrolling = true;
