@@ -1,0 +1,29 @@
+---
+name: Build and cache flake output
+
+on:
+  workflow_dispatch:
+    inputs:
+      flake:
+        description: "The flake whose output will be built. Defaults to the repository's flake."
+        type: string
+        required: true
+        default: "."
+      output:
+        description: "The name of the flake output to build."
+        type: string
+        required: true
+
+run-name: "Build and cache ${{ inputs.flake }}#${{ inputs.output }}"
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and cache
+        uses: ./.github/actions/build
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          derivation: "${{ inputs.flake }}#${{ inputs.output }}"
