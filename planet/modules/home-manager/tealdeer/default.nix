@@ -20,10 +20,6 @@
     mkIf cfg.enable {
       programs.tealdeer = {
         enable = true;
-        # Seems to encounter a network issue, but only when updating on activation.
-        # According to https://github.com/nix-community/home-manager/pull/4968#issuecomment-1915718818,
-        # this might be removed anyway since activation scripts shouldn't be performing network stuff.
-        updateOnActivation = false;
         settings = {
           display = {
             use_pager = true;

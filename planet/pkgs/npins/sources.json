@@ -68,9 +68,9 @@
         "repo": "polybar"
       },
       "branch": "main",
-      "revision": "9ee66f83335404186ce979bac32fcf3cd047396a",
-      "url": "https://github.com/catppuccin/polybar/archive/9ee66f83335404186ce979bac32fcf3cd047396a.tar.gz",
-      "hash": "040igkhrsgghrp5ni7zhglws3n8q6j7nc571d6gsvc9zr20d4ikd"
+      "revision": "989420b24e1f651b176c9d6083ad7c3b90a27f8b",
+      "url": "https://github.com/catppuccin/polybar/archive/989420b24e1f651b176c9d6083ad7c3b90a27f8b.tar.gz",
+      "hash": "0wvshs5f54h0nfzf7pjwdhmj6xcngxqqvaqzxa3w5j7sk89nmwyr"
     },
     "catppuccin-rofi": {
       "type": "Git",
@@ -104,9 +104,9 @@
         "repo": "zathura"
       },
       "branch": "main",
-      "revision": "d85d8750acd0b0247aa10e0653998180391110a4",
-      "url": "https://github.com/catppuccin/zathura/archive/d85d8750acd0b0247aa10e0653998180391110a4.tar.gz",
-      "hash": "1hv9wzjyg34533qaxc5dc3gy8fcyvpvzcri2aip1kf4varnpcn75"
+      "revision": "1bda9d8274dd327b7931886ef0c5c1eb33903814",
+      "url": "https://github.com/catppuccin/zathura/archive/1bda9d8274dd327b7931886ef0c5c1eb33903814.tar.gz",
+      "hash": "104qmrmb249ly2zp797m652bgsvs09q22p65a73lz0fmv7k9qqqx"
     },
     "mali": {
       "type": "Git",

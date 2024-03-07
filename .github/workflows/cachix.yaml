@@ -70,19 +70,10 @@ jobs:
           workflow_conclusion: ""
           search_artifacts: true
           if_no_artifact_found: ignore
-      - name: Free up space
-        # Unfortunately, all outputs are Unicode strings, so `fromJSON` must be used
-        # whenever referencing this output to properly convert it to a boolean
-        # https://github.com/actions/runner/issues/2238#issuecomment-1318973310
-        # https://docs.github.com/en/actions/using-jobs/defining-outputs-for-jobs
-        if: ${{ inputs.force-rebuild || !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
-        run: |
-          # Taken from https://github.com/easimon/maximize-build-space/blob/67afc2d7662c9d296547435e7605cc57a1df46f3/action.yml#L110
-          sudo rm -rf /usr/share/dotnet
-          sudo rm -rf /opt/ghc
-          sudo rm -rf /usr/local/lib/android
-          sudo rm -rf /opt/hostedtoolcache/CodeQL
-          sudo docker image prune --all --force
+      - uses: jlumbroso/free-disk-space@v1.3.1
+        with:
+          tool-cache: true
+          swap-storage: false
       - if: ${{ inputs.force-rebuild || !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
         uses: actions/checkout@v4
       - name: Build deploy specification
