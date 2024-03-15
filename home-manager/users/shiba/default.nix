@@ -44,7 +44,7 @@
       enable = true;
       primaryMonitor = "eDP-1";
     };
-    citra.enable = true;
+    citra.enable = false; # FIXME: Wait for the dust to settle.
     direnv.enable = true;
     discord.enable = true;
     editorconfig.enable = true;
@@ -148,7 +148,7 @@
       enable = true;
       systemd.target = "hyprland-session.target";
     };
-    yuzu.enable = true;
+    yuzu.enable = false; # FIXME: Wait for the dust to settle.
     zathura = {
       enable = true;
       defaultApplication.enable = true;
