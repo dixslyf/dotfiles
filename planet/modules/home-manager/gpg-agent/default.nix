@@ -1,5 +1,6 @@
 { config
 , lib
+, pkgs
 , ...
 }: {
   options =
@@ -22,7 +23,7 @@
         enable = true;
         enableFishIntegration = config.planet.fish.enable;
         enableSshSupport = true;
-        pinentryFlavor = "qt";
+        pinentryPackage = pkgs.pinentry-qt;
       };
     };
 }

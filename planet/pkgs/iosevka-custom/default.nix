@@ -5,9 +5,9 @@
 let
   names =
     if spacing == "normal"
-    then [ "custom" "Custom" ]
+    then [ "Custom" "Custom" ]
     else if spacing == "term"
-    then [ "term-custom" "Term Custom" ]
+    then [ "TermCustom" "Term Custom" ]
     else throw "Unsupported spacing";
   set = builtins.head names;
   set-family = builtins.elemAt names 1;
@@ -15,17 +15,17 @@ in
 iosevka.override {
   inherit set;
   privateBuildPlan = ''
-    [buildPlans.iosevka-${set}]
+    [buildPlans.Iosevka${set}]
     family = "Iosevka ${set-family}"
     spacing = "${spacing}"
     serifs = "sans"
-    no-cv-ss = true
-    export-glyph-names = true
+    noCvSs = true
+    exportGlyphNames = true
 
-      [buildPlans.iosevka-${set}.variants]
+      [buildPlans.Iosevka${set}.variants]
       inherits = "ss05"
 
-        [buildPlans.iosevka-${set}.variants.design]
+        [buildPlans.Iosevka${set}.variants.design]
         capital-d = "standard-serifless"
         capital-k = "straight-serifless"
         capital-q = "detached-bend-tailed"
@@ -46,7 +46,7 @@ iosevka.override {
         lig-double-arrow-bar = "without-notch"
         lig-single-arrow-bar = "without-notch"
 
-      [buildPlans.iosevka-${set}.ligations]
+      [buildPlans.Iosevka${set}.ligations]
       inherits = "dlig"
       enables = ["connected-number-sign"]
       disables = [
