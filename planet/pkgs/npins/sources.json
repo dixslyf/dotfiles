@@ -92,9 +92,9 @@
         "repo": "waybar"
       },
       "branch": "main",
-      "revision": "f74ab1eecf2dcaf22569b396eed53b2b2fbe8aff",
-      "url": "https://github.com/catppuccin/waybar/archive/f74ab1eecf2dcaf22569b396eed53b2b2fbe8aff.tar.gz",
-      "hash": "1bs0g32h6z6v7wkb595yddz1p7d2abxn8d7q117lxl7ncl1lrcjq"
+      "revision": "0830796af6aa64ce8bc7453d42876a628777ac68",
+      "url": "https://github.com/catppuccin/waybar/archive/0830796af6aa64ce8bc7453d42876a628777ac68.tar.gz",
+      "hash": "0np88b9zi6zk21fy5w4kmgjg1clqp4ggw1hijlv9qvlka2zkwmpn"
     },
     "catppuccin-zathura": {
       "type": "Git",
