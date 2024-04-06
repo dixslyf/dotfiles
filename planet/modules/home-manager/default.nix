@@ -46,6 +46,7 @@ _:
     ./qutebrowser
     ./redshift
     (importModule ./rofi { })
+    (importModule ./sioyek { })
     ./ssh
     ./tealdeer
     ./tetrio-desktop

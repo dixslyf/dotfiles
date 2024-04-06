@@ -123,6 +123,10 @@
       systemd.target = "bspwm-session.target";
     };
     rofi.enable = true;
+    sioyek = {
+      enable = true;
+      defaultApplication.enable = true;
+    };
     ssh.enable = true;
     tealdeer.enable = true;
     tetrio-desktop.enable = true;
@@ -149,10 +153,6 @@
       systemd.target = "hyprland-session.target";
     };
     yuzu.enable = false; # FIXME: Wait for the dust to settle.
-    zathura = {
-      enable = true;
-      defaultApplication.enable = true;
-    };
     zotero.enable = true;
     zoxide.enable = true;
   };
