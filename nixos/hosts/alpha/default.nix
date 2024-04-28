@@ -115,8 +115,7 @@
         touchpad.naturalScrolling = true;
       };
       displayManager = {
-        defaultSession = "none+bspwm";
-        # set the background color of the root window
+        # Set the background color of the root window
         sessionCommands = ''
           ${pkgs.hsetroot}/bin/hsetroot -solid "#363a4f"
         '';
@@ -124,6 +123,7 @@
       windowManager.bspwm.enable = true;
       excludePackages = with pkgs; [ xterm ];
     };
+    displayManager.defaultSession = "none+bspwm";
     fstrim.enable = true;
     udev.packages = with pkgs; [
       android-udev-rules

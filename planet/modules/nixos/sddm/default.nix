@@ -28,15 +28,12 @@
         localFlake'.packages.sddm-sugar-candy
       ];
 
-      services.xserver = {
-        displayManager = {
-          # Disable external monitor
-          setupCommands = "${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-1 --off";
-          sddm = {
-            enable = true;
-            theme = "sugar-candy";
-          };
-        };
+      # Disable external monitor
+      services.xserver.displayManager.setupCommands = "${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-1 --off";
+
+      services.displayManager.sddm = {
+        enable = true;
+        theme = "sugar-candy";
       };
     };
 }
