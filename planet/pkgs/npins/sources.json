@@ -104,9 +104,9 @@
         "repo": "zathura"
       },
       "branch": "main",
-      "revision": "1bda9d8274dd327b7931886ef0c5c1eb33903814",
-      "url": "https://github.com/catppuccin/zathura/archive/1bda9d8274dd327b7931886ef0c5c1eb33903814.tar.gz",
-      "hash": "104qmrmb249ly2zp797m652bgsvs09q22p65a73lz0fmv7k9qqqx"
+      "revision": "0adc53028d81bf047461bc61c43a484d11b15220",
+      "url": "https://github.com/catppuccin/zathura/archive/0adc53028d81bf047461bc61c43a484d11b15220.tar.gz",
+      "hash": "1cj1z2bh1qw1sbgqmk4i450yv7rgwcz06yhar23ccadsx22gzw7y"
     },
     "mali": {
       "type": "Git",
@@ -138,9 +138,9 @@
         "url": "https://git.sr.ht/~kennylevinsen/wlsunset"
       },
       "branch": "master",
-      "revision": "80fb589fe7b5d5bb53d90dd0adec12c3fe0ca498",
+      "revision": "44624870e38a51fabbaae96f22d8a31e6fc9123f",
       "url": null,
-      "hash": "1mv1v36c0mdbwzfpaf2js0gzr7h8ky5fcwr4ghqx1ivjswh4bi7f"
+      "hash": "1ndq9z9l5v8cpq4c0qs09cirmkw5v38mgm6zylywmlsx8c9lip38"
     }
   },
   "version": 3

@@ -121,7 +121,7 @@
           (texlive.combine {
             inherit (texlive) scheme-minimal latexindent;
           })
-          (python3.withPackages (pyPkgs:
+          (localFlakeInputs'.nixpkgs-python-black.legacyPackages.python3.withPackages (pyPkgs:
             with pyPkgs; [
               python-lsp-server
               python-lsp-black
@@ -150,6 +150,7 @@
           nvim-autopairs
           nvim-lspconfig
           nvim-dap
+          nvim-nio
           nvim-dap-ui
           neodev-nvim
           lspkind-nvim
