@@ -150,6 +150,7 @@
           nvim-autopairs
           nvim-lspconfig
           nvim-dap
+          nvim-nio
           nvim-dap-ui
           neodev-nvim
           lspkind-nvim
