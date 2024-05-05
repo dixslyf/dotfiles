@@ -110,10 +110,6 @@
         layout = "us";
         options = "compose:ralt"; # Use right alt as the compose key.
       };
-      libinput = {
-        enable = true;
-        touchpad.naturalScrolling = true;
-      };
       displayManager = {
         # Set the background color of the root window
         sessionCommands = ''
@@ -124,6 +120,10 @@
       excludePackages = with pkgs; [ xterm ];
     };
     displayManager.defaultSession = "none+bspwm";
+    libinput = {
+      enable = true;
+      touchpad.naturalScrolling = true;
+    };
     fstrim.enable = true;
     udev.packages = with pkgs; [
       android-udev-rules
