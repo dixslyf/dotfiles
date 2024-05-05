@@ -20,7 +20,7 @@
     mkIf cfg.enable {
       qt = {
         enable = true;
-        platformTheme = "gtk";
+        platformTheme.name = "gtk";
       };
     };
 }
