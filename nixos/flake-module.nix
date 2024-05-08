@@ -1,5 +1,4 @@
 { self
-, inputs
 , withSystem
 , ...
 }:
@@ -10,11 +9,6 @@
         alpha = self.lib.mkNixosSystem {
           system = "x86_64-linux";
           modules = [
-            {
-              nixpkgs.overlays = [
-                inputs.hyprland.overlays.default
-              ];
-            }
             ./hosts/alpha
           ];
         };

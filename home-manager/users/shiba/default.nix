@@ -79,7 +79,7 @@
       enable = true;
       defaultApplication.enable = true;
     };
-    mako.enable = true;
+    mako.enable = false;
     mpv = {
       enable = true;
       defaultApplication.enable = true;
@@ -136,7 +136,7 @@
     };
     udiskie.enable = true;
     waybar = {
-      enable = true;
+      enable = false;
       primaryOutput = "eDP-1";
       externalOutput = "HDMI-A-1";
     };
@@ -149,7 +149,7 @@
       systemd.target = "bspwm-session.target";
     };
     wlsunset = {
-      enable = true;
+      enable = false;
       systemd.target = "hyprland-session.target";
     };
     yuzu.enable = false; # FIXME: Wait for the dust to settle.
