@@ -16,7 +16,6 @@ on:
 run-name: Update flake inputs and npins
 
 env:
-  nix-install-url: https://releases.nixos.org/nix/nix-2.13.3/install
   GIT_USERNAME: github-actions[bot]
   GIT_EMAIL: github-actions[bot]@users.noreply.github.com
 
@@ -27,10 +26,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.ref }}
-      - uses: cachix/install-nix-action@v23
+      - uses: cachix/install-nix-action@v26
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
-          install_url: ${{ env.nix-install-url }}
       - name: Update flake inputs
         run: nix flake update
       - id: generate-patch
@@ -54,7 +52,9 @@ jobs:
       npins-matrix: ${{ steps.npins-matrix.outputs.matrix }}
     steps:
       - uses: actions/checkout@v4
-      - uses: cachix/install-nix-action@v23
+      - uses: cachix/install-nix-action@v26
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
       - id: npins-matrix
         name: Generate npins matrix
         run: |
@@ -70,10 +70,9 @@ jobs:
         pin: ${{ fromJson(needs.generate-npins-matrix.outputs.npins-matrix) }}
     steps:
       - uses: actions/checkout@v4
-      - uses: cachix/install-nix-action@v23
+      - uses: cachix/install-nix-action@v26
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
-          install_url: ${{ env.nix-install-url }}
       - name: Update ${{ matrix.pin.name }}
         run: nix develop .#ci --impure --command npins -d "$(dirname ${{ matrix.pin.sources-file }})" update ${{ matrix.pin.name }}
       - id: generate-patch
@@ -97,7 +96,9 @@ jobs:
     if: contains(needs.*.result, 'success')
     steps:
       - uses: actions/checkout@v4
-      - uses: cachix/install-nix-action@v23
+      - uses: cachix/install-nix-action@v26
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Configure git
         run: nix develop .#ci --impure --command configure-git-user.sh "${{ env.GIT_USERNAME }}" "${{ env.GIT_EMAIL }}"
       - uses: actions/download-artifact@v3
