@@ -984,22 +984,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-python-black": {
-      "locked": {
-        "lastModified": 1714463450,
-        "narHash": "sha256-3dVwznM4azL9wdJbftTnmkSQpUy7rWU9cjfhxFegZc4=",
-        "owner": "nazarewk",
-        "repo": "nixpkgs",
-        "rev": "7a6ef81d9dccb361acfff9ea5aa7151738436b0c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nazarewk",
-        "ref": "fix/python-lsp-black-24-3",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-regression": {
       "locked": {
         "lastModified": 1643052045,
@@ -1181,7 +1165,6 @@
         "nil": "nil",
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs_3",
-        "nixpkgs-python-black": "nixpkgs-python-black",
         "sops-nix": "sops-nix",
         "wired": "wired"
       }
