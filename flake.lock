@@ -95,9 +95,7 @@
         "cachix": "cachix",
         "flake-compat": "flake-compat_2",
         "nix": "nix_2",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
+        "nixpkgs": "nixpkgs_3",
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
@@ -1054,6 +1052,22 @@
     },
     "nixpkgs_3": {
       "locked": {
+        "lastModified": 1713361204,
+        "narHash": "sha256-TA6EDunWTkc5FvDCqU3W2T3SFn0gRZqh6D/hJnM02MM=",
+        "owner": "cachix",
+        "repo": "devenv-nixpkgs",
+        "rev": "285676e87ad9f0ca23d8714a6ab61e7e027020c6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cachix",
+        "ref": "rolling",
+        "repo": "devenv-nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_4": {
+      "locked": {
         "lastModified": 1715534503,
         "narHash": "sha256-5ZSVkFadZbFP1THataCaSf0JH2cAH3S29hU9rrxTEqk=",
         "owner": "NixOS",
@@ -1068,7 +1082,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
+    "nixpkgs_5": {
       "locked": {
         "lastModified": 1706487304,
         "narHash": "sha256-LE8lVX28MV2jWJsidW13D2qrHU/RUUONendL2Q/WlJg=",
@@ -1152,7 +1166,7 @@
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nil": "nil",
         "nix-gaming": "nix-gaming",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_4",
         "sops-nix": "sops-nix",
         "wired": "wired"
       }
@@ -1202,7 +1216,7 @@
     "rust-overlay_2": {
       "inputs": {
         "flake-utils": "flake-utils_6",
-        "nixpkgs": "nixpkgs_4"
+        "nixpkgs": "nixpkgs_5"
       },
       "locked": {
         "lastModified": 1715393623,
