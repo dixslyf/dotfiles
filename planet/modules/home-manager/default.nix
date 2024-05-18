@@ -44,6 +44,7 @@ _: {
     ./pointer-cursor
     ./polkit-agent
     (importModule ./polybar { })
+    ./prism-launcher
     ./qbittorrent
     ./qmk
     ./qt
