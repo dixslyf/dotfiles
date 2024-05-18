@@ -112,6 +112,7 @@
     pointer-cursor.enable = true;
     polkit-agent.enable = true;
     polybar.enable = true;
+    prism-launcher.enable = true;
     qbittorrent.enable = true;
     qmk.enable = true;
     qt.enable = true;
