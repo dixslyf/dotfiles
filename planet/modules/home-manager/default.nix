@@ -9,6 +9,7 @@ _:
     (importModule ./bspwm { })
     ./citra
     ./default-terminal
+    ./dev-man-pages
     ./direnv
     ./discord
     ./editorconfig
