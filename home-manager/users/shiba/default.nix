@@ -45,6 +45,7 @@
       primaryMonitor = "eDP-1";
     };
     citra.enable = false; # FIXME: Wait for the dust to settle.
+    dev-man-pages.enable = true;
     direnv.enable = true;
     discord.enable = true;
     editorconfig.enable = true;
