@@ -57,7 +57,10 @@
       enable = true;
       defaultApplication.enable = true;
     };
-    firefox.enable = true;
+    firefox = {
+      enable = true;
+      defaultApplication.enable = true;
+    };
     fish.enable = true;
     flameshot = {
       enable = true;
@@ -115,10 +118,7 @@
     polkit-agent.enable = true;
     polybar.enable = true;
     qt.enable = true;
-    qutebrowser = {
-      enable = true;
-      defaultApplication.enable = true;
-    };
+    qutebrowser.enable = true;
     redshift = {
       enable = true;
       systemd.target = "bspwm-session.target";
