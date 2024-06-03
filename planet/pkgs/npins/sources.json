@@ -120,17 +120,6 @@
       "url": "https://github.com/cadsondemak/mali/archive/7e11de1301bf785e1b06c24816242ba52dde805f.tar.gz",
       "hash": "0vjz0l6rlv7ws92qk75c8c81j4841h1ssi1izzjm0xzcrkivds0q"
     },
-    "sddm-sugar-candy": {
-      "type": "Git",
-      "repository": {
-        "type": "Git",
-        "url": "https://framagit.org/MarianArlt/sddm-sugar-candy.git"
-      },
-      "branch": "master",
-      "revision": "2b72ef6c6f720fe0ffde5ea5c7c48152e02f6c4f",
-      "url": null,
-      "hash": "1db4p2d0k5a6avr7dg9h1r7y9mx711ci5dgwmljqjb8pq5b0a22y"
-    },
     "wlsunset": {
       "type": "Git",
       "repository": {
