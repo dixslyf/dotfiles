@@ -20,12 +20,16 @@
       inherit (lib) mkIf;
     in
     mkIf cfg.enable {
+      fonts.packages = [
+        localFlake'.packages.iosevka-custom
+      ];
+
       environment.systemPackages = with pkgs; [
-        libsForQt5.qt5.qtgraphicaleffects
-        libsForQt5.qt5.qtquickcontrols2
-        libsForQt5.qt5.qtsvg
-      ] ++ [
-        localFlake'.packages.sddm-sugar-candy
+        (catppuccin-sddm.override {
+          flavor = "macchiato";
+          font = "Iosevka Custom";
+          fontSize = "12";
+        })
       ];
 
       # Disable external monitor
@@ -33,7 +37,8 @@
 
       services.displayManager.sddm = {
         enable = true;
-        theme = "sugar-candy";
+        package = pkgs.qt6Packages.sddm;
+        theme = "catppuccin-macchiato";
       };
     };
 }
