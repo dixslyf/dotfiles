@@ -10,6 +10,6 @@ stdenvNoCC.mkDerivation {
 
   installPhase = ''
     install -d "$out/share/gitui/"
-    install theme/* "$out/share/gitui/"
+    install themes/* "$out/share/gitui/"
   '';
 }
