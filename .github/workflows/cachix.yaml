@@ -1,5 +1,4 @@
 ---
-
 name: Cachix
 
 on:
@@ -37,7 +36,7 @@ jobs:
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Check flake
-        run: nix flake check --keep-going --impure  # devenv requires impure
+        run: nix flake check --keep-going --impure # devenv requires impure
   generate-deploy-spec-matrix:
     runs-on: ubuntu-22.04
     if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.event.pull_request.base.repo.full_name
@@ -92,7 +91,7 @@ jobs:
         with:
           name: ${{ matrix.deploy-spec.hash-name }}
           path: ./result
-  build-result:  # https://github.com/orgs/community/discussions/26822#discussioncomment-5122101
+  build-result: # https://github.com/orgs/community/discussions/26822#discussioncomment-5122101
     runs-on: ubuntu-22.04
     needs: [build-deploy-specs]
     if: ${{ always() }}
