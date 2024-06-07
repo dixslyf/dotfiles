@@ -1,10 +1,9 @@
 ---
-
 name: Update
 
 on:
   schedule:
-    - cron: "0 0 1,15 * *"  # run on the 1st and 15th of every month
+    - cron: "0 0 1,15 * *" # run on the 1st and 15th of every month
   workflow_dispatch:
     inputs:
       dry-run:
@@ -20,7 +19,7 @@ env:
   GIT_EMAIL: github-actions[bot]@users.noreply.github.com
 
 jobs:
-  update-flake:
+  update:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
@@ -29,88 +28,17 @@ jobs:
       - uses: cachix/install-nix-action@v26
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Update flake inputs
-        run: nix flake update
-      - id: generate-patch
-        name: Generate patch
-        run: |
-          nix develop .#ci --impure --command configure-git-user.sh "${{ env.GIT_USERNAME }}" "${{ env.GIT_EMAIL }}"
-          if nix develop .#ci --impure --command commit-and-format-patch.sh "chore(flake): update inputs" "flake-update.patch"
-          then
-            echo "patch=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "patch=false" >> "$GITHUB_OUTPUT"
-          fi
-      - uses: actions/upload-artifact@v3
-        if: ${{ fromJson(steps.generate-patch.outputs.patch) }}
-        with:
-          name: flake-update-patch
-          path: flake-update.patch
-  generate-npins-matrix:
-    runs-on: ubuntu-22.04
-    outputs:
-      npins-matrix: ${{ steps.npins-matrix.outputs.matrix }}
-    steps:
-      - uses: actions/checkout@v4
-      - uses: cachix/install-nix-action@v26
-        with:
-          github_access_token: ${{ secrets.GITHUB_TOKEN }}
-      - id: npins-matrix
-        name: Generate npins matrix
-        run: |
-          matrix=$(nix develop .#ci --impure --command generate-npins-matrix.sh planet/pkgs/npins/sources.json planet/pkgs/vim-plugins/npins/sources.json)
-          printf '%s' "matrix=$matrix" >> "$GITHUB_OUTPUT"
-  update-npins:
-    runs-on: ubuntu-22.04
-    needs: [generate-npins-matrix, update-flake]
-    if: ${{ needs.generate-npins-matrix.result == 'success' && needs.generate-npins-matrix.outputs.npins-matrix != '[]' }}
-    strategy:
-      fail-fast: false
-      matrix:
-        pin: ${{ fromJson(needs.generate-npins-matrix.outputs.npins-matrix) }}
-    steps:
-      - uses: actions/checkout@v4
-      - uses: cachix/install-nix-action@v26
-        with:
-          github_access_token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Update ${{ matrix.pin.name }}
-        run: nix develop .#ci --impure --command npins -d "$(dirname ${{ matrix.pin.sources-file }})" update ${{ matrix.pin.name }}
-      - id: generate-patch
-        name: Generate patch
-        run: |
-          nix develop .#ci --impure --command configure-git-user.sh "${{ env.GIT_USERNAME }}" "${{ env.GIT_EMAIL }}"
-          if nix develop .#ci --impure --command commit-and-format-patch.sh "chore(planet/pkgs): update \`${{ matrix.pin.name }}\`" "${{ matrix.pin.name }}.patch"
-          then
-            echo "patch=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "patch=false" >> "$GITHUB_OUTPUT"
-          fi
-      - uses: actions/upload-artifact@v3
-        if: ${{ fromJson(steps.generate-patch.outputs.patch) }}
-        with:
-          name: ${{ matrix.pin.name }}-patch
-          path: ${{ matrix.pin.name }}.patch
-  create-pull-request:
-    runs-on: ubuntu-22.04
-    needs: [update-flake, update-npins]
-    if: contains(needs.*.result, 'success')
-    steps:
-      - uses: actions/checkout@v4
-      - uses: cachix/install-nix-action@v26
-        with:
-          github_access_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Configure git
         run: nix develop .#ci --impure --command configure-git-user.sh "${{ env.GIT_USERNAME }}" "${{ env.GIT_EMAIL }}"
-      - uses: actions/download-artifact@v3
-        with:
-          path: patches
-      - name: Apply patches
+      - name: Update flake inputs
         run: |
-          shopt -s globstar
-          git am ./patches/**/*.patch
-      - name: Delete patch files
+          nix flake update
+          git commit -am "chore(flake): update inputs"
+      - name: Update npins
         run: |
-          rm -rf ./patches
+          nix develop .#ci --impure --command npins -d "planet/pkgs/npins" update
+          nix develop .#ci --impure --command npins -d "planet/pkgs/vim-plugins/npins" update
+          git commit -am "chore(planet/pkgs): update npins"
       - if: ${{ !inputs.dry-run }}
         uses: peter-evans/create-pull-request@v5
         with:

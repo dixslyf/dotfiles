@@ -32,9 +32,9 @@
         "repo": "gitui"
       },
       "branch": "main",
-      "revision": "39978362b2c88b636cacd55b65d2f05c45a47eb9",
-      "url": "https://github.com/catppuccin/gitui/archive/39978362b2c88b636cacd55b65d2f05c45a47eb9.tar.gz",
-      "hash": "10kwkkp2zlzzmj7c6bkhxmk21r5g5qckpw9myc9sp8dfbx1qfrli"
+      "revision": "c7661f043cb6773a1fc96c336738c6399de3e617",
+      "url": "https://github.com/catppuccin/gitui/archive/c7661f043cb6773a1fc96c336738c6399de3e617.tar.gz",
+      "hash": "0ja8wwm3zvnaf16yfwnm86xpql6cg6sw15ylca2c0hd16h86j709"
     },
     "catppuccin-mako": {
       "type": "Git",
@@ -56,8 +56,8 @@
         "repo": "papirus-folders"
       },
       "branch": "main",
-      "revision": "6f8292748e508373dea59cb7dacc0ddc3c6b287d",
-      "url": "https://github.com/catppuccin/papirus-folders/archive/6f8292748e508373dea59cb7dacc0ddc3c6b287d.tar.gz",
+      "revision": "667f3e7a98aa2b584ef40e11bbc1d4dbef2d3d82",
+      "url": "https://github.com/catppuccin/papirus-folders/archive/667f3e7a98aa2b584ef40e11bbc1d4dbef2d3d82.tar.gz",
       "hash": "00k8r5panb4g8297hihijzvfjh67m1jml5xjanqaaky6f3gjalrd"
     },
     "catppuccin-polybar": {
@@ -68,9 +68,9 @@
         "repo": "polybar"
       },
       "branch": "main",
-      "revision": "989420b24e1f651b176c9d6083ad7c3b90a27f8b",
-      "url": "https://github.com/catppuccin/polybar/archive/989420b24e1f651b176c9d6083ad7c3b90a27f8b.tar.gz",
-      "hash": "0wvshs5f54h0nfzf7pjwdhmj6xcngxqqvaqzxa3w5j7sk89nmwyr"
+      "revision": "271885f11aeed2900d2fe54d6f37ea639a55da8c",
+      "url": "https://github.com/catppuccin/polybar/archive/271885f11aeed2900d2fe54d6f37ea639a55da8c.tar.gz",
+      "hash": "01fbxyvhj1w5x3rzxkp7f67i9rdi3bg8q0k1d6lqzpn4ysgb6784"
     },
     "catppuccin-rofi": {
       "type": "Git",
