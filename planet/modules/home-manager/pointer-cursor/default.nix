@@ -20,7 +20,7 @@
     in
     mkIf cfg.enable {
       home.pointerCursor = {
-        name = "Catppuccin-Macchiato-Dark-Cursors";
+        name = "catppuccin-macchiato-dark-cursors";
         package = pkgs.catppuccin-cursors.macchiatoDark;
         x11.enable = true;
         gtk.enable = true;
