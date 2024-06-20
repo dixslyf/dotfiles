@@ -30,6 +30,7 @@
   planet.persistence = {
     enable = true;
     persistSystemdDirectories = true;
+    persistMachines = true;
     persistSystemdBacklight = true;
     persistLogs = true;
     persistSsh = true;

@@ -49,6 +49,16 @@
             This is more of a convenience option.
           '';
         };
+        persistMachines = mkOption {
+          type = types.bool;
+          default = false;
+          description = ''
+            Whether to persist the following directory:
+              - `/var/lib/machines`
+              - `/etc/systemd/nspawn`
+            This is more of a convenience option.
+          '';
+        };
         persistSystemdBacklight = mkOption {
           type = types.bool;
           default = false;
@@ -124,6 +134,7 @@
           "/var/lib/systemd/coredump"
           "/var/lib/systemd/timers"
         ])
+          ++ (lists.optionals cfg.persistMachines [ "/var/lib/machines" "/etc/systemd/nspawn" ])
           ++ (lists.optional cfg.persistSystemdBacklight "/var/lib/systemd/backlight") # for systemd-backlight to be able to restore brightness
           ++ (lists.optional cfg.persistLogs "/var/log")
           ++ (lists.optional cfg.persistSsh "/etc/ssh");
