@@ -114,7 +114,7 @@
         nvidiaBusId = "PCI:2:0:0";
       };
     };
-    opengl = {
+    graphics = {
       enable = true;
       extraPackages = with pkgs; [
         intel-media-driver
