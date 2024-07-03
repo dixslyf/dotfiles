@@ -48,18 +48,6 @@
       "url": "https://github.com/catppuccin/mako/archive/9dd088aa5f4529a3dd4d9760415e340664cb86df.tar.gz",
       "hash": "097x9jrkzvml6ngnhxwkzzl1l2awwv73yli1mhmpw83c0n8xck4x"
     },
-    "catppuccin-papirus-folders": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "catppuccin",
-        "repo": "papirus-folders"
-      },
-      "branch": "main",
-      "revision": "f83671d17ea67e335b34f8028a7e6d78bca735d7",
-      "url": "https://github.com/catppuccin/papirus-folders/archive/f83671d17ea67e335b34f8028a7e6d78bca735d7.tar.gz",
-      "hash": "07nr8x9r4ndwywqd92a5gpcb2mid6map24s6wjz18chs7g1ms9hn"
-    },
     "catppuccin-polybar": {
       "type": "Git",
       "repository": {
