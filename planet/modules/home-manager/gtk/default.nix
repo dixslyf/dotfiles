@@ -34,7 +34,7 @@
             variant = "macchiato";
             tweaks = [ "rimless" ];
           };
-          name = "Catppuccin-Macchiato-Standard-Mauve-Dark";
+          name = "catppuccin-macchiato-mauve-standard+rimless";
         };
         iconTheme = {
           package = pkgs.catppuccin-papirus-folders.override {
