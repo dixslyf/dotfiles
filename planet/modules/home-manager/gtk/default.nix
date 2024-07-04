@@ -37,8 +37,9 @@
           name = "Catppuccin-Macchiato-Standard-Mauve-Dark";
         };
         iconTheme = {
-          package = localFlake'.packages.catppuccin-papirus-icon-theme.override {
-            color = "cat-macchiato-mauve";
+          package = pkgs.catppuccin-papirus-folders.override {
+            accent = "mauve";
+            flavor = "macchiato";
           };
           name = "Papirus-Dark";
         };
