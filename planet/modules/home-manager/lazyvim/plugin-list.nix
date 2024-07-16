@@ -37,17 +37,18 @@ in
   friendly-snippets
   gitsigns-nvim
   indent-blankline-nvim
+  lazydev-nvim
   luasnip
   lualine-nvim
   mini-nvim
   neoconf-nvim
-  neodev-nvim
   neo-tree-nvim
   noice-nvim
   nui-nvim
   nvim-lint
   nvim-lspconfig
   nvim-notify
+  nvim-snippets
   nvim-spectre
 
   # nvim-cmp
@@ -86,9 +87,11 @@ in
   persistence-nvim
   plenary-nvim
   telescope-nvim
+  telescope-fzf-native-nvim
   todo-comments-nvim
   tokyonight-nvim
   trouble-nvim
+  ts-comments-nvim
   vim-illuminate
   vim-startuptime
   which-key-nvim
