@@ -39,8 +39,6 @@ in
   indent-blankline-nvim
   luasnip
   lualine-nvim
-  mason-nvim
-  mason-lspconfig-nvim
   mini-nvim
   neoconf-nvim
   neodev-nvim
