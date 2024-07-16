@@ -76,6 +76,10 @@
           lazy_nvim_path = "${pkgs.vimPlugins.lazy-nvim}";
           plugin_dirs_lua_path = "${plugin-dirs-lua}";
         });
+        extraPackages = with pkgs; [
+          lua-language-server
+        ] ++ lib.lists.optionals config.planet.bspwm.enable [ pkgs.xclip ]
+        ++ lib.lists.optionals config.planet.hyprland.enable [ pkgs.wl-clipboard ];
       };
     };
 }
