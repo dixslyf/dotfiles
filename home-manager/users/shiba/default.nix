@@ -169,7 +169,7 @@
     (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
 
     # Some programs e.g. inkscape use adwaita by default
-    gnome.adwaita-icon-theme
+    adwaita-icon-theme
 
     # CLI
     eza
