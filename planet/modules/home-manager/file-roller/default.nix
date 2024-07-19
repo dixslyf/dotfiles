@@ -94,7 +94,7 @@
       inherit (lib) mkIf;
     in
     mkIf cfg.enable {
-      home.packages = with pkgs; [ gnome.file-roller ];
+      home.packages = with pkgs; [ file-roller ];
       xdg.mimeApps.defaultApplications = mkIf cfg.defaultApplication.enable (
         lib.genAttrs cfg.defaultApplication.mimeTypes (_: "org.gnome.FileRoller.desktop")
       );
