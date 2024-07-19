@@ -154,6 +154,7 @@
       systemd.target = "hyprland-session.target";
     };
     yuzu.enable = false; # FIXME: Wait for the dust to settle.
+    zellij.enable = true;
     zotero.enable = true;
     zoxide.enable = true;
   };
