@@ -1,0 +1,11 @@
+default_shell "fish"
+
+pane_frames false
+
+serialize_pane_viewport true
+
+theme "catppuccin-macchiato"
+
+default_layout "compact"
+
+disable_session_metadata true
