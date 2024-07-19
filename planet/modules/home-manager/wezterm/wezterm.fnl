@@ -2,7 +2,7 @@
 
 (local wezterm (require :wezterm))
 
-{:default_prog ["@default_shell@" "-l"]
+{:default_prog [@default_prog_args@]
  :launch_menu [{:label "Bash" :args ["bash" "-l"]}]
  :color_scheme "Catppuccin Macchiato"
  :font (wezterm.font_with_fallback ["Iosevka Term Custom"

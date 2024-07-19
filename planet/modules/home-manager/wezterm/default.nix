@@ -21,6 +21,17 @@
       inherit (lib)
         mkIf
         mkMerge;
+
+      mkConfigFile = default_prog_args:
+        let
+          substituted = pkgs.substituteAll {
+            src = ./wezterm.fnl;
+            inherit default_prog_args;
+          };
+        in
+        pkgs.runCommand "wezterm.lua" { } ''
+          ${pkgs.luaPackages.fennel}/bin/fennel --compile ${substituted} > "$out"
+        '';
     in
     mkIf cfg.enable (mkMerge [
       {
@@ -33,14 +44,15 @@
         programs.wezterm = {
           enable = true;
         };
-
-        xdg.configFile."wezterm/wezterm.lua".source = pkgs.substituteAll {
-          src = pkgs.runCommand "wezterm.lua" { } ''
-            ${pkgs.luaPackages.fennel}/bin/fennel --compile ${./wezterm.fnl} > "$out"
-          '';
-          default_shell = "${pkgs.fish}/bin/fish";
-        };
       }
+
+      (mkIf config.planet.zellij.enable {
+        xdg.configFile."wezterm/wezterm.lua".source = mkConfigFile ''"${pkgs.zellij}/bin/zellij"'';
+      })
+
+      (mkIf (!config.planet.zellij.enable) {
+        xdg.configFile."wezterm/wezterm.lua".source = mkConfigFile ''"${pkgs.fish}/bin/fish" "-l"'';
+      })
 
       (mkIf cfg.defaultTerminal {
         planet.default-terminal = {
