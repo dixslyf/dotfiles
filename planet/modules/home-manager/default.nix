@@ -60,6 +60,7 @@ _:
     ./xdg-terminal-exec
     ./yuzu
     (importModule ./zathura { })
+    ./zellij
     ./zotero
     ./zoxide
   ];
