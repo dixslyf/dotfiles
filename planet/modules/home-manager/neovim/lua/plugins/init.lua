@@ -24,6 +24,7 @@ function M.setup()
    require("plugins.cmp").setup()
    require("plugins.neoclip").setup()
    require("plugins.zk").setup()
+   require("plugins.oil").setup()
 end
 
 return M
