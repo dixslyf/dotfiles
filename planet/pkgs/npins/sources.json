@@ -56,9 +56,9 @@
         "repo": "polybar"
       },
       "branch": "main",
-      "revision": "271885f11aeed2900d2fe54d6f37ea639a55da8c",
-      "url": "https://github.com/catppuccin/polybar/archive/271885f11aeed2900d2fe54d6f37ea639a55da8c.tar.gz",
-      "hash": "01fbxyvhj1w5x3rzxkp7f67i9rdi3bg8q0k1d6lqzpn4ysgb6784"
+      "revision": "20054f39d3b77bd1afc765981a42c3467bf91204",
+      "url": "https://github.com/catppuccin/polybar/archive/20054f39d3b77bd1afc765981a42c3467bf91204.tar.gz",
+      "hash": "130szcc72vnsl0872qpiiqad1qcspmasana4p2g9v3jxgn03xi4c"
     },
     "catppuccin-rofi": {
       "type": "Git",
