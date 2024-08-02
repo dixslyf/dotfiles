@@ -109,14 +109,18 @@
       "hash": "0vjz0l6rlv7ws92qk75c8c81j4841h1ssi1izzjm0xzcrkivds0q"
     },
     "wlsunset": {
-      "type": "Git",
+      "type": "GitRelease",
       "repository": {
-        "type": "Git",
-        "url": "https://git.sr.ht/~kennylevinsen/wlsunset"
+        "type": "GitHub",
+        "owner": "kennylevinsen",
+        "repo": "wlsunset"
       },
-      "branch": "master",
-      "revision": "634c8ebc53a31d4e5ed394f7950760deb5322102",
-      "url": null,
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "version": "0.4.0",
+      "revision": "decd882b3859c0ba6d1766a6e675c4e7a8d077ca",
+      "url": "https://api.github.com/repos/kennylevinsen/wlsunset/tarball/0.4.0",
       "hash": "1n60b2qq4ihw0g2dwisrvsvbhpml4mlv42425j0r7xhlm4w93z2k"
     }
   },
