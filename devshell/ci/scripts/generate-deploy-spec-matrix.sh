@@ -13,15 +13,16 @@ usage() {
 }
 
 # Workaround for `resholve`.
-# The `nix` invoked by `parallel` does not get substituted otherwise.
+# The `nix` and `jq` invoked by `parallel` do not get substituted otherwise.
 NIX_COMMAND="nix"
+JQ_COMMAND="jq"
 
 CI_ATTR="ci"
 CI_SUFFIX_REGEX="\"^$CI_ATTR.\""
 
 # JSON array of the flake outputs under `ci` e.g., `["ci.alpha-deploy-spec","ci.bravo-deploy-spec"]`
 ci_outputs_json() {
-  nix search "$1#$CI_ATTR" --json |
+  nix search "$1#$CI_ATTR" --json --allow-import-from-derivation |
     jq -rc 'keys_unsorted'
 }
 
@@ -37,7 +38,7 @@ if [ $# -eq 1 ] || [ $# -eq 2 ]; then
   matrix=$(
     ci_outputs_json "$1" |
       jq -rc '.[]' |
-      parallel "$NIX_COMMAND" path-info "$1#{}" --json '|' jq -c --arg FLAKE_OUTPUT '{}' "$PATH_INFO_FILTER" |
+      parallel "$NIX_COMMAND" path-info "$1#{}" --json --allow-import-from-derivation '|' "$JQ_COMMAND" -c --arg FLAKE_OUTPUT '{}' "$PATH_INFO_FILTER" |
       jq -sc # Combine the JSON objects into an array
   )
 
