@@ -64,7 +64,7 @@ jobs:
   build-result: # https://github.com/orgs/community/discussions/26822#discussioncomment-5122101
     runs-on: ubuntu-22.04
     needs: [build-hosts]
-    if: ${{ always() }}
+    if: ${{ (failure() || success()) && (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.event.pull_request.base.repo.full_name) }}
     steps:
       - if: ${{ contains(needs.*.result, 'failure') }}
         run: exit 1
