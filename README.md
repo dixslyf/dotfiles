@@ -18,7 +18,7 @@ Software I use include:
 - **Launcher:** [Rofi](https://github.com/davatorium/rofi)
 - **Bar:** [Polybar](https://github.com/polybar/polybar)
 - **Shell:** [fish](https://github.com/fish-shell/fish-shell) :fish:
-- **Terminal:** [wezterm](https://github.com/wez/wezterm)
+- **Terminal:** [wezterm](https://github.com/wez/wezterm) + [Zellij](https://zellij.dev/)
 - **Editor:** [Neovim](https://github.com/neovim/neovim)
 - **File Manager:** [zoxide](https://github.com/ajeetdsouza/zoxide), [fzf](https://github.com/junegunn/fzf), `ls`, `cd`, `mv`, `cp`, `rm`; sometimes [Thunar](https://gitlab.xfce.org/xfce/thunar)
 - **Web Browsers:** [Firefox](https://www.mozilla.org/en-US/firefox/browsers/), [qutebrowser](https://github.com/qutebrowser/qutebrowser)
