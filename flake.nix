@@ -13,11 +13,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    cachix-deploy = {
-      url = "github:cachix/cachix-deploy-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
     impermanence.url = "github:nix-community/impermanence";
     sops-nix = {
       url = "github:Mic92/sops-nix";

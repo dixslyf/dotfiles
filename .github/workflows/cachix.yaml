@@ -5,26 +5,13 @@ on:
   push:
   pull_request:
   workflow_dispatch:
-    inputs:
-      force-rebuild:
-        description: Force a rebuild by skipping the check for the deployment specification artifact.
-        type: boolean
-      deployments:
-        description: |
-          JSON array of machines to deploy to.
-          Each machine should be represented by its hostname.
-          For example, `[ "alpha", "bravo" ]`.
-        type: string
 
-run-name: ${{ inputs.deployments != '' && 'Deploy NixOS configuration' || 'Build flake outputs' }}
+run-name: "Build flake outputs"
 
-# Builds and deployments are in separate concurrency groups.
 # Builds can cancel other in-progress builds on the same ref.
-# Deployments will not cancel other in-progress deployments (but will cancel existing pending deployments),
-# no matter what ref.
 concurrency:
-  group: ${{ github.workflow }}-${{ inputs.deployments != '' && 'deploy' || 'build' }}${{ inputs.deployments != '' && '' || format('-{0}', github.ref) }}
-  cancel-in-progress: ${{ inputs.deployments == '' }}
+  group: ${{ github.workflow }}-build-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   check-flake:
@@ -37,91 +24,47 @@ jobs:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Check flake
         run: nix flake check --keep-going --impure # devenv requires impure
-  generate-deploy-spec-matrix:
+  determine-hosts:
     runs-on: ubuntu-22.04
     if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.event.pull_request.base.repo.full_name
     needs: [check-flake]
     outputs:
-      matrix: ${{ steps.generate.outputs.matrix }}
+      hosts: ${{ steps.generate.outputs.hosts }}
     steps:
       - uses: actions/checkout@v4
       - uses: cachix/install-nix-action@v27
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
       - id: generate
-        name: Generate matrix of deploy specs
-        env:
-          DEPLOYMENTS: ${{ inputs.deployments }}
+        name: Generate hosts list
         run: |
-          matrix=$(nix develop .#ci --impure --command generate-deploy-spec-matrix.sh . "$DEPLOYMENTS")
-          printf '%s' "matrix=$matrix" >> "$GITHUB_OUTPUT"
-  build-deploy-specs:
+          hosts=$(nix flake show --impure --json . | jq -c '.nixosConfigurations | keys')
+          printf '%s' "hosts=$hosts" >> "$GITHUB_OUTPUT"
+  build-hosts:
     runs-on: ubuntu-22.04
     if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.event.pull_request.base.repo.full_name
-    needs: [generate-deploy-spec-matrix]
+    needs: [determine-hosts]
     strategy:
       fail-fast: false
       matrix:
-        deploy-spec: ${{ fromJson(needs.generate-deploy-spec-matrix.outputs.matrix) }}
+        host: ${{ fromJson(needs.determine-hosts.outputs.hosts) }}
     steps:
-      - id: check-deploy-spec-artifact
-        if: ${{ !inputs.force-rebuild }}
-        uses: dawidd6/action-download-artifact@v2
-        with:
-          name: ${{ matrix.deploy-spec.hash-name }}
-          workflow_conclusion: ""
-          search_artifacts: true
-          if_no_artifact_found: ignore
       - uses: jlumbroso/free-disk-space@v1.3.1
         with:
           tool-cache: true
           swap-storage: false
-      - if: ${{ inputs.force-rebuild || !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
-        uses: actions/checkout@v4
-      - name: Build deploy specification
-        if: ${{ inputs.force-rebuild || !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
+      - uses: actions/checkout@v4
+      - name: Build ${{ matrix.host }}
         uses: ./.github/actions/build
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
-          derivation: ".#${{ matrix.deploy-spec.flake-output }}"
+          derivation: ".#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel"
           cachix-extra-pull-names: "nix-gaming, hyprland, nix-community"
-      - if: ${{ inputs.force-rebuild || !fromJSON(steps.check-deploy-spec-artifact.outputs.found_artifact) }}
-        uses: actions/upload-artifact@v3
-        with:
-          name: ${{ matrix.deploy-spec.hash-name }}
-          path: ./result
   build-result: # https://github.com/orgs/community/discussions/26822#discussioncomment-5122101
     runs-on: ubuntu-22.04
-    needs: [build-deploy-specs]
+    needs: [build-hosts]
     if: ${{ always() }}
     steps:
       - if: ${{ contains(needs.*.result, 'failure') }}
         run: exit 1
-  deploy:
-    runs-on: ubuntu-22.04
-    needs: [generate-deploy-spec-matrix, build-deploy-specs]
-    if: ${{ github.event_name == 'workflow_dispatch' && inputs.deployments != '' }}
-    strategy:
-      fail-fast: false
-      matrix:
-        deploy-spec: ${{ fromJson(needs.generate-deploy-spec-matrix.outputs.matrix) }}
-    steps:
-      - id: download-deploy-spec-artifact
-        uses: dawidd6/action-download-artifact@v2
-        with:
-          name: ${{ matrix.deploy-spec.hash-name }}
-          workflow_conclusion: ""
-          search_artifacts: true
-      - uses: cachix/install-nix-action@v27
-        with:
-          github_access_token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: cachix/cachix-action@v12
-        with:
-          name: playernamehere-nixos
-          skipPush: true
-      - name: Deploy
-        env:
-          CACHIX_ACTIVATE_TOKEN: "${{ secrets.CACHIX_ACTIVATE_TOKEN }}"
-        run: |
-          cachix deploy activate ./result
