@@ -11,7 +11,7 @@ Overview:
 - :hammer: [GitHub Actions](https://docs.github.com/en/actions) + [Cachix](https://www.cachix.org/) for building and caching
 - :office: [devenv](https://devenv.sh/) + [direnv](https://direnv.net/) for local shell environment
 
-Software I use include:
+Software I use includes:
 
 - **Window Manager:** [bspwm](https://github.com/baskerville/bspwm)
 - **Compositor:** [picom](https://github.com/yshui/picom)
