@@ -7,7 +7,7 @@ Here is an overview of some characteristics and tools you might see in my config
 * :floppy_disk: Opt-in persistence using [tmpfs](https://en.wikipedia.org/wiki/Tmpfs) as root + [Impermanence](https://github.com/nix-community/impermanence)
 * :minidisc: [btrfs](https://btrfs.readthedocs.io/en/latest/Introduction.html) with [zstd](https://en.wikipedia.org/wiki/Zstd) compression + full disk encryption via [LUKS](https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup)
 * :key: [sops](https://github.com/mozilla/sops) + [sops-nix](https://github.com/Mic92/sops-nix) for secrets provisioning
-* :cloud: Deployments with [Cachix](https://www.cachix.org/) + [GitHub Actions](https://docs.github.com/en/actions)
+* :hammer: [GitHub Actions](https://docs.github.com/en/actions) + [Cachix](https://www.cachix.org/) for building and caching
 * :office: [devenv](https://devenv.sh/) + [direnv](https://direnv.net/) for local shell environment
 
 Application software I use include:
