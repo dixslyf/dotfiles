@@ -48,11 +48,11 @@ iosevka.override {
 
       [buildPlans.Iosevka${set}.ligations]
       inherits = "dlig"
-      enables = ["connected-number-sign"]
+      enables = ["hash-hash"]
       disables = [
-        "connected-tilde-as-wave",
-        "connected-underscore",
-        "connected-hyphen"
+        "tilde-tilde",
+        "underscore-underscore",
+        "minus-minus"
       ]
   '';
 }
