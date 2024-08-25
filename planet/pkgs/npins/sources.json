@@ -44,9 +44,9 @@
         "repo": "mako"
       },
       "branch": "main",
-      "revision": "9dd088aa5f4529a3dd4d9760415e340664cb86df",
-      "url": "https://github.com/catppuccin/mako/archive/9dd088aa5f4529a3dd4d9760415e340664cb86df.tar.gz",
-      "hash": "097x9jrkzvml6ngnhxwkzzl1l2awwv73yli1mhmpw83c0n8xck4x"
+      "revision": "33cb59ce8483725e2dd3e818aecbf0bab259bde8",
+      "url": "https://github.com/catppuccin/mako/archive/33cb59ce8483725e2dd3e818aecbf0bab259bde8.tar.gz",
+      "hash": "1hy1k5dm8q75i9bqffmg8z4k0qkg9291k73vhpp0msn7bivb1aba"
     },
     "catppuccin-polybar": {
       "type": "Git",
@@ -109,18 +109,14 @@
       "hash": "0vjz0l6rlv7ws92qk75c8c81j4841h1ssi1izzjm0xzcrkivds0q"
     },
     "wlsunset": {
-      "type": "GitRelease",
+      "type": "Git",
       "repository": {
-        "type": "GitHub",
-        "owner": "kennylevinsen",
-        "repo": "wlsunset"
+        "type": "Git",
+        "url": "https://git.sr.ht/~kennylevinsen/wlsunset"
       },
-      "pre_releases": false,
-      "version_upper_bound": null,
-      "release_prefix": null,
-      "version": "0.4.0",
-      "revision": "decd882b3859c0ba6d1766a6e675c4e7a8d077ca",
-      "url": "https://api.github.com/repos/kennylevinsen/wlsunset/tarball/0.4.0",
+      "branch": "master",
+      "revision": "634c8ebc53a31d4e5ed394f7950760deb5322102",
+      "url": null,
       "hash": "1n60b2qq4ihw0g2dwisrvsvbhpml4mlv42425j0r7xhlm4w93z2k"
     }
   },
