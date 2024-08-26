@@ -48,6 +48,7 @@
     dev-man-pages.enable = true;
     direnv.enable = true;
     discord.enable = true;
+    distrobox.enable = true;
     editorconfig.enable = true;
     feh = {
       enable = true;
