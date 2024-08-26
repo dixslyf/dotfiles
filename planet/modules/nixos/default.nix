@@ -14,6 +14,7 @@ _: {
     (importModule ./nvidia { })
     (importModule ./persistence { })
     (importModule ./pipewire { })
+    ./podman
     (importModule ./sddm { })
     ./steam
     ./tlp
