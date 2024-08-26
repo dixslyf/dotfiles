@@ -5,11 +5,9 @@ local wk = require("which-key")
 
 function M.setup()
    -- Register prefixes
-   wk.register({
-      ["<leader>g"] = {
-         name = "Git",
-         t = "Toggle",
-      },
+   wk.add({
+      { "<leader>g", group = "Git" },
+      { "<leader>gt", group = "Toggle" },
    })
 
    gitsigns.setup({

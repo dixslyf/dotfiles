@@ -42,11 +42,9 @@ jdtls.start_or_attach({
    on_attach = function(client, bufnr)
       lsp_common.on_attach(client, bufnr)
 
-      wk.register({
-         ["<leader>l"] = {
-            e = "Extract",
-            t = "Test",
-         },
+      wk.add({
+         { "<leader>le", group = "Extract" },
+         { "<leader>lt", group = "Test" },
       })
 
       vim.keymap.set("n", "<leader>lo", jdtls.organize_imports, { buffer = bufnr, desc = "Organize imports" })
