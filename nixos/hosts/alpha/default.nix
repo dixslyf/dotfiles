@@ -154,6 +154,7 @@
       enable = true;
       lowLatency = true;
     };
+    podman.enable = true;
     sddm.enable = true;
     tlp = {
       enable = true;
