@@ -117,6 +117,7 @@
     pointer-cursor.enable = true;
     polkit-agent.enable = true;
     polybar.enable = true;
+    qbittorrent.enable = true;
     qt.enable = true;
     qutebrowser.enable = true;
     redshift = {
