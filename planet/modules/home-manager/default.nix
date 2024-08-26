@@ -12,6 +12,7 @@ _:
     ./dev-man-pages
     ./direnv
     ./discord
+    ./distrobox
     ./editorconfig
     ./feh
     ./file-roller
