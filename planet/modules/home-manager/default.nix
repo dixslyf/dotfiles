@@ -43,6 +43,7 @@ _:
     ./pointer-cursor
     ./polkit-agent
     (importModule ./polybar { })
+    ./qbittorrent
     ./qt
     ./qutebrowser
     ./redshift
