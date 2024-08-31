@@ -7,11 +7,9 @@ function M.setup()
    })
 
    local wk = require("which-key")
-   wk.register({
-      ["<leader>z"] = {
-         name = "Zk",
-         f = "Find",
-      },
+   wk.add({
+      { "<leader>z", group = "Zk" },
+      { "<leader>zf", group = "Find" },
    })
 
    -- TODO: only set the key bindings when the current directory within a notebook

@@ -15,7 +15,7 @@ local function catppuccin_integration()
 end
 
 local function setup_mappings()
-   wk.register({ ["<leader>D"] = "Debug" })
+   wk.add({ { "<leader>D", group = "Debug" } })
    vim.keymap.set("n", "<leader>Db", dap.toggle_breakpoint, { silent = true, desc = "Toggle breakpoint" })
    vim.keymap.set("n", "<leader>Dc", dap.continue, { silent = true, desc = "Continue" })
    vim.keymap.set("n", "<leader>DC", dap.reverse_continue, { silent = true, desc = "Reverse continue" })

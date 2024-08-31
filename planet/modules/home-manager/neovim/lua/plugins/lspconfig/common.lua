@@ -5,12 +5,10 @@ local tls_builtin = require("telescope.builtin")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 local function setup_mappings(bufnr)
-   wk.register({
-      ["<leader>l"] = {
-         name = "LSP",
-         g = "Go to",
-         w = "Workspaces",
-      },
+   wk.add({
+      { "<leader>l", group = "LSP" },
+      { "<leader>lg", group = "Go to" },
+      { "<leader>lw", group = "Workspaces" },
    })
 
    -- Trigger completion with <c-x><c-o>

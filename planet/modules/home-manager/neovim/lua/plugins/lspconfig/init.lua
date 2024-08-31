@@ -5,7 +5,7 @@ local tls_builtin = require("telescope.builtin")
 local common = require("plugins.lspconfig.common")
 
 local function setup_mappings()
-   wk.register({ ["<leader>d"] = "Diagnostics" })
+   wk.add({ { "<leader>d", group = "Diagnostics" } })
 
    vim.keymap.set("n", "<leader>de", vim.diagnostic.open_float, { silent = true, desc = "Show diagnostics" })
    vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { silent = true, desc = "Next diagnostic" })
