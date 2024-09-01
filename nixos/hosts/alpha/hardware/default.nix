@@ -105,6 +105,8 @@
   hardware = {
     cpu.intel.updateMicrocode = true;
     nvidia = {
+      # Must be set explicitly since https://github.com/NixOS/nixpkgs/commit/20c5d0adfb4cd7a06b7c1251cb0852f404d93e59
+      open = false;
       modesetting.enable = true;
       # Set up nvidia prime
       prime = {
