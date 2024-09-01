@@ -39,6 +39,15 @@
             Allow non-root users to specify the allow_other or allow_root mount options, see mount.fuse3(8).
           '';
         };
+        persistVarLibNixos = mkOption {
+          type = types.bool;
+          default = true;
+          description = ''
+            Whether to persist the `/var/lib/nixos` directory.
+            Needed to persist UIDs and GIDs.
+            This is more of a convenience option.
+          '';
+        };
         persistSystemdDirectories = mkOption {
           type = types.bool;
           default = false;
@@ -83,20 +92,20 @@
             This is more of a convenience option.
           '';
         };
-        directories = mkOption {
-          type = with types; listOf anything;
-          default = [ ];
-          description = ''
-            List of directories to persist.
-            This list will be passed to the corresponding option in the `impermanence` module.
-          '';
-        };
         persistMachineId = mkOption {
           type = types.bool;
           default = false;
           description = ''
             Whether to persist the `/etc/machine-id` file.
             This is more of a convenience option.
+          '';
+        };
+        directories = mkOption {
+          type = with types; listOf anything;
+          default = [ ];
+          description = ''
+            List of directories to persist.
+            This list will be passed to the corresponding option in the `impermanence` module.
           '';
         };
         files = mkOption {
@@ -134,6 +143,7 @@
           "/var/lib/systemd/coredump"
           "/var/lib/systemd/timers"
         ])
+          ++ (lists.optional cfg.persistVarLibNixos "/var/lib/nixos")
           ++ (lists.optionals cfg.persistMachines [ "/var/lib/machines" "/etc/systemd/nspawn" ])
           ++ (lists.optional cfg.persistSystemdBacklight "/var/lib/systemd/backlight") # for systemd-backlight to be able to restore brightness
           ++ (lists.optional cfg.persistLogs "/var/log")
