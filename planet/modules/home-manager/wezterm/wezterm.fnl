@@ -11,4 +11,7 @@
  :font_size 16
  :use_fancy_tab_bar false
  :hide_tab_bar_if_only_one_tab true
- :window_padding {:left "3cell" :right "3cell" :top "1cell" :bottom "1cell"}}
+ :window_padding {:left "3cell" :right "3cell" :top "1cell" :bottom "1cell"}
+ ;; Work around https://github.com/wez/wezterm/issues/5990
+ :front_end "WebGpu"
+ :enable_wayland false}
