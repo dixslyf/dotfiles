@@ -64,7 +64,7 @@
     "/" = {
       device = "none";
       fsType = "tmpfs";
-      options = [ "size=4G" "mode=755" "noatime" ];
+      options = [ "size=8G" "mode=755" "noatime" ];
     };
     "/boot" = {
       device = "/dev/disk/by-uuid/40fcf0a0-13cc-47c4-83bb-f83df975df8e";
