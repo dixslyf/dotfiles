@@ -29,7 +29,10 @@
       inherit (lib) mkIf;
     in
     mkIf cfg.enable {
-      home.packages = with pkgs; [ lutris ];
+      home.packages = with pkgs; [
+        lutris
+        wineWowPackages.full
+      ];
       planet.persistence = {
         directories = [
           ".config/lutris"
