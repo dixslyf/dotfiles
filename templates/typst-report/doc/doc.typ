@@ -10,6 +10,7 @@
 )
 
 #set heading(numbering: "1.")
+#show bibliography: set heading(numbering: "1.")
 
 #show heading.where(level: 1): it => [
   #set text(size: HEADING_SIZE, weight: "bold")
