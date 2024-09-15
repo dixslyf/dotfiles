@@ -33,12 +33,20 @@ jobs:
       - name: Update flake inputs
         run: |
           nix flake update
-          git commit -am "chore(flake): update inputs"
+          if [ -z "$(git status --porcelain=v1 2>/dev/null)" ]; then
+            echo "No changes from update"
+          else
+            git commit -am "chore(flake): update inputs"
+          fi
       - name: Update npins
         run: |
           nix develop .#ci --impure --command npins -d "planet/pkgs/npins" update
           nix develop .#ci --impure --command npins -d "planet/pkgs/vim-plugins/npins" update
-          git commit -am "chore(planet/pkgs): update npins"
+          if [ -z "$(git status --porcelain=v1 2>/dev/null)" ]; then
+            echo "No changes from update"
+          else
+            git commit -am "chore(planet/pkgs): update npins"
+          fi
       - if: ${{ !inputs.dry-run }}
         uses: peter-evans/create-pull-request@v5
         with:
