@@ -52,6 +52,7 @@
     discord.enable = true;
     distrobox.enable = true;
     editorconfig.enable = true;
+    emacs.enable = true;
     feh = {
       enable = true;
       defaultApplication.enable = true;
