@@ -96,6 +96,18 @@
       "url": "https://github.com/catppuccin/zathura/archive/0adc53028d81bf047461bc61c43a484d11b15220.tar.gz",
       "hash": "1cj1z2bh1qw1sbgqmk4i450yv7rgwcz06yhar23ccadsx22gzw7y"
     },
+    "doomemacs": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "doomemacs",
+        "repo": "doomemacs"
+      },
+      "branch": "master",
+      "revision": "c8a5e6ec1ca85a35f94d6c820c2fd8888373c2ae",
+      "url": "https://github.com/doomemacs/doomemacs/archive/c8a5e6ec1ca85a35f94d6c820c2fd8888373c2ae.tar.gz",
+      "hash": "08cwhfwg4apm7rxfhkadlif79maklmx4k1il4rixwlc9gdy422lb"
+    },
     "mali": {
       "type": "Git",
       "repository": {

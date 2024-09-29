@@ -13,6 +13,7 @@ _: {
     ./discord
     ./distrobox
     ./editorconfig
+    (importModule ./emacs { })
     ./feh
     ./file-roller
     ./firefox
