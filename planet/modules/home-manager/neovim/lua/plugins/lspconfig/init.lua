@@ -25,7 +25,7 @@ local servers = {
    "ltex",
    "hls",
    "typst-lsp",
-   "tsserver",
+   "ts-ls",
    "vscode-html-language-server",
    "vscode-json-language-server",
    "vscode-css-language-server",
