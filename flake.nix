@@ -8,7 +8,8 @@
     };
     flake-utils.url = "github:numtide/flake-utils";
     devenv.url = "github:cachix/devenv";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    # FIXME: switch back to nixpkgs-unstable when nixpkgs #345316 makes it to unstable
+    nixpkgs.url = "github:NixOS/nixpkgs/10f9466add29432b2d6cc8a7c8d1232236a50a63";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
