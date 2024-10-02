@@ -79,19 +79,19 @@
     "/nix" = {
       device = "/dev/disk/by-uuid/5315a5dd-a383-409a-b8b0-33bbc9d57a17";
       fsType = "btrfs";
-      options = [ "subvol=@nix" "compress=zstd" "noatime" ];
+      options = [ "subvol=@nix" "compress=zstd:1" "noatime" ];
     };
     "/persist" = {
       device = "/dev/disk/by-uuid/5315a5dd-a383-409a-b8b0-33bbc9d57a17";
       fsType = "btrfs";
       neededForBoot = true;
-      options = [ "subvol=@persist" "compress=zstd" "noatime" ];
+      options = [ "subvol=@persist" "compress=zstd:1" "noatime" ];
     };
     "/persist/home" = {
       device = "/dev/disk/by-uuid/e4cc116c-4044-4b91-8618-86ee4ba59373";
       fsType = "btrfs";
       neededForBoot = true;
-      options = [ "compress=zstd" "noatime" ];
+      options = [ "compress=zstd:2" "noatime" ];
     };
   };
 
