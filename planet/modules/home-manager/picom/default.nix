@@ -1,4 +1,5 @@
 { config
+, pkgs
 , lib
 , ...
 }: {
@@ -9,6 +10,14 @@
     {
       planet.picom = {
         enable = mkEnableOption "planet picom";
+        package = mkOption {
+          type = lib.types.package;
+          default = pkgs.picom;
+          defaultText = lib.literalExpression "pkgs.picom";
+          description = ''
+            Picom package to use.
+          '';
+        };
         systemd.target = mkOption {
           type = types.str;
           default = "graphical-session.target";
@@ -23,42 +32,27 @@
       inherit (lib) mkIf;
     in
     mkIf cfg.enable {
-      services.picom = {
-        enable = true;
-        backend = "glx";
-        shadow = true;
-        shadowExclude = [
-          "_GTK_FRAME_EXTENTS@:c"
-        ];
-        fade = true;
-        fadeDelta = 5;
-        inactiveOpacity = 0.75;
-        settings = {
-          blur = {
-            method = "dual_kawase";
-            size = 24;
-            strength = 12;
-            deviation = 5.0;
-            background-exclude = [
-              "window_type = 'dock'"
-              "window_type = 'desktop'"
-              "_GTK_FRAME_EXTENTS@:c"
-            ];
-          };
-          corner-radius = 8;
-          rounded-corners-exclude = [
-            "window_type = 'dock'"
-            "window_type = 'desktop'"
-          ];
-          use-ewmh-active-win = true;
-          unredir-if-possible = true;
-        };
-      };
+      home.packages = with pkgs; [
+        picom
+      ];
+
+      xdg.configFile."picom/picom.conf".source = ./picom.conf;
 
       systemd.user.services.picom = {
-        Unit.After = lib.mkForce [ cfg.systemd.target ];
-        Unit.PartOf = lib.mkForce [ cfg.systemd.target ];
-        Install.WantedBy = lib.mkForce [ cfg.systemd.target ];
+        Unit = {
+          Description = "Picom X11 compositor";
+          After = [ cfg.systemd.target ];
+          PartOf = [ cfg.systemd.target ];
+        };
+
+        Install = { WantedBy = [ cfg.systemd.target ]; };
+
+        Service = {
+          ExecStart = lib.concatStringsSep " " [
+            "${lib.getExe cfg.package}"
+            "--config ${config.xdg.configFile."picom/picom.conf".source}"
+          ];
+        };
       };
     };
 }
