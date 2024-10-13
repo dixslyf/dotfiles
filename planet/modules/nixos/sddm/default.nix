@@ -1,9 +1,11 @@
 { localFlake', ... }:
-{ config
-, lib
-, pkgs
-, ...
-}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
   options =
     let
       inherit (lib) mkEnableOption;
@@ -42,4 +44,3 @@
       };
     };
 }
-

@@ -1,8 +1,10 @@
 { localFlakeInputs, ... }:
 
-{ config
-, ...
-}: {
+{
+  config,
+  ...
+}:
+{
   imports = [
     localFlakeInputs.sops-nix.homeManagerModules.sops
   ];

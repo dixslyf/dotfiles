@@ -1,8 +1,9 @@
 { localFlake', ... }:
-{ config
-, lib
-, pkgs
-, ...
+{
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 {
   options =
@@ -83,7 +84,9 @@
             ExecStart = "${polybarPackage}/bin/polybar eDP-1";
           };
 
-          Install = { WantedBy = optionalBspwmTarget; };
+          Install = {
+            WantedBy = optionalBspwmTarget;
+          };
         };
 
         systemd.user.services.polybar-HDMI-1 = {
@@ -109,26 +112,24 @@
         # sxhxd keybinding to toggle the bar on the current monitor
         services.sxhkd.keybindings =
           let
-            toggleScript = pkgs.writeShellScriptBin
-              "toggle-current-polybar"
-              ''
-                monitor="$(${bspwmPackage}/bin/bspc query -M -m focused --names)"
+            toggleScript = pkgs.writeShellScriptBin "toggle-current-polybar" ''
+              monitor="$(${bspwmPackage}/bin/bspc query -M -m focused --names)"
 
-                if [ "$monitor" = "eDP-1" ]; then
-                  wm="polybar-eDP-1_eDP-1"
-                elif [ "$monitor" = "HDMI-1" ]; then
-                  wm="polybar-HDMI-1_HDMI-1"
-                fi
+              if [ "$monitor" = "eDP-1" ]; then
+                wm="polybar-eDP-1_eDP-1"
+              elif [ "$monitor" = "HDMI-1" ]; then
+                wm="polybar-HDMI-1_HDMI-1"
+              fi
 
-                state=$(${pkgs.xorg.xwininfo}/bin/xwininfo -name "$wm" | ${pkgs.gnugrep}/bin/grep "Map State" | cut -d " " -f 5)
-                if [ "$state" = "IsViewable" ]; then
-                  ${bspwmPackage}/bin/bspc config -m "$monitor" top_padding 0
-                elif [ "$state" = "IsUnMapped" ]; then
-                  ${bspwmPackage}/bin/bspc config -m "$monitor" top_padding 40
-                fi
+              state=$(${pkgs.xorg.xwininfo}/bin/xwininfo -name "$wm" | ${pkgs.gnugrep}/bin/grep "Map State" | cut -d " " -f 5)
+              if [ "$state" = "IsViewable" ]; then
+                ${bspwmPackage}/bin/bspc config -m "$monitor" top_padding 0
+              elif [ "$state" = "IsUnMapped" ]; then
+                ${bspwmPackage}/bin/bspc config -m "$monitor" top_padding 40
+              fi
 
-                ${polybarPackage}/bin/polybar-msg -p "$(${pkgs.xorg.xprop}/bin/xprop -name "$wm" _NET_WM_PID | cut -d " " -f 3)" cmd toggle
-              '';
+              ${polybarPackage}/bin/polybar-msg -p "$(${pkgs.xorg.xprop}/bin/xprop -name "$wm" _NET_WM_PID | cut -d " " -f 3)" cmd toggle
+            '';
           in
           {
             "super + d" = "${toggleScript}/bin/toggle-current-polybar";

@@ -1,8 +1,10 @@
 { localFlakeInputs, ... }:
-{ config
-, lib
-, ...
-}: {
+{
+  config,
+  lib,
+  ...
+}:
+{
   imports = [ localFlakeInputs.hyprland.nixosModules.default ];
 
   options =
@@ -27,4 +29,3 @@
       };
     };
 }
-

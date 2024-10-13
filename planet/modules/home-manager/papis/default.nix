@@ -1,7 +1,9 @@
-{ config
-, lib
-, ...
-}: {
+{
+  config,
+  lib,
+  ...
+}:
+{
   options =
     let
       inherit (lib) mkEnableOption;
@@ -40,4 +42,3 @@
       xdg.configFile."papis/scripts/.keep".source = builtins.toFile "keep" "";
     };
 }
-

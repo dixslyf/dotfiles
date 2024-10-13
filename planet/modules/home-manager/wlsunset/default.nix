@@ -1,8 +1,9 @@
 { localFlake', ... }:
-{ config
-, lib
-, pkgs
-, ...
+{
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 {
   # Disable home-manager's wlsunset module
@@ -121,8 +122,7 @@
       in
       {
         assertions = [
-          (lib.hm.assertions.assertPlatform "services.wlsunset" pkgs
-            lib.platforms.linux)
+          (lib.hm.assertions.assertPlatform "services.wlsunset" pkgs lib.platforms.linux)
           {
             assertion = !manual || !coords;
             message = ''
@@ -167,7 +167,9 @@
               "${cfg.package}/bin/wlsunset ${escapeShellArgs args}";
           };
 
-          Install = { WantedBy = [ cfg.systemd.target ]; };
+          Install = {
+            WantedBy = [ cfg.systemd.target ];
+          };
         };
       }
     );

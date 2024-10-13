@@ -1,6 +1,7 @@
-{ src
-, stdenvNoCC
-, ...
+{
+  src,
+  stdenvNoCC,
+  ...
 }:
 stdenvNoCC.mkDerivation {
   pname = "catppuccin-mako";

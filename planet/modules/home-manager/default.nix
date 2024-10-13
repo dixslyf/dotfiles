@@ -1,7 +1,6 @@
 { importModule, ... }:
 
-_:
-{
+_: {
   imports = [
     ./android
     ./anki
@@ -68,4 +67,3 @@ _:
     ./zoxide
   ];
 }
-

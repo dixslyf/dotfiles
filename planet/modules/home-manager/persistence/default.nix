@@ -1,8 +1,9 @@
 { localFlakeInputs, ... }:
-{ config
-, lib
-, ...
-} @ args:
+{
+  config,
+  lib,
+  ...
+}@args:
 
 {
   imports = [
@@ -71,16 +72,18 @@
         finalDirectories = mkOption {
           type = with types; listOf anything;
           internal = true;
-          default = cfg.directories ++ (lib.lists.optionals cfg.persistXdgUserDirectories [
-            "Desktop"
-            "Documents"
-            "Downloads"
-            "Music"
-            "Pictures"
-            "Public"
-            "Templates"
-            "Videos"
-          ]);
+          default =
+            cfg.directories
+            ++ (lib.lists.optionals cfg.persistXdgUserDirectories [
+              "Desktop"
+              "Documents"
+              "Downloads"
+              "Music"
+              "Pictures"
+              "Public"
+              "Templates"
+              "Videos"
+            ]);
           description = ''
             The final list of directories to persist.
           '';

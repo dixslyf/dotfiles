@@ -1,7 +1,8 @@
-{ config
-, lib
-, pkgs
-, ...
+{
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 let
   cfg = config.planet.mullvad-vpn;
@@ -10,7 +11,12 @@ in
 {
   options =
     let
-      inherit (lib) mkEnableOption mkOption types literalExpression;
+      inherit (lib)
+        mkEnableOption
+        mkOption
+        types
+        literalExpression
+        ;
     in
     {
       planet.mullvad-vpn = {
@@ -128,10 +134,15 @@ in
       systemd.user.services.mullvad-vpn = mkIf cfg.systemd.enable {
         Unit = {
           Description = "Mullvad VPN GUI";
-          After = [ "graphical-session-pre.target" "tray.target" ];
+          After = [
+            "graphical-session-pre.target"
+            "tray.target"
+          ];
           PartOf = [ "graphical-session.target" ];
         };
-        Install = { WantedBy = [ cfg.systemd.target ]; };
+        Install = {
+          WantedBy = [ cfg.systemd.target ];
+        };
         Service = {
           ExecStart = "${cfg.package}/bin/mullvad-vpn";
           ExecReload = "${pkgs.coreutils}/bin/kill -HUP $MAINPID";

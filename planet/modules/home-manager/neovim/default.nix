@@ -1,9 +1,11 @@
 { localFlakeInputs', ... }:
-{ config
-, lib
-, pkgs
-, ...
-}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
   options =
     let
       inherit (lib) mkEnableOption mkOption types;
@@ -78,61 +80,67 @@
         vimAlias = true;
         viAlias = true;
         defaultEditor = true;
-        extraLuaConfig = builtins.readFile (pkgs.substituteAll {
-          src = ./init.lua;
-          cppdbg_command = "${pkgs.vscode-extensions.ms-vscode.cpptools}/share/vscode/extensions/ms-vscode.cpptools/debugAdapters/bin/OpenDebugAD7";
-          jdt_ls = "${pkgs.jdt-language-server}/bin/jdtls";
-          java_debug_server_dir = "${pkgs.vscode-extensions.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server";
-          java_test_server_dir = "${pkgs.vscode-extensions.vscjava.vscode-java-test}/share/vscode/extensions/vscjava.vscode-java-test/server";
-          vscode_eslint_language_server_node_path = "${pkgs.nodePackages.eslint}/lib/node_modules";
-        });
-        extraPackages = with pkgs; [
-          ripgrep # Used by telescope
-          editorconfig-checker
-          shellcheck
-          shfmt
-          sumneko-lua-language-server
-          stylua
-          fnlfmt
-          nixpkgs-fmt
-          cfg.nilPackage
-          gcc
-          clang-tools
-          ghc
-          haskell-language-server
-          ormolu
-          haskellPackages.cabal-fmt
-          proselint
-          ltex-ls
-          statix
-          deadnix
-          actionlint
-          yamllint
-          nodePackages.prettier
-          zk
-          efm-langserver
-          jq
-          google-java-format
-          typst-lsp
-          cfg.rustToolchain
-          nodePackages.typescript-language-server
-          vscode-langservers-extracted
-          htmlhint
-          (texlive.combine {
-            inherit (texlive) scheme-minimal latexindent;
-          })
-          (python3.withPackages (pyPkgs:
-            with pyPkgs; [
-              python-lsp-server
-              python-lsp-black
-              pyls-isort
-              pylsp-mypy
-              flake8
-              flake8-bugbear
-              rope
-            ]))
-        ] ++ lib.lists.optionals config.planet.bspwm.enable [ xclip ]
-        ++ lib.lists.optionals config.planet.hyprland.enable [ wl-clipboard ];
+        extraLuaConfig = builtins.readFile (
+          pkgs.substituteAll {
+            src = ./init.lua;
+            cppdbg_command = "${pkgs.vscode-extensions.ms-vscode.cpptools}/share/vscode/extensions/ms-vscode.cpptools/debugAdapters/bin/OpenDebugAD7";
+            jdt_ls = "${pkgs.jdt-language-server}/bin/jdtls";
+            java_debug_server_dir = "${pkgs.vscode-extensions.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server";
+            java_test_server_dir = "${pkgs.vscode-extensions.vscjava.vscode-java-test}/share/vscode/extensions/vscjava.vscode-java-test/server";
+            vscode_eslint_language_server_node_path = "${pkgs.nodePackages.eslint}/lib/node_modules";
+          }
+        );
+        extraPackages =
+          with pkgs;
+          [
+            ripgrep # Used by telescope
+            editorconfig-checker
+            shellcheck
+            shfmt
+            sumneko-lua-language-server
+            stylua
+            fnlfmt
+            nixpkgs-fmt
+            cfg.nilPackage
+            gcc
+            clang-tools
+            ghc
+            haskell-language-server
+            ormolu
+            haskellPackages.cabal-fmt
+            proselint
+            ltex-ls
+            statix
+            deadnix
+            actionlint
+            yamllint
+            nodePackages.prettier
+            zk
+            efm-langserver
+            jq
+            google-java-format
+            typst-lsp
+            cfg.rustToolchain
+            nodePackages.typescript-language-server
+            vscode-langservers-extracted
+            htmlhint
+            (texlive.combine {
+              inherit (texlive) scheme-minimal latexindent;
+            })
+            (python3.withPackages (
+              pyPkgs: with pyPkgs; [
+                python-lsp-server
+                python-lsp-black
+                pyls-isort
+                pylsp-mypy
+                flake8
+                flake8-bugbear
+                rope
+              ]
+            ))
+          ]
+          ++ lib.lists.optionals config.planet.bspwm.enable [ xclip ]
+          ++ lib.lists.optionals config.planet.hyprland.enable [ wl-clipboard ];
         plugins = with pkgs.vimPlugins; [
           leap-nvim
           indent-blankline-nvim
@@ -179,26 +187,28 @@
           zk-nvim
           nvim-jdtls
           efmls-configs-nvim
-          (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: with plugins; [
-            tree-sitter-bash
-            tree-sitter-c
-            tree-sitter-cpp
-            tree-sitter-fennel
-            tree-sitter-haskell
-            tree-sitter-html
-            tree-sitter-java
-            tree-sitter-javascript
-            tree-sitter-json
-            tree-sitter-lua
-            tree-sitter-markdown
-            tree-sitter-markdown-inline
-            tree-sitter-nix
-            tree-sitter-python
-            tree-sitter-rust
-            tree-sitter-toml
-            tree-sitter-typst
-            tree-sitter-vim
-          ]))
+          (pkgs.vimPlugins.nvim-treesitter.withPlugins (
+            plugins: with plugins; [
+              tree-sitter-bash
+              tree-sitter-c
+              tree-sitter-cpp
+              tree-sitter-fennel
+              tree-sitter-haskell
+              tree-sitter-html
+              tree-sitter-java
+              tree-sitter-javascript
+              tree-sitter-json
+              tree-sitter-lua
+              tree-sitter-markdown
+              tree-sitter-markdown-inline
+              tree-sitter-nix
+              tree-sitter-python
+              tree-sitter-rust
+              tree-sitter-toml
+              tree-sitter-typst
+              tree-sitter-vim
+            ]
+          ))
         ];
       };
     };

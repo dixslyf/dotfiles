@@ -1,8 +1,10 @@
-{ config
-, lib
-, pkgs
-, ...
-}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
   options =
     let
       inherit (lib) mkEnableOption mkOption types;
@@ -41,15 +43,19 @@
       # phase attribute. Instead, we have to override `buildCommand` itself.
       # More context is available in the comment below:
       # https://github.com/NixOS/nixpkgs/issues/66826#issuecomment-1675224338
-      thunar = (pkgs.xfce.thunar.override {
-        thunarPlugins = [ pkgs.xfce.thunar-archive-plugin ];
-      }).overrideAttrs (previousAttrs: {
-        buildCommand = previousAttrs.buildCommand + ''
-          rm "$out/share/systemd/user/thunar.service"
-          rmdir "$out/share/systemd/user"
-          rmdir "$out/share/systemd"
-        '';
-      });
+      thunar =
+        (pkgs.xfce.thunar.override {
+          thunarPlugins = [ pkgs.xfce.thunar-archive-plugin ];
+        }).overrideAttrs
+          (previousAttrs: {
+            buildCommand =
+              previousAttrs.buildCommand
+              + ''
+                rm "$out/share/systemd/user/thunar.service"
+                rmdir "$out/share/systemd/user"
+                rmdir "$out/share/systemd"
+              '';
+          });
     in
     mkIf cfg.enable {
       home.packages = [ thunar ];

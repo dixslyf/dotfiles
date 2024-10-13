@@ -11,53 +11,56 @@
   };
 
   outputs =
-    { flake-parts
-    , devenv
-    , systems
-    , ...
-    } @ inputs:
+    {
+      flake-parts,
+      devenv,
+      systems,
+      ...
+    }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = import systems;
 
       imports = [ devenv.flakeModule ];
 
-      perSystem = { pkgs, ... }: {
-        devenv.shells.default = {
-          packages =
-            let
-              tex = with pkgs;
-                texlive.combine {
-                  inherit
-                    (texlive)
-                    scheme-basic
-                    latexmk
-                    apa7
-                    microtype
-                    newtx
-                    newtxtt
-                    nowidow
-                    multirow
-                    xurl
-                    biblatex
-                    biblatex-apa
-                    biber
-                    booktabs
-                    caption
-                    threeparttable
-                    float
-                    endfloat
-                    xkeyval
-                    etoolbox
-                    xstring
-                    fontaxes
-                    scalerel
-                    pgf
-                    latexindent
-                    ;
-                };
-            in
-            [ tex ];
+      perSystem =
+        { pkgs, ... }:
+        {
+          devenv.shells.default = {
+            packages =
+              let
+                tex =
+                  with pkgs;
+                  texlive.combine {
+                    inherit (texlive)
+                      scheme-basic
+                      latexmk
+                      apa7
+                      microtype
+                      newtx
+                      newtxtt
+                      nowidow
+                      multirow
+                      xurl
+                      biblatex
+                      biblatex-apa
+                      biber
+                      booktabs
+                      caption
+                      threeparttable
+                      float
+                      endfloat
+                      xkeyval
+                      etoolbox
+                      xstring
+                      fontaxes
+                      scalerel
+                      pgf
+                      latexindent
+                      ;
+                  };
+              in
+              [ tex ];
+          };
         };
-      };
     };
 }

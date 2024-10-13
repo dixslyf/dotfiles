@@ -1,8 +1,10 @@
 { localFlake', ... }:
-{ config
-, lib
-, ...
-}: {
+{
+  config,
+  lib,
+  ...
+}:
+{
   options =
     let
       inherit (lib) mkEnableOption;
@@ -18,7 +20,8 @@
       cfg = config.planet.kitty;
       inherit (lib)
         mkIf
-        mkMerge;
+        mkMerge
+        ;
     in
     mkIf cfg.enable (mkMerge [
       {

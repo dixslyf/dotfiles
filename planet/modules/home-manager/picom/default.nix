@@ -1,8 +1,10 @@
-{ config
-, pkgs
-, lib
-, ...
-}: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
   options =
     let
       inherit (lib) mkEnableOption mkOption types;
@@ -45,7 +47,9 @@
           PartOf = [ cfg.systemd.target ];
         };
 
-        Install = { WantedBy = [ cfg.systemd.target ]; };
+        Install = {
+          WantedBy = [ cfg.systemd.target ];
+        };
 
         Service = {
           ExecStart = lib.concatStringsSep " " [

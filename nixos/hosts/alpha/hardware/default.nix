@@ -1,8 +1,10 @@
-{ config
-, pkgs
-, modulesPath
-, ...
-}: {
+{
+  config,
+  pkgs,
+  modulesPath,
+  ...
+}:
+{
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
@@ -25,7 +27,15 @@
     extraModulePackages = [ ];
 
     initrd = {
-      availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "uas" "sd_mod" ];
+      availableKernelModules = [
+        "xhci_pci"
+        "ahci"
+        "nvme"
+        "usb_storage"
+        "usbhid"
+        "uas"
+        "sd_mod"
+      ];
       kernelModules = [ ];
 
       secrets = {
@@ -64,7 +74,11 @@
     "/" = {
       device = "none";
       fsType = "tmpfs";
-      options = [ "size=8G" "mode=755" "noatime" ];
+      options = [
+        "size=8G"
+        "mode=755"
+        "noatime"
+      ];
     };
     "/boot" = {
       device = "/dev/disk/by-uuid/40fcf0a0-13cc-47c4-83bb-f83df975df8e";
@@ -79,19 +93,30 @@
     "/nix" = {
       device = "/dev/disk/by-uuid/5315a5dd-a383-409a-b8b0-33bbc9d57a17";
       fsType = "btrfs";
-      options = [ "subvol=@nix" "compress=zstd:1" "noatime" ];
+      options = [
+        "subvol=@nix"
+        "compress=zstd:1"
+        "noatime"
+      ];
     };
     "/persist" = {
       device = "/dev/disk/by-uuid/5315a5dd-a383-409a-b8b0-33bbc9d57a17";
       fsType = "btrfs";
       neededForBoot = true;
-      options = [ "subvol=@persist" "compress=zstd:1" "noatime" ];
+      options = [
+        "subvol=@persist"
+        "compress=zstd:1"
+        "noatime"
+      ];
     };
     "/persist/home" = {
       device = "/dev/disk/by-uuid/e4cc116c-4044-4b91-8618-86ee4ba59373";
       fsType = "btrfs";
       neededForBoot = true;
-      options = [ "compress=zstd:2" "noatime" ];
+      options = [
+        "compress=zstd:2"
+        "noatime"
+      ];
     };
   };
 

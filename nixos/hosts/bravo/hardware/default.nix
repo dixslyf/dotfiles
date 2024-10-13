@@ -1,6 +1,7 @@
-{ lib
-, modulesPath
-, ...
+{
+  lib,
+  modulesPath,
+  ...
 }:
 
 {
@@ -9,7 +10,11 @@
   ];
 
   boot = {
-    initrd.availableKernelModules = [ "xhci_pci" "usbhid" "usb_storage" ];
+    initrd.availableKernelModules = [
+      "xhci_pci"
+      "usbhid"
+      "usb_storage"
+    ];
     initrd.kernelModules = [ ];
     kernelModules = [ ];
     extraModulePackages = [ ];
@@ -19,7 +24,11 @@
     "/" = {
       device = "none";
       fsType = "tmpfs";
-      options = [ "size=1G" "mode=755" "noatime" ];
+      options = [
+        "size=1G"
+        "mode=755"
+        "noatime"
+      ];
     };
     "/boot" = {
       device = "/dev/disk/by-uuid/CFAE-72EC";
@@ -28,12 +37,20 @@
     "/nix" = {
       device = "/dev/disk/by-uuid/ff035932-080a-418d-860b-aec6443ac211";
       fsType = "btrfs";
-      options = [ "subvol=@nix" "compress=zstd" "noatime" ];
+      options = [
+        "subvol=@nix"
+        "compress=zstd"
+        "noatime"
+      ];
     };
     "/persist" = {
       device = "/dev/disk/by-uuid/ff035932-080a-418d-860b-aec6443ac211";
       fsType = "btrfs";
-      options = [ "subvol=@persist" "compress=zstd" "noatime" ];
+      options = [
+        "subvol=@persist"
+        "compress=zstd"
+        "noatime"
+      ];
       neededForBoot = true;
     };
   };

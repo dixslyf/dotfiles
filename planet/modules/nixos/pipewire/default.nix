@@ -1,8 +1,10 @@
 { localFlakeInputs, ... }:
-{ config
-, lib
-, ...
-}: {
+{
+  config,
+  lib,
+  ...
+}:
+{
   imports = [ localFlakeInputs.nix-gaming.nixosModules.pipewireLowLatency ];
   options =
     let
@@ -30,4 +32,3 @@
       };
     };
 }
-

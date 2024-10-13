@@ -1,14 +1,22 @@
-{ iosevka
-, spacing ? "normal"
-, ...
+{
+  iosevka,
+  spacing ? "normal",
+  ...
 }:
 let
   names =
-    if spacing == "normal"
-    then [ "Custom" "Custom" ]
-    else if spacing == "term"
-    then [ "TermCustom" "Term Custom" ]
-    else throw "Unsupported spacing";
+    if spacing == "normal" then
+      [
+        "Custom"
+        "Custom"
+      ]
+    else if spacing == "term" then
+      [
+        "TermCustom"
+        "Term Custom"
+      ]
+    else
+      throw "Unsupported spacing";
   set = builtins.head names;
   set-family = builtins.elemAt names 1;
 in

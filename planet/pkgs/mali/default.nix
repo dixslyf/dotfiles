@@ -1,7 +1,8 @@
-{ src
-, lib
-, stdenvNoCC
-, ...
+{
+  src,
+  lib,
+  stdenvNoCC,
+  ...
 }:
 stdenvNoCC.mkDerivation {
   pname = "mali";

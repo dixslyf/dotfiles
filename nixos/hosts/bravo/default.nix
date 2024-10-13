@@ -1,6 +1,7 @@
-{ config
-, pkgs
-, ...
+{
+  config,
+  pkgs,
+  ...
 }:
 
 {
@@ -22,7 +23,10 @@
   nix = {
     settings = {
       auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       substituters = [
         "https://playernamehere-nixos.cachix.org"
         "https://nix-community.cachix.org"
@@ -81,4 +85,3 @@
     credentialsFile = config.sops.secrets."CACHIX_AGENT_TOKEN".path;
   };
 }
-

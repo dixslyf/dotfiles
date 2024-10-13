@@ -1,6 +1,8 @@
-{ pkgs
-, ...
-}: {
+{
+  pkgs,
+  ...
+}:
+{
   home.stateVersion = "23.05";
 
   xdg.userDirs = {

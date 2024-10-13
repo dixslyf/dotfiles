@@ -1,6 +1,7 @@
-{ src
-, bspwm
-, ...
+{
+  src,
+  bspwm,
+  ...
 }:
 bspwm.overrideAttrs (_: {
   inherit src;

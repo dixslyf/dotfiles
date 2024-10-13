@@ -1,9 +1,11 @@
-{ importModule
-, localFlakeInputs'
-, ...
+{
+  importModule,
+  localFlakeInputs',
+  ...
 }:
 
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   imports = [
     (importModule ./sops { })
   ];

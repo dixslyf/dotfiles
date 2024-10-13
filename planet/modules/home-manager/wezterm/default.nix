@@ -1,9 +1,11 @@
 { localFlake', ... }:
-{ config
-, lib
-, pkgs
-, ...
-}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
   options =
     let
       inherit (lib) mkEnableOption;
@@ -20,9 +22,11 @@
       cfg = config.planet.wezterm;
       inherit (lib)
         mkIf
-        mkMerge;
+        mkMerge
+        ;
 
-      mkConfigFile = default_prog_args:
+      mkConfigFile =
+        default_prog_args:
         let
           substituted = pkgs.substituteAll {
             src = ./wezterm.fnl;
@@ -66,4 +70,3 @@
       })
     ]);
 }
-

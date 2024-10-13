@@ -1,14 +1,17 @@
-{ localFlakeInputs
-, localFlake'
-, localFlakeInputs'
-, ...
+{
+  localFlakeInputs,
+  localFlake',
+  localFlakeInputs',
+  ...
 }:
 
-{ config
-, lib
-, pkgs
-, ...
-}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
   imports = [ localFlakeInputs.wired.homeManagerModules.default ];
 
   options =

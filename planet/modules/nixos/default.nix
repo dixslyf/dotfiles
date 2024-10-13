@@ -1,5 +1,6 @@
-{ importModule
-, ...
+{
+  importModule,
+  ...
 }:
 
 _: {

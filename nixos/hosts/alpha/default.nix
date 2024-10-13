@@ -1,8 +1,10 @@
-{ config
-, pkgs
-, inputs
-, ...
-}: {
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
+{
   imports = [
     ./hardware
     ./users
@@ -66,7 +68,10 @@
       auto-optimise-store = true;
       keep-outputs = true;
       keep-derivations = true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       substituters = [
         "https://playernamehere-nixos.cachix.org"
         "https://nix-gaming.cachix.org"
@@ -142,7 +147,10 @@
   planet = {
     btrfs = {
       enable = true;
-      autoScrubFileSystems = [ "/dev/sda3" "/dev/sdb1" ];
+      autoScrubFileSystems = [
+        "/dev/sda3"
+        "/dev/sdb1"
+      ];
     };
     earlyoom.enable = true;
     flatpak.enable = true;
@@ -158,7 +166,10 @@
     sddm.enable = true;
     tlp = {
       enable = true;
-      diskDevices = [ "nvme0n1" "sda" ];
+      diskDevices = [
+        "nvme0n1"
+        "sda"
+      ];
     };
     udisks2.enable = true;
     upower.enable = true;

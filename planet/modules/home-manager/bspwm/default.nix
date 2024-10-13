@@ -1,9 +1,11 @@
 { localFlake', ... }:
-{ config
-, lib
-, pkgs
-, ...
-}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
   options =
     let
       inherit (lib) mkEnableOption mkOption types;
@@ -30,7 +32,18 @@
         enable = true;
         package = localFlake'.packages.bspwm;
         monitors = {
-          ${cfg.primaryMonitor} = [ "p1" "p2" "p3" "p4" "p5" "p6" "p7" "p8" "p9" "p0" ];
+          ${cfg.primaryMonitor} = [
+            "p1"
+            "p2"
+            "p3"
+            "p4"
+            "p5"
+            "p6"
+            "p7"
+            "p8"
+            "p9"
+            "p0"
+          ];
         };
         rules = {
           "Steam" = {

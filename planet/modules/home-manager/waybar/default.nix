@@ -1,9 +1,11 @@
 { localFlake', ... }:
-{ config
-, lib
-, pkgs
-, ...
-}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
   options =
     let
       inherit (lib) mkEnableOption mkOption types;
@@ -48,9 +50,18 @@
             output = cfg.primaryOutput;
             layer = "top";
             position = "top";
-            modules-left = [ "clock#time" "clock#date" "tray" ];
+            modules-left = [
+              "clock#time"
+              "clock#date"
+              "tray"
+            ];
             modules-center = [ "wlr/workspaces" ];
-            modules-right = [ "pulseaudio" "backlight" "battery" "network" ];
+            modules-right = [
+              "pulseaudio"
+              "backlight"
+              "battery"
+              "network"
+            ];
             "clock#time" = {
               format = "󰅐 {:%H\:%M}";
               tooltip = false;
@@ -68,34 +79,102 @@
               format-bluetooth = "{icon}󰂰 {desc} {volume}%";
               format-muted = "󰝟 muted";
               format-icons = {
-                default = [ "󰕿" "󰖀" "󰕾" ];
-                headphone = [ "󰋋󰕿" "󰋋󰖀" "󰋋󰕾" ];
-                headset = [ "󰋎󰕿" "󰋎󰖀" "󰋎󰕾" ];
-                speaker = [ "󰓃󰕿" "󰓃󰖀" "󰓃󰕾" ];
-                hdmi = [ "󰡁󰕿" "󰡁󰖀" "󰡁󰕾" ];
-                phone = [ "󰏲󰕿" "󰏲󰖀" "󰏲󰕾" ];
-                hands-free = [ "󱠰󰕿" "󱠰󰖀" "󱠰󰕾" ];
-                portable = [ "󰸐󰕿" "󰸐󰖀" "󰸐󰕾" ];
-                car = [ "󰄋󰕿" "󰄋󰖀" "󰄋󰕾" ];
-                hifi = [ "󰗜󰕿" "󰗜󰖀" "󰗜󰕾" ];
+                default = [
+                  "󰕿"
+                  "󰖀"
+                  "󰕾"
+                ];
+                headphone = [
+                  "󰋋󰕿"
+                  "󰋋󰖀"
+                  "󰋋󰕾"
+                ];
+                headset = [
+                  "󰋎󰕿"
+                  "󰋎󰖀"
+                  "󰋎󰕾"
+                ];
+                speaker = [
+                  "󰓃󰕿"
+                  "󰓃󰖀"
+                  "󰓃󰕾"
+                ];
+                hdmi = [
+                  "󰡁󰕿"
+                  "󰡁󰖀"
+                  "󰡁󰕾"
+                ];
+                phone = [
+                  "󰏲󰕿"
+                  "󰏲󰖀"
+                  "󰏲󰕾"
+                ];
+                hands-free = [
+                  "󱠰󰕿"
+                  "󱠰󰖀"
+                  "󱠰󰕾"
+                ];
+                portable = [
+                  "󰸐󰕿"
+                  "󰸐󰖀"
+                  "󰸐󰕾"
+                ];
+                car = [
+                  "󰄋󰕿"
+                  "󰄋󰖀"
+                  "󰄋󰕾"
+                ];
+                hifi = [
+                  "󰗜󰕿"
+                  "󰗜󰖀"
+                  "󰗜󰕾"
+                ];
               };
             };
             backlight = {
               format = "{icon} {percent}%";
-              format-icons = [ "󰌶" "󱩎" "󱩏" "󱩐" "󱩑" "󱩒" "󱩓" "󱩔" "󱩕" "󱩖" "󰛨" ];
+              format-icons = [
+                "󰌶"
+                "󱩎"
+                "󱩏"
+                "󱩐"
+                "󱩑"
+                "󱩒"
+                "󱩓"
+                "󱩔"
+                "󱩕"
+                "󱩖"
+                "󰛨"
+              ];
               on-scroll-up = "light -A 0.2";
               on-scroll-down = "light -U 0.2";
             };
             battery = {
               format = "{icon} {capacity}%";
-              format-icons = [ "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
+              format-icons = [
+                "󰁺"
+                "󰁻"
+                "󰁼"
+                "󰁽"
+                "󰁾"
+                "󰁿"
+                "󰂀"
+                "󰂁"
+                "󰂂"
+                "󰁹"
+              ];
             };
             network = {
               format-disconnected = "󰤮 No connection";
               format-ethernet = "󰈀 Ethernet";
               format-linked = "󰘘 {ifname}";
               format-wifi = "{icon} {essid} {signalStrength}%";
-              format-icons = [ "󰤟" "󰤢" "󰤥" "󰤨" ];
+              format-icons = [
+                "󰤟"
+                "󰤢"
+                "󰤥"
+                "󰤨"
+              ];
             };
           };
           topBarExternal = mkIf (cfg.externalOutput != null) {

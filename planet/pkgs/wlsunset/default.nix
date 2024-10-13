@@ -1,13 +1,13 @@
-{ src
-, stdenv
-, meson
-, pkg-config
-, ninja
-, wayland-scanner
-, scdoc
-, wayland
-, wayland-protocols
-,
+{
+  src,
+  stdenv,
+  meson,
+  pkg-config,
+  ninja,
+  wayland-scanner,
+  scdoc,
+  wayland,
+  wayland-protocols,
 }:
 stdenv.mkDerivation {
   pname = "wlsunset";
@@ -19,6 +19,15 @@ stdenv.mkDerivation {
   depsBuildBuild = [
     pkg-config
   ];
-  nativeBuildInputs = [ meson pkg-config ninja wayland-scanner scdoc ];
-  buildInputs = [ wayland wayland-protocols ];
+  nativeBuildInputs = [
+    meson
+    pkg-config
+    ninja
+    wayland-scanner
+    scdoc
+  ];
+  buildInputs = [
+    wayland
+    wayland-protocols
+  ];
 }

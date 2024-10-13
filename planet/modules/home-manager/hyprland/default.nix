@@ -1,9 +1,11 @@
 { localFlakeInputs, ... }:
-{ config
-, lib
-, pkgs
-, ...
-}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
   imports = [ localFlakeInputs.hyprland.homeManagerModules.default ];
 
   options =
@@ -105,8 +107,9 @@
                   ];
                 in
                 "\n"
-                + builtins.concatStringsSep "\n" (builtins.map
-                  (key:
+                + builtins.concatStringsSep "\n" (
+                  builtins.map (
+                    key:
                     let
                       keyUpper = lib.strings.toUpper key;
                     in
@@ -114,8 +117,9 @@
                       bind = ,${key},moveworkspacetomonitor,name:${keyUpper} current
                       bind = ,${key},workspace,name:${keyUpper}
                       bind = SHIFT,${key},movetoworkspacesilent,name:${keyUpper}
-                    '')
-                  keys);
+                    ''
+                  ) keys
+                );
             };
           in
           builtins.readFile "${hyprland-config}";

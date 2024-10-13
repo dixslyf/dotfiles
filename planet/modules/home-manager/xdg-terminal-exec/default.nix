@@ -1,13 +1,16 @@
-{ config
-, lib
-, pkgs
-, ...
-}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
   options =
     let
       inherit (lib)
         mkOption
-        types;
+        types
+        ;
     in
     {
       planet.xdg-terminal-exec = {

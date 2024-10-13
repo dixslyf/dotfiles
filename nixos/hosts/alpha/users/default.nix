@@ -1,7 +1,9 @@
-{ config
-, inputs
-, ...
-}: {
+{
+  config,
+  inputs,
+  ...
+}:
+{
   imports = [
     inputs.home-manager.nixosModules.home-manager
     ./shiba
@@ -17,5 +19,8 @@
     useGlobalPkgs = true;
   };
 
-  nix.settings.trusted-users = [ "root" "@wheel" ];
+  nix.settings.trusted-users = [
+    "root"
+    "@wheel"
+  ];
 }

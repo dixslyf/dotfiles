@@ -1,7 +1,9 @@
-{ config
-, homeUsers
-, ...
-}: {
+{
+  config,
+  homeUsers,
+  ...
+}:
+{
   users = {
     users = {
       samoyed = {
