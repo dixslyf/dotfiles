@@ -1,6 +1,6 @@
 { inputs, ... }: {
   perSystem = { pkgs, ... }: {
-    formatter = pkgs.nixpkgs-fmt;
+    formatter = pkgs.nixfmt-rfc-style;
 
     devShells.default = inputs.devenv.lib.mkShell {
       inherit inputs pkgs;

@@ -1,10 +1,10 @@
 { pkgs, ... }:
 
 {
-  packages = with pkgs; [ sops npins nixpkgs-fmt stylua statix deadnix ];
+  packages = with pkgs; [ sops npins nixfmt-rfc-style stylua statix deadnix ];
   pre-commit = {
     hooks = {
-      nixpkgs-fmt = {
+      nixfmt-rfc-style = {
         enable = true;
         excludes = [ "^planet/pkgs/npins/" "^planet/pkgs/vim-plugins/npins/" ];
       };
