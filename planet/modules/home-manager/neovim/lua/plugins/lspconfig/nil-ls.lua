@@ -8,7 +8,7 @@ function M.setup(on_attach, capabilities)
       settings = {
          ["nil"] = {
             formatting = {
-               command = { "nixpkgs-fmt" },
+               command = { "nixfmt" },
             },
          },
       },

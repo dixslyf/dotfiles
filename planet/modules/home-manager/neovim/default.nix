@@ -100,7 +100,7 @@
             sumneko-lua-language-server
             stylua
             fnlfmt
-            nixpkgs-fmt
+            nixfmt-rfc-style
             cfg.nilPackage
             gcc
             clang-tools
