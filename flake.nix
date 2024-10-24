@@ -8,8 +8,7 @@
     };
     flake-utils.url = "github:numtide/flake-utils";
     devenv.url = "github:cachix/devenv";
-    # FIXME: switch back to nixpkgs-unstable when nixpkgs #345316 makes it to unstable
-    nixpkgs.url = "github:NixOS/nixpkgs/10f9466add29432b2d6cc8a7c8d1232236a50a63";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -39,10 +38,6 @@
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     wired = {
       url = "github:Toqozz/wired-notify";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -54,8 +49,9 @@
   };
 
   outputs =
-    inputs @ { flake-parts
-    , ...
+    inputs@{
+      flake-parts,
+      ...
     }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
@@ -67,6 +63,9 @@
         ./templates/flake-module.nix
       ];
 
-      systems = [ "x86_64-linux" "aarch64-linux" ];
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
     };
 }
