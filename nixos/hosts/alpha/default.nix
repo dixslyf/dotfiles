@@ -24,11 +24,6 @@
     swraid.enable = false; # https://github.com/NixOS/nixpkgs/issues/254807
   };
 
-  # FIXME: remove once logseq has been updated upstream
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-27.3.11"
-  ];
-
   planet.persistence = {
     enable = true;
     persistSystemdDirectories = true;
