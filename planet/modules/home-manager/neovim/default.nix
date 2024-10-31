@@ -124,6 +124,7 @@
             nodePackages.typescript-language-server
             vscode-langservers-extracted
             htmlhint
+            nodejs
             (texlive.combine {
               inherit (texlive) scheme-minimal latexindent;
             })
@@ -187,6 +188,7 @@
           zk-nvim
           nvim-jdtls
           efmls-configs-nvim
+          copilot-lua
           (pkgs.vimPlugins.nvim-treesitter.withPlugins (
             plugins: with plugins; [
               tree-sitter-bash
