@@ -30,5 +30,8 @@ in
           ".local/share/containers"
         ];
       };
+      xdg.configFile."distrobox/distrobox.conf" = {
+        source = ./distrobox.conf;
+      };
     };
 }
