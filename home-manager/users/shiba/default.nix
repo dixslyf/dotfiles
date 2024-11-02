@@ -104,10 +104,6 @@
       nilPackage = localFlakeInputs'.nil.packages.default;
       defaultApplication.enable = true;
     };
-    osu-lazer = {
-      enable = true;
-      defaultApplication.enable = true;
-    };
     papis.enable = true;
     picom = {
       enable = true;
