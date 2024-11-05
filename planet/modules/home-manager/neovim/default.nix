@@ -90,6 +90,10 @@
             vscode_eslint_language_server_node_path = "${pkgs.nodePackages.eslint}/lib/node_modules";
           }
         );
+        extraLuaPackages =
+          luaPkgs: with luaPkgs; [
+            tiktoken_core
+          ];
         extraPackages =
           with pkgs;
           [
@@ -124,6 +128,7 @@
             nodePackages.typescript-language-server
             vscode-langservers-extracted
             htmlhint
+            nodejs
             (texlive.combine {
               inherit (texlive) scheme-minimal latexindent;
             })
@@ -187,6 +192,8 @@
           zk-nvim
           nvim-jdtls
           efmls-configs-nvim
+          copilot-lua
+          CopilotChat-nvim
           (pkgs.vimPlugins.nvim-treesitter.withPlugins (
             plugins: with plugins; [
               tree-sitter-bash
