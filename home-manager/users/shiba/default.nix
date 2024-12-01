@@ -163,7 +163,7 @@
   home.packages = with pkgs; [
     # Fonts
     material-design-icons
-    (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+    nerd-fonts.symbols-only
 
     # Some programs e.g. inkscape use adwaita by default
     adwaita-icon-theme

@@ -42,7 +42,7 @@
         home.packages = with pkgs; [
           material-design-icons
           localFlake'.packages.iosevka-term-custom
-          (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+          nerd-fonts.symbols-only
         ];
 
         programs.wezterm = {
