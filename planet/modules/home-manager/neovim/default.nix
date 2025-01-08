@@ -120,6 +120,7 @@
             jq
             google-java-format
             tinymist
+            typstyle
             cfg.rustToolchain
             nodePackages.typescript-language-server
             vscode-langservers-extracted

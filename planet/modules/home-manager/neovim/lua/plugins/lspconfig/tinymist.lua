@@ -13,6 +13,9 @@ function M.setup(on_attach, capabilities)
    lspconfig.tinymist.setup({
       on_attach = on_attach,
       capabilities = capabilities,
+      settings = {
+         formatterMode = "typstyle",
+      },
    })
 end
 
