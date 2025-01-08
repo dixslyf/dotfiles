@@ -10,12 +10,9 @@ function M.setup(on_attach, capabilities)
       },
    })
 
-   lspconfig.typst_lsp.setup({
+   lspconfig.tinymist.setup({
       on_attach = on_attach,
       capabilities = capabilities,
-      settings = {
-         exportPdf = "never",
-      },
    })
 end
 
