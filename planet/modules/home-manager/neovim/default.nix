@@ -119,7 +119,8 @@
             efm-langserver
             jq
             google-java-format
-            typst-lsp
+            tinymist
+            typstyle
             cfg.rustToolchain
             nodePackages.typescript-language-server
             vscode-langservers-extracted

@@ -24,7 +24,7 @@ local servers = {
    "python-lsp-server",
    "ltex",
    "hls",
-   "typst-lsp",
+   "tinymist",
    "ts-ls",
    "vscode-html-language-server",
    "vscode-json-language-server",
