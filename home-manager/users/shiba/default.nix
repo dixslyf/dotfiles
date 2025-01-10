@@ -101,7 +101,6 @@
     };
     neovim = {
       enable = true;
-      nilPackage = localFlakeInputs'.nil.packages.default;
       defaultApplication.enable = true;
     };
     papis.enable = true;
