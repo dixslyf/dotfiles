@@ -7,7 +7,7 @@ function M.setup()
          RRGGBBAA = true,
          css = true,
          css_fn = true,
-         sass = { enable = true },
+         sass = { enable = true, parsers = { "css" } },
       },
    })
 end
