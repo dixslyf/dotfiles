@@ -19,6 +19,7 @@ local servers = {
    "efm",
    "nil-ls",
    "lua-ls",
+   "gopls",
    "clangd",
    "rust-analyzer",
    "python-lsp-server",

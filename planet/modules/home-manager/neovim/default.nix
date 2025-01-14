@@ -125,6 +125,7 @@
             nodePackages.typescript-language-server
             vscode-langservers-extracted
             htmlhint
+            gopls
             (texlive.combine {
               inherit (texlive) scheme-minimal latexindent;
             })
@@ -194,6 +195,7 @@
               tree-sitter-c
               tree-sitter-cpp
               tree-sitter-fennel
+              tree-sitter-go
               tree-sitter-haskell
               tree-sitter-html
               tree-sitter-java
