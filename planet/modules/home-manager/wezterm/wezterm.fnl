@@ -14,4 +14,7 @@
  :window_padding {:left "3cell" :right "3cell" :top "1cell" :bottom "1cell"}
  ;; Work around https://github.com/wez/wezterm/issues/5990
  :front_end "WebGpu"
- :enable_wayland false}
+ :enable_wayland false
+ ;; Without this, Wezterm will overwrite the SSH_AUTH_SOCK and
+ ;; make gpg's ssh integration fail.
+ :mux_enable_ssh_agent false}
