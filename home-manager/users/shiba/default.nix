@@ -191,4 +191,9 @@
   ];
 
   fonts.fontconfig.enable = true;
+
+  programs.eww = {
+    enable = true;
+    systemd.enable = true;
+  };
 }
