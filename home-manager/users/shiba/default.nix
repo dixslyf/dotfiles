@@ -195,10 +195,6 @@
   programs.eww = {
     enable = true;
     systemd.enable = true;
-    scssConfig = ''
-      window {
-        background: pink;
-      }
-    '';
+    configDir = ./eww-config;
   };
 }
