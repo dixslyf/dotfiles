@@ -16,6 +16,7 @@
   boot = {
     loader.grub.theme = inputs.catppuccin-grub.outPath + "/src/catppuccin-macchiato-grub-theme";
     kernelPackages = pkgs.linuxPackages_xanmod;
+    kernelParams = [ "nvidia_drm.fbdev=1" ];
     kernel = {
       sysctl = {
         "kernel.sysrq" = 1; # https://wiki.archlinux.org/title/Keyboard_shortcuts#Kernel_(SysRq)
