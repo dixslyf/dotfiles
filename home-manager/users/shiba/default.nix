@@ -195,6 +195,7 @@
   programs.eww = {
     enable = true;
     systemd.enable = true;
+    configDir = ./eww-config;
     yuckConfig = ''
       (defwindow example
         :monitor 0
@@ -208,11 +209,6 @@
         :windowtype "dock"
         :wm-ignore false
       "example content")
-    '';
-    scssConfig = ''
-      window {
-        background: pink;
-      }
     '';
   };
 }
