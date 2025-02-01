@@ -8,7 +8,7 @@ _: {
     ./btrfs
     ./earlyoom
     ./flatpak
-    (importModule ./hyprland { })
+    ./hyprland
     ./mullvad-vpn
     ./neovim
     ./network-manager

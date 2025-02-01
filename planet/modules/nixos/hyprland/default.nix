@@ -1,12 +1,9 @@
-{ localFlakeInputs, ... }:
 {
   config,
   lib,
   ...
 }:
 {
-  imports = [ localFlakeInputs.hyprland.nixosModules.default ];
-
   options =
     let
       inherit (lib) mkEnableOption;
@@ -25,7 +22,7 @@
     mkIf cfg.enable {
       programs.hyprland = {
         enable = true;
-        nvidiaPatches = true;
+        withUWSM = true;
       };
     };
 }

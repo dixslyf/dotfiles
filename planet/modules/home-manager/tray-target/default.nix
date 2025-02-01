@@ -29,10 +29,10 @@
   config =
     let
       cfg = config.planet.tray-target;
-      inherit (lib) mkIf;
+      inherit (lib) mkIf mkForce;
     in
     mkIf cfg.enable {
-      systemd.user.targets.tray = {
+      systemd.user.targets.tray = mkForce {
         Unit = {
           Description = "System tray";
           PartOf = cfg.providers;

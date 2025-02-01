@@ -26,7 +26,7 @@ _: {
     ./gpg
     ./gpg-agent
     (importModule ./gtk { })
-    (importModule ./hyprland { })
+    ./hyprland
     ./kdenlive
     (importModule ./kitty { })
     ./logseq
