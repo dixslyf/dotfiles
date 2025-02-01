@@ -149,6 +149,7 @@
     };
     earlyoom.enable = true;
     flatpak.enable = true;
+    hyprland.enable = true;
     mullvad-vpn.enable = true;
     neovim.enable = true;
     networkmanager.enable = true;

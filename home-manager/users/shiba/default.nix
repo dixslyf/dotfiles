@@ -77,6 +77,10 @@
     gpg.enable = true;
     gpg-agent.enable = true;
     gtk.enable = true;
+    hyprland = {
+      enable = true;
+      nvidiaVariables = true;
+    };
     kdenlive = {
       enable = true;
       defaultApplication.enable = true;
