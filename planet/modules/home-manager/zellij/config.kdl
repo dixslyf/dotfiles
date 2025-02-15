@@ -9,3 +9,9 @@ theme "catppuccin-macchiato"
 default_layout "compact"
 
 disable_session_metadata true
+
+keybinds {
+    shared_except "locked" {
+        unbind "Ctrl q"  // Prevent Ctrl+Q from quitting.
+    }
+}
