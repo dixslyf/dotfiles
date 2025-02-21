@@ -15,7 +15,26 @@
   # Kernel
   boot = {
     loader.grub.theme = inputs.catppuccin-grub.outPath + "/src/catppuccin-macchiato-grub-theme";
-    kernelPackages = pkgs.linuxPackages_xanmod;
+    kernelPackages = pkgs.linuxPackagesFor (
+      pkgs.linux_xanmod.override {
+        argsOverride =
+          let
+            version = "6.6.70";
+            suffix = "xanmod1";
+          in
+          {
+            inherit version suffix;
+            modDirVersion = "${version}-${suffix}";
+
+            src = pkgs.fetchFromGitHub {
+              owner = "xanmod";
+              repo = "linux";
+              rev = "${version}-${suffix}";
+              hash = "sha256-5G3Lo+dWObVDaBRzn2Ho24R2vMjsupx5z2jRIQ0NAl0=";
+            };
+          };
+      }
+    );
     kernel = {
       sysctl = {
         "kernel.sysrq" = 1; # https://wiki.archlinux.org/title/Keyboard_shortcuts#Kernel_(SysRq)
