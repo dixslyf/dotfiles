@@ -32,7 +32,7 @@
       inherit (lib) mkIf;
     in
     mkIf cfg.enable {
-      systemd.user.targets.tray = {
+      systemd.user.targets.tray = lib.mkForce {
         Unit = {
           Description = "System tray";
           PartOf = cfg.providers;
