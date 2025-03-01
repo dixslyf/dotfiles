@@ -32,9 +32,9 @@
         "repo": "gitui"
       },
       "branch": "main",
-      "revision": "c7661f043cb6773a1fc96c336738c6399de3e617",
-      "url": "https://github.com/catppuccin/gitui/archive/c7661f043cb6773a1fc96c336738c6399de3e617.tar.gz",
-      "hash": "0ja8wwm3zvnaf16yfwnm86xpql6cg6sw15ylca2c0hd16h86j709"
+      "revision": "df2f59f847e047ff119a105afff49238311b2d36",
+      "url": "https://github.com/catppuccin/gitui/archive/df2f59f847e047ff119a105afff49238311b2d36.tar.gz",
+      "hash": "0gafm0xj6s5bj07xq9jkzg7rzmqjw2n1rxd3w9ba5xixgy7vy4hd"
     },
     "catppuccin-mako": {
       "type": "Git",
@@ -68,9 +68,9 @@
         "repo": "rofi"
       },
       "branch": "main",
-      "revision": "b636a00fd40a7899a8206195464ae8b7f0450a6d",
-      "url": "https://github.com/catppuccin/rofi/archive/b636a00fd40a7899a8206195464ae8b7f0450a6d.tar.gz",
-      "hash": "1a1sr451nsfii70j2f5qf8wq4jns0d4477a2kzh3993xdnx1j3yc"
+      "revision": "c24a212a6b07c2d45f32d01d7f10b4d88ddc9f45",
+      "url": "https://github.com/catppuccin/rofi/archive/c24a212a6b07c2d45f32d01d7f10b4d88ddc9f45.tar.gz",
+      "hash": "0236bcwad4cmr1fhnywvcnzf7xdmhhwgrkrq8jdg8livhh1h8rjq"
     },
     "catppuccin-waybar": {
       "type": "Git",
