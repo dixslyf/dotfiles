@@ -60,18 +60,6 @@
       "url": "https://github.com/catppuccin/polybar/archive/20054f39d3b77bd1afc765981a42c3467bf91204.tar.gz",
       "hash": "130szcc72vnsl0872qpiiqad1qcspmasana4p2g9v3jxgn03xi4c"
     },
-    "catppuccin-rofi": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "catppuccin",
-        "repo": "rofi"
-      },
-      "branch": "main",
-      "revision": "c24a212a6b07c2d45f32d01d7f10b4d88ddc9f45",
-      "url": "https://github.com/catppuccin/rofi/archive/c24a212a6b07c2d45f32d01d7f10b4d88ddc9f45.tar.gz",
-      "hash": "0236bcwad4cmr1fhnywvcnzf7xdmhhwgrkrq8jdg8livhh1h8rjq"
-    },
     "catppuccin-waybar": {
       "type": "Git",
       "repository": {
