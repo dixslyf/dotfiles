@@ -35,6 +35,7 @@ function M.setup()
          },
          navic = {
             enabled = true,
+            custom_bg = "lualine",
          },
          treesitter = true,
          telescope = true,

@@ -149,7 +149,7 @@
           nvim-ufo
           catppuccin-nvim
           nvim-colorizer-lua
-          feline-nvim
+          lualine-nvim
           nvim-navic
           telescope-nvim
           telescope-fzf-native-nvim
