@@ -147,6 +147,7 @@
         intel-media-driver
         vaapiVdpau
         libvdpau-va-gl
+        nvidia-vaapi-driver
       ];
     };
     bluetooth.enable = true;
