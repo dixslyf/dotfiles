@@ -149,7 +149,7 @@
           nvim-ufo
           catppuccin-nvim
           nvim-colorizer-lua
-          feline-nvim
+          lualine-nvim
           nvim-navic
           telescope-nvim
           telescope-fzf-native-nvim
@@ -189,6 +189,7 @@
           zk-nvim
           nvim-jdtls
           efmls-configs-nvim
+          oil-nvim
           (pkgs.vimPlugins.nvim-treesitter.withPlugins (
             plugins: with plugins; [
               tree-sitter-bash

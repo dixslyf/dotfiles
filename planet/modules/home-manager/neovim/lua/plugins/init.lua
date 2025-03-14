@@ -6,7 +6,7 @@ function M.setup()
    require("plugins.catppuccin").setup()
    require("plugins.colorizer").setup()
    require("plugins.treesitter").setup()
-   require("plugins.feline").setup()
+   require("plugins.lualine").setup()
    require("plugins.tint").setup()
    require("plugins.twilight").setup()
    require("plugins.autopairs").setup()
@@ -24,6 +24,7 @@ function M.setup()
    require("plugins.cmp").setup()
    require("plugins.neoclip").setup()
    require("plugins.zk").setup()
+   require("plugins.oil").setup()
 end
 
 return M

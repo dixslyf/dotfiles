@@ -32,7 +32,7 @@
     in
     mkIf cfg.enable {
       home.packages = with pkgs; [
-        kdenlive
+        kdePackages.kdenlive
         mediainfo
       ];
 

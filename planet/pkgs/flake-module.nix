@@ -22,6 +22,7 @@
         # TODO: figure out lib.makeScope and lib.callPackageWith
         pers-pkgs = npinsPackages // {
           nvidia-offload = prev.callPackage ./nvidia-offload { };
+          catppuccin-rofi = prev.callPackage ./catppuccin-rofi { };
           iosevka-custom = prev.callPackage ./iosevka-custom { };
           iosevka-term-custom = prev.callPackage ./iosevka-custom { spacing = "term"; };
           # vimPlugins = prev.lib.recurseIntoAttrs (prev.callPackage ./vim-plugins { });

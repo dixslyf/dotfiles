@@ -1,13 +1,18 @@
 {
-  src,
   stdenvNoCC,
+  fetchFromGitHub,
   ...
 }:
 stdenvNoCC.mkDerivation {
   pname = "catppuccin-rofi";
-  version = src.revision;
+  version = "unstable-2024-20-06";
 
-  inherit src;
+  src = fetchFromGitHub {
+    owner = "catppuccin";
+    repo = "rofi";
+    rev = "b636a00fd40a7899a8206195464ae8b7f0450a6d";
+    hash = "sha256-zA8Zum19pDTgn0KdQ0gD2kqCOXK4OCHBidFpGwrJOqg=";
+  };
 
   installPhase = ''
     CONFIG_RASI="basic/.config/rofi/config.rasi"
