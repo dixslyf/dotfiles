@@ -15,7 +15,6 @@
   # Kernel
   boot = {
     loader.grub.theme = inputs.catppuccin-grub.outPath + "/src/catppuccin-macchiato-grub-theme";
-    kernelPackages = pkgs.linuxPackages_xanmod;
     kernel = {
       sysctl = {
         "kernel.sysrq" = 1; # https://wiki.archlinux.org/title/Keyboard_shortcuts#Kernel_(SysRq)
@@ -137,6 +136,7 @@
     autorandr.enable = true;
     resolved.enable = true;
     blueman.enable = true;
+    envfs.enable = true;
   };
 
   planet = {
@@ -186,5 +186,6 @@
     light.enable = true;
     gamemode.enable = true;
     dconf.enable = true; # Required by home-manager if `gtk.enable = true`
+    nix-ld.enable = true;
   };
 }

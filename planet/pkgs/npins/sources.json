@@ -8,6 +8,7 @@
         "repo": "bspwm"
       },
       "branch": "master",
+      "submodules": false,
       "revision": "af3bd8b4351f4478fe0fe3cfd6c09e44cb108b4b",
       "url": "https://github.com/baskerville/bspwm/archive/af3bd8b4351f4478fe0fe3cfd6c09e44cb108b4b.tar.gz",
       "hash": "1dhby9kba41mfbcv6282g83xr7k7qs67fp0by7qai9zp6rv3111v"
@@ -20,6 +21,7 @@
         "repo": "fish"
       },
       "branch": "main",
+      "submodules": false,
       "revision": "6a85af2ff722ad0f9fbc8424ea0a5c454661dfed",
       "url": "https://github.com/catppuccin/fish/archive/6a85af2ff722ad0f9fbc8424ea0a5c454661dfed.tar.gz",
       "hash": "1h0nn1kg1vs0xilmai5haw42sm7wfs0b6jq2xpaq48qlfad1xk9r"
@@ -32,6 +34,7 @@
         "repo": "gitui"
       },
       "branch": "main",
+      "submodules": false,
       "revision": "df2f59f847e047ff119a105afff49238311b2d36",
       "url": "https://github.com/catppuccin/gitui/archive/df2f59f847e047ff119a105afff49238311b2d36.tar.gz",
       "hash": "0gafm0xj6s5bj07xq9jkzg7rzmqjw2n1rxd3w9ba5xixgy7vy4hd"
@@ -44,6 +47,7 @@
         "repo": "mako"
       },
       "branch": "main",
+      "submodules": false,
       "revision": "92844f144e72f2dc8727879ec141ffdacf3ff6a1",
       "url": "https://github.com/catppuccin/mako/archive/92844f144e72f2dc8727879ec141ffdacf3ff6a1.tar.gz",
       "hash": "0nz5x66bv0nhmgh2slw647j69x7pqcw0cyclkpv3bq6c5bw9j24f"
@@ -56,6 +60,7 @@
         "repo": "polybar"
       },
       "branch": "main",
+      "submodules": false,
       "revision": "20054f39d3b77bd1afc765981a42c3467bf91204",
       "url": "https://github.com/catppuccin/polybar/archive/20054f39d3b77bd1afc765981a42c3467bf91204.tar.gz",
       "hash": "130szcc72vnsl0872qpiiqad1qcspmasana4p2g9v3jxgn03xi4c"
@@ -68,6 +73,7 @@
         "repo": "waybar"
       },
       "branch": "main",
+      "submodules": false,
       "revision": "ee8ed32b4f63e9c417249c109818dcc05a2e25da",
       "url": "https://github.com/catppuccin/waybar/archive/ee8ed32b4f63e9c417249c109818dcc05a2e25da.tar.gz",
       "hash": "0q4mzqx3w6cywfifs7ij8qzhzvj59dfdzpvqx76vpnhd2zm35bfd"
@@ -80,6 +86,7 @@
         "repo": "zathura"
       },
       "branch": "main",
+      "submodules": false,
       "revision": "0adc53028d81bf047461bc61c43a484d11b15220",
       "url": "https://github.com/catppuccin/zathura/archive/0adc53028d81bf047461bc61c43a484d11b15220.tar.gz",
       "hash": "1cj1z2bh1qw1sbgqmk4i450yv7rgwcz06yhar23ccadsx22gzw7y"
@@ -92,6 +99,7 @@
         "repo": "mali"
       },
       "branch": "master",
+      "submodules": false,
       "revision": "7e11de1301bf785e1b06c24816242ba52dde805f",
       "url": "https://github.com/cadsondemak/mali/archive/7e11de1301bf785e1b06c24816242ba52dde805f.tar.gz",
       "hash": "0vjz0l6rlv7ws92qk75c8c81j4841h1ssi1izzjm0xzcrkivds0q"
@@ -103,10 +111,11 @@
         "url": "https://git.sr.ht/~kennylevinsen/wlsunset"
       },
       "branch": "master",
+      "submodules": false,
       "revision": "c056294f0f6022abec4eeab2fb7a1732f5a20f08",
       "url": null,
       "hash": "0m7iqsqi2rgicjy540cgfwqppc799mf4yijdhl1m3s44g7p3c58s"
     }
   },
-  "version": 3
+  "version": 5
 }
