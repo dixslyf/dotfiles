@@ -17,6 +17,22 @@
             List of disk devices for TLP to act on.
           '';
         };
+        extraSettings = mkOption {
+          type =
+            with lib.types;
+            attrsOf (oneOf [
+              bool
+              int
+              float
+              str
+              (listOf str)
+            ]);
+          default = { };
+          description = ''
+            Extra options passed to TLP to be merged with the default settings.
+            See https://linrunner.de/tlp for all supported options.
+          '';
+        };
       };
     };
 
@@ -36,7 +52,7 @@
           DEVICES_TO_ENABLE_ON_LAN_DISCONNECT = "wifi";
           DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE = "bluetooth";
           DEVICES_TO_DISABLE_ON_STARTUP = "bluetooth wwan";
-        };
+        } // cfg.extraSettings;
       };
     };
 }
