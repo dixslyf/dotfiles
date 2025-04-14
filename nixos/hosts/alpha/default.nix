@@ -165,6 +165,15 @@
         "nvme0n1"
         "sda"
       ];
+      extraSettings = {
+        # For getting the Wavlink 5gbps adapter to work.
+        # See:
+        # - https://askubuntu.com/questions/1044127/usb-ethernet-adapter-realtek-r8153-keeps-disconnecting
+        # - https://forum.manjaro.org/t/no-carrier-network-link-problem-with-usb-2-5-gbit-lan-adapter-realtek-rtl8156b-on-x86-64/97195
+        # - https://community.frame.work/t/solved-getting-the-rtl8156-2-5gb-adapter-on-ubuntu-22-04-solution-blacklist-tlp-from-device/23857/4
+        # ID was retrieved with `lsusb`.
+        USB_DENYLIST = "0bda:8157";
+      };
     };
     udisks2.enable = true;
     upower.enable = true;
