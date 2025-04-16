@@ -25,6 +25,9 @@
           catppuccin-rofi = prev.callPackage ./catppuccin-rofi { };
           iosevka-custom = prev.callPackage ./iosevka-custom { };
           iosevka-term-custom = prev.callPackage ./iosevka-custom { spacing = "term"; };
+          kernelModules = {
+            realtek-r8152 = ./realtek-r8152;
+          };
           # vimPlugins = prev.lib.recurseIntoAttrs (prev.callPackage ./vim-plugins { });
         };
       };
