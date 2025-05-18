@@ -125,6 +125,7 @@
     };
     ssh.enable = true;
     tealdeer.enable = true;
+    techmino.enable = true;
     tetrio-desktop.enable = true;
     thunar = {
       enable = true;
