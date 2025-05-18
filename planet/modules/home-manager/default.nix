@@ -44,6 +44,7 @@ _: {
     ./polkit-agent
     (importModule ./polybar { })
     ./qbittorrent
+    ./qmk
     ./qt
     ./qutebrowser
     ./redshift
