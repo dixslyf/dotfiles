@@ -51,6 +51,7 @@ _: {
     (importModule ./sioyek { })
     ./ssh
     ./tealdeer
+    ./techmino
     ./tetrio-desktop
     ./thunar
     ./tray-target
