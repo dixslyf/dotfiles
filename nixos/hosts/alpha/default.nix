@@ -158,6 +158,7 @@
       lowLatency = true;
     };
     podman.enable = true;
+    qmk.enable = true;
     sddm.enable = true;
     tlp = {
       enable = true;

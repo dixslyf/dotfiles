@@ -112,6 +112,7 @@
     polkit-agent.enable = true;
     polybar.enable = true;
     qbittorrent.enable = true;
+    qmk.enable = true;
     qt.enable = true;
     qutebrowser.enable = true;
     redshift = {

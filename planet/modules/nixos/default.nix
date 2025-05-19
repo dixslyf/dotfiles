@@ -16,6 +16,7 @@ _: {
     (importModule ./persistence { })
     (importModule ./pipewire { })
     ./podman
+    ./qmk
     (importModule ./sddm { })
     ./steam
     ./tlp
