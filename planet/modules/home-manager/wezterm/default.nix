@@ -28,8 +28,7 @@
       mkConfigFile =
         default_prog_args:
         let
-          substituted = pkgs.substituteAll {
-            src = ./wezterm.fnl;
+          substituted = pkgs.replaceVars ./wezterm.fnl {
             inherit default_prog_args;
           };
         in

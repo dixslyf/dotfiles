@@ -44,8 +44,7 @@
         # Use extraConfig so that the hyprland flake still adds in the lines for systemd integration
         extraConfig =
           let
-            hyprland-config = pkgs.substituteAll {
-              src = ./hyprland.conf;
+            hyprland-config = pkgs.replaceVars ./hyprland.conf {
               setCursor = ''exec-once=hyprctl setcursor "${config.home.pointerCursor.name}" ${toString config.home.pointerCursor.size}'';
               nvidiaVariables = lib.strings.optionalString cfg.nvidiaVariables ''
                 env = LIBVA_DRIVER_NAME,nvidia
