@@ -29,8 +29,7 @@
     let
       cfg = config.planet.thunar;
       inherit (lib) mkIf;
-      uca = pkgs.substituteAll {
-        src = ./uca.xml;
+      uca = pkgs.replaceVars ./uca.xml {
         startInDirectoryScript = pkgs.writeShellScript "exec-terminal-in-directory" config.planet.default-terminal.startInDirectoryCommand;
       };
       # Remove the `thunar` user service that is activated by D-Bus.

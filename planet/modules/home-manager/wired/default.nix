@@ -42,9 +42,7 @@
       services.wired = {
         enable = true;
         package = localFlakeInputs'.wired.packages.default;
-        config = pkgs.substituteAll {
-          src = ./wired.ron;
-        };
+        config = ./wired.ron;
       };
 
       services.sxhkd = {

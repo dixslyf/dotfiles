@@ -25,7 +25,9 @@
         enable = true;
         enableFishIntegration = config.planet.fish.enable;
         enableSshSupport = true;
-        pinentryPackage = pkgs.pinentry-qt;
+        pinentry = {
+          package = pkgs.pinentry-qt;
+        };
       };
     };
 }

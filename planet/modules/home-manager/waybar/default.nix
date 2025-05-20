@@ -184,8 +184,7 @@
             modules-center = [ "wlr/workspaces" ];
           };
         };
-        style = pkgs.substituteAll {
-          src = ./style.css;
+        style = pkgs.replaceVars ./style.css {
           themePath = "${localFlake'.packages.catppuccin-waybar}/share/waybar/themes/catppuccin/macchiato.css";
         };
       };
