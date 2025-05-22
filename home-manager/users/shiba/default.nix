@@ -46,6 +46,7 @@
       enable = true;
       primaryMonitor = "eDP-1";
     };
+    cambridge.enable = true;
     citra.enable = false; # FIXME: Wait for the dust to settle.
     dev-man-pages.enable = true;
     direnv.enable = true;
