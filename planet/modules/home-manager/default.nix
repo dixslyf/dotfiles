@@ -6,6 +6,7 @@ _: {
     ./anki
     ./autorandr
     (importModule ./bspwm { })
+    (importModule ./cambridge { })
     ./citra
     ./default-terminal
     ./dev-man-pages

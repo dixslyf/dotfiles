@@ -13,18 +13,18 @@
     overlays.pers-pkgs =
       _: prev:
       let
+        inherit (prev) callPackage;
         sources = import ./npins;
-        npinsPackages = builtins.mapAttrs (
-          name: value: (prev.callPackage ./${name} { src = value; })
-        ) sources;
+        npinsPackages = builtins.mapAttrs (name: value: (callPackage ./${name} { src = value; })) sources;
       in
       {
         # TODO: figure out lib.makeScope and lib.callPackageWith
         pers-pkgs = npinsPackages // {
-          nvidia-offload = prev.callPackage ./nvidia-offload { };
-          catppuccin-rofi = prev.callPackage ./catppuccin-rofi { };
-          iosevka-custom = prev.callPackage ./iosevka-custom { };
-          iosevka-term-custom = prev.callPackage ./iosevka-custom { spacing = "term"; };
+          cambridge = callPackage ./cambridge { };
+          nvidia-offload = callPackage ./nvidia-offload { };
+          catppuccin-rofi = callPackage ./catppuccin-rofi { };
+          iosevka-custom = callPackage ./iosevka-custom { };
+          iosevka-term-custom = callPackage ./iosevka-custom { spacing = "term"; };
           kernelModules = {
             realtek-r8152 = ./realtek-r8152;
           };
