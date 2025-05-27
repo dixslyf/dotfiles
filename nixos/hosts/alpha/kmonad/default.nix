@@ -15,6 +15,11 @@
         defcfg.enable = true;
         config = builtins.readFile ./ducky-one-2-mini.kbd;
       };
+      spmAl68a = {
+        device = "/dev/input/by-id/usb-Hangsheng_AL68A-if02-event-kbd";
+        defcfg.enable = true;
+        config = builtins.readFile ./spm-al68a.kbd;
+      };
     };
   };
 }
