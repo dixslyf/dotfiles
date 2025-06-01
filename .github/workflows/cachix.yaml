@@ -57,6 +57,7 @@ jobs:
           cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
           derivation: ".#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel"
           cachix-extra-pull-names: "nix-gaming, hyprland, nix-community"
+          additional-flags: "--max-jobs 2"
   build-result: # https://github.com/orgs/community/discussions/26822#discussioncomment-5122101
     runs-on: ubuntu-22.04
     needs: [build-hosts]
