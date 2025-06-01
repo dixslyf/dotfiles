@@ -113,7 +113,6 @@
       enable = true;
       xkb = {
         layout = "us";
-        options = "compose:ralt"; # Use right alt as the compose key.
       };
       displayManager = {
         # Set the background color of the root window
