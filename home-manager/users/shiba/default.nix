@@ -104,6 +104,7 @@
       enable = true;
       defaultApplication.enable = true;
     };
+    nexusmods-app.enable = true;
     papis.enable = true;
     picom = {
       enable = true;
