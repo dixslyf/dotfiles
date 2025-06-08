@@ -208,6 +208,7 @@
               tree-sitter-nix
               tree-sitter-python
               tree-sitter-rust
+              tree-sitter-svelte
               tree-sitter-toml
               tree-sitter-tsx
               tree-sitter-typescript
