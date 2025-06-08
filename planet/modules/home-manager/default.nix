@@ -37,6 +37,7 @@ _: {
     ./mullvad-browser
     ./mullvad-vpn
     (importModule ./neovim { })
+    ./nexusmods-app
     (importModule ./osu-lazer { })
     ./papis
     (importModule ./persistence { })
