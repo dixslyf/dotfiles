@@ -125,6 +125,7 @@
             vscode-langservers-extracted
             htmlhint
             gopls
+            svelte-language-server
             (texlive.combine {
               inherit (texlive) scheme-minimal latexindent;
             })
