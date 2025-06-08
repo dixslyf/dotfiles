@@ -1,8 +1,8 @@
 local M = {}
 
-local lspconfig = require("lspconfig")
 function M.setup(on_attach, capabilities)
-   lspconfig.gopls.setup({
+   vim.lsp.enable("gopls")
+   vim.lsp.config("gopls", {
       on_attach = on_attach,
       capabilities = capabilities,
    })
