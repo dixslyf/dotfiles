@@ -22,6 +22,7 @@ local servers = {
    "gopls",
    "clangd",
    "rust-analyzer",
+   "svelte-language-server",
    "python-lsp-server",
    "ltex",
    "hls",

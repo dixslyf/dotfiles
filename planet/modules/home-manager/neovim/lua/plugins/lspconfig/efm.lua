@@ -1,7 +1,5 @@
 local M = {}
 
-local lspconfig = require("lspconfig")
-
 local efmls_configs_utils = require("efmls-configs.utils")
 
 local stylua = require("efmls-configs.formatters.stylua")
@@ -98,7 +96,8 @@ function M.setup(on_attach, capabilities)
       ["="] = { editorconfig_checker },
    }
 
-   lspconfig.efm.setup({
+   vim.lsp.enable("efm")
+   vim.lsp.config("efm", {
       on_attach = on_attach,
       capabilities = capabilities,
       filetypes = vim.tbl_keys(languages),

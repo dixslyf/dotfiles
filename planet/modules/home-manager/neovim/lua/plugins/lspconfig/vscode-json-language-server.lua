@@ -1,10 +1,10 @@
 local M = {}
 
-local lspconfig = require("lspconfig")
 function M.setup(on_attach, capabilities)
    -- Enable completion using snippets
    capabilities.textDocument.completion.completionItem.snippetSupport = true
-   lspconfig.jsonls.setup({
+   vim.lsp.enable("jsonls")
+   vim.lsp.config("jsonls", {
       on_attach = on_attach,
       capabilities = capabilities,
       init_options = {

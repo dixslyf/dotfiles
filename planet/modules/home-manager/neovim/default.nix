@@ -125,6 +125,7 @@
             vscode-langservers-extracted
             htmlhint
             gopls
+            svelte-language-server
             (texlive.combine {
               inherit (texlive) scheme-minimal latexindent;
             })
@@ -207,6 +208,7 @@
               tree-sitter-nix
               tree-sitter-python
               tree-sitter-rust
+              tree-sitter-svelte
               tree-sitter-toml
               tree-sitter-tsx
               tree-sitter-typescript

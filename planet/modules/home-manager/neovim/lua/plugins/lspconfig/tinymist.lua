@@ -1,6 +1,5 @@
 local M = {}
 
-local lspconfig = require("lspconfig")
 function M.setup(on_attach, capabilities)
    -- Neovim does not recognize Typst files by default,
    -- so the filetype needs to be manually registered.
@@ -10,7 +9,8 @@ function M.setup(on_attach, capabilities)
       },
    })
 
-   lspconfig.tinymist.setup({
+   vim.lsp.enable("tinymist")
+   vim.lsp.config("tinymist", {
       on_attach = on_attach,
       capabilities = capabilities,
       settings = {
