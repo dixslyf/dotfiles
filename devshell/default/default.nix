@@ -32,4 +32,6 @@
       deadnix.enable = true;
     };
   };
+
+  containers = pkgs.lib.mkForce { };
 }

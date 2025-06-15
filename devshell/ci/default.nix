@@ -4,5 +4,12 @@ let
   scripts = import ./scripts { inherit pkgs; };
 in
 {
-  packages = with pkgs; [ npins ] ++ (pkgs.lib.attrValues scripts);
+  packages =
+    with pkgs;
+    [
+      npins
+    ]
+    ++ (pkgs.lib.attrValues scripts);
+
+  containers = pkgs.lib.mkForce { };
 }
