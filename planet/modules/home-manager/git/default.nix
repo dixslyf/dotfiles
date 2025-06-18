@@ -23,7 +23,7 @@
       programs.git = {
         enable = true;
         lfs.enable = true;
-        userEmail = "dixonseanlow@protonmail.com";
+        userEmail = "root@dixslyf.dev";
         userName = "Dixon Sean Low Yan Feng";
         signing = {
           key = "A9F388161E9B90C7!";
