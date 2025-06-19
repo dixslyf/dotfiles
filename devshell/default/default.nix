@@ -9,7 +9,8 @@
     statix
     deadnix
   ];
-  pre-commit = {
+
+  git-hooks = {
     hooks = {
       nixfmt-rfc-style = {
         enable = true;
@@ -31,4 +32,6 @@
       deadnix.enable = true;
     };
   };
+
+  containers = pkgs.lib.mkForce { };
 }
