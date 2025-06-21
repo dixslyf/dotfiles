@@ -32,6 +32,7 @@ local servers = {
    "vscode-json-language-server",
    "vscode-css-language-server",
    "vscode-eslint-language-server",
+   "vue-language-server",
 }
 
 local function setup_servers()
