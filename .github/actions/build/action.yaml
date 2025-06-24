@@ -1,5 +1,4 @@
 ---
-
 name: "Build"
 description: "Builds a flake output and pushes the build output(s) to Cachix"
 inputs:
@@ -11,7 +10,7 @@ inputs:
     description: "The name of the Cachix binary cache"
     required: false
     type: string
-    default: "playernamehere-nixos"
+    default: "dixslyf"
   cachix-auth-token:
     description: "The authentication token for Cachix"
     required: true
