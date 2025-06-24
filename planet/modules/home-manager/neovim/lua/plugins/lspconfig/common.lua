@@ -99,7 +99,13 @@ local function setup_mappings(bufnr)
       { silent = true, buffer = bufnr, desc = "List references" }
    )
 
-   vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { silent = true, buffer = bufnr, desc = "Format" })
+   vim.keymap.set("n", "<leader>lf", function()
+      vim.lsp.buf.format({
+         filter = function(client)
+            return client.name ~= "ts_ls"
+         end,
+      })
+   end, { silent = true, buffer = bufnr, desc = "Format" })
 end
 
 -- nvim-navic
