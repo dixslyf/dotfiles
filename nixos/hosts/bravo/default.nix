@@ -81,7 +81,7 @@
   };
 
   services.cachix-agent = {
-    enable = true;
+    enable = false;
     credentialsFile = config.sops.secrets."CACHIX_AGENT_TOKEN".path;
   };
 }
