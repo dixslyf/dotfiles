@@ -102,7 +102,7 @@ local function setup_mappings(bufnr)
    vim.keymap.set("n", "<leader>lf", function()
       vim.lsp.buf.format({
          filter = function(client)
-            return client.name ~= "ts_ls"
+            return client.name ~= "ts_ls" and client.name ~= "vue_ls"
          end,
       })
    end, { silent = true, buffer = bufnr, desc = "Format" })
