@@ -28,11 +28,11 @@
         "flakes"
       ];
       substituters = [
-        "https://playernamehere-nixos.cachix.org"
+        "https://dixslyf.cachix.org"
         "https://nix-community.cachix.org"
       ];
       trusted-public-keys = [
-        "playernamehere-nixos.cachix.org-1:oUHiXCIHbB+VbjDIlckfjwaYkJEvpkW3250+FhF5Vi4="
+        "dixslyf.cachix.org-1:6x8b4tr/2LBObGAlAGS1fbW3B3nK1FvL0CH9uRxjmI4="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
     };
