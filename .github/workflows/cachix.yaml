@@ -17,7 +17,9 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - uses: cachix/install-nix-action@v27
+        with:
+          lfs: true
+      - uses: cachix/install-nix-action@v31
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Check flake
@@ -29,7 +31,9 @@ jobs:
       hosts: ${{ steps.generate.outputs.hosts }}
     steps:
       - uses: actions/checkout@v4
-      - uses: cachix/install-nix-action@v27
+        with:
+          lfs: true
+      - uses: cachix/install-nix-action@v31
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
       - id: generate
@@ -50,6 +54,8 @@ jobs:
           tool-cache: true
           swap-storage: false
       - uses: actions/checkout@v4
+        with:
+          lfs: true
       - name: Build ${{ matrix.host }}
         uses: ./.github/actions/build
         with:
