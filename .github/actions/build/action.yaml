@@ -35,7 +35,7 @@ runs:
       uses: docker/setup-qemu-action@v3
       with:
         platforms: "arm64"
-    - uses: cachix/install-nix-action@v27
+    - uses: cachix/install-nix-action@v31
       with:
         github_access_token: ${{ inputs.github-token }}
         extra_nix_config: |
