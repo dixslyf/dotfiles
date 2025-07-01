@@ -33,6 +33,7 @@ local servers = {
    "vscode-css-language-server",
    "vscode-eslint-language-server",
    "vue-language-server",
+   "astro-ls",
 }
 
 local function setup_servers()
