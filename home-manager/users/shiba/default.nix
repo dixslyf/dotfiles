@@ -116,7 +116,6 @@
     qbittorrent.enable = true;
     qmk.enable = true;
     qt.enable = true;
-    qutebrowser.enable = true;
     redshift = {
       enable = true;
       systemd.target = "bspwm-session.target";
