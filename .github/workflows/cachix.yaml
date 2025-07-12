@@ -49,7 +49,7 @@ jobs:
       matrix:
         host: ${{ fromJson(needs.determine-hosts.outputs.hosts) }}
     steps:
-      - uses: wimpysworld/nothing-but-nix@v6
+      - uses: wimpysworld/nothing-but-nix@bfeb418c0047173b701321078aca83b342e77ec2
       - uses: actions/checkout@v4
         with:
           lfs: true
