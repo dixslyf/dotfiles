@@ -31,5 +31,7 @@
           # vimPlugins = prev.lib.recurseIntoAttrs (prev.callPackage ./vim-plugins { });
         };
       };
+
+    nixpkgs = inputs.nixpkgs.legacyPackages;
   };
 }
