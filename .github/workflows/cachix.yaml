@@ -49,10 +49,7 @@ jobs:
       matrix:
         host: ${{ fromJson(needs.determine-hosts.outputs.hosts) }}
     steps:
-      - uses: jlumbroso/free-disk-space@v1.3.1
-        with:
-          tool-cache: true
-          swap-storage: false
+      - uses: wimpysworld/nothing-but-nix@v6
       - uses: actions/checkout@v4
         with:
           lfs: true
