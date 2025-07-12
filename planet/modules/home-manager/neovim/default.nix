@@ -128,6 +128,7 @@
             gopls
             svelte-language-server
             vue-language-server
+            astro-language-server
             (texlive.combine {
               inherit (texlive) scheme-minimal latexindent;
             })
@@ -194,6 +195,7 @@
           oil-nvim
           (pkgs.vimPlugins.nvim-treesitter.withPlugins (
             plugins: with plugins; [
+              tree-sitter-astro
               tree-sitter-bash
               tree-sitter-c
               tree-sitter-cpp
