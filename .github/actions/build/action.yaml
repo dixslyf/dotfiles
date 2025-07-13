@@ -49,7 +49,9 @@ runs:
         extraPullNames: ${{ inputs.cachix-extra-pull-names }}
     - name: Build
       shell: bash
-      run: nix build --print-build-logs ${{ inputs.additional-flags }} ${{ inputs.derivation }}
+      env:
+        NIXPKGS_ALLOW_UNFREE: 1
+      run: nix build --print-build-logs --impure ${{ inputs.additional-flags }} ${{ inputs.derivation }}
     - name: Cachix push `./result`
       shell: bash
       run: cachix push ${{ inputs.cachix-cache-name }} ./result
