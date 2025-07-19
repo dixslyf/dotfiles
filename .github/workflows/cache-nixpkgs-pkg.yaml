@@ -28,4 +28,4 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
-          derivation: ".#nixpkgs.${{ inputs.system }}.${{ inputs.package }}"
+          derivation: ".#inputs.nixpkgs.legacyPackages.${{ inputs.system }}.${{ inputs.package }}"
