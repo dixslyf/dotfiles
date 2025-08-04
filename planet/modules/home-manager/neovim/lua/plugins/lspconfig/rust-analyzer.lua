@@ -7,8 +7,9 @@ function M.setup(on_attach, capabilities)
       capabilities = capabilities,
       settings = {
          ["rust-analyzer"] = {
-            checkOnSave = {
-               allFeatures = true,
+            checkOnSave = true,
+            check = {
+               features = "all",
                overrideCommand = {
                   "cargo",
                   "clippy",
