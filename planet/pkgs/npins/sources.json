@@ -87,9 +87,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "0adc53028d81bf047461bc61c43a484d11b15220",
-      "url": "https://github.com/catppuccin/zathura/archive/0adc53028d81bf047461bc61c43a484d11b15220.tar.gz",
-      "hash": "1cj1z2bh1qw1sbgqmk4i450yv7rgwcz06yhar23ccadsx22gzw7y"
+      "revision": "9f29c2c1622c70436f0e0b98fea9735863596c1e",
+      "url": "https://github.com/catppuccin/zathura/archive/9f29c2c1622c70436f0e0b98fea9735863596c1e.tar.gz",
+      "hash": "0bw3jyf8xdnra9zj18fzqzgv0y5rbza2agw3a95driwjhdrrz75s"
     },
     "mali": {
       "type": "Git",
