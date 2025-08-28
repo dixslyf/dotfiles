@@ -6,7 +6,7 @@
 }:
 
 let
-  version = "2.19.2";
+  version = "2.20.1.20250814";
 in
 stdenv.mkDerivation {
   pname = "realtek-r8152";
@@ -16,7 +16,7 @@ stdenv.mkDerivation {
     owner = "wget";
     repo = "realtek-r8152-linux";
     rev = "v${version}";
-    sha256 = "sha256-9kJF7y1T0/5yxxsIrQycKY53Ksd8JxMEpVXNjX0WRao=";
+    sha256 = "sha256-h9bhRsxrVFBoMtTbPj0xfixOmQ79l62zBtHuYT0z80I=";
   };
 
   hardeningDisable = [
