@@ -108,7 +108,11 @@
       enable = false;
       credentialsFile = config.sops.secrets."CACHIX_AGENT_TOKEN".path;
     };
-    logind.powerKey = "ignore";
+    logind = {
+      settings = {
+        Login.HandlePowerKey = "ignore";
+      };
+    };
     xserver = {
       enable = true;
       xkb = {
