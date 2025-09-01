@@ -20,7 +20,10 @@
       inherit (lib) mkIf;
     in
     mkIf cfg.enable {
-      programs.ssh.enable = true;
+      programs.ssh = {
+        enable = true;
+        enableDefaultConfig = false;
+      };
       planet.persistence = {
         directories = [ ".ssh" ];
       };
