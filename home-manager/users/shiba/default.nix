@@ -176,6 +176,7 @@
     ripgrep
     bottom
     ouch
+    yazi
     localFlakeInputs'.devenv.packages.default
 
     # Media
