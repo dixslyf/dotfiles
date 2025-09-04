@@ -99,7 +99,6 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_SG.UTF-8";
   console = {
-    font = "Lat2-Terminus16";
     useXkbConfig = true; # use xkbOptions in tty.
   };
 
