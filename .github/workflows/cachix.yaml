@@ -13,29 +13,14 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  determine-hosts:
-    runs-on: ubuntu-22.04
-    outputs:
-      hosts: ${{ steps.generate.outputs.hosts }}
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          lfs: true
-      - uses: cachix/install-nix-action@v31
-        with:
-          github_access_token: ${{ secrets.GITHUB_TOKEN }}
-      - id: generate
-        name: Generate hosts list
-        run: |
-          hosts=$(nix flake show --impure --json . | jq -c '.nixosConfigurations | keys')
-          printf '%s' "hosts=$hosts" >> "$GITHUB_OUTPUT"
   build-hosts:
     runs-on: ubuntu-22.04
-    needs: [determine-hosts]
     strategy:
       fail-fast: false
       matrix:
-        host: ${{ fromJson(needs.determine-hosts.outputs.hosts) }}
+        host:
+          - alpha
+          - bravo
     steps:
       - uses: wimpysworld/nothing-but-nix@bfeb418c0047173b701321078aca83b342e77ec2
         with:
