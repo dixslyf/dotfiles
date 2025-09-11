@@ -13,20 +13,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  check-flake:
-    runs-on: ubuntu-22.04
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          lfs: true
-      - uses: cachix/install-nix-action@v31
-        with:
-          github_access_token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Check flake
-        run: nix flake check --keep-going --impure # devenv requires impure
   determine-hosts:
     runs-on: ubuntu-22.04
-    needs: [check-flake]
     outputs:
       hosts: ${{ steps.generate.outputs.hosts }}
     steps:
