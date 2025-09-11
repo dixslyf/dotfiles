@@ -8,28 +8,22 @@ on:
         description: "The number of the pull request to review."
         type: number
         required: true
-      skip-freeing-of-disk-space:
-        description: "Skip the freeing of disk space using the free-disk-space action."
-        type: boolean
-        required: true
-        default: true
 
 run-name: "Review Nixpkgs PR ${{ inputs.pr }} with nixpkgs-review"
 
 jobs:
   review:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
-      - if: ${{ !inputs.skip-freeing-of-disk-space }}
-        uses: jlumbroso/free-disk-space@v1.3.1
-        with:
-          swap-storage: false
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           repository: "NixOS/nixpkgs"
           fetch-depth:
             # Infinite depth (source: https://git-scm.com/docs/shallow)
             2147483647
+      - uses: wimpysworld/nothing-but-nix@10c936d9e46521bf923f75458e0cbd4fa309300d
+        with:
+          hatchet-protocol: "carve"
       - uses: cachix/install-nix-action@v31
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
