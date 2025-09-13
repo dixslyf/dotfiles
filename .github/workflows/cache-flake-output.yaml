@@ -18,9 +18,9 @@ run-name: "Build and cache ${{ inputs.flake }}#${{ inputs.output }}"
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           lfs: true
       - name: Build and cache

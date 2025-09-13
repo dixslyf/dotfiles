@@ -42,7 +42,7 @@ runs:
           # `i686-linux` must be present for 32-bit software
           # More context: https://github.com/NixOS/nixpkgs/issues/86506#issuecomment-623746883
           extra-platforms = i686-linux aarch64-linux
-    - uses: cachix/cachix-action@v15
+    - uses: cachix/cachix-action@v16
       with:
         name: ${{ inputs.cachix-cache-name }}
         authToken: ${{ inputs.cachix-auth-token }}

@@ -10,23 +10,6 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  # Adapted from: https://discourse.nixos.org/t/best-way-to-handle-boot-extramodulepackages-kernel-module-conflict/30729/6
-  # Allows extraModulePackages to take priority over the built-in kernel packages when there are conflicts.
-  # This is needed for the r8152 driver.
-  system.modulesTree = lib.mkForce [
-    (
-      (
-        (pkgs.aggregateModules (config.boot.extraModulePackages ++ [ config.boot.kernelPackages.kernel ]))
-        .override
-        { name = config.boot.kernelPackages.kernel.name or "kernel" + "-modules"; }
-      ).overrideAttrs
-      {
-        # earlier items in the list above override the contents of later items
-        ignoreCollisions = true;
-      }
-    )
-  ];
-
   boot = {
     loader = {
       efi = {
@@ -42,6 +25,19 @@
     };
 
     kernelModules = [ "kvm-intel" ];
+
+    # Disable the built-in RTL8152 driver so that it doesn't
+    # conflict with Realtek's upstream driver.
+    kernelPatches = [
+      {
+        name = "disable-rtl8152";
+        patch = null;
+        structuredExtraConfig = {
+          USB_RTL8152 = lib.kernel.no;
+        };
+      }
+    ];
+
     extraModulePackages =
       let
         # Newer version of the r8152 driver for RTL8157 support.
@@ -63,7 +59,10 @@
         "uas"
         "sd_mod"
       ];
-      kernelModules = [ ];
+
+      kernelModules = [
+        "r8152"
+      ];
 
       secrets = {
         "/keyfiles/boot.bin" = "/boot/keyfiles/boot.bin";

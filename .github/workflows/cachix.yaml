@@ -13,48 +13,21 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  check-flake:
-    runs-on: ubuntu-22.04
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          lfs: true
-      - uses: cachix/install-nix-action@v31
-        with:
-          github_access_token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Check flake
-        run: nix flake check --keep-going --impure # devenv requires impure
-  determine-hosts:
-    runs-on: ubuntu-22.04
-    needs: [check-flake]
-    outputs:
-      hosts: ${{ steps.generate.outputs.hosts }}
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          lfs: true
-      - uses: cachix/install-nix-action@v31
-        with:
-          github_access_token: ${{ secrets.GITHUB_TOKEN }}
-      - id: generate
-        name: Generate hosts list
-        run: |
-          hosts=$(nix flake show --impure --json . | jq -c '.nixosConfigurations | keys')
-          printf '%s' "hosts=$hosts" >> "$GITHUB_OUTPUT"
   build-hosts:
-    runs-on: ubuntu-22.04
-    needs: [determine-hosts]
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
-        host: ${{ fromJson(needs.determine-hosts.outputs.hosts) }}
+        host:
+          - alpha
+          - bravo
     steps:
-      - uses: wimpysworld/nothing-but-nix@bfeb418c0047173b701321078aca83b342e77ec2
-        with:
-          hatchet-protocol: "carve"
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           lfs: true
+      - uses: wimpysworld/nothing-but-nix@10c936d9e46521bf923f75458e0cbd4fa309300d
+        with:
+          hatchet-protocol: "carve"
       - name: Build ${{ matrix.host }}
         uses: ./.github/actions/build
         with:
@@ -64,7 +37,7 @@ jobs:
           cachix-extra-pull-names: "nix-gaming, hyprland, nix-community"
           additional-flags: "--max-jobs 2"
   build-result: # https://github.com/orgs/community/discussions/26822#discussioncomment-5122101
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     needs: [build-hosts]
     if: ${{ failure() || success() }}
     steps:
