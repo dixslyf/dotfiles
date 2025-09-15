@@ -24,10 +24,10 @@
       "version_upper_bound": null,
       "release_prefix": null,
       "submodules": false,
-      "version": "v0.3.4",
-      "revision": "b23869725af74ab0b08deb2578cd905bc6cd747a",
-      "url": "https://api.github.com/repos/cambridge-stacker/cambridge/tarball/v0.3.4",
-      "hash": "05mi0mqra9slh733hcz7xvv8i12jhrq3vsnqrx1p23jjvf7vfaw5"
+      "version": "v0.4.4.2",
+      "revision": "f0c17270bc7ad5c924567e6950c99e4a79df2c28",
+      "url": "https://api.github.com/repos/cambridge-stacker/cambridge/tarball/v0.4.4.2",
+      "hash": "0jkba42gafxga9inlrsglmhy8a0078z8d5k2438fcqhzs1d9vbhv"
     },
     "catppuccin-fish": {
       "type": "Git",

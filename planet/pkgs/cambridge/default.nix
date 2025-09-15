@@ -46,7 +46,10 @@ stdenv.mkDerivation {
 
   buildPhase = ''
     runHook preBuild
+    cd dist
+    chmod u+x package.sh
     ./package.sh
+    cd ..
     runHook postBuild
   '';
 
@@ -56,7 +59,7 @@ stdenv.mkDerivation {
     CAMBRIDGE_DIR="$out/share/games/lovegames/cambridge"
     mkdir -p "$CAMBRIDGE_DIR"
     mkdir -p "$CAMBRIDGE_DIR/libs"
-    cp "./cambridge.love" "$CAMBRIDGE_DIR"
+    cp "./dist/cambridge.love" "$CAMBRIDGE_DIR"
     cp "./libs/discord-rpc.so" "$CAMBRIDGE_DIR/libs"
 
     mkdir -p "$out/bin"
