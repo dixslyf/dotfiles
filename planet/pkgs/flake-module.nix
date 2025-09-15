@@ -20,7 +20,6 @@
       {
         # TODO: figure out lib.makeScope and lib.callPackageWith
         pers-pkgs = npinsPackages // {
-          cambridge = callPackage ./cambridge { };
           nvidia-offload = callPackage ./nvidia-offload { };
           catppuccin-rofi = callPackage ./catppuccin-rofi { };
           iosevka-custom = callPackage ./iosevka-custom { };

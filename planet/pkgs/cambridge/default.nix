@@ -1,8 +1,8 @@
 {
+  src,
   lib,
   stdenv,
   fetchurl,
-  fetchFromGitHub,
   makeWrapper,
   makeDesktopItem,
   love,
@@ -11,7 +11,6 @@
 
 let
   pname = "cambridge";
-  version = "0.3.4";
   description = "The next open source block stacking game";
 
   desktopItem = makeDesktopItem {
@@ -29,14 +28,12 @@ let
 in
 
 stdenv.mkDerivation {
-  inherit pname version;
+  inherit
+    pname
+    src
+    ;
 
-  src = fetchFromGitHub {
-    owner = "cambridge-stacker";
-    repo = "cambridge";
-    rev = "v${version}";
-    hash = "sha256-hSu3j9tSDnFDz9jqPXCGUoSI9u7nMzjGgVQnlXEFsRY=";
-  };
+  inherit (src) version;
 
   nativeBuildInputs = [
     makeWrapper
