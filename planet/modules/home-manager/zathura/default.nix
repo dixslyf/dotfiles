@@ -1,7 +1,7 @@
-{ localFlake', ... }:
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 {
@@ -47,7 +47,7 @@
       inherit (lib) mkIf;
     in
     mkIf cfg.enable {
-      home.packages = [ localFlake'.packages.iosevka-custom ];
+      home.packages = [ pkgs.pers-pkgs.iosevka-custom ];
       programs.zathura = {
         enable = true;
         options = {
@@ -56,7 +56,7 @@
           selection-clipboard = "clipboard";
         };
         extraConfig = ''
-          include ${localFlake'.packages.catppuccin-zathura}/share/zathura/themes/catppuccin-macchiato
+          include ${pkgs.pers-pkgs.catppuccin-zathura}/share/zathura/themes/catppuccin-macchiato
         '';
       };
       xdg.mimeApps.defaultApplications = mkIf cfg.defaultApplication.enable (

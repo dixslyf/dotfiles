@@ -1,4 +1,3 @@
-{ localFlake', ... }:
 {
   config,
   lib,
@@ -40,7 +39,7 @@
       {
         home.packages = with pkgs; [
           material-design-icons
-          localFlake'.packages.iosevka-term-custom
+          pkgs.pers-pkgs.iosevka-term-custom
           nerd-fonts.symbols-only
         ];
 

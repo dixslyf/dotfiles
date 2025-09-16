@@ -1,4 +1,3 @@
-{ localFlake', ... }:
 {
   config,
   lib,
@@ -22,7 +21,7 @@
       inherit (lib) mkIf;
     in
     mkIf cfg.enable {
-      home.packages = [ localFlake'.packages.mali ];
+      home.packages = [ pkgs.pers-pkgs.mali ];
 
       gtk = {
         enable = true;

@@ -12,12 +12,12 @@ _: {
     ./mullvad-vpn
     ./neovim
     ./network-manager
-    (importModule ./nvidia { })
+    ./nvidia
     (importModule ./persistence { })
     (importModule ./pipewire { })
     ./podman
     ./qmk
-    (importModule ./sddm { })
+    ./sddm
     ./steam
     ./tlp
     ./udisks2

@@ -1,7 +1,7 @@
-{ localFlake', ... }:
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 {
@@ -47,7 +47,7 @@
       inherit (lib) mkIf;
     in
     mkIf cfg.enable {
-      home.packages = [ localFlake'.packages.iosevka-custom ];
+      home.packages = [ pkgs.pers-pkgs.iosevka-custom ];
       programs.sioyek = {
         enable = true;
         bindings = {

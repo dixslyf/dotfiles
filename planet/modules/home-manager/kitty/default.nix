@@ -1,7 +1,7 @@
-{ localFlake', ... }:
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 {
@@ -25,7 +25,7 @@
     in
     mkIf cfg.enable (mkMerge [
       {
-        home.packages = [ localFlake'.packages.iosevka-term-custom ];
+        home.packages = [ pkgs.pers-pkgs.iosevka-term-custom ];
         programs.kitty = {
           enable = true;
           settings = {
