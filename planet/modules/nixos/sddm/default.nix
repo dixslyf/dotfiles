@@ -40,7 +40,7 @@
       services.displayManager.sddm = {
         enable = true;
         package = pkgs.qt6Packages.sddm;
-        theme = "catppuccin-macchiato";
+        theme = "catppuccin-macchiato-mauve";
       };
     };
 }

@@ -13,6 +13,22 @@
       "url": "https://github.com/baskerville/bspwm/archive/af3bd8b4351f4478fe0fe3cfd6c09e44cb108b4b.tar.gz",
       "hash": "1dhby9kba41mfbcv6282g83xr7k7qs67fp0by7qai9zp6rv3111v"
     },
+    "cambridge": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "cambridge-stacker",
+        "repo": "cambridge"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "v0.4.4.2",
+      "revision": "f0c17270bc7ad5c924567e6950c99e4a79df2c28",
+      "url": "https://api.github.com/repos/cambridge-stacker/cambridge/tarball/v0.4.4.2",
+      "hash": "0jkba42gafxga9inlrsglmhy8a0078z8d5k2438fcqhzs1d9vbhv"
+    },
     "catppuccin-fish": {
       "type": "Git",
       "repository": {
