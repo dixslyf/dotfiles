@@ -1,4 +1,3 @@
-{ localFlake', ... }:
 {
   config,
   lib,
@@ -185,7 +184,7 @@
           };
         };
         style = pkgs.replaceVars ./style.css {
-          themePath = "${localFlake'.packages.catppuccin-waybar}/share/waybar/themes/catppuccin/macchiato.css";
+          themePath = "${pkgs.pers-pkgs.catppuccin-waybar}/share/waybar/themes/catppuccin/macchiato.css";
         };
       };
     };

@@ -1,4 +1,3 @@
-{ localFlake', ... }:
 {
   config,
   lib,
@@ -19,8 +18,8 @@
 
         package = mkOption {
           type = types.package;
-          default = localFlake'.packages.wlsunset;
-          defaultText = "localFlake'.packages.wlsunset";
+          default = pkgs.pers-pkgs.wlsunset;
+          defaultText = "pkgs.pers-pkgs.wlsunset";
           description = ''
             wlsunset derivation to use.
           '';
@@ -140,29 +139,28 @@
           Service = {
             ExecStart =
               let
-                args =
-                  [
-                    "-t"
-                    (toString cfg.temperature.night)
-                    "-T"
-                    (toString cfg.temperature.day)
-                    "-g"
-                    (toString cfg.gamma)
-                  ]
-                  ++ optionals manual [
-                    "-S"
-                    (toString cfg.sunrise)
-                    "-s"
-                    (toString cfg.sunset)
-                    "-d"
-                    (toString cfg.duration)
-                  ]
-                  ++ optionals coords [
-                    "-l"
-                    (toString cfg.latitude)
-                    "-L"
-                    (toString cfg.longitude)
-                  ];
+                args = [
+                  "-t"
+                  (toString cfg.temperature.night)
+                  "-T"
+                  (toString cfg.temperature.day)
+                  "-g"
+                  (toString cfg.gamma)
+                ]
+                ++ optionals manual [
+                  "-S"
+                  (toString cfg.sunrise)
+                  "-s"
+                  (toString cfg.sunset)
+                  "-d"
+                  (toString cfg.duration)
+                ]
+                ++ optionals coords [
+                  "-l"
+                  (toString cfg.latitude)
+                  "-L"
+                  (toString cfg.longitude)
+                ];
               in
               "${cfg.package}/bin/wlsunset ${escapeShellArgs args}";
           };

@@ -1,7 +1,7 @@
-{ localFlake', ... }:
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 {
@@ -22,7 +22,7 @@
     in
     mkIf cfg.enable {
       home.packages = [
-        localFlake'.packages.cambridge
+        pkgs.pers-pkgs.cambridge
       ];
 
       planet.persistence = {

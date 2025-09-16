@@ -1,4 +1,3 @@
-{ localFlake', ... }:
 {
   config,
   lib,
@@ -39,7 +38,7 @@
         };
 
       xdg.configFile."fish/themes" = {
-        source = "${localFlake'.packages.catppuccin-fish}/share/fish/themes";
+        source = "${pkgs.pers-pkgs.catppuccin-fish}/share/fish/themes";
         recursive = true;
       };
     };

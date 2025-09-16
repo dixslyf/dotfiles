@@ -1,6 +1,5 @@
 {
   localFlakeInputs,
-  localFlake',
   localFlakeInputs',
   ...
 }:
@@ -37,7 +36,7 @@
       inherit (lib) mkIf;
     in
     mkIf cfg.enable {
-      home.packages = [ localFlake'.packages.iosevka-custom ];
+      home.packages = [ pkgs.pers-pkgs.iosevka-custom ];
 
       services.wired = {
         enable = true;

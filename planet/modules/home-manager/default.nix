@@ -6,7 +6,7 @@ _: {
     ./anki
     ./autorandr
     (importModule ./bspwm { })
-    (importModule ./cambridge { })
+    ./cambridge
     ./citra
     ./default-terminal
     ./dev-man-pages
@@ -17,22 +17,22 @@ _: {
     ./feh
     ./file-roller
     ./firefox
-    (importModule ./fish { })
+    ./fish
     ./flameshot
     ./fzf
     ./git
     ./gh
-    (importModule ./gitui { })
+    ./gitui
     ./glab
     ./gpg
     ./gpg-agent
-    (importModule ./gtk { })
+    ./gtk
     (importModule ./hyprland { })
     ./kdenlive
-    (importModule ./kitty { })
+    ./kitty
     ./logseq
     ./lutris
-    (importModule ./mako { })
+    ./mako
     ./mpv
     ./mullvad-browser
     ./mullvad-vpn
@@ -44,14 +44,14 @@ _: {
     ./picom
     ./pointer-cursor
     ./polkit-agent
-    (importModule ./polybar { })
+    ./polybar
     ./qbittorrent
     ./qmk
     ./qt
     ./qutebrowser
     ./redshift
-    (importModule ./rofi { })
-    (importModule ./sioyek { })
+    ./rofi
+    ./sioyek
     ./ssh
     ./tealdeer
     ./techmino
@@ -59,13 +59,13 @@ _: {
     ./thunar
     ./tray-target
     ./udiskie
-    (importModule ./waybar { })
-    (importModule ./wezterm { })
+    ./waybar
+    ./wezterm
     (importModule ./wired { })
-    (importModule ./wlsunset { })
+    ./wlsunset
     ./xdg-terminal-exec
     ./yuzu
-    (importModule ./zathura { })
+    ./zathura
     ./zellij
     ./zotero
     ./zoxide

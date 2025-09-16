@@ -1,4 +1,3 @@
-{ localFlake', ... }:
 {
   config,
   lib,
@@ -23,7 +22,7 @@
     in
     mkIf cfg.enable {
       fonts.packages = [
-        localFlake'.packages.iosevka-custom
+        pkgs.pers-pkgs.iosevka-custom
       ];
 
       environment.systemPackages = with pkgs; [

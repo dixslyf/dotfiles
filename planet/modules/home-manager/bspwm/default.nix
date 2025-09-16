@@ -1,6 +1,5 @@
 {
   localFlake,
-  localFlake',
   ...
 }:
 
@@ -35,7 +34,7 @@
       # More details: https://github.com/NixOS/nixpkgs/issues/190442
       xsession.windowManager.bspwm = {
         enable = true;
-        package = localFlake'.packages.bspwm;
+        package = pkgs.pers-pkgs.bspwm;
         monitors = {
           ${cfg.primaryMonitor} = [
             "p1"
@@ -109,7 +108,8 @@
                           right 20 0 || bspc node -z left 20 0}
           '';
           "super + {_,shift} + {u,i}" = "bspc {monitor -f,node -m} {prev,next}"; # focus or send to the next monitor
-          "super + {1-9,0} + {_,shift}" = ''num={1-9,10}; if [ $(bspc query -D -d focused --names | cut -c 2) != "$num" ]; then bspc {desktop -f,node -d} focused:^"$num"; fi''; # focus / move window to desktop
+          "super + {1-9,0} + {_,shift}" =
+            ''num={1-9,10}; if [ $(bspc query -D -d focused --names | cut -c 2) != "$num" ]; then bspc {desktop -f,node -d} focused:^"$num"; fi''; # focus / move window to desktop
           "super + {o,p}" = "bspc desktop -f {prev,next}.local"; # focus the next/prev desktop in the current monitor
           "super + Return" = "wezterm"; # open terminal
           "{XF86MonBrightnessUp,XF86MonBrightnessDown} + {_,shift}" = "light -{A,U} {0.2,1}";
@@ -117,7 +117,8 @@
           "{XF86AudioRaiseVolume,XF86AudioLowerVolume} + {_,shift}" = "pamixer -{i,d} {1,2}";
           "XF86AudioMute" = "pamixer --toggle-mute";
           "super + r" = "rofi -show drun";
-          "super + g" = "if [ \"$(bspc config window_gap)\" -eq 0 ]; then bspc config window_gap 12; bspc config border_width 2; else bspc config window_gap 0; bspc config border_width 0; fi";
+          "super + g" =
+            "if [ \"$(bspc config window_gap)\" -eq 0 ]; then bspc config window_gap 12; bspc config border_width 2; else bspc config window_gap 0; bspc config border_width 0; fi";
           "Print" = "flameshot gui";
         };
       };
