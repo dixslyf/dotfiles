@@ -73,7 +73,7 @@
             Description = "Polybar status bar on eDP-1";
             PartOf = optionalBspwmTarget;
             After = optionalBspwmTarget;
-            X-Restart-Triggers = "${configFile}";
+            X-Restart-Triggers = [ "${configFile}" ];
           };
 
           Service = {
@@ -92,7 +92,7 @@
             Description = "Polybar status bar on HDMI-1";
             PartOf = optionalBspwmTarget;
             After = optionalBspwmTarget;
-            X-Restart-Triggers = "${configFile}";
+            X-Restart-Triggers = [ "${configFile}" ];
           };
 
           Service = {
