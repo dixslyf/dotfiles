@@ -9,9 +9,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "0f7e65ed23476a196f55a49271ca3d53ae71120b",
-      "url": "https://github.com/baskerville/bspwm/archive/0f7e65ed23476a196f55a49271ca3d53ae71120b.tar.gz",
-      "hash": "1lakhpqf5fafdk5pz4z2g7ljxvfn0dc16n4pa338q3mcwkg30q76"
+      "revision": "c5cf7d3943f9a34a5cb2bab36bf473fd77e7d4f6",
+      "url": "https://github.com/baskerville/bspwm/archive/c5cf7d3943f9a34a5cb2bab36bf473fd77e7d4f6.tar.gz",
+      "hash": "09arpajpgdh2yvadr8r1d81x5w1mrg84wl1a2b150ab00rc5wj5h"
     },
     "cambridge": {
       "type": "GitRelease",
