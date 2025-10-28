@@ -10,6 +10,11 @@
   services.kmonad = {
     enable = true;
     keyboards = {
+      laptop = {
+        device = "/dev/input/by-path/platform-i8042-serio-0-event-kbd";
+        defcfg.enable = true;
+        config = builtins.readFile ./laptop.kbd;
+      };
       duckyOne2Mini = {
         device = "/dev/input/by-id/usb-Ducky_Ducky_One2_Mini_DK-V1.11-190819-event-kbd";
         defcfg.enable = true;
