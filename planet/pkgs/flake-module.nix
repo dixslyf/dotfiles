@@ -20,6 +20,7 @@
       {
         # TODO: figure out lib.makeScope and lib.callPackageWith
         pers-pkgs = npinsPackages // {
+          groovy-language-server = callPackage ./groovy-language-server { };
           nvidia-offload = callPackage ./nvidia-offload { };
           catppuccin-rofi = callPackage ./catppuccin-rofi { };
           iosevka-custom = callPackage ./iosevka-custom { };
