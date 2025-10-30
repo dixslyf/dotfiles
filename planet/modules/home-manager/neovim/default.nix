@@ -202,6 +202,7 @@
               tree-sitter-cpp
               tree-sitter-fennel
               tree-sitter-go
+              tree-sitter-groovy
               tree-sitter-haskell
               tree-sitter-html
               tree-sitter-java
