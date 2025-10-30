@@ -4,26 +4,12 @@
   fetchFromGitHub,
   gradle_9,
   makeWrapper,
-  jre_minimal,
   jre_headless,
 }:
 
 let
   gradle = gradle_9;
-  jre = jre_minimal.override {
-    # Analysed with jdeps.
-    modules = [
-      "java.base"
-      "java.compiler"
-      "java.desktop"
-      "java.logging"
-      "java.management"
-      "java.prefs"
-      "java.sql"
-      "java.xml"
-    ];
-    jdk = jre_headless;
-  };
+  jre = jre_headless;
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "groovy-language-server";
