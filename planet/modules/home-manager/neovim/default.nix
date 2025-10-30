@@ -129,6 +129,7 @@
             svelte-language-server
             vue-language-server
             astro-language-server
+            pers-pkgs.groovy-language-server
             (texlive.combine {
               inherit (texlive) scheme-minimal latexindent;
             })

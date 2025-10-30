@@ -34,6 +34,7 @@ local servers = {
    "vscode-eslint-language-server",
    "vue-language-server",
    "astro-ls",
+   "groovy-language-server",
 }
 
 local function setup_servers()
