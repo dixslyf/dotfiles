@@ -185,7 +185,7 @@
     inkscape
 
     # X
-    xdragon
+    dragon-drop
 
     # Miscellaneous
     keepassxc
