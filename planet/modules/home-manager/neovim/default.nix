@@ -97,7 +97,7 @@
             editorconfig-checker
             shellcheck
             shfmt
-            sumneko-lua-language-server
+            lua-language-server
             stylua
             fnlfmt
             nixfmt-rfc-style

@@ -132,9 +132,6 @@
       touchpad.naturalScrolling = true;
     };
     fstrim.enable = true;
-    udev.packages = with pkgs; [
-      android-udev-rules
-    ];
     autorandr.enable = true;
     resolved.enable = true;
     blueman.enable = true;

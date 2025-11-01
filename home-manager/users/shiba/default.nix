@@ -105,7 +105,6 @@
       defaultApplication.enable = true;
     };
     nexusmods-app.enable = true;
-    papis.enable = true;
     picom = {
       enable = true;
       systemd.target = "bspwm-session.target";
@@ -185,7 +184,7 @@
     inkscape
 
     # X
-    xdragon
+    dragon-drop
 
     # Miscellaneous
     keepassxc
