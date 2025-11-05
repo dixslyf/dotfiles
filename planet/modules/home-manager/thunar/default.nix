@@ -47,13 +47,11 @@
           thunarPlugins = [ pkgs.xfce.thunar-archive-plugin ];
         }).overrideAttrs
           (previousAttrs: {
-            buildCommand =
-              previousAttrs.buildCommand
-              + ''
-                rm "$out/share/systemd/user/thunar.service"
-                rmdir "$out/share/systemd/user"
-                rmdir "$out/share/systemd"
-              '';
+            buildCommand = previousAttrs.buildCommand + ''
+              rm "$out/share/systemd/user/thunar.service"
+              rmdir "$out/share/systemd/user"
+              rmdir "$out/share/systemd"
+            '';
           });
     in
     mkIf cfg.enable {
