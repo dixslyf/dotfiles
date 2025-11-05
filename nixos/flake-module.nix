@@ -18,5 +18,12 @@
         ];
       };
     };
+    darwinConfigurations = {
+      charlie = self.lib.mkDarwinSystem {
+        modules = [
+          ./hosts/charlie
+        ];
+      };
+    };
   };
 }

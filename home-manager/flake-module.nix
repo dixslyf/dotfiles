@@ -18,6 +18,14 @@ let
         ];
       };
     };
+    dixslyf = {
+      homeConfiguration = {
+        imports = [
+          self.homeManagerModules.planet
+          ./users/dixslyf
+        ];
+      };
+    };
   };
 in
 {

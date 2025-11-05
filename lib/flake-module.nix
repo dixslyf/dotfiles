@@ -9,7 +9,10 @@
 {
   flake.lib =
     let
-      inherit (inputs) nixpkgs;
+      inherit (inputs)
+        nixpkgs
+        nix-darwin
+        ;
 
       # Adapted from https://stackoverflow.com/questions/54504685/nix-function-to-merge-attributes-records-recursively-and-concatenate-arrays
       recursiveMergeAttrs = builtins.zipAttrsWith (
@@ -62,5 +65,24 @@
           ];
         in
         nixpkgs.lib.nixosSystem config;
+
+      mkDarwinSystem =
+        extraConfig:
+        let
+          config = recursiveMergeAttrs [
+            extraConfig
+            {
+              modules = [
+                { nixpkgs.overlays = [ self.overlays.pers-pkgs ]; }
+                { nix.registry.nixpkgs.flake = nixpkgs; }
+              ];
+              specialArgs = {
+                inherit inputs;
+                inherit homeUsers;
+              };
+            }
+          ];
+        in
+        nix-darwin.lib.darwinSystem config;
     };
 }

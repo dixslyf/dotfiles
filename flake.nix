@@ -13,6 +13,10 @@
       flake = false;
     };
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -66,6 +70,7 @@
       systems = [
         "x86_64-linux"
         "aarch64-linux"
+        "aarch64-darwin"
       ];
 
       flake = {

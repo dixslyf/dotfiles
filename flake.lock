@@ -693,6 +693,27 @@
         "type": "github"
       }
     },
+    "nix-darwin": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1762304480,
+        "narHash": "sha256-ikVIPB/ea/BAODk6aksgkup9k2jQdrwr4+ZRXtBgmSs=",
+        "owner": "nix-darwin",
+        "repo": "nix-darwin",
+        "rev": "b8c7ac030211f18bd1f41eae0b815571853db7a2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-darwin",
+        "ref": "master",
+        "repo": "nix-darwin",
+        "type": "github"
+      }
+    },
     "nix-gaming": {
       "inputs": {
         "flake-parts": "flake-parts_3",
@@ -827,6 +848,7 @@
         "hyprland": "hyprland",
         "impermanence": "impermanence",
         "kmonad": "kmonad",
+        "nix-darwin": "nix-darwin",
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs_2",
         "sops-nix": "sops-nix",
