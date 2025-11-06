@@ -22,8 +22,7 @@
     };
     # gitui.enable = true;
     glab.enable = true;
-    # gpg.enable = true;
-    # gpg-agent.enable = true;
+    gpg.enable = true;
     mpv = {
       enable = true;
       defaultApplication.enable = true;
