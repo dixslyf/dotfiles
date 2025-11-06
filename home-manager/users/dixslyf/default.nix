@@ -18,7 +18,7 @@
     gh.enable = true;
     git = {
       enable = true;
-      sign = false;
+      profile = "work";
     };
     # gitui.enable = true;
     glab.enable = true;

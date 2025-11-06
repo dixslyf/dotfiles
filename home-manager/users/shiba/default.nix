@@ -72,7 +72,10 @@
     };
     fzf.enable = true;
     gh.enable = true;
-    git.enable = true;
+    git = {
+      enable = true;
+      profile = "personal";
+    };
     gitui.enable = true;
     glab.enable = true;
     gpg.enable = true;

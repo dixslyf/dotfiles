@@ -15,11 +15,13 @@
     {
       planet.git = {
         enable = mkEnableOption "planet git";
-        sign = mkOption {
-          type = types.bool;
-          default = true;
+        profile = mkOption {
+          type = types.enum [
+            "personal"
+            "work"
+          ];
           description = ''
-            Configure signing with GPG.
+            The Git profile to use. Affects the user and signing configuration.
           '';
         };
       };
@@ -39,10 +41,7 @@
           enable = true;
           lfs.enable = true;
           settings = {
-            user = {
-              name = "Dixon Sean Low Yan Feng";
-              email = "root@dixslyf.dev";
-            };
+            user.name = "Dixon Sean Low Yan Feng";
             merge = {
               conflictStyle = "zdiff3";
               ff = false;
@@ -51,13 +50,33 @@
               rebase = "merges";
             };
           };
+          signing.signByDefault = true;
         };
       }
-      (mkIf cfg.sign {
-        programs.git.signing = {
-          key = "A9F388161E9B90C7!";
-          signByDefault = true;
-        };
-      })
+      {
+        programs.git =
+          if cfg.profile == "personal" then
+            {
+              settings = {
+                user.email = "root@dixslyf.dev";
+              };
+              signing = {
+                format = "opengpg";
+                key = "A9F388161E9B90C7!";
+              };
+            }
+          else
+            # "work"
+            {
+              settings = {
+                user.email = "dixon@subnero.com";
+                gpg.ssh.allowedSignersFile = "${./allowed_signers}";
+              };
+              signing = {
+                format = "ssh";
+                key = "~/.ssh/gh_sign.pub";
+              };
+            };
+      }
     ]);
 }
