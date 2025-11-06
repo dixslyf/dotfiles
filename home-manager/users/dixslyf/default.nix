@@ -9,10 +9,6 @@
     direnv.enable = true;
     discord.enable = true;
     editorconfig.enable = true;
-    feh = {
-      enable = true;
-      defaultApplication.enable = true;
-    };
     fish.enable = true;
     fzf.enable = true;
     gh.enable = true;
