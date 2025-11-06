@@ -57,6 +57,10 @@
     bottom
     ouch
     yazi
+    docker-client
+    colima
+    wget
+    xz
     # localFlakeInputs'.devenv.packages.default
 
     # Media
