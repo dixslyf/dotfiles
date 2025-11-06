@@ -17,6 +17,12 @@
           ./hosts/bravo
         ];
       };
+
+      delta = self.lib.mkNixosSystem {
+        modules = [
+          ./hosts/delta
+        ];
+      };
     };
     darwinConfigurations = {
       charlie = self.lib.mkDarwinSystem {
