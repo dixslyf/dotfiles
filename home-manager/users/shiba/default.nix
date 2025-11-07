@@ -1,6 +1,5 @@
 {
   importModule,
-  localFlakeInputs',
   ...
 }:
 
@@ -179,7 +178,7 @@
     bottom
     ouch
     yazi
-    localFlakeInputs'.devenv.packages.default
+    devenv
 
     # Media
     pavucontrol
