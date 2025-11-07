@@ -45,7 +45,12 @@
 
       commonSystemConfig = {
         modules = [
-          { nixpkgs.overlays = [ self.overlays.pers-pkgs ]; }
+          {
+            nixpkgs.overlays = [
+              self.overlays.pers-pkgs
+              inputs.devenv.overlays.default
+            ];
+          }
           { nix.registry.nixpkgs.flake = nixpkgs; }
         ];
         specialArgs = {
