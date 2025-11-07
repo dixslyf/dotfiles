@@ -14,8 +14,8 @@
 
   nix.settings.experimental-features = "nix-command flakes";
 
-  # # Set Git commit hash for darwin-version.
-  # system.configurationRevision = localFlake.rev or localFlake.dirtyRev or null;
+  # Set Git commit hash for darwin-version.
+  system.configurationRevision = localFlake.rev or localFlake.dirtyRev or null;
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
