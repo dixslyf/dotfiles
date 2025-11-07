@@ -16,7 +16,10 @@
       enable = true;
       profile = "work";
     };
-    # gitui.enable = true;
+    gitui = {
+      enable = true;
+      package = pkgs.pers-pkgs.gitui-darwin;
+    };
     glab.enable = true;
     gpg.enable = true;
     mpv = {
