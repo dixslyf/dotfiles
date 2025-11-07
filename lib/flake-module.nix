@@ -56,6 +56,7 @@
         specialArgs = {
           inherit inputs;
           inherit homeUsers;
+          localFlake = self;
         };
       };
 
