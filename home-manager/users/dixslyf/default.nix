@@ -59,7 +59,7 @@
     colima
     wget
     xz
-    # localFlakeInputs'.devenv.packages.default
+    devenv
 
     # Media
     inkscape
