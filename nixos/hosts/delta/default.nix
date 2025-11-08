@@ -6,6 +6,7 @@ _:
 
 {
   imports = [
+    ./disks.nix
     ./hardware-configuration.nix
   ];
 

@@ -1,5 +1,6 @@
 {
   self,
+  inputs,
   ...
 }:
 {
@@ -20,6 +21,7 @@
 
       delta = self.lib.mkNixosSystem {
         modules = [
+          inputs.disko.nixosModules.disko
           ./hosts/delta
         ];
       };
