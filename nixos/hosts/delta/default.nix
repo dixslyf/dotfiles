@@ -6,6 +6,8 @@ _:
 
 {
   imports = [
+    ./users
+    ./sops
     ./disks.nix
     ./hardware-configuration.nix
   ];
