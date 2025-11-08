@@ -26,6 +26,14 @@ let
         ];
       };
     };
+    husky = {
+      homeConfiguration = {
+        imports = [
+          self.homeManagerModules.planet
+          ./users/husky
+        ];
+      };
+    };
   };
 in
 {
