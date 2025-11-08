@@ -1,7 +1,34 @@
 _:
 
+let
+  persistDirectory = "/persist";
+in
 {
-  fileSystems."/persist".neededForBoot = true;
+  planet.persistence = {
+    enable = true;
+    inherit persistDirectory;
+    persistSystemdDirectories = true;
+    persistMachines = true;
+    persistSystemdBacklight = true;
+    persistLogs = true;
+    persistSsh = true;
+    persistMachineId = true;
+  };
+
+  fileSystems.${persistDirectory}.neededForBoot = true;
+
+  fileSystems = {
+    "/" = {
+      device = "none";
+      fsType = "tmpfs";
+      options = [
+        "size=16G"
+        "mode=755"
+        "noatime"
+      ];
+    };
+  };
+
   disko.devices = {
     disk = {
       main = {
@@ -33,7 +60,7 @@ _:
                 content = {
                   type = "filesystem";
                   format = "ext4";
-                  mountpoint = "/persist";
+                  mountpoint = persistDirectory;
                   mountOptions = [
                     "defaults"
                     "relatime"

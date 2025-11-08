@@ -29,36 +29,6 @@
     extraModulePackages = [ ];
   };
 
-  fileSystems = {
-    "/" = {
-      device = "tmpfs";
-      fsType = "tmpfs";
-    };
-
-    "/iso" = {
-      device = "/dev/disk/by-uuid/1980-01-01-00-00-00-00";
-      fsType = "iso9660";
-    };
-
-    "/nix/.ro-store" = {
-      device = "/iso/nix-store.squashfs";
-      fsType = "squashfs";
-      options = [ "loop" ];
-    };
-
-    "/nix/.rw-store" = {
-      device = "tmpfs";
-      fsType = "tmpfs";
-    };
-
-    "/nix/store" = {
-      device = "overlay";
-      fsType = "overlay";
-    };
-  };
-
-  swapDevices = [ ];
-
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
