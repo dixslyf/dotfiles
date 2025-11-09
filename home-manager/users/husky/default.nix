@@ -28,10 +28,10 @@
         ".var" # Used by `flatpak`
       ];
     };
-    # autorandr = {
-    #   enable = true;
-    #   host = "delta";
-    # };
+    autorandr = {
+      enable = true;
+      host = "delta";
+    };
     bspwm = {
       enable = true;
       primaryMonitor = "eDP-1";
