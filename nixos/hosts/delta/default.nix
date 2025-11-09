@@ -21,6 +21,8 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
+    # Use a later kernel version for proper Intel BE201 WiFi support.
+    kernelPackages = pkgs.linuxPackages_latest;
     kernel = {
       sysctl = {
         "kernel.sysrq" = 1; # https://wiki.archlinux.org/title/Keyboard_shortcuts#Kernel_(SysRq)
