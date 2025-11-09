@@ -27,13 +27,7 @@ in
         "noatime"
       ];
     };
-    "/nix" = {
-      device = "/persist/nix";
-      options = [
-        "bind"
-      ];
-    };
-    # "/persist" configuration is mostly handled by disko.
+    # Other filesystem configuration is mostly handled by disko.
   };
 
   disko.devices = {
@@ -60,18 +54,28 @@ in
                 type = "luks";
                 name = "crypt";
                 askPassword = true;
-                # initrdUnlock = true;
                 extraOpenArgs = [
                   "--allow-discards"
                 ];
                 content = {
-                  type = "filesystem";
-                  format = "ext4";
-                  mountpoint = persistDirectory;
-                  mountOptions = [
-                    "defaults"
-                    "relatime"
-                  ];
+                  type = "btrfs";
+                  extraArgs = [ "-f" ];
+                  subvolumes = {
+                    "@nix" = {
+                      mountpoint = "/nix";
+                      mountOptions = [
+                        "compress=zstd:1"
+                        "noatime"
+                      ];
+                    };
+                    "@persist" = {
+                      mountpoint = persistDirectory;
+                      mountOptions = [
+                        "compress=zstd:1"
+                        "noatime"
+                      ];
+                    };
+                  };
                 };
               };
             };
