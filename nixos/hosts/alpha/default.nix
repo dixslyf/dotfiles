@@ -149,7 +149,10 @@
       enable = true;
       lowLatency = true;
     };
-    podman.enable = true;
+    podman = {
+      enable = true;
+      nvidia-container-toolkit = true;
+    };
     qmk.enable = true;
     sddm.enable = true;
     tlp = {
