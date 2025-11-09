@@ -20,15 +20,23 @@
   config =
     let
       cfg = config.planet.pipewire;
-      inherit (lib) mkIf;
+      inherit (lib)
+        mkIf
+        mkMerge
+        ;
     in
-    mkIf cfg.enable {
-      services.pipewire = {
-        enable = true;
-        alsa.enable = true;
-        alsa.support32Bit = true;
-        pulse.enable = true;
-        lowLatency.enable = cfg.lowLatency;
-      };
-    };
+    mkIf cfg.enable (mkMerge [
+      {
+        services.pipewire = {
+          enable = true;
+          alsa.enable = true;
+          alsa.support32Bit = true;
+          pulse.enable = true;
+          lowLatency.enable = cfg.lowLatency;
+        };
+      }
+      (mkIf cfg.lowLatency {
+        security.rtkit.enable = true;
+      })
+    ]);
 }

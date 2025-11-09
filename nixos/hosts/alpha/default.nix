@@ -88,7 +88,6 @@
       execWheelOnly = true;
       extraConfig = "Defaults lecture=never";
     };
-    rtkit.enable = true;
   };
 
   networking.hostName = "alpha";
