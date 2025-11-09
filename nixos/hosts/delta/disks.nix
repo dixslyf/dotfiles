@@ -27,6 +27,13 @@ in
         "noatime"
       ];
     };
+    "/nix" = {
+      device = "/persist/nix";
+      options = [
+        "bind"
+      ];
+    };
+    # "/persist" configuration is mostly handled by disko.
   };
 
   disko.devices = {
