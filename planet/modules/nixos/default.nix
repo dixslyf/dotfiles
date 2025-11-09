@@ -5,7 +5,6 @@
 
 _: {
   imports = [
-    ./btrfs
     ./earlyoom
     ./flatpak
     (importModule ./hyprland { })

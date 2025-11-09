@@ -103,6 +103,7 @@
   };
 
   services = {
+    btrfs.autoScrub.enable = true;
     cachix-agent = {
       enable = false;
       credentialsFile = config.sops.secrets."CACHIX_AGENT_TOKEN".path;
@@ -139,13 +140,6 @@
   };
 
   planet = {
-    btrfs = {
-      enable = true;
-      autoScrubFileSystems = [
-        "/dev/sda3"
-        "/dev/sdb1"
-      ];
-    };
     earlyoom.enable = true;
     flatpak.enable = true;
     mullvad-vpn.enable = true;
