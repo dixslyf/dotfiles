@@ -11,7 +11,6 @@ in
     persistMachines = true;
     persistSystemdBacklight = true;
     persistLogs = true;
-    persistSsh = true;
     persistMachineId = true;
   };
 
