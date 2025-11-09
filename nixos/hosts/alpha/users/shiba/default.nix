@@ -12,6 +12,7 @@
           "networkmanager"
           "video"
           "wheel"
+          "plugdev" # For QMK
           # For KMonad
           "input"
           "uinput"
