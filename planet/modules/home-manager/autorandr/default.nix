@@ -13,10 +13,13 @@
       planet.autorandr = {
         enable = mkEnableOption "planet autorandr";
         host = mkOption {
-          type = types.enum [
-            "alpha"
-            "delta"
-          ];
+          type = types.nullOr (
+            types.enum [
+              "alpha"
+              "delta"
+            ]
+          );
+          default = null;
           description = "The host name, which specifies which autorandr configuration to use";
         };
       };
@@ -156,6 +159,13 @@
       };
     in
     mkIf cfg.enable {
+      assertions = [
+        {
+          assertion = cfg.host != null;
+          message = "`planet.autorandr.host` must be set.";
+        }
+      ];
+
       programs.autorandr = if cfg.host == "alpha" then alphaConfiguration else deltaConfiguration;
     };
 }
