@@ -1,9 +1,15 @@
 {
+  localFlake,
+  ...
+}:
+
+{
   config,
   lib,
   pkgs,
   ...
 }:
+
 {
   options =
     let
@@ -50,7 +56,9 @@
           ${bspwmPackage}/bin/bspc monitor HDMI-1 -d h1 h2 h3 h4 h5 h6 h7 h8 h9 h0
           systemctl start --user polybar-HDMI-1.service
         fi
-        ${pkgs.hsetroot}/bin/hsetroot -solid "#363a4f"
+
+        # Set wallpaper
+        ${pkgs.feh}/bin/feh --bg-scale ${localFlake}/planet/wallpapers/ocean-moon-stars.png
       '';
 
       alphaConfiguration = {
