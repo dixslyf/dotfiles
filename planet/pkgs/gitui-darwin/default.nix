@@ -14,7 +14,7 @@ stdenvNoCC.mkDerivation {
   inherit version;
 
   src = fetchzip {
-    url = "https://github.com/gitui-org/gitui/releases/download/v${version}/gitui-mac.tar.gz";
+    url = "https://github.com/gitui-org/gitui/releases/download/${version}/gitui-mac.tar.gz";
     hash = "sha256-DqLWGyiNEdmuBgLDkFNR9F+eYeY09GqWmLaepFCpSZk=";
   };
 
