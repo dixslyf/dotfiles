@@ -27,11 +27,17 @@ inputs:
     description: "Add additional flags (whitespace-separated) to the build command"
     required: false
     type: string
+  setup-qemu:
+    description: "Whether to set up QEMU"
+    required: false
+    type: boolean
+    default: false
 
 runs:
   using: composite
   steps:
     - name: Set up QEMU
+      if: ${{ fromJSON(inputs.setup-qemu) }}
       uses: docker/setup-qemu-action@v3
       with:
         platforms: "arm64"
