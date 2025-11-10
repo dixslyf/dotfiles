@@ -9,7 +9,10 @@
 {
   flake.lib =
     let
-      inherit (inputs) nixpkgs;
+      inherit (inputs)
+        nixpkgs
+        nix-darwin
+        ;
 
       # Adapted from https://stackoverflow.com/questions/54504685/nix-function-to-merge-attributes-records-recursively-and-concatenate-arrays
       recursiveMergeAttrs = builtins.zipAttrsWith (
@@ -39,28 +42,51 @@
             // args
           )
         );
+
+      commonSystemConfig = {
+        modules = [
+          {
+            nixpkgs.overlays = [
+              self.overlays.pers-pkgs
+              inputs.devenv.overlays.default
+            ];
+          }
+          { nix.registry.nixpkgs.flake = nixpkgs; }
+        ];
+        specialArgs = {
+          inherit inputs;
+          inherit homeUsers;
+          localFlake = self;
+        };
+      };
+
+      mkSystemWith =
+        mkSystem: extraConfig:
+        let
+          config = recursiveMergeAttrs [
+            commonSystemConfig
+            extraConfig
+          ];
+        in
+        mkSystem config;
     in
     {
-      inherit recursiveMergeAttrs importModule;
+      inherit
+        recursiveMergeAttrs
+        importModule
+        ;
 
       mkNixosSystem =
         extraConfig:
-        let
-          config = recursiveMergeAttrs [
-            extraConfig
-            {
-              modules = [
-                { imports = [ self.nixosModules.planet ]; }
-                { nixpkgs.overlays = [ self.overlays.pers-pkgs ]; }
-                { nix.registry.nixpkgs.flake = nixpkgs; }
-              ];
-              specialArgs = {
-                inherit inputs;
-                inherit homeUsers;
-              };
-            }
-          ];
-        in
-        nixpkgs.lib.nixosSystem config;
+        mkSystemWith nixpkgs.lib.nixosSystem (recursiveMergeAttrs [
+          {
+            modules = [
+              { imports = [ self.nixosModules.planet ]; }
+            ];
+          }
+          extraConfig
+        ]);
+
+      mkDarwinSystem = extraConfig: mkSystemWith nix-darwin.lib.darwinSystem extraConfig;
     };
 }

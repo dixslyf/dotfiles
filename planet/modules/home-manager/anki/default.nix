@@ -17,7 +17,7 @@
 
   config =
     let
-      cfg = config.planet.feh;
+      cfg = config.planet.anki;
       inherit (lib) mkIf;
     in
     mkIf cfg.enable {

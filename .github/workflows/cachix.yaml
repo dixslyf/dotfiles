@@ -13,7 +13,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-hosts:
+  build-linux-hosts:
     runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
@@ -36,9 +36,29 @@ jobs:
           derivation: ".#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel"
           cachix-extra-pull-names: "nix-gaming, hyprland, nix-community"
           additional-flags: "--max-jobs 2"
+          setup-qemu: ${{ matrix.host == 'bravo' }}
+  build-macos-hosts:
+    runs-on: macos-15
+    strategy:
+      fail-fast: false
+      matrix:
+        host:
+          - charlie
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          lfs: true
+      - name: Build ${{ matrix.host }}
+        uses: ./.github/actions/build
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          derivation: ".#darwinConfigurations.${{ matrix.host }}.config.system.build.toplevel"
+          cachix-extra-pull-names: "nix-gaming, hyprland, nix-community"
+          additional-flags: "--max-jobs 2"
   build-result: # https://github.com/orgs/community/discussions/26822#discussioncomment-5122101
     runs-on: ubuntu-24.04
-    needs: [build-hosts]
+    needs: [build-linux-hosts, build-macos-hosts]
     if: ${{ failure() || success() }}
     steps:
       - if: ${{ contains(needs.*.result, 'failure') }}

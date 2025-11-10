@@ -18,6 +18,14 @@ let
         ];
       };
     };
+    corgi = {
+      homeConfiguration = {
+        imports = [
+          self.homeManagerModules.planet
+          ./users/corgi
+        ];
+      };
+    };
   };
 in
 {

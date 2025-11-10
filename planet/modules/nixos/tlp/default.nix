@@ -52,7 +52,8 @@
           DEVICES_TO_ENABLE_ON_LAN_DISCONNECT = "wifi";
           DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE = "bluetooth";
           DEVICES_TO_DISABLE_ON_STARTUP = "bluetooth wwan";
-        } // cfg.extraSettings;
+        }
+        // cfg.extraSettings;
       };
     };
 }

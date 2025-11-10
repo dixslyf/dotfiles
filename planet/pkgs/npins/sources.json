@@ -107,6 +107,22 @@
       "url": "https://github.com/catppuccin/zathura/archive/9f29c2c1622c70436f0e0b98fea9735863596c1e.tar.gz",
       "hash": "0bw3jyf8xdnra9zj18fzqzgv0y5rbza2agw3a95driwjhdrrz75s"
     },
+    "gitui-darwin": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "gitui-org",
+        "repo": "gitui"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "v0.27.0",
+      "revision": "99f69671445a8b9f069e07cd4c6c3fee7e07a77b",
+      "url": "https://api.github.com/repos/gitui-org/gitui/tarball/v0.27.0",
+      "hash": "1cidj6hpy9n7br6zk5r4hw5jjxhyvf6xm3air0jvfjvsf5g7b8lc"
+    },
     "mali": {
       "type": "Git",
       "repository": {

@@ -19,7 +19,10 @@
     };
     editorconfig.enable = true;
     fish.enable = true;
-    git.enable = true;
+    git = {
+      enable = true;
+      profile = "personal";
+    };
     ssh.enable = true;
   };
 
