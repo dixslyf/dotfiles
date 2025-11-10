@@ -61,7 +61,7 @@
                 user.email = "root@dixslyf.dev";
               };
               signing = {
-                format = "opengpg";
+                format = "openpgp";
                 key = "A9F388161E9B90C7!";
               };
             }
