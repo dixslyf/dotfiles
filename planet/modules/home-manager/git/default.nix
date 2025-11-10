@@ -16,10 +16,13 @@
       planet.git = {
         enable = mkEnableOption "planet git";
         profile = mkOption {
-          type = types.enum [
-            "personal"
-            "work"
-          ];
+          type = types.nullOr (
+            types.enum [
+              "personal"
+              "work"
+            ]
+          );
+          default = null;
           description = ''
             The Git profile to use. Affects the user and signing configuration.
           '';
@@ -36,7 +39,17 @@
         ;
     in
     mkIf cfg.enable (mkMerge [
+      # Base configuration.
       {
+        assertions = [
+          {
+            assertion = cfg.profile != null;
+            message = ''
+              A profile for Git must be set through `planet.git.profile`.
+            '';
+          }
+        ];
+
         programs.git = {
           enable = true;
           lfs.enable = true;
@@ -53,6 +66,8 @@
           signing.signByDefault = true;
         };
       }
+
+      # Profiles
       {
         programs.git =
           if cfg.profile == "personal" then
