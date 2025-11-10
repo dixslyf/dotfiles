@@ -1,7 +1,13 @@
 { pkgs, ... }:
 {
-  home.stateVersion = "22.05";
   programs.home-manager.enable = true;
+
+  home = {
+    stateVersion = "22.05";
+
+    username = "dixslyf";
+    homeDirectory = "/Users/dixslyf";
+  };
 
   planet = {
     cambridge.enable = true;

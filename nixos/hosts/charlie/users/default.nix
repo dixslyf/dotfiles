@@ -5,7 +5,7 @@
 {
   imports = [
     inputs.home-manager.darwinModules.home-manager
-    ./dixslyf
+    ./corgi
   ];
 
   home-manager = {

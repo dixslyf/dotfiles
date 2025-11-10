@@ -18,11 +18,11 @@ let
         ];
       };
     };
-    dixslyf = {
+    corgi = {
       homeConfiguration = {
         imports = [
           self.homeManagerModules.planet
-          ./users/dixslyf
+          ./users/corgi
         ];
       };
     };

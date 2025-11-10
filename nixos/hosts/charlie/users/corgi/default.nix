@@ -5,7 +5,7 @@
 {
   users = {
     users = {
-      dixslyf = {
+      corgi = {
         name = "dixslyf";
         home = "/Users/dixslyf";
       };
@@ -14,9 +14,9 @@
 
   home-manager = {
     users = {
-      dixslyf = {
+      corgi = {
         imports = [
-          homeUsers.dixslyf.homeConfiguration
+          homeUsers.corgi.homeConfiguration
         ];
       };
     };
