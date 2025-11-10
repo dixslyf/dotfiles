@@ -57,6 +57,7 @@
     yazi
     docker-client
     colima
+    tio
     wget
     xz
     devenv
