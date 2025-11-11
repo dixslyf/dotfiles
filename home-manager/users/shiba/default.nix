@@ -3,7 +3,11 @@
   ...
 }:
 
-{ pkgs, ... }:
+{
+  config,
+  pkgs,
+  ...
+}:
 {
   imports = [
     (importModule ./sops { })
@@ -127,6 +131,7 @@
       defaultApplication.enable = true;
     };
     ssh.enable = true;
+    syncthing.enable = true;
     tealdeer.enable = true;
     techmino.enable = true;
     tetrio-desktop.enable = true;
@@ -161,6 +166,10 @@
   services = {
     network-manager-applet.enable = true;
     blueman-applet.enable = true;
+    syncthing = {
+      cert = config.sops.secrets.syncthing-cert.path;
+      key = config.sops.secrets.syncthing-key.path;
+    };
   };
 
   home.packages = with pkgs; [

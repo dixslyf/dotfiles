@@ -27,6 +27,16 @@
         mode = "0600";
         path = "${config.xdg.configHome}/glab-cli/config.yml";
       };
+      syncthing-cert = {
+        format = "binary";
+        sopsFile = ./syncthing/cert.pem.sops;
+        mode = "0644";
+      };
+      syncthing-key = {
+        format = "binary";
+        sopsFile = ./syncthing/key.pem.sops;
+        mode = "0600";
+      };
     };
   };
 }

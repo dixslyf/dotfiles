@@ -27,7 +27,6 @@
       shiba = {
         imports = [
           homeUsers.shiba.homeConfiguration
-          ./syncthing
         ];
       };
     };

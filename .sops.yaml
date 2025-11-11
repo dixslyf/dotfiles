@@ -6,7 +6,7 @@ keys:
   - &bravo age1vsflpyynfjxmy2dgxlku4pdk90yccsxpta0l9fntxusyfhvqegestnhcy3
   - &delta-nixos age1g8sxyyhpr79y2l9qql2tqd7q7795s4wcleaqca3wzp2rfs4lge8sv9h6uv
 creation_rules:
-  - path_regex: (home-manager/users/shiba/.*|nixos/hosts/alpha/users/shiba/*)
+  - path_regex: home-manager/users/shiba/*
     key_groups:
       - pgp:
           - *shiba-pgp
