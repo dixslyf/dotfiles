@@ -27,6 +27,10 @@
         mode = "0600";
         path = "${config.xdg.configHome}/glab-cli/config.yml";
       };
+      syncthing-gui-password = {
+        sopsFile = ./syncthing/gui_password.yaml;
+        mode = "0600";
+      };
       syncthing-cert = {
         format = "binary";
         sopsFile = ./syncthing/cert.pem.sops;

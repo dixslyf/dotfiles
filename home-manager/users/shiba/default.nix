@@ -167,6 +167,12 @@
     network-manager-applet.enable = true;
     blueman-applet.enable = true;
     syncthing = {
+      settings = {
+        gui = {
+          user = "shiba";
+        };
+      };
+      passwordFile = config.sops.secrets.syncthing-gui-password.path;
       cert = config.sops.secrets.syncthing-cert.path;
       key = config.sops.secrets.syncthing-key.path;
     };
