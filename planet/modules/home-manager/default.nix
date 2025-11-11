@@ -53,6 +53,7 @@ _: {
     ./rofi
     ./sioyek
     ./ssh
+    ./syncthing
     ./tealdeer
     ./techmino
     ./tetrio-desktop
