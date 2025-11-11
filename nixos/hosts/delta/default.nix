@@ -93,6 +93,12 @@
       xkb = {
         layout = "us";
       };
+      resolutions = [
+        {
+          x = 1920;
+          y = 1200;
+        }
+      ];
       displayManager = {
         # Set the background color of the root window
         sessionCommands = ''
