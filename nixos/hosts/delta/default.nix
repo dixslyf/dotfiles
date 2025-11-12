@@ -27,6 +27,14 @@
       sysctl = {
         "kernel.sysrq" = 1; # https://wiki.archlinux.org/title/Keyboard_shortcuts#Kernel_(SysRq)
       };
+      sysfs = {
+        module.zswap.parameters = {
+          enabled = true;
+          zpool = "zsmalloc";
+          compressor = "zstd";
+          max_pool_percent = "25";
+        };
+      };
     };
   };
 

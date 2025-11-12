@@ -29,6 +29,14 @@ in
     # Other filesystem configuration is mostly handled by disko.
   };
 
+  swapDevices = [
+    {
+      device = "/persist/var/lib/swapfile";
+      size = 8 * 1024; # 8 GB
+      options = [ "discard" ];
+    }
+  ];
+
   disko.devices = {
     disk = {
       main = {
