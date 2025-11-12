@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
 {
   pkgs,
   ...
@@ -15,18 +11,23 @@
     ./hardware.nix
   ];
 
-  # Use the systemd-boot EFI boot loader.
   boot = {
+    # Use the systemd-boot as the boot loader.
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
+
     # Use a later kernel version for proper Intel BE201 WiFi support.
     kernelPackages = pkgs.linuxPackages_latest;
+
     kernel = {
       sysctl = {
-        "kernel.sysrq" = 1; # https://wiki.archlinux.org/title/Keyboard_shortcuts#Kernel_(SysRq)
+        # https://wiki.archlinux.org/title/Keyboard_shortcuts#Kernel_(SysRq)
+        "kernel.sysrq" = 1;
       };
+
+      # Configure zswap.
       sysfs = {
         module.zswap.parameters = {
           enabled = true;
