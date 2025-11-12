@@ -12,7 +12,7 @@
     ./users
     ./sops
     ./disks.nix
-    ./hardware-configuration.nix
+    ./hardware.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
