@@ -1,9 +1,14 @@
 {
+  config,
   pkgs,
   ...
 }:
 
 {
+  imports = [
+    ./sops
+  ];
+
   home.stateVersion = "25.05";
   programs.home-manager.enable = true;
 
@@ -105,6 +110,15 @@
       defaultApplication.enable = true;
     };
     ssh.enable = true;
+    syncthing = {
+      enable = true;
+      sync = {
+        books = true;
+        keepass = true;
+        logseq = true;
+        rclone = true;
+      };
+    };
     tealdeer.enable = true;
     techmino.enable = true;
     tetrio-desktop.enable = true;
@@ -128,6 +142,16 @@
   services = {
     network-manager-applet.enable = true;
     blueman-applet.enable = true;
+    syncthing = {
+      settings = {
+        gui = {
+          user = "husky";
+        };
+      };
+      passwordFile = config.sops.secrets.syncthing-gui-password.path;
+      cert = config.sops.secrets.syncthing-cert.path;
+      key = config.sops.secrets.syncthing-key.path;
+    };
   };
 
   home.packages = with pkgs; [

@@ -1,4 +1,8 @@
-{ self, ... }:
+{
+  self,
+  inputs,
+  ...
+}:
 
 let
   homeUsers = {
@@ -30,6 +34,7 @@ let
       homeConfiguration = {
         imports = [
           self.homeManagerModules.planet
+          inputs.sops-nix.homeManagerModules.sops
           ./users/husky
         ];
       };
