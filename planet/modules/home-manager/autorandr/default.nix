@@ -43,18 +43,24 @@
 
       mobilePreswitchBspwm = ''
         if systemctl is-active --user bspwm-session.target; then
-          for node_id in $(${bspwmPackage}/bin/bspc query -N -m HDMI-1); do
-            ${bspwmPackage}/bin/bspc node "$node_id" -m eDP-1
+          # Move nodes to the laptop's monitor.
+          for monitor in "HDMI-1" "DP-3"; do
+            if bspc query -M --names | grep "$monitor"; then
+              for node_id in $(${bspwmPackage}/bin/bspc query -N -m "$monitor"); do
+                ${bspwmPackage}/bin/bspc node "$node_id" -m eDP-1
+              done
+
+              systemctl stop --user polybar-"$monitor".service
+              ${bspwmPackage}/bin/bspc monitor "$monitor" -r
+            fi
           done
-          systemctl stop --user polybar-HDMI-1.service
-          ${bspwmPackage}/bin/bspc monitor HDMI-1 -r
         fi
       '';
 
-      dockedPostswitchBspwm = ''
+      mkDockedPostswitchBspwm = monitor: ''
         if systemctl is-active --user bspwm-session.target; then
-          ${bspwmPackage}/bin/bspc monitor HDMI-1 -d h1 h2 h3 h4 h5 h6 h7 h8 h9 h0
-          systemctl start --user polybar-HDMI-1.service
+          ${bspwmPackage}/bin/bspc monitor ${monitor} -d h1 h2 h3 h4 h5 h6 h7 h8 h9 h0
+          systemctl start --user polybar-${monitor}.service
         fi
 
         # Set wallpaper
@@ -105,7 +111,7 @@
               };
             };
             hooks = {
-              postswitch = dockedPostswitchBspwm;
+              postswitch = mkDockedPostswitchBspwm "HDMI-1";
             };
           };
         };
@@ -135,7 +141,7 @@
               preswitch = mobilePreswitchBspwm;
             };
           };
-          docked-home = {
+          docked-home-hdmi = {
             fingerprint = {
               eDP-1 = deltaMonitorFingerprint;
               HDMI-1 = homeMonitorFingerprint;
@@ -160,7 +166,35 @@
               DP-4.enable = false;
             };
             hooks = {
-              postswitch = dockedPostswitchBspwm;
+              postswitch = mkDockedPostswitchBspwm "HDMI-1";
+            };
+          };
+          docked-home-usb-hub = {
+            fingerprint = {
+              eDP-1 = deltaMonitorFingerprint;
+              DP-3 = homeMonitorFingerprint;
+            };
+            config = {
+              eDP-1 = {
+                enable = true;
+                primary = true;
+                mode = "1920x1200";
+                position = "0x0";
+                rate = "59.95";
+              };
+              HDMI-1.enable = false;
+              DP-1.enable = false;
+              DP-2.enable = false;
+              DP-3 = {
+                enable = true;
+                mode = "1920x1080";
+                position = "1920x0";
+                rate = "60.00";
+              };
+              DP-4.enable = false;
+            };
+            hooks = {
+              postswitch = mkDockedPostswitchBspwm "DP-3";
             };
           };
         };

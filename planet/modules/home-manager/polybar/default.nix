@@ -36,6 +36,29 @@
 
       optionalBspwmTarget = lists.optional cfg.bspwmIntegration "bspwm-session.target";
 
+      # TODO: May want to make template services for Polybar instead.
+      # If I add a different WM in the future and still want to use Polybar,
+      # then I can at least re-use the service. For now, since I'm only using
+      # bspwm, I'll just hardcode the dependency on `bspwm-session.target`.
+      mkPolybarService = monitor: {
+        Unit = {
+          Description = "Polybar status bar on ${monitor}";
+          PartOf = optionalBspwmTarget;
+          After = optionalBspwmTarget;
+          X-Restart-Triggers = [ "${configFile}" ];
+        };
+
+        Service = {
+          # See HM #604fc92. TLDR; polybar executes `ping` in its network module.
+          Environment = "PATH=/run/wrappers/bin";
+          ExecStart = "${polybarPackage}/bin/polybar ${monitor}";
+        };
+
+        Install = {
+          WantedBy = optionalBspwmTarget;
+        };
+      };
+
       mkBspwmMarginService = monitor: {
         Unit = {
           Description = "Set bspwm margins on ${monitor} appropriately depending on whether Polybar is running";
@@ -64,48 +87,19 @@
           providers = [ "polybar-eDP-1.service" ];
         };
 
-        # TODO: May want to make template services for Polybar instead.
-        # If I add a different WM in the future and still want to use Polybar,
-        # then I can at least re-use the service. For now, since I'm only using
-        # bspwm, I'll just hardcode the dependency on `bspwm-session.target`.
-        systemd.user.services.polybar-eDP-1 = {
-          Unit = {
-            Description = "Polybar status bar on eDP-1";
-            PartOf = optionalBspwmTarget;
-            After = optionalBspwmTarget;
-            X-Restart-Triggers = [ "${configFile}" ];
-          };
-
-          Service = {
-            # See HM #604fc92. TLDR; polybar executes `ping` in its network module.
-            Environment = "PATH=/run/wrappers/bin";
-            ExecStart = "${polybarPackage}/bin/polybar eDP-1";
-          };
-
-          Install = {
-            WantedBy = optionalBspwmTarget;
-          };
-        };
-
-        systemd.user.services.polybar-HDMI-1 = {
-          Unit = {
-            Description = "Polybar status bar on HDMI-1";
-            PartOf = optionalBspwmTarget;
-            After = optionalBspwmTarget;
-            X-Restart-Triggers = [ "${configFile}" ];
-          };
-
-          Service = {
-            # See `systemd.user.services.polybar-eDP-1` above
-            Environment = "PATH=/run/wrappers/bin";
-            ExecStart = "${polybarPackage}/bin/polybar HDMI-1";
-          };
+        systemd.user.services = {
+          polybar-eDP-1 = mkPolybarService "eDP-1";
+          polybar-HDMI-1 = mkPolybarService "HDMI-1";
+          polybar-DP-3 = mkPolybarService "DP-3";
         };
       }
 
       (mkIf cfg.bspwmIntegration {
-        systemd.user.services.bspwm-margins-polybar-eDP-1 = mkBspwmMarginService "eDP-1";
-        systemd.user.services.bspwm-margins-polybar-HDMI-1 = mkBspwmMarginService "HDMI-1";
+        systemd.user.services = {
+          bspwm-margins-polybar-eDP-1 = mkBspwmMarginService "eDP-1";
+          bspwm-margins-polybar-HDMI-1 = mkBspwmMarginService "HDMI-1";
+          bspwm-margins-polybar-DP-3 = mkBspwmMarginService "DP-3";
+        };
 
         # sxhxd keybinding to toggle the bar on the current monitor
         services.sxhkd.keybindings =
