@@ -131,7 +131,15 @@
       defaultApplication.enable = true;
     };
     ssh.enable = true;
-    syncthing.enable = true;
+    syncthing = {
+      enable = true;
+      sync = {
+        books = true;
+        keepass = true;
+        logseq = true;
+        rclone = true;
+      };
+    };
     tealdeer.enable = true;
     techmino.enable = true;
     tetrio-desktop.enable = true;

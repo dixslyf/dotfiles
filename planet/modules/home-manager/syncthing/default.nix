@@ -11,6 +11,12 @@
     {
       planet.syncthing = {
         enable = mkEnableOption "planet syncthing";
+        sync = {
+          books = mkEnableOption "Sync books";
+          keepass = mkEnableOption "Sync KeePass";
+          logseq = mkEnableOption "Sync Logseq";
+          rclone = mkEnableOption "Sync Rclone";
+        };
       };
     };
 
@@ -50,24 +56,28 @@
           folders = {
             "~/Documents/Sync/Books" = {
               id = "cbksr-cj8z3";
+              enable = cfg.sync.books;
               label = "Books";
               devices = allDevices;
               versioning = defaultVersioning;
             };
             "~/Documents/Sync/KeePass" = {
               id = "rquxl-fukaq";
+              enable = cfg.sync.keepass;
               label = "KeePass";
               devices = allDevices;
               versioning = defaultVersioning;
             };
             "~/Documents/Sync/Logseq" = {
               id = "wwkvp-hcalu";
+              enable = cfg.sync.logseq;
               label = "Logseq";
               devices = allDevices;
               versioning = defaultVersioning;
             };
             "~/Documents/Sync/Rclone" = {
               id = "eslt9-mhmot";
+              enable = cfg.sync.rclone;
               label = "Rclone";
               devices = allDevices;
               versioning = defaultVersioning;
