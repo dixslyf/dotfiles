@@ -74,6 +74,13 @@
     };
   };
 
+  programs.fish.plugins = [
+    {
+      name = "sdkman-for-fish";
+      inherit (pkgs.fishPlugins.sdkman-for-fish) src;
+    }
+  ];
+
   home.packages = with pkgs; [
     # Fonts
     material-design-icons
