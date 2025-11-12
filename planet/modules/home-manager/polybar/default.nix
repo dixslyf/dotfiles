@@ -40,7 +40,7 @@
       # If I add a different WM in the future and still want to use Polybar,
       # then I can at least re-use the service. For now, since I'm only using
       # bspwm, I'll just hardcode the dependency on `bspwm-session.target`.
-      mkPolybarService = monitor: {
+      mkPolybarService = monitor: install: {
         Unit = {
           Description = "Polybar status bar on ${monitor}";
           PartOf = optionalBspwmTarget;
@@ -54,7 +54,7 @@
           ExecStart = "${polybarPackage}/bin/polybar ${monitor}";
         };
 
-        Install = {
+        Install = mkIf install {
           WantedBy = optionalBspwmTarget;
         };
       };
@@ -88,9 +88,9 @@
         };
 
         systemd.user.services = {
-          polybar-eDP-1 = mkPolybarService "eDP-1";
-          polybar-HDMI-1 = mkPolybarService "HDMI-1";
-          polybar-DP-3 = mkPolybarService "DP-3";
+          polybar-eDP-1 = mkPolybarService "eDP-1" true;
+          polybar-HDMI-1 = mkPolybarService "HDMI-1" false;
+          polybar-DP-3 = mkPolybarService "DP-3" false;
         };
       }
 
