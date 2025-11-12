@@ -1,14 +1,9 @@
-{ localFlakeInputs, ... }:
-
 {
   config,
   ...
 }:
-{
-  imports = [
-    localFlakeInputs.sops-nix.homeManagerModules.sops
-  ];
 
+{
   planet.persistence = {
     directories = [
       ".config/sops"

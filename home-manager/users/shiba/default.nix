@@ -1,16 +1,12 @@
 {
-  importModule,
-  ...
-}:
-
-{
   config,
   pkgs,
   ...
 }:
+
 {
   imports = [
-    (importModule ./sops { })
+    ./sops
   ];
 
   home.stateVersion = "22.05";
