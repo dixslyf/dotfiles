@@ -1,5 +1,13 @@
-{ pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}:
+{
+  imports = [
+    ./sops
+  ];
+
   programs.home-manager.enable = true;
 
   home = {
@@ -36,7 +44,13 @@
       enable = true;
       defaultApplication.enable = true;
     };
-    # ssh.enable = true;
+    syncthing = {
+      enable = true;
+      sync = {
+        keepass = true;
+        logseq = true;
+      };
+    };
     tealdeer.enable = true;
     wezterm = {
       enable = true;
@@ -44,6 +58,19 @@
     };
     zellij.enable = true;
     zoxide.enable = true;
+  };
+
+  services = {
+    syncthing = {
+      settings = {
+        gui = {
+          user = "corgi";
+        };
+      };
+      passwordFile = config.sops.secrets.syncthing-gui-password.path;
+      cert = config.sops.secrets.syncthing-cert.path;
+      key = config.sops.secrets.syncthing-key.path;
+    };
   };
 
   home.packages = with pkgs; [

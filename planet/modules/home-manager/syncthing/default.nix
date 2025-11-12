@@ -28,6 +28,7 @@
       allDevices = [
         "Beagle"
         "Shiba"
+        "Corgi"
       ];
 
       defaultVersioning = {
@@ -51,6 +52,9 @@
             };
             Shiba = {
               id = "6QEFL6Z-5SJYJQZ-ZB6YGUC-HI5MVGX-U5BVQIS-3ECQV45-R4T3ZZR-P7GWIAA";
+            };
+            Corgi = {
+              id = "CW3GYR6-6GU3PLB-MN6XZI7-FEXSI7H-FCNKI66-XUFKBLP-B2J46XX-GMUD2AL";
             };
           };
           folders = {
