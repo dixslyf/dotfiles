@@ -63,6 +63,7 @@
     yazi
     docker-client
     colima
+    docker-credential-helpers
     tio
     wget
     xz
