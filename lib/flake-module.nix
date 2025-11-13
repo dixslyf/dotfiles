@@ -87,6 +87,15 @@
           extraConfig
         ]);
 
-      mkDarwinSystem = extraConfig: mkSystemWith nix-darwin.lib.darwinSystem extraConfig;
+      mkDarwinSystem =
+        extraConfig:
+        mkSystemWith nix-darwin.lib.darwinSystem (recursiveMergeAttrs [
+          {
+            modules = [
+              { imports = [ self.darwinModules.planet ]; }
+            ];
+          }
+          extraConfig
+        ]);
     };
 }
