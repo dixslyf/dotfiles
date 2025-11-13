@@ -10,7 +10,7 @@
   };
 
   sops = {
-    age.keyFile = "/persist/home/husky/.config/sops/age/keys.txt";
+    age.keyFile = "/persist/home/husky/.config/sops/age/key.txt";
     defaultSopsFile = ./secrets.yaml;
     secrets = {
       gh_hosts = {
