@@ -1,5 +1,6 @@
 {
   self,
+  inputs,
   ...
 }:
 {
@@ -15,6 +16,13 @@
       bravo = self.lib.mkNixosSystem {
         modules = [
           ./hosts/bravo
+        ];
+      };
+
+      delta = self.lib.mkNixosSystem {
+        modules = [
+          inputs.disko.nixosModules.disko
+          ./hosts/delta
         ];
       };
     };

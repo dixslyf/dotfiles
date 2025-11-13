@@ -9,7 +9,7 @@
     ./sops
   ];
 
-  home.stateVersion = "22.05";
+  home.stateVersion = "25.05";
   programs.home-manager.enable = true;
 
   xdg = {
@@ -28,25 +28,20 @@
       useBindMounts = true;
       persistXdgUserDirectories = true;
       directories = [
-        "Sync"
         ".local/state/wireplumber"
-        ".factorio"
         ".local/share/flatpak"
         ".var" # Used by `flatpak`
       ];
     };
-    android.enable = true;
-    anki.enable = true;
     autorandr = {
       enable = true;
-      host = "alpha";
+      host = "delta";
     };
     bspwm = {
       enable = true;
       primaryMonitor = "eDP-1";
     };
     cambridge.enable = true;
-    citra.enable = false; # FIXME: Wait for the dust to settle.
     dev-man-pages.enable = true;
     direnv.enable = true;
     discord.enable = true;
@@ -80,20 +75,10 @@
     gpg.enable = true;
     gpg-agent.enable = true;
     gtk.enable = true;
-    kdenlive = {
-      enable = true;
-      defaultApplication.enable = true;
-    };
-    lutris = {
-      enable = true;
-      defaultApplication.enable = true;
-    };
-    mako.enable = false;
     mpv = {
       enable = true;
       defaultApplication.enable = true;
     };
-    mullvad-browser.enable = true;
     mullvad-vpn = {
       enable = true;
       settings = {
@@ -106,7 +91,6 @@
       enable = true;
       defaultApplication.enable = true;
     };
-    nexusmods-app.enable = true;
     picom = {
       enable = true;
       systemd.target = "bspwm-session.target";
@@ -114,7 +98,6 @@
     pointer-cursor.enable = true;
     polkit-agent.enable = true;
     polybar.enable = true;
-    qbittorrent.enable = true;
     qmk.enable = true;
     qt.enable = true;
     redshift = {
@@ -144,11 +127,6 @@
       defaultApplication.enable = true;
     };
     udiskie.enable = true;
-    waybar = {
-      enable = false;
-      primaryOutput = "eDP-1";
-      externalOutput = "HDMI-A-1";
-    };
     wezterm = {
       enable = true;
       defaultTerminal = true;
@@ -157,13 +135,7 @@
       enable = true;
       systemd.target = "bspwm-session.target";
     };
-    wlsunset = {
-      enable = false;
-      systemd.target = "hyprland-session.target";
-    };
-    yuzu.enable = false; # FIXME: Wait for the dust to settle.
     zellij.enable = true;
-    zotero.enable = true;
     zoxide.enable = true;
   };
 
@@ -173,7 +145,7 @@
     syncthing = {
       settings = {
         gui = {
-          user = "shiba";
+          user = "husky";
         };
       };
       passwordFile = config.sops.secrets.syncthing-gui-password.path;

@@ -6,7 +6,7 @@
 {
   users = {
     users = {
-      shiba = {
+      husky = {
         isNormalUser = true;
         extraGroups = [
           "networkmanager"
@@ -17,16 +17,16 @@
           "input"
           "uinput"
         ];
-        hashedPasswordFile = config.sops.secrets."user-passwords/shiba".path;
+        hashedPasswordFile = config.sops.secrets."user-passwords/husky".path;
       };
     };
   };
 
   home-manager = {
     users = {
-      shiba = {
+      husky = {
         imports = [
-          homeUsers.shiba.homeConfiguration
+          homeUsers.husky.homeConfiguration
         ];
       };
     };

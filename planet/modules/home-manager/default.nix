@@ -4,7 +4,7 @@ _: {
   imports = [
     ./android
     ./anki
-    ./autorandr
+    (importModule ./autorandr { })
     (importModule ./bspwm { })
     ./cambridge
     ./citra
@@ -53,6 +53,7 @@ _: {
     ./rofi
     ./sioyek
     ./ssh
+    ./syncthing
     ./tealdeer
     ./techmino
     ./tetrio-desktop

@@ -24,6 +24,7 @@ jobs:
         host:
           - alpha
           - bravo
+          - delta
     steps:
       - uses: actions/checkout@v5
         with:

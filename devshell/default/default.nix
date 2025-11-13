@@ -8,6 +8,7 @@
     stylua
     statix
     deadnix
+    age
   ];
 
   git-hooks = {
