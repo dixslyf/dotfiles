@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   lib,
   ...
 }:
@@ -24,8 +25,21 @@
         # Garbage collection
         gc = {
           automatic = true;
-          dates = "weekly";
           options = "--delete-older-than 14d";
+        }
+        # GC interval has different options on darwin and linux.
+        // lib.optionalAttrs (lib.strings.hasInfix pkgs.system "linux") {
+          dates = "weekly";
+        }
+        // lib.optionalAttrs (lib.strings.hasInfix pkgs.system "darwin") {
+          interval = [
+            {
+              # Monday 12:00
+              Hour = 12;
+              Minute = 0;
+              Weekday = 1;
+            }
+          ];
         };
 
         # Other nix settings
