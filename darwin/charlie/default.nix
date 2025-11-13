@@ -12,7 +12,9 @@
     neovim
   ];
 
-  nix.settings.experimental-features = "nix-command flakes";
+  planet = {
+    nix.enable = true;
+  };
 
   # Set Git commit hash for darwin-version.
   system.configurationRevision = localFlake.rev or localFlake.dirtyRev or null;
