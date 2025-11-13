@@ -27,6 +27,7 @@ let
       homeConfiguration = {
         imports = [
           self.homeManagerModules.planet
+          inputs.sops-nix.homeManagerModules.sops
           ./users/corgi
         ];
       };
