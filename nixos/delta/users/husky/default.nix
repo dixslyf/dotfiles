@@ -7,6 +7,7 @@
   users = {
     users = {
       husky = {
+        uid = 1000;
         isNormalUser = true;
         extraGroups = [
           "networkmanager"
