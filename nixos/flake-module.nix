@@ -9,27 +9,27 @@
       alpha = self.lib.mkNixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./hosts/alpha
+          ./alpha
         ];
       };
 
       bravo = self.lib.mkNixosSystem {
         modules = [
-          ./hosts/bravo
+          ./bravo
         ];
       };
 
       delta = self.lib.mkNixosSystem {
         modules = [
           inputs.disko.nixosModules.disko
-          ./hosts/delta
+          ./delta
         ];
       };
     };
     darwinConfigurations = {
       charlie = self.lib.mkDarwinSystem {
         modules = [
-          ./hosts/charlie
+          ./charlie
         ];
       };
     };
