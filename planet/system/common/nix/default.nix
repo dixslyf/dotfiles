@@ -29,12 +29,12 @@
         }
         # GC interval has different options on darwin and linux.
         // lib.optionalAttrs (lib.strings.hasInfix pkgs.system "linux") {
-          dates = "weekly";
+          dates = "Wed 21:00";
         }
         // lib.optionalAttrs (lib.strings.hasInfix pkgs.system "darwin") {
           interval = [
             {
-              # Monday 12:00
+              # Wednesday 12:00
               Hour = 12;
               Minute = 0;
               Weekday = 1;
