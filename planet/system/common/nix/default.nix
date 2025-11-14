@@ -25,11 +25,11 @@
         # Garbage collection
         gc = {
           automatic = true;
-          persistent = true;
           options = "--delete-older-than 14d";
         }
-        # GC interval has different options on darwin and linux.
+        # GC timing has different options on darwin and linux.
         // lib.optionalAttrs (lib.strings.hasInfix pkgs.system "linux") {
+          persistent = true;
           dates = "Wed 21:00";
         }
         // lib.optionalAttrs (lib.strings.hasInfix pkgs.system "darwin") {
@@ -45,9 +45,9 @@
 
         optimise = {
           automatic = true;
-          persistent = true;
         }
         // lib.optionalAttrs (lib.strings.hasInfix pkgs.system "linux") {
+          persistent = true;
           dates = [
             "Thu 21:00"
           ];
