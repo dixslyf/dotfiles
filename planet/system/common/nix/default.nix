@@ -25,6 +25,7 @@
         # Garbage collection
         gc = {
           automatic = true;
+          persistent = true;
           options = "--delete-older-than 14d";
         }
         # GC interval has different options on darwin and linux.
