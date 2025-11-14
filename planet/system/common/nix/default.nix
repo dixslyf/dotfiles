@@ -42,9 +42,28 @@
           ];
         };
 
+        optimise = {
+          automatic = true;
+          persistent = true;
+        }
+        // lib.optionalAttrs (lib.strings.hasInfix pkgs.system "linux") {
+          dates = [
+            "Thu 21:00"
+          ];
+        }
+        // lib.optionalAttrs (lib.strings.hasInfix pkgs.system "darwin") {
+          interval = [
+            {
+              # Thursday 12:00
+              Hour = 12;
+              Minute = 0;
+              Weekday = 4;
+            }
+          ];
+        };
+
         # Other nix settings
         settings = {
-          auto-optimise-store = true;
           keep-outputs = true;
           keep-derivations = true;
           experimental-features = [
