@@ -41,7 +41,10 @@
       enable = true;
       primaryMonitor = "eDP-1";
     };
-    cambridge.enable = true;
+    cambridge = {
+      enable = true;
+      modpack.enable = true;
+    };
     dev-man-pages.enable = true;
     direnv.enable = true;
     discord.enable = true;
