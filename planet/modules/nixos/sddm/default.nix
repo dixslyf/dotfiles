@@ -33,9 +33,6 @@
         })
       ];
 
-      # Disable external monitor
-      services.xserver.displayManager.setupCommands = "${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-1 --off";
-
       services.displayManager.sddm = {
         enable = true;
         package = pkgs.qt6Packages.sddm;
