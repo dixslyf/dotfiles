@@ -29,6 +29,19 @@
       "url": "https://api.github.com/repos/cambridge-stacker/cambridge/tarball/v0.4.4.2",
       "hash": "0jkba42gafxga9inlrsglmhy8a0078z8d5k2438fcqhzs1d9vbhv"
     },
+    "cambridge-modpack": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "cambridge-stacker",
+        "repo": "cambridge-modpack"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "2bd35f47e190978272d6ab32829f6fd00e9b0807",
+      "url": "https://github.com/cambridge-stacker/cambridge-modpack/archive/2bd35f47e190978272d6ab32829f6fd00e9b0807.tar.gz",
+      "hash": "06yk232pryr2j4kipxca6sc6ymflpp7fqrvnr3zfg919r9lhrxbm"
+    },
     "catppuccin-fish": {
       "type": "Git",
       "repository": {
