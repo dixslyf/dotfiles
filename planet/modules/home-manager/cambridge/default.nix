@@ -51,12 +51,11 @@
             recursive = true;
           };
 
-          # FIXME: Unfortunately, Cambridge can't read resource packs from symlinks,
-          # so this is disabled for now.
-          # ".local/share/love/cambridge/resourcepacks" = {
-          #   source = "${pkgs.pers-pkgs.cambridge-modpack}/skins";
-          #   recursive = true;
-          # };
+          # NOTE: This relies on a patched Cambridge that allows reading symlinked resource packs.
+          ".local/share/love/cambridge/resourcepacks" = {
+            source = "${pkgs.pers-pkgs.cambridge-modpack}/skins";
+            recursive = true;
+          };
         };
       })
     ]);
