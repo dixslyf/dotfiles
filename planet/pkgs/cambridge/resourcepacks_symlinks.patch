@@ -1,0 +1,41 @@
+diff --git a/load/resources.lua b/load/resources.lua
+index f17cf1d..4a41c2a 100644
+--- a/load/resources.lua
++++ b/load/resources.lua
+@@ -49,7 +49,10 @@ function loadResources()
+ 	local resource_pack_indexes = {}
+ 	local resource_packs = love.filesystem.getDirectoryItems("resourcepacks")
+ 	for key, value in pairs(resource_packs) do
+-		if value:sub(-4) == ".zip" and love.filesystem.getInfo("resourcepacks/"..value, "file") then
++		file = love.filesystem.newFile("resourcepacks/" .. value)
++		local is_file, _ = file:open("r")
++		if value:sub(-4) == ".zip" and is_file then
++			file:close()
+ 			resource_pack_indexes[value] = key
+ 		end
+ 	end
+diff --git a/scene/resource_pack_scene.lua b/scene/resource_pack_scene.lua
+index 40dfbf6..96aa5bb 100644
+--- a/scene/resource_pack_scene.lua
++++ b/scene/resource_pack_scene.lua
+@@ -19,7 +19,10 @@ function ResourcePackScene:new()
+ 	---@type {[...]:string}
+ 	local resource_packs = love.filesystem.getDirectoryItems("resourcepacks")
+ 	for key, value in pairs(resource_packs) do
+-		if value:sub( -4) == ".zip" and love.filesystem.getInfo("resourcepacks/" .. value, "file") then
++		local file = love.filesystem.newFile("resourcepacks/" .. value)
++		local is_file, _ = file:open("r")
++		if value:sub( -4) == ".zip" and is_file then
++			file:close()
+ 			self.valid_resource_packs[#self.valid_resource_packs + 1] = value
+ 			self.resource_pack_index[value] = #self.valid_resource_packs
+ 		end
+@@ -269,7 +272,7 @@ function ResourcePackScene:changeVerticalOption(rel)
+ 		self.selection_type = 1
+ 		return
+ 	end
+-	
++
+ 	local length = (self.selection_type == 2 and self.selected_resource_packs_count or self.unselected_resource_packs_count)
+ 	if length < 1 then
+ 		length = 1

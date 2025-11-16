@@ -40,6 +40,14 @@ stdenv.mkDerivation {
     zip
   ];
 
+  patches = [
+    # This patch is needed so that Cambridge can read symlinked resource pack files.
+    # The gist of the issue is that Love2d's filesystem library doesn't handle symlinks that well;
+    # Cambridge explicitly checks that the items in the "resourcepacks" directory are files,
+    # so symlinked files were getting filtered out.
+    ./resourcepacks_symlinks.patch
+  ];
+
   postPatch = ''
     patchShebangs .
   '';
