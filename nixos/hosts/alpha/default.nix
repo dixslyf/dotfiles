@@ -118,6 +118,9 @@
         layout = "us";
       };
       displayManager = {
+        # Disable external monitor
+        setupCommands = "${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-1 --off";
+
         # Set the background color of the root window
         sessionCommands = ''
           ${pkgs.hsetroot}/bin/hsetroot -solid "#363a4f"
