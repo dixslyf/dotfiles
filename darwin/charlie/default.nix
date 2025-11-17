@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   localFlake,
   ...
@@ -33,5 +34,20 @@
   # Required to bring in Nix's environment into fish.
   programs.fish = {
     enable = true;
+  };
+
+  nix-homebrew = {
+    enable = true;
+    user = config.users.users.corgi.name;
+    autoMigrate = true;
+  };
+
+  homebrew = {
+    enable = true;
+    casks = [
+      "logseq"
+      "zen"
+      "unnaturalscrollwheels"
+    ];
   };
 }
