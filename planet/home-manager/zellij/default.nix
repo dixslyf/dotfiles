@@ -32,6 +32,8 @@
         ];
       };
 
-      xdg.configFile."zellij/config.kdl".source = ./config.kdl;
+      xdg.configFile."zellij/config.kdl".source = pkgs.replaceVars ./config.kdl {
+        fish = "${pkgs.fish}/bin/fish";
+      };
     };
 }
