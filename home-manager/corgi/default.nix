@@ -105,4 +105,9 @@
   ];
 
   fonts.fontconfig.enable = true;
+
+  targets.darwin = {
+    copyApps.enable = true;
+    linkApps.enable = false;
+  };
 }
