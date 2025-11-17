@@ -29,4 +29,9 @@
       allowUnfree = true;
     };
   };
+
+  # Required to bring in Nix's environment into fish.
+  programs.fish = {
+    enable = true;
+  };
 }

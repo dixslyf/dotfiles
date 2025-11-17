@@ -1,4 +1,4 @@
-default_shell "fish"
+default_shell "@fish@"
 
 pane_frames false
 

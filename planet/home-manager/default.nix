@@ -2,6 +2,7 @@
 
 _: {
   imports = [
+    ./aerospace
     ./android
     ./anki
     (importModule ./autorandr { })
