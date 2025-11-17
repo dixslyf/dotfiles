@@ -99,6 +99,7 @@
                 taps = {
                   "homebrew/homebrew-core" = inputs.homebrew-core;
                   "homebrew/homebrew-cask" = inputs.homebrew-cask;
+                  "Dimentium/homebrew-autoraise" = inputs.homebrew-autoraise;
                 };
                 mutableTaps = false;
               };
