@@ -88,6 +88,23 @@
         ]);
 
       mkDarwinSystem =
+        let
+          homebrewTapsConfig =
+            {
+              config,
+              ...
+            }:
+            {
+              nix-homebrew = {
+                taps = {
+                  "homebrew/homebrew-core" = inputs.homebrew-core;
+                  "homebrew/homebrew-cask" = inputs.homebrew-cask;
+                };
+                mutableTaps = false;
+              };
+              homebrew.taps = builtins.attrNames config.nix-homebrew.taps;
+            };
+        in
         extraConfig:
         mkSystemWith nix-darwin.lib.darwinSystem (recursiveMergeAttrs [
           {
@@ -95,6 +112,7 @@
               {
                 imports = [
                   inputs.nix-homebrew.darwinModules.nix-homebrew
+                  homebrewTapsConfig
                   self.darwinModules.planet
                 ];
               }
