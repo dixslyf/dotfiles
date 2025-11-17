@@ -67,6 +67,7 @@
         ./devshell/flake-module.nix
         ./planet/flake-module.nix
         ./nixos/flake-module.nix
+        ./darwin/flake-module.nix
         ./home-manager/flake-module.nix
         ./templates/flake-module.nix
       ];

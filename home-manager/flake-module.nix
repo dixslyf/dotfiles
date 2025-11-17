@@ -11,7 +11,7 @@ let
         imports = [
           self.homeManagerModules.planet
           inputs.sops-nix.homeManagerModules.sops
-          ./users/shiba
+          ./shiba
         ];
       };
     };
@@ -19,7 +19,7 @@ let
       homeConfiguration = {
         imports = [
           self.homeManagerModules.planet
-          ./users/samoyed
+          ./samoyed
         ];
       };
     };
@@ -28,7 +28,7 @@ let
         imports = [
           self.homeManagerModules.planet
           inputs.sops-nix.homeManagerModules.sops
-          ./users/corgi
+          ./corgi
         ];
       };
     };
@@ -37,7 +37,7 @@ let
         imports = [
           self.homeManagerModules.planet
           inputs.sops-nix.homeManagerModules.sops
-          ./users/husky
+          ./husky
         ];
       };
     };
