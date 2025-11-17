@@ -18,6 +18,7 @@
   };
 
   planet = {
+    aerospace.enable = true;
     cambridge.enable = true;
     dev-man-pages.enable = true;
     direnv.enable = true;
