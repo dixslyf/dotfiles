@@ -10,9 +10,7 @@
     # Reference: https://nikitabobko.github.io/AeroSpace/commands
 
     # Terminal
-    # TODO: Could probably just put the full path for wezterm
-    # i.e., `${pkgs.wezterm}/bin/wezterm`
-    alt-enter = 'exec-and-forget zsh -c wezterm'  # We need zsh for the right PATH
+    alt-enter = 'exec-and-forget @wezterm@'
 
     # Layout
     alt-slash = 'layout tiles horizontal vertical'

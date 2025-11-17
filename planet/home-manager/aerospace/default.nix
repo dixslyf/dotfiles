@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   lib,
   ...
 }:
@@ -26,7 +27,11 @@
         userSettings = {
           automatically-unhide-macos-hidden-apps = true;
         };
-        extraConfig = builtins.readFile ./aerospace.toml;
+        extraConfig = builtins.readFile (
+          pkgs.replaceVars ./aerospace.toml {
+            wezterm = "${pkgs.wezterm}/bin/wezterm";
+          }
+        );
       };
     };
 }
