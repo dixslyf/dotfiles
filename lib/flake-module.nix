@@ -92,7 +92,12 @@
         mkSystemWith nix-darwin.lib.darwinSystem (recursiveMergeAttrs [
           {
             modules = [
-              { imports = [ self.darwinModules.planet ]; }
+              {
+                imports = [
+                  inputs.nix-homebrew.darwinModules.nix-homebrew
+                  self.darwinModules.planet
+                ];
+              }
             ];
           }
           extraConfig

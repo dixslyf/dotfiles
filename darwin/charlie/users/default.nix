@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   ...
 }:
@@ -12,4 +13,6 @@
     useUserPackages = true;
     useGlobalPkgs = true;
   };
+
+  system.primaryUser = config.users.users.corgi.name;
 }
