@@ -115,6 +115,15 @@
                   inputs.nix-homebrew.darwinModules.nix-homebrew
                   homebrewTapsConfig
                   self.darwinModules.planet
+                  {
+                    nixpkgs.overlays = [
+                      (_self: super: {
+                        fish = super.fish.overrideAttrs {
+                          doCheck = false;
+                        };
+                      })
+                    ];
+                  }
                 ];
               }
             ];
