@@ -28,11 +28,11 @@
           options = "--delete-older-than 14d";
         }
         # GC timing has different options on darwin and linux.
-        // lib.optionalAttrs (lib.strings.hasInfix pkgs.system "linux") {
+        // lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux {
           persistent = true;
           dates = "Wed 21:00";
         }
-        // lib.optionalAttrs (lib.strings.hasInfix pkgs.system "darwin") {
+        // lib.optionalAttrs pkgs.stdenv.hostPlatform.isDarwin {
           interval = [
             {
               # Wednesday 12:00
@@ -46,13 +46,13 @@
         optimise = {
           automatic = true;
         }
-        // lib.optionalAttrs (lib.strings.hasInfix pkgs.system "linux") {
+        // lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux {
           persistent = true;
           dates = [
             "Thu 21:00"
           ];
         }
-        // lib.optionalAttrs (lib.strings.hasInfix pkgs.system "darwin") {
+        // lib.optionalAttrs pkgs.stdenv.hostPlatform.isDarwin {
           interval = [
             {
               # Thursday 12:00
