@@ -27,6 +27,7 @@
 
       allDevices = [
         "Beagle"
+        "Pomeranian"
         "Shiba"
         "Corgi"
       ];
@@ -49,6 +50,9 @@
           devices = {
             Beagle = {
               id = "RZYREEI-WT3SY5W-GNHETW6-BB3JTZQ-EY7D7IT-ITNEMN6-JINDPVZ-BLI2EAC";
+            };
+            Pomeranian = {
+              id = "HLXMCV4-M2K4CXO-M4MRNVF-XSKVWLN-RFTEQ5T-FD3IM4M-UTFUZD2-IAUVJA6";
             };
             Shiba = {
               id = "6QEFL6Z-5SJYJQZ-ZB6YGUC-HI5MVGX-U5BVQIS-3ECQV45-R4T3ZZR-P7GWIAA";
