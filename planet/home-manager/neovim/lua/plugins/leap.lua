@@ -1,8 +1,8 @@
 local M = {}
 
-local leap = require("leap")
 function M.setup()
-   leap.add_default_mappings()
+   vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap)")
+   vim.keymap.set("n", "S", "<Plug>(leap-from-window)")
 end
 
 return M
