@@ -118,6 +118,7 @@
     };
     podman.enable = true;
     qmk.enable = true;
+    secure-boot.enable = true;
     sddm.enable = true;
     tlp = {
       enable = true;

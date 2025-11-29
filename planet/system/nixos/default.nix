@@ -16,6 +16,7 @@ _: {
     (importModule ./pipewire { })
     ./podman
     ./qmk
+    ./secure-boot
     ./sddm
     ./steam
     ./tlp
