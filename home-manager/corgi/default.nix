@@ -27,6 +27,10 @@
     fish.enable = true;
     fzf.enable = true;
     gh.enable = true;
+    ghostty = {
+      enable = true;
+      package = pkgs.ghostty-bin;
+    };
     git = {
       enable = true;
       profile = "work";
