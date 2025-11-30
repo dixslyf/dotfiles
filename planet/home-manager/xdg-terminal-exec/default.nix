@@ -4,6 +4,9 @@
   pkgs,
   ...
 }:
+let
+  cfg = config.planet.xdg-terminal-exec;
+in
 {
   options =
     let
@@ -28,12 +31,25 @@
             Ensure that the command handles arguments passed to it using "$@" or similar.
           '';
         };
+        finalScriptBin = mkOption {
+          type = types.package;
+          default = pkgs.writeShellScriptBin "xdg-terminal-exec" cfg.command;
+          description = ''
+            The generated `xdg-terminal-exec` script's package.
+          '';
+        };
+        finalScript = mkOption {
+          type = types.str;
+          default = "${cfg.finalScriptBin}/bin/xdg-terminal-exec";
+          description = ''
+            The path to the generated `xdg-terminal-exec` script.
+          '';
+        };
       };
     };
 
   config =
     let
-      cfg = config.planet.xdg-terminal-exec;
       inherit (lib) mkIf;
     in
     mkIf cfg.enable {
@@ -41,7 +57,7 @@
       # the easier solution described in the comment below is used:
       # https://github.com/ublue-os/main/issues/211#issuecomment-1551600704
       home.packages = [
-        (pkgs.writeShellScriptBin "xdg-terminal-exec" cfg.command)
+        cfg.finalScriptBin
       ];
     };
 }
