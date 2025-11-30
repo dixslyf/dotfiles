@@ -27,6 +27,9 @@
     fish.enable = true;
     fzf.enable = true;
     gh.enable = true;
+    ghostty = {
+      enable = true;
+    };
     git = {
       enable = true;
       profile = "work";
