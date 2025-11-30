@@ -25,6 +25,7 @@ function M.setup()
    require("plugins.neoclip").setup()
    require("plugins.zk").setup()
    require("plugins.oil").setup()
+   require("plugins.smear-cursor").setup()
 end
 
 return M

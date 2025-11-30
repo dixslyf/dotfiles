@@ -193,6 +193,7 @@
           nvim-jdtls
           efmls-configs-nvim
           oil-nvim
+          smear-cursor-nvim
           (pkgs.vimPlugins.nvim-treesitter.withPlugins (
             plugins: with plugins; [
               tree-sitter-astro
