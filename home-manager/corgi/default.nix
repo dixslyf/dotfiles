@@ -30,6 +30,7 @@
     ghostty = {
       enable = true;
       package = pkgs.ghostty-bin;
+      defaultTerminal = true;
     };
     git = {
       enable = true;
@@ -57,10 +58,7 @@
       };
     };
     tealdeer.enable = true;
-    wezterm = {
-      enable = true;
-      defaultTerminal = true;
-    };
+    wezterm.enable = true;
     zellij.enable = true;
     zoxide.enable = true;
   };
