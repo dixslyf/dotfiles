@@ -18,6 +18,12 @@
           default = pkgs.neovim-unwrapped;
           description = "The `neovim` package to use.";
         };
+        neovide.enable = mkOption {
+          type = lib.types.bool;
+          default = true;
+          example = true;
+          description = "Whether to enable Neovide.";
+        };
         rustToolchain = mkOption {
           type = types.package;
           default = localFlakeInputs'.fenix.packages.stable.withComponents [
@@ -63,16 +69,41 @@
     mkIf cfg.enable {
       xdg = {
         configFile = {
-          "nvim/lua".source = ./lua;
+          "nvim/init.lua".text =
+            let
+              baseInit = pkgs.replaceVars ./init.lua {
+                cppdbg_command = "${pkgs.vscode-extensions.ms-vscode.cpptools}/share/vscode/extensions/ms-vscode.cpptools/debugAdapters/bin/OpenDebugAD7";
+                jdt_ls = "${pkgs.jdt-language-server}/bin/jdtls";
+                java_debug_server_dir = "${pkgs.vscode-extensions.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server";
+                java_test_server_dir = "${pkgs.vscode-extensions.vscjava.vscode-java-test}/share/vscode/extensions/vscjava.vscode-java-test/server";
+                vscode_eslint_language_server_node_path = "${pkgs.nodePackages.eslint}/lib/node_modules";
+                vue_typescript_plugin_location = "${pkgs.vue-language-server}/lib/node_modules/@vue/language-server";
+              };
+            in
+            ''
+              ${builtins.readFile baseInit}
+              ${lib.optionalString cfg.neovide.enable ''
+                require("neovide")
+              ''}
+            '';
+          "nvim/lua" = {
+            source = ./lua;
+            recursive = true;
+          };
           "nvim/ftplugin".source = ./ftplugin;
 
           # See https://github.com/nvim-treesitter/nvim-treesitter#adding-queries.
           "nvim/queries/typst".source = "${pkgs.tree-sitter-grammars.tree-sitter-typst}/queries";
+        }
+        // lib.optionalAttrs cfg.neovide.enable {
+          "nvim/lua/neovide.lua".source = ./optional-lua/neovide.lua;
         };
         mimeApps.defaultApplications = mkIf cfg.defaultApplication.enable (
           lib.genAttrs cfg.defaultApplication.mimeTypes (_: "nvim.desktop")
         );
       };
+
+      home.packages = lib.optional cfg.neovide.enable pkgs.neovide;
 
       programs.neovim = {
         inherit (cfg) package;
@@ -80,16 +111,6 @@
         vimAlias = true;
         viAlias = true;
         defaultEditor = true;
-        extraLuaConfig = builtins.readFile (
-          pkgs.replaceVars ./init.lua {
-            cppdbg_command = "${pkgs.vscode-extensions.ms-vscode.cpptools}/share/vscode/extensions/ms-vscode.cpptools/debugAdapters/bin/OpenDebugAD7";
-            jdt_ls = "${pkgs.jdt-language-server}/bin/jdtls";
-            java_debug_server_dir = "${pkgs.vscode-extensions.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server";
-            java_test_server_dir = "${pkgs.vscode-extensions.vscjava.vscode-java-test}/share/vscode/extensions/vscjava.vscode-java-test/server";
-            vscode_eslint_language_server_node_path = "${pkgs.nodePackages.eslint}/lib/node_modules";
-            vue_typescript_plugin_location = "${pkgs.vue-language-server}/lib/node_modules/@vue/language-server";
-          }
-        );
         extraPackages =
           with pkgs;
           [
