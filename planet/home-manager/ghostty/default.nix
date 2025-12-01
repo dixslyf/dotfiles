@@ -59,7 +59,7 @@
 
             window-padding-x = 24;
             window-padding-y = 16;
-            window-decoration = "none";
+            window-decoration = if pkgs.stdenv.hostPlatform.isDarwin then "auto" else "none";
 
             copy-on-select = "clipboard";
 
