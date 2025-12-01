@@ -67,17 +67,21 @@
 
             auto-update = "off";
 
-            keybind = [
-              "clear"
-              "ctrl+shift+r=reload_config"
-              "ctrl+shift+p=toggle_command_palette"
-              "ctrl+shift+c=copy_to_clipboard"
-              "ctrl+shift+v=paste_from_clipboard"
-              "ctrl+equal=increase_font_size:1"
-              "ctrl++=increase_font_size:1"
-              "ctrl+-=decrease_font_size:1"
-              "ctrl+0=reset_font_size"
-            ];
+            keybind =
+              let
+                cmod = if pkgs.stdenv.hostPlatform.isDarwin then "cmd" else "ctrl";
+              in
+              [
+                "clear"
+                "${cmod}+shift+r=reload_config"
+                "${cmod}+shift+p=toggle_command_palette"
+                "${cmod}+shift+c=copy_to_clipboard"
+                "${cmod}+shift+v=paste_from_clipboard"
+                "${cmod}+equal=increase_font_size:1"
+                "${cmod}++=increase_font_size:1"
+                "${cmod}+-=decrease_font_size:1"
+                "${cmod}+0=reset_font_size"
+              ];
 
             custom-shader-animation = "always";
             custom-shader = "${./cursor-warp.glsl}";
