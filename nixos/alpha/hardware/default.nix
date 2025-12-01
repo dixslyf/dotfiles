@@ -1,6 +1,5 @@
 {
   config,
-  lib,
   pkgs,
   modulesPath,
   ...
@@ -26,29 +25,6 @@
 
     kernelModules = [ "kvm-intel" ];
 
-    # Disable the built-in RTL8152 driver so that it doesn't
-    # conflict with Realtek's upstream driver.
-    kernelPatches = [
-      {
-        name = "disable-rtl8152";
-        patch = null;
-        structuredExtraConfig = {
-          USB_RTL8152 = lib.kernel.no;
-        };
-      }
-    ];
-
-    extraModulePackages =
-      let
-        # Newer version of the r8152 driver for RTL8157 support.
-        realtek-8152 =
-          config.boot.kernelPackages.callPackage pkgs.pers-pkgs.kernelModules.realtek-r8152
-            { };
-      in
-      [
-        realtek-8152
-      ];
-
     initrd = {
       availableKernelModules = [
         "xhci_pci"
@@ -58,10 +34,6 @@
         "usbhid"
         "uas"
         "sd_mod"
-      ];
-
-      kernelModules = [
-        "r8152"
       ];
 
       secrets = {
