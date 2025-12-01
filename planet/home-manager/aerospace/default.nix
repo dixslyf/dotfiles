@@ -1,6 +1,5 @@
 {
   config,
-  pkgs,
   lib,
   ...
 }:
@@ -44,7 +43,7 @@
           mode.main.binding = {
             # Terminal
             alt-enter = ''
-              exec-and-forget "${pkgs.wezterm}/bin/wezterm"
+              exec-and-forget "${config.planet.xdg-terminal-exec.finalScript}"
             '';
 
             # Layout
