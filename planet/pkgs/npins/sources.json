@@ -51,9 +51,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "6a85af2ff722ad0f9fbc8424ea0a5c454661dfed",
-      "url": "https://github.com/catppuccin/fish/archive/6a85af2ff722ad0f9fbc8424ea0a5c454661dfed.tar.gz",
-      "hash": "1h0nn1kg1vs0xilmai5haw42sm7wfs0b6jq2xpaq48qlfad1xk9r"
+      "revision": "af622a6e247806f6260c00c6d261aa22680e5201",
+      "url": "https://github.com/catppuccin/fish/archive/af622a6e247806f6260c00c6d261aa22680e5201.tar.gz",
+      "hash": "1x361j9gkwx8dgx2jgbp20q4i2hmra5vgpvyz9amjqcpficyqgr8"
     },
     "catppuccin-gitui": {
       "type": "Git",
@@ -157,9 +157,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "c056294f0f6022abec4eeab2fb7a1732f5a20f08",
+      "revision": "8b5018bba355e6d633607a1ee1ac5317345c8702",
       "url": null,
-      "hash": "0m7iqsqi2rgicjy540cgfwqppc799mf4yijdhl1m3s44g7p3c58s"
+      "hash": "184xln5w79b2chzqhhc06dvb98cmhrwbqwvq55nl1ihhxkfikg0a"
     }
   },
   "version": 5
