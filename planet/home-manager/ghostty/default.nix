@@ -29,39 +29,61 @@
         mkIf
         mkMerge
         ;
-
-      mkConfigFile =
-        command:
-        pkgs.replaceVars ./config {
-          inherit command;
-          cursor-warp-shader = ./cursor-warp.glsl;
-          shell-integration = "fish";
-        };
     in
     mkIf cfg.enable (mkMerge [
       {
-        home.packages =
-          with pkgs;
-          [
-            pers-pkgs.iosevka-term-custom
-          ]
-          ++ lib.singleton cfg.package;
+        home.packages = with pkgs; [
+          pers-pkgs.iosevka-term-custom
+        ];
+
+        programs.ghostty = {
+          enable = true;
+          package = cfg.package;
+          settings = {
+            font-family = "Iosevka Term Custom";
+            window-title-font-family = "Iosevka Custom";
+            font-size = 16;
+
+            theme = "Catppuccin Macchiato";
+
+            command =
+              if config.planet.zellij.enable then
+                # Zellij doesn't seem to make the shell start as a login shell by default,
+                # and Ghostty itself (unlike Wezterm) also doesn't seem to inherit the environment from the login shell
+                # so we need to start Zellij with a bash login shell to inherit the right environment.
+                ''bash -l -c "${pkgs.zellij}/bin/zellij"''
+              else
+                "${pkgs.fish}/bin/fish -l";
+
+            shell-integration = "fish";
+
+            window-padding-x = 24;
+            window-padding-y = 16;
+            window-decoration = "none";
+
+            copy-on-select = "clipboard";
+
+            quit-after-last-window-closed = true;
+
+            auto-update = "off";
+
+            keybind = [
+              "clear"
+              "ctrl+shift+r=reload_config"
+              "ctrl+shift+p=toggle_command_palette"
+              "ctrl+shift+c=copy_to_clipboard"
+              "ctrl+shift+v=paste_from_clipboard"
+              "ctrl+equal=increase_font_size:1"
+              "ctrl++=increase_font_size:1"
+              "ctrl+-=decrease_font_size:1"
+              "ctrl+0=reset_font_size"
+            ];
+
+            custom-shader-animation = "always";
+            custom-shader = "${./cursor-warp.glsl}";
+          };
+        };
       }
-
-      (mkIf config.planet.zellij.enable {
-        # Zellij doesn't seem to make the shell start as a login shell by default,
-        # and Ghostty itself (unlike Wezterm) also doesn't seem to inherit the environment from the login shell
-        # so we need a wrapper to make Zellij inherit the right environment.
-        xdg.configFile."ghostty/config".source = mkConfigFile (
-          pkgs.writeShellScript "zellij-wrapper" ''
-            bash -l -c "${pkgs.zellij}/bin/zellij"
-          ''
-        );
-      })
-
-      (mkIf (!config.planet.zellij.enable) {
-        xdg.configFile."ghostty/config".source = mkConfigFile "${pkgs.fish}/bin/fish -l";
-      })
 
       (mkIf cfg.defaultTerminal {
         planet.default-terminal = {
