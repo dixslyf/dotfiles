@@ -41,6 +41,7 @@
     };
     glab.enable = true;
     gpg.enable = true;
+    janky-borders.enable = true;
     mpv = {
       enable = true;
       defaultApplication.enable = true;
