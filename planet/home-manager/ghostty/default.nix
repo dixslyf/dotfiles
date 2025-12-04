@@ -63,6 +63,7 @@
               "${wrapper}/bin/fish";
 
             shell-integration = "detect";
+            shell-integration-features = "sudo,ssh-env";
 
             window-padding-x = 24;
             window-padding-y = 16;
