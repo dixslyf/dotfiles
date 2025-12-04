@@ -47,15 +47,22 @@
             theme = "Catppuccin Macchiato";
 
             command =
-              if config.planet.zellij.enable then
-                # Zellij doesn't seem to make the shell start as a login shell by default,
-                # and Ghostty itself (unlike Wezterm) also doesn't seem to inherit the environment from the login shell
-                # so we need to start Zellij with a bash login shell to inherit the right environment.
-                ''bash -l -c "${pkgs.zellij}/bin/zellij"''
-              else
-                "${pkgs.fish}/bin/fish -l";
+              let
+                # Ghostty's auto-detection for shell integration is based on the basename of the command,
+                # so we're setting the script's name to fish to make Ghostty use the fish integration.
+                wrapper = pkgs.writeShellScriptBin "fish" (
+                  if config.planet.zellij.enable then
+                    # Zellij doesn't seem to make the shell start as a login shell by default,
+                    # and Ghostty itself (unlike Wezterm) also doesn't seem to inherit the environment from the login shell
+                    # so we need to start Zellij with a bash login shell to inherit the right environment.
+                    ''bash -l -c "${pkgs.zellij}/bin/zellij"''
+                  else
+                    "${pkgs.fish}/bin/fish -l"
+                );
+              in
+              "${wrapper}/bin/fish";
 
-            shell-integration = "fish";
+            shell-integration = "detect";
 
             window-padding-x = 24;
             window-padding-y = 16;
