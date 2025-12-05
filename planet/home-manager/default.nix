@@ -21,8 +21,9 @@ _: {
     ./fish
     ./flameshot
     ./fzf
-    ./git
     ./gh
+    ./ghostty
+    ./git
     ./gitui
     ./glab
     ./gpg
