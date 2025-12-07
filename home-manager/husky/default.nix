@@ -69,6 +69,10 @@
     };
     fzf.enable = true;
     gh.enable = true;
+    ghostty = {
+      enable = true;
+      defaultTerminal = true;
+    };
     git = {
       enable = true;
       profile = "personal";
@@ -130,10 +134,7 @@
       defaultApplication.enable = true;
     };
     udiskie.enable = true;
-    wezterm = {
-      enable = true;
-      defaultTerminal = true;
-    };
+    wezterm.enable = true;
     wired = {
       enable = true;
       systemd.target = "bspwm-session.target";
