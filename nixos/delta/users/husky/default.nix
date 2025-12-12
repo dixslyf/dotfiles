@@ -13,6 +13,7 @@
           "networkmanager"
           "video"
           "wheel"
+          "podman"
           "plugdev" # For QMK
           # For KMonad
           "input"
