@@ -86,6 +86,7 @@
         ./nixos/flake-module.nix
         ./darwin/flake-module.nix
         ./home-manager/flake-module.nix
+        ./keyboards/flake-module.nix
         ./templates/flake-module.nix
       ];
 
