@@ -1,0 +1,18 @@
+{
+  "pins": {
+    "vial-qmk": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "vial-kb",
+        "repo": "vial-qmk"
+      },
+      "branch": "vial",
+      "submodules": true,
+      "revision": "9bc7aefa6beab93f3fe1ceecd120376097186e0a",
+      "url": null,
+      "hash": "0703jvdy6pnpls11qnw6j98ggh5i1d84ybhp4fkq7vdn4xclcnx8"
+    }
+  },
+  "version": 5
+}
