@@ -26,6 +26,47 @@ enum layers
     _CFG,
 };
 
+bool process_mods_always_on_l0(uint16_t keycode, keyrecord_t *record) {
+    static uint32_t saved_default_layer_state = 0;
+    static bool     mod_active_prev           = false;
+
+    // Get the state of modifiers except for shift,
+    // since we don't want to go back to layer 0 when
+    // shift is the only modifier active.
+    uint8_t mods         = get_mods() & ~MOD_MASK_SHIFT;
+    uint8_t oneshot_mods = get_oneshot_mods() & ~MOD_MASK_SHIFT;
+
+    // No modifiers active.
+    if (!mods && !oneshot_mods) {
+        // This key was the release of the last modifier,
+        // so we restore the default layer state.
+        if (mod_active_prev) {
+            default_layer_set(saved_default_layer_state);
+            mod_active_prev = false;
+        }
+        return true;
+    }
+
+    // At least one modifier (excluding shift) is active.
+
+    // This key is not the first modifier to become active,
+    // so nothing to do.
+    if (mod_active_prev) {
+        return true;
+    }
+
+    // This key is the first modifier to become active,
+    // so set the default layer to layer 0.
+    saved_default_layer_state = default_layer_state;
+    set_single_default_layer(0);
+    mod_active_prev = true;
+    return true;
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    return process_mods_always_on_l0(keycode, record);
+}
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     
