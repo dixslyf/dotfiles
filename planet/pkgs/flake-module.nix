@@ -24,6 +24,7 @@
           catppuccin-rofi = callPackage ./catppuccin-rofi { };
           iosevka-custom = callPackage ./iosevka-custom { };
           iosevka-term-custom = callPackage ./iosevka-custom { spacing = "term"; };
+          vitaly = callPackage ./vitaly { };
           kernelModules = {
             realtek-r8152 = ./realtek-r8152;
           };
