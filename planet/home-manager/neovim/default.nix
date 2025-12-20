@@ -220,6 +220,7 @@
               tree-sitter-typst
               tree-sitter-vim
               tree-sitter-vue
+              tree-sitter-zig
             ]
           ))
         ];
