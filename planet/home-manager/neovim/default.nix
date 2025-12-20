@@ -129,6 +129,7 @@
             svelte-language-server
             vue-language-server
             astro-language-server
+            zls
             (texlive.combine {
               inherit (texlive) scheme-minimal latexindent;
             })
