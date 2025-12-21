@@ -23,6 +23,7 @@ _: {
     ./udisks2
     ./upower
     ./virtualisation
+    ./yubikey
     ./xdg
   ];
 }
