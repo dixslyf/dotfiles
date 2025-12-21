@@ -129,6 +129,7 @@
     udisks2.enable = true;
     upower.enable = true;
     xdg.enable = true;
+    yubikey.enable = true;
   };
 
   # Packages
