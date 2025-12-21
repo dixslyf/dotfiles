@@ -139,6 +139,7 @@
       enable = true;
       systemd.target = "bspwm-session.target";
     };
+    yubikey.enable = true;
     zellij.enable = true;
     zoxide.enable = true;
   };

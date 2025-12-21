@@ -67,6 +67,7 @@ _: {
     (importModule ./wired { })
     ./wlsunset
     ./xdg-terminal-exec
+    ./yubikey
     ./yuzu
     ./zathura
     ./zellij
