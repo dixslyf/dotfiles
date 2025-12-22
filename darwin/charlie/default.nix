@@ -49,6 +49,7 @@
       "zen"
       "unnaturalscrollwheels"
       "autoraiseapp"
+      "yubico-authenticator"
     ];
   };
 }
