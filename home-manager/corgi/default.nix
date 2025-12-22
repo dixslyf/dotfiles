@@ -109,7 +109,6 @@
     inkscape
 
     # Miscellaneous
-    keepassxc
     drawio
   ];
 
