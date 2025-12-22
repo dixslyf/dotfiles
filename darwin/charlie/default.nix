@@ -50,6 +50,7 @@
       "unnaturalscrollwheels"
       "autoraiseapp"
       "yubico-authenticator"
+      "keepassxc"
     ];
   };
 }
