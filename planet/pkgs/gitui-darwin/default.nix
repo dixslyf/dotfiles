@@ -15,7 +15,7 @@ stdenvNoCC.mkDerivation {
 
   src = fetchzip {
     url = "https://github.com/gitui-org/gitui/releases/download/${version}/gitui-mac.tar.gz";
-    hash = "sha256-DqLWGyiNEdmuBgLDkFNR9F+eYeY09GqWmLaepFCpSZk=";
+    hash = "sha256-ahBKFe/xFWgmrnBBJbm0XHpffdU2OPXlMbf8HkT9W90=";
   };
 
   installPhase = ''

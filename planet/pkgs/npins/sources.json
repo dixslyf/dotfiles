@@ -131,10 +131,10 @@
       "version_upper_bound": null,
       "release_prefix": null,
       "submodules": false,
-      "version": "v0.27.0",
-      "revision": "99f69671445a8b9f069e07cd4c6c3fee7e07a77b",
-      "url": "https://api.github.com/repos/gitui-org/gitui/tarball/v0.27.0",
-      "hash": "1cidj6hpy9n7br6zk5r4hw5jjxhyvf6xm3air0jvfjvsf5g7b8lc"
+      "version": "v0.28.0",
+      "revision": "5527160424c76fba0d8d608af28301e603908db0",
+      "url": "https://api.github.com/repos/gitui-org/gitui/tarball/v0.28.0",
+      "hash": "0i01b2fj9vcbqdrlkk89bqm3zi6kmvp2klwyfgljf45w3f39sw07"
     },
     "mali": {
       "type": "Git",
@@ -157,9 +157,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "8b5018bba355e6d633607a1ee1ac5317345c8702",
+      "revision": "f7e4d0b5fd5f57ee1cc0d6fe2f7547eca3a47c14",
       "url": null,
-      "hash": "184xln5w79b2chzqhhc06dvb98cmhrwbqwvq55nl1ihhxkfikg0a"
+      "hash": "0y7w9wn76c351xq10rn1cm2r481ss2bdhgfwkz9awa6bskyzg5kc"
     }
   },
   "version": 5
