@@ -166,7 +166,7 @@
           nvim-dap
           nvim-nio
           nvim-dap-ui
-          neodev-nvim
+          lazydev-nvim
           lspkind-nvim
           nvim-cmp
           cmp_luasnip
