@@ -122,7 +122,7 @@
             tinymist
             typstyle
             cfg.rustToolchain
-            nodePackages.typescript-language-server
+            vtsls
             vscode-langservers-extracted
             htmlhint
             gopls
