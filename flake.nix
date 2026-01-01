@@ -7,11 +7,6 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
     flake-utils.url = "github:numtide/flake-utils";
-    devenv.url = "github:cachix/devenv";
-    devenv-root = {
-      url = "file+file:///dev/null";
-      flake = false;
-    };
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.3";
