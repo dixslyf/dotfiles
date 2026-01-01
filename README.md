@@ -9,7 +9,7 @@ Overview:
 - :minidisc: [btrfs](https://btrfs.readthedocs.io/en/latest/Introduction.html) with [zstd](https://en.wikipedia.org/wiki/Zstd) compression + full disk encryption via [LUKS](https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup)
 - :key: [sops](https://github.com/mozilla/sops) + [sops-nix](https://github.com/Mic92/sops-nix) for secrets provisioning
 - :hammer: [GitHub Actions](https://docs.github.com/en/actions) + [Cachix](https://www.cachix.org/) for building and caching
-- :office: [devenv](https://devenv.sh/) + [direnv](https://direnv.net/) for local shell environment
+- :office: [direnv](https://direnv.net/) for local shell environment
 
 Software I use includes:
 

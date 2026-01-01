@@ -11,7 +11,7 @@
       "submodules": false,
       "revision": "c5cf7d3943f9a34a5cb2bab36bf473fd77e7d4f6",
       "url": "https://github.com/baskerville/bspwm/archive/c5cf7d3943f9a34a5cb2bab36bf473fd77e7d4f6.tar.gz",
-      "hash": "09arpajpgdh2yvadr8r1d81x5w1mrg84wl1a2b150ab00rc5wj5h"
+      "hash": "sha256-sEheWAZgKVDCEipQTtDLNfDSA2oho9zU9gK2d6W6WSU="
     },
     "cambridge": {
       "type": "GitRelease",
@@ -27,7 +27,7 @@
       "version": "v0.4.4.2",
       "revision": "f0c17270bc7ad5c924567e6950c99e4a79df2c28",
       "url": "https://api.github.com/repos/cambridge-stacker/cambridge/tarball/v0.4.4.2",
-      "hash": "0jkba42gafxga9inlrsglmhy8a0078z8d5k2438fcqhzs1d9vbhv"
+      "hash": "sha256-G66dWtAfYubQIGKWhj46ACjkYaVPZ2pjUq879QRRa0o="
     },
     "cambridge-modpack": {
       "type": "Git",
@@ -40,7 +40,7 @@
       "submodules": false,
       "revision": "2bd35f47e190978272d6ab32829f6fd00e9b0807",
       "url": "https://github.com/cambridge-stacker/cambridge-modpack/archive/2bd35f47e190978272d6ab32829f6fd00e9b0807.tar.gz",
-      "hash": "06yk232pryr2j4kipxca6sc6ymflpp7fqrvnr3zfg919r9lhrxbm"
+      "hash": "sha256-dfUMacoppOf+yHZn7M691FVvmDaK9RsnkSL7fMUQ0xs="
     },
     "catppuccin-fish": {
       "type": "Git",
@@ -51,9 +51,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "af622a6e247806f6260c00c6d261aa22680e5201",
-      "url": "https://github.com/catppuccin/fish/archive/af622a6e247806f6260c00c6d261aa22680e5201.tar.gz",
-      "hash": "1x361j9gkwx8dgx2jgbp20q4i2hmra5vgpvyz9amjqcpficyqgr8"
+      "revision": "2c7edbb1ef5640cb4ef387647a53327149e51e80",
+      "url": "https://github.com/catppuccin/fish/archive/2c7edbb1ef5640cb4ef387647a53327149e51e80.tar.gz",
+      "hash": "sha256-Wy034oQuQXftG1TRzXyfEZO+8eAHTHQpUA6pXczIcE0="
     },
     "catppuccin-gitui": {
       "type": "Git",
@@ -66,7 +66,7 @@
       "submodules": false,
       "revision": "df2f59f847e047ff119a105afff49238311b2d36",
       "url": "https://github.com/catppuccin/gitui/archive/df2f59f847e047ff119a105afff49238311b2d36.tar.gz",
-      "hash": "0gafm0xj6s5bj07xq9jkzg7rzmqjw2n1rxd3w9ba5xixgy7vy4hd"
+      "hash": "sha256-DRK/j3899qJW4qP1HKzgEtefz/tTJtwPkKtoIzuoTj0="
     },
     "catppuccin-mako": {
       "type": "Git",
@@ -79,7 +79,7 @@
       "submodules": false,
       "revision": "92844f144e72f2dc8727879ec141ffdacf3ff6a1",
       "url": "https://github.com/catppuccin/mako/archive/92844f144e72f2dc8727879ec141ffdacf3ff6a1.tar.gz",
-      "hash": "0nz5x66bv0nhmgh2slw647j69x7pqcw0cyclkpv3bq6c5bw9j24f"
+      "hash": "sha256-jgiZ+CrM4DX2nZR5BjjD9/Rk5CGGUy3gq9CCvYzp5Vs="
     },
     "catppuccin-polybar": {
       "type": "Git",
@@ -92,7 +92,7 @@
       "submodules": false,
       "revision": "20054f39d3b77bd1afc765981a42c3467bf91204",
       "url": "https://github.com/catppuccin/polybar/archive/20054f39d3b77bd1afc765981a42c3467bf91204.tar.gz",
-      "hash": "130szcc72vnsl0872qpiiqad1qcspmasana4p2g9v3jxgn03xi4c"
+      "hash": "sha256-jMQ+gH1djp2euERZpVW9muHQFI7xYnEQoNpucRj7Gow="
     },
     "catppuccin-waybar": {
       "type": "Git",
@@ -105,7 +105,7 @@
       "submodules": false,
       "revision": "ee8ed32b4f63e9c417249c109818dcc05a2e25da",
       "url": "https://github.com/catppuccin/waybar/archive/ee8ed32b4f63e9c417249c109818dcc05a2e25da.tar.gz",
-      "hash": "0q4mzqx3w6cywfifs7ij8qzhzvj59dfdzpvqx76vpnhd2zm35bfd"
+      "hash": "sha256-za0y6hcN2rvN6Xjf31xLRe4PP0YyHu2i454ZPjr+lWA="
     },
     "catppuccin-zathura": {
       "type": "Git",
@@ -118,7 +118,7 @@
       "submodules": false,
       "revision": "9f29c2c1622c70436f0e0b98fea9735863596c1e",
       "url": "https://github.com/catppuccin/zathura/archive/9f29c2c1622c70436f0e0b98fea9735863596c1e.tar.gz",
-      "hash": "0bw3jyf8xdnra9zj18fzqzgv0y5rbza2agw3a95driwjhdrrz75s"
+      "hash": "sha256-upyfc4OSx9xKUoM/JdRfuXiw38ffoSB/Utm2jpyXgy8="
     },
     "gitui-darwin": {
       "type": "GitRelease",
@@ -134,7 +134,7 @@
       "version": "v0.28.0",
       "revision": "5527160424c76fba0d8d608af28301e603908db0",
       "url": "https://api.github.com/repos/gitui-org/gitui/tarball/v0.28.0",
-      "hash": "0i01b2fj9vcbqdrlkk89bqm3zi6kmvp2klwyfgljf45w3f39sw07"
+      "hash": "sha256-B3Cdhhu8ECfpc57TKe6u08Q/Kl4JzUlzw4vtJJ1YAUQ="
     },
     "mali": {
       "type": "Git",
@@ -147,7 +147,7 @@
       "submodules": false,
       "revision": "7e11de1301bf785e1b06c24816242ba52dde805f",
       "url": "https://github.com/cadsondemak/mali/archive/7e11de1301bf785e1b06c24816242ba52dde805f.tar.gz",
-      "hash": "0vjz0l6rlv7ws92qk75c8c81j4841h1ssi1izzjm0xzcrkivds0q"
+      "hash": "sha256-GOi248zsd1Dl/zFErQMMBBEZEEOsnIlF0vxsmg0FX24="
     },
     "wlsunset": {
       "type": "Git",
@@ -157,10 +157,10 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "f7e4d0b5fd5f57ee1cc0d6fe2f7547eca3a47c14",
+      "revision": "742cb127e8630be7dfbb492c88270767ca3bea3e",
       "url": null,
-      "hash": "0y7w9wn76c351xq10rn1cm2r481ss2bdhgfwkz9awa6bskyzg5kc"
+      "hash": "sha256-cOIF8ZDwfN6GHEGOZ97X4j4VAMIoZ91KHeIGCY3ykjI="
     }
   },
-  "version": 5
+  "version": 7
 }

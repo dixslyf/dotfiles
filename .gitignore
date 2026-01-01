@@ -1,5 +1,2 @@
 result
-.devenv*
 .direnv*
-devenv.local.nix
-.pre-commit-config.yaml

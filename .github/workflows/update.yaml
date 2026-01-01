@@ -30,7 +30,9 @@ jobs:
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Configure git
-        run: nix develop .#ci --impure --command configure-git-user.sh "${{ env.GIT_USERNAME }}" "${{ env.GIT_EMAIL }}"
+        run: |
+          git config user.name "${{ env.GIT_USERNAME }}"
+          git config user.email "${{ env.GIT_EMAIL }}"
       - name: Update flake inputs
         run: |
           nix flake update
@@ -41,8 +43,8 @@ jobs:
           fi
       - name: Update npins
         run: |
-          nix develop .#ci --impure --command npins -d "planet/pkgs/npins" update
-          nix develop .#ci --impure --command npins -d "planet/pkgs/vim-plugins/npins" update
+          nix develop .# --impure --command npins -d "planet/pkgs/npins" update
+          nix develop .# --impure --command npins -d "planet/pkgs/vim-plugins/npins" update
           if [ -z "$(git status --porcelain=v1 2>/dev/null)" ]; then
             echo "No changes from update"
           else
