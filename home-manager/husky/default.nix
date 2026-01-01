@@ -98,6 +98,17 @@
       enable = true;
       defaultApplication.enable = true;
     };
+    niri = {
+      enable = true;
+      extraConfig = ''
+        output "eDP-1" {
+            mode "2560x1600"
+            scale 1.33
+            transform "normal"
+            position x=0 y=0
+        }
+      '';
+    };
     picom = {
       enable = true;
       systemd.target = "bspwm-session.target";
