@@ -1,0 +1,175 @@
+input {
+    keyboard {}
+
+    touchpad {
+        tap
+        dwt
+        dwtp
+        drag true
+        natural-scroll
+        click-method "clickfinger"
+        scroll-factor 0.5
+    }
+
+    mouse {
+        accel-profile "flat"
+    }
+
+    trackpoint {
+        natural-scroll
+        accel-profile "flat"
+    }
+
+    warp-mouse-to-focus
+    focus-follows-mouse
+}
+
+layout {
+    gaps 8
+    center-focused-column "never"
+    default-column-width { proportion 0.5; }
+
+    focus-ring {
+        off
+    }
+
+    border {
+        width 2
+        active-color "#c6a0f6"
+        inactive-color "#8aadf4"
+        urgent-color "#f5a97f"
+    }
+
+    shadow {
+        on
+        softness 30
+        spread 5
+        offset x=0 y=5
+        color "#181926"
+    }
+}
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+prefer-no-csd
+
+screenshot-path "~/Pictures/Screenshots/%Y-%m-%d %H-%M-%S.png"
+
+window-rule {
+    draw-border-with-background false
+}
+
+window-rule {
+    match is-active=false
+    opacity 0.75
+}
+
+// Work around WezTerm's initial configure bug
+// by setting an empty default-column-width.
+window-rule {
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+}
+
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"zen$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    block-out-from "screen-capture"
+}
+
+window-rule {
+    geometry-corner-radius 8
+    clip-to-geometry true
+}
+
+binds {
+    Mod+Return { spawn "ghostty"; }
+    Mod+R { spawn "rofi" "-show" "drun"; }
+
+    // Volume
+    XF86AudioRaiseVolume { spawn "pamixer" "-i" "1"; }
+    Shift+XF86AudioRaiseVolume { spawn "pamixer" "-i" "2"; }
+    XF86AudioLowerVolume { spawn "pamixer" "-d" "1"; }
+    Shift+XF86AudioLowerVolume { spawn "pamixer" "-d" "2"; }
+    XF86AudioMute { spawn "pamixer" "--toggle-mute"; }
+
+    // Brightness
+    XF86MonBrightnessUp { spawn "light" "-A" "0.2"; }
+    Shift+XF86MonBrightnessUp { spawn "light" "-A" "1"; }
+    XF86MonBrightnessDown { spawn "light" "-U" "0.2"; }
+    Shift+XF86MonBrightnessDown { spawn "light" "-U" "1"; }
+
+    // Window management
+    Mod+O repeat=false { toggle-overview; }
+
+    Mod+Shift+C repeat=false { close-window; }
+
+    Mod+J { focus-column-right-or-first; }
+    Mod+K { focus-column-left-or-last; }
+    Mod+Ctrl+J { focus-window-down-or-column-right; }
+    Mod+Ctrl+K { focus-window-up-or-column-left; }
+
+    Mod+Shift+J { move-column-right; }
+    Mod+Shift+K { move-column-left; }
+    Mod+Ctrl+Shift+J { consume-or-expel-window-right; }
+    Mod+Ctrl+Shift+K { consume-or-expel-window-left; }
+
+    Mod+I { focus-monitor-next; }
+    Mod+Shift+I { move-column-to-monitor-next; }
+
+    Mod+M { focus-workspace-down; }
+    Mod+Comma { focus-workspace-up; }
+
+    Mod+Shift+M { move-column-to-workspace-down; }
+    Mod+Shift+Comma { move-column-to-workspace-up; }
+
+    Mod+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp cooldown-ms=150 { focus-workspace-up; }
+    Mod+Shift+WheelScrollDown cooldown-ms=150 { focus-column-right; }
+    Mod+Shift+WheelScrollUp cooldown-ms=150 { focus-column-left; }
+
+    Mod+Tab { focus-workspace-previous; }
+
+    Mod+F { maximize-column; }
+    Mod+Shift+F { fullscreen-window; }
+    Mod+Ctrl+F { expand-column-to-available-width; }
+
+    Mod+U { center-column; }
+    Mod+Shift+U { center-visible-columns; }
+
+    Mod+H { set-column-width "-10%"; }
+    Mod+L { set-column-width "+10%"; }
+    Mod+Shift+H { set-window-height "-10%"; }
+    Mod+Shift+L { set-window-height "+10%"; }
+
+    Mod+S       { toggle-window-floating; }
+    Mod+Shift+S { switch-focus-between-floating-and-tiling; }
+
+    Mod+T { toggle-column-tabbed-display; }
+
+    // Screenshot
+    Print { screenshot; }
+    Ctrl+Print { screenshot-screen; }
+    Alt+Print { screenshot-window; }
+
+    // Inhibitor
+    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+    // Quit
+    Mod+Shift+Q { quit; }
+    Ctrl+Alt+Delete { quit; }
+
+    // Turn off monitors.
+    Mod+Shift+P { power-off-monitors; }
+}

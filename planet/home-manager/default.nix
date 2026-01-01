@@ -40,6 +40,7 @@ _: {
     ./mullvad-vpn
     (importModule ./neovim { })
     ./nexusmods-app
+    ./niri
     (importModule ./osu-lazer { })
     ./papis
     (importModule ./persistence { })
