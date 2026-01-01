@@ -8,16 +8,20 @@ input {
         drag true
         natural-scroll
         click-method "clickfinger"
-        scroll-factor 0.5
+        scroll-factor 0.1
+        accel-profile "flat"
+        accel-speed 0.25
     }
 
     mouse {
         accel-profile "flat"
+        accel-speed 0.5
     }
 
     trackpoint {
         natural-scroll
         accel-profile "flat"
+        accel-speed 1.0
     }
 
     warp-mouse-to-focus
