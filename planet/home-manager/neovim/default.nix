@@ -87,7 +87,7 @@
             java_debug_server_dir = "${pkgs.vscode-extensions.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server";
             java_test_server_dir = "${pkgs.vscode-extensions.vscjava.vscode-java-test}/share/vscode/extensions/vscjava.vscode-java-test/server";
             vscode_eslint_language_server_node_path = "${pkgs.nodePackages.eslint}/lib/node_modules";
-            vue_typescript_plugin_location = "${pkgs.vue-language-server}/lib/node_modules/@vue/language-server";
+            vue_typescript_plugin_location = "${pkgs.vue-language-server}/lib/language-tools/packages/language-server/node_modules/@vue/typescript-plugin";
           }
         );
         extraPackages =
@@ -122,13 +122,14 @@
             tinymist
             typstyle
             cfg.rustToolchain
-            nodePackages.typescript-language-server
+            vtsls
             vscode-langservers-extracted
             htmlhint
             gopls
             svelte-language-server
             vue-language-server
             astro-language-server
+            zls
             (texlive.combine {
               inherit (texlive) scheme-minimal latexindent;
             })
@@ -165,7 +166,7 @@
           nvim-dap
           nvim-nio
           nvim-dap-ui
-          neodev-nvim
+          lazydev-nvim
           lspkind-nvim
           nvim-cmp
           cmp_luasnip
@@ -219,6 +220,7 @@
               tree-sitter-typst
               tree-sitter-vim
               tree-sitter-vue
+              tree-sitter-zig
             ]
           ))
         ];

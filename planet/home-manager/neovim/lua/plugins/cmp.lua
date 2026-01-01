@@ -62,6 +62,10 @@ function M.setup()
          { name = "nvim_lsp_signature_help" },
          { name = "luasnip" },
          { name = "nvim_lua" },
+         {
+            name = "lazydev",
+            group_index = 0,
+         },
       }, {
          { name = "treesitter" },
          { name = "buffer" },

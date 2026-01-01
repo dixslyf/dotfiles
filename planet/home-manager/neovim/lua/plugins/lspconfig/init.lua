@@ -27,13 +27,13 @@ local servers = {
    "ltex",
    "hls",
    "tinymist",
-   "ts-ls",
    "vscode-html-language-server",
    "vscode-json-language-server",
    "vscode-css-language-server",
    "vscode-eslint-language-server",
-   "vue-language-server",
+   "vtsls",
    "astro-ls",
+   "zls",
 }
 
 local function setup_servers()

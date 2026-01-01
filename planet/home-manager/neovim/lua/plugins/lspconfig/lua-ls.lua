@@ -1,8 +1,8 @@
 local M = {}
 
-local neodev = require("neodev")
+local lazydev = require("lazydev")
 function M.setup(on_attach, capabilities)
-   neodev.setup()
+   lazydev.setup()
 
    vim.lsp.enable("lua_ls")
    vim.lsp.config("lua_ls", {
