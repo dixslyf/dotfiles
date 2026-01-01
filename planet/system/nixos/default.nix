@@ -11,6 +11,7 @@ _: {
     ./mullvad-vpn
     ./neovim
     ./network-manager
+    (importModule ./niri { })
     ./nvidia
     (importModule ./persistence { })
     (importModule ./pipewire { })
