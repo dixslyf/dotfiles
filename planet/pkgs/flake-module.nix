@@ -10,29 +10,46 @@
     };
 
   flake = {
-    overlays.pers-pkgs =
-      _: prev:
-      let
-        inherit (prev)
-          lib
-          callPackage
-          ;
+    # TODO: figure out lib.makeScope and lib.callPackageWith
+    overlays.pers-pkgs = _: prev: {
+      pers-pkgs =
+        let
+          npinsPkgs =
+            let
+              inherit (prev)
+                lib
+                callPackage
+                ;
+              sources = lib.filterAttrs (name: _value: name != "__functor") (import ./npins);
+            in
+            builtins.mapAttrs (name: value: (callPackage ./${name} { src = value; })) sources;
 
-        sources = lib.filterAttrs (name: _value: name != "__functor") (import ./npins);
-        npinsPackages = builtins.mapAttrs (name: value: (callPackage ./${name} { src = value; })) sources;
-      in
-      {
-        # TODO: figure out lib.makeScope and lib.callPackageWith
-        pers-pkgs = npinsPackages // {
-          nvidia-offload = callPackage ./nvidia-offload { };
-          catppuccin-rofi = callPackage ./catppuccin-rofi { };
-          iosevka-custom = callPackage ./iosevka-custom { };
-          iosevka-term-custom = callPackage ./iosevka-custom { spacing = "term"; };
-          kernelModules = {
-            realtek-r8152 = ./realtek-r8152;
-          };
-          # vimPlugins = prev.lib.recurseIntoAttrs (prev.callPackage ./vim-plugins { });
-        };
-      };
+          iosevkaPkgs =
+            let
+              inherit (inputs.nixpkgs-iosevka.legacyPackages.${prev.stdenv.system}) callPackage;
+            in
+            {
+              iosevka-custom = callPackage ./iosevka-custom { };
+              iosevka-term-custom = callPackage ./iosevka-custom {
+                spacing = "term";
+              };
+            };
+        in
+        npinsPkgs
+        // iosevkaPkgs
+        // (
+          let
+            inherit (prev) callPackage;
+          in
+          {
+            nvidia-offload = callPackage ./nvidia-offload { };
+            catppuccin-rofi = callPackage ./catppuccin-rofi { };
+            kernelModules = {
+              realtek-r8152 = ./realtek-r8152;
+            };
+            # vimPlugins = prev.lib.recurseIntoAttrs (prev.callPackage ./vim-plugins { });
+          }
+        );
+    };
   };
 }
