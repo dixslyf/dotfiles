@@ -1,9 +1,10 @@
 {
+  lib,
   vimUtils,
   ...
 }:
 let
-  sources = import ./npins;
+  sources = lib.filterAttrs (name: _value: name != "__functor") (import ./npins);
   build =
     name: value:
     vimUtils.buildVimPlugin {

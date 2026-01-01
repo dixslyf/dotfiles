@@ -13,8 +13,12 @@
     overlays.pers-pkgs =
       _: prev:
       let
-        inherit (prev) callPackage;
-        sources = import ./npins;
+        inherit (prev)
+          lib
+          callPackage
+          ;
+
+        sources = lib.filterAttrs (name: _value: name != "__functor") (import ./npins);
         npinsPackages = builtins.mapAttrs (name: value: (callPackage ./${name} { src = value; })) sources;
       in
       {
