@@ -111,6 +111,7 @@
     mullvad-vpn.enable = true;
     neovim.enable = true;
     networkmanager.enable = true;
+    niri.enable = true;
     nix.enable = true;
     pipewire = {
       enable = true;
