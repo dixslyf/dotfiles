@@ -119,10 +119,10 @@ binds {
 
     Mod+Shift+C repeat=false { close-window; }
 
-    Mod+J { focus-column-right-or-first; }
-    Mod+K { focus-column-left-or-last; }
-    Mod+Ctrl+J { focus-window-down-or-column-right; }
-    Mod+Ctrl+K { focus-window-up-or-column-left; }
+    Mod+J { focus-window-down-or-column-right; }
+    Mod+K { focus-window-up-or-column-left; }
+    Mod+Ctrl+J { focus-column-right-or-first; }
+    Mod+Ctrl+K { focus-column-left-or-last; }
 
     Mod+Shift+J { move-column-right; }
     Mod+Shift+K { move-column-left; }
