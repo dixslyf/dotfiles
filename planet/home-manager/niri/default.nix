@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   lib,
   ...
 }@args:
@@ -40,5 +41,9 @@
       programs.niri = {
         config = (builtins.readFile ./config.kdl) + "\n" + cfg.extraConfig;
       };
+
+      home.packages = [
+        pkgs.xwayland-satellite-unstable
+      ];
     };
 }

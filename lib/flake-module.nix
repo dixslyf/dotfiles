@@ -49,6 +49,7 @@
             nixpkgs.overlays = [
               self.overlays.pers-pkgs
               inputs.devenv.overlays.default
+              inputs.niri-flake.overlays.niri
             ];
           }
           { nix.registry.nixpkgs.flake = nixpkgs; }
