@@ -144,6 +144,15 @@
     zoxide.enable = true;
   };
 
+  programs.ssh = {
+    extraConfig = ''
+      Host codeberg.org
+        HostName codeberg.org
+        User git
+        IdentityFile ~/.ssh/id_dixslyf_codeberg_ed25519
+    '';
+  };
+
   services = {
     network-manager-applet.enable = true;
     blueman-applet.enable = true;
