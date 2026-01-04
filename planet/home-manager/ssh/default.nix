@@ -23,6 +23,7 @@
       programs.ssh = {
         enable = true;
         enableDefaultConfig = false;
+        matchBlocks."*" = { };
       };
       planet.persistence = {
         directories = [ ".ssh" ];
