@@ -110,6 +110,7 @@
 
     # Miscellaneous
     drawio
+    localsend
   ];
 
   fonts.fontconfig.enable = true;
