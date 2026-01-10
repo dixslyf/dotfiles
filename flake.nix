@@ -7,12 +7,9 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
     flake-utils.url = "github:numtide/flake-utils";
-    devenv.url = "github:cachix/devenv";
-    devenv-root = {
-      url = "file+file:///dev/null";
-      flake = false;
-    };
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    # Pin the nixpkgs revision for Iosevka to avoid rebuilds.
+    nixpkgs-iosevka.url = "github:NixOS/nixpkgs/c0b0e0fddf73fd517c3471e546c0df87a42d53f4";
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.3";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -2,30 +2,22 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
     flake-parts.url = "github:hercules-ci/flake-parts";
-    devenv.url = "github:cachix/devenv";
     systems.url = "github:nix-systems/default";
-
-    # FIXME: https://github.com/cachix/devenv/issues/528
-    nix2container.url = "github:nlewo/nix2container";
-    mk-shell-bin.url = "github:rrbutani/nix-mk-shell-bin";
   };
 
   outputs =
     {
       flake-parts,
-      devenv,
       systems,
       ...
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = import systems;
 
-      imports = [ devenv.flakeModule ];
-
       perSystem =
         { pkgs, ... }:
         {
-          devenv.shells.default = {
+          devShells.default = pkgs.mkShell {
             packages =
               let
                 tex =

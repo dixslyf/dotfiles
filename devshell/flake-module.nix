@@ -1,26 +1,23 @@
-{ inputs, ... }:
-{
-  imports = [
-    inputs.devenv.flakeModule
-  ];
+_:
 
+{
   perSystem =
     { pkgs, ... }:
     {
       formatter = pkgs.nixfmt-rfc-style;
 
-      devenv.shells.default = {
-        name = "dotfiles";
-        imports = [
-          ./default
-        ];
-      };
-
-      devenv.shells.ci = {
-        name = "ci";
-        imports = [
-          ./ci
-        ];
+      devShells = {
+        default = pkgs.mkShell {
+          packages = with pkgs; [
+            sops
+            npins
+            nixfmt-rfc-style
+            stylua
+            statix
+            deadnix
+            age
+          ];
+        };
       };
     };
 }
