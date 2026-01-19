@@ -122,6 +122,7 @@
     wget
     xz
     devenv
+    google-cloud-sdk
 
     # Media
     inkscape
