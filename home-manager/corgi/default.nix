@@ -72,7 +72,7 @@
           settings = {
             cpu = 6;
             disk = 32;
-            memory = 24;
+            memory = 32;
             network = {
               address = true;
             };
