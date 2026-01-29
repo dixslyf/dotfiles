@@ -214,6 +214,7 @@
               tree-sitter-python
               tree-sitter-rust
               tree-sitter-svelte
+              tree-sitter-terraform
               tree-sitter-toml
               tree-sitter-tsx
               tree-sitter-typescript
