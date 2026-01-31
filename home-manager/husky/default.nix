@@ -133,7 +133,6 @@
       defaultApplication.enable = true;
     };
     udiskie.enable = true;
-    wezterm.enable = true;
     wired = {
       enable = true;
       systemd.target = "bspwm-session.target";
