@@ -1,6 +1,7 @@
 {
   osConfig,
   config,
+  pkgs,
   lib,
   ...
 }:
@@ -16,7 +17,7 @@
         enable = mkEnableOption "planet persistence";
         persistDirectory = mkOption {
           type = types.str;
-          default = osConfig.planet.persistence.persistDirectory;
+          default = osConfig.planet.persistence.persistDirectory or "/persist";
           description = ''
             The path to the persistent storage directory.
           '';
@@ -73,12 +74,14 @@
       inherit (lib) mkIf;
     in
     mkIf cfg.enable {
-      home.persistence.${cfg.persistDirectory} = {
-        inherit (cfg)
-          files
-          ;
+      home = lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux {
+        persistence.${cfg.persistDirectory} = {
+          inherit (cfg)
+            files
+            ;
 
-        directories = cfg.finalDirectories;
+          directories = cfg.finalDirectories;
+        };
       };
     };
 }
