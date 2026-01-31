@@ -42,7 +42,7 @@ _: {
     ./nexusmods-app
     (importModule ./osu-lazer { })
     ./papis
-    (importModule ./persistence { })
+    ./persistence
     ./picom
     ./pointer-cursor
     ./polkit-agent

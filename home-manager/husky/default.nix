@@ -25,7 +25,6 @@
   planet = {
     persistence = {
       enable = true;
-      useBindMounts = true;
       persistXdgUserDirectories = true;
       directories = [
         ".local/state/wireplumber"
