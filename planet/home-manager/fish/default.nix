@@ -37,10 +37,6 @@
           };
         };
 
-      xdg.configFile."fish/fish_variables" = {
-        source = ./fish_variables;
-      };
-
       xdg.configFile."fish/themes" = {
         source = "${pkgs.pers-pkgs.catppuccin-fish}/share/fish/themes";
         recursive = true;
