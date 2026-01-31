@@ -4,14 +4,14 @@ _:
   perSystem =
     { pkgs, ... }:
     {
-      formatter = pkgs.nixfmt-rfc-style;
+      formatter = pkgs.nixfmt;
 
       devShells = {
         default = pkgs.mkShell {
           packages = with pkgs; [
             sops
             npins
-            nixfmt-rfc-style
+            nixfmt
             stylua
             statix
             deadnix
