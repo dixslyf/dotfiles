@@ -34,7 +34,7 @@
       };
       # Remove the `thunar` user service that is activated by D-Bus.
       #
-      # Unfortunately, it's not as straightforward. `pkgs.xfce.thunar` uses
+      # Unfortunately, it's not as straightforward. `pkgs.thunar` uses
       # `symlinkJoin` when there are plugins. Under the hood, `symlinkJoin`
       # uses `runCommand`, which uses the `buildCommand` argument to
       # `stdenv.mkDerivation`. Annoyingly, `buildCommand` disables the
@@ -43,8 +43,8 @@
       # More context is available in the comment below:
       # https://github.com/NixOS/nixpkgs/issues/66826#issuecomment-1675224338
       thunar =
-        (pkgs.xfce.thunar.override {
-          thunarPlugins = [ pkgs.xfce.thunar-archive-plugin ];
+        (pkgs.thunar.override {
+          thunarPlugins = [ pkgs.thunar-archive-plugin ];
         }).overrideAttrs
           (previousAttrs: {
             buildCommand = previousAttrs.buildCommand + ''
