@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   inputs,
   ...
 }:
@@ -20,6 +21,21 @@
         "kernel.sysrq" = 1; # https://wiki.archlinux.org/title/Keyboard_shortcuts#Kernel_(SysRq)
       };
     };
+    # Pin to 6.12.62 to keep it working with NVIDIA drivers.
+    kernelPackages =
+      let
+        pkgsKernel = import inputs.nixpkgs-linux-6_12_62 {
+          inherit (pkgs.stdenv.hostPlatform) system;
+          config = {
+            allowUnfreePredicate =
+              p:
+              builtins.elem (lib.getName p) [
+                "nvidia-x11"
+              ];
+          };
+        };
+      in
+      pkgsKernel.linuxPackages_6_12;
     swraid.enable = false; # https://github.com/NixOS/nixpkgs/issues/254807
   };
 

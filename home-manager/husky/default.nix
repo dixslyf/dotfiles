@@ -25,7 +25,6 @@
   planet = {
     persistence = {
       enable = true;
-      useBindMounts = true;
       persistXdgUserDirectories = true;
       directories = [
         ".local/state/wireplumber"
@@ -134,7 +133,6 @@
       defaultApplication.enable = true;
     };
     udiskie.enable = true;
-    wezterm.enable = true;
     wired = {
       enable = true;
       systemd.target = "bspwm-session.target";

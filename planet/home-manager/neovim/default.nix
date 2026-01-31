@@ -100,7 +100,7 @@
             lua-language-server
             stylua
             fnlfmt
-            nixfmt-rfc-style
+            nixfmt
             cfg.nilPackage
             gcc
             clang-tools

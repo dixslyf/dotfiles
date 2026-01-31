@@ -25,7 +25,6 @@
   planet = {
     persistence = {
       enable = true;
-      useBindMounts = true;
       persistXdgUserDirectories = true;
       directories = [
         "Sync"
@@ -106,7 +105,6 @@
       enable = true;
       defaultApplication.enable = true;
     };
-    nexusmods-app.enable = true;
     picom = {
       enable = true;
       systemd.target = "bspwm-session.target";

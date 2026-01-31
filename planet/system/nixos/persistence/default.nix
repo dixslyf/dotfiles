@@ -33,13 +33,6 @@
             this value will be passed to.
           '';
         };
-        fuseAllowOther = mkOption {
-          type = types.bool;
-          default = true;
-          description = ''
-            Allow non-root users to specify the allow_other or allow_root mount options, see mount.fuse3(8).
-          '';
-        };
         persistVarLibNixos = mkOption {
           type = types.bool;
           default = true;
@@ -124,16 +117,6 @@
     let
       cfg = config.planet.persistence;
       inherit (lib) mkIf lists;
-
-      getUserPersistence = user: config.home-manager.users.${user}.planet.persistence;
-      users = builtins.attrNames config.home-manager.users;
-      target-users = builtins.filter (
-        user:
-        let
-          user-persistence = getUserPersistence user;
-        in
-        user-persistence.enable && user-persistence.useBindMounts
-      ) users;
     in
     mkIf cfg.enable {
       # Opt-in persisted root directories
@@ -156,19 +139,6 @@
           ++ (lists.optional cfg.persistSsh "/etc/ssh");
 
         files = cfg.files ++ lists.optional cfg.persistMachineId "/etc/machine-id";
-
-        users = lib.attrsets.genAttrs target-users (
-          user:
-          let
-            user-persistence = getUserPersistence user;
-          in
-          {
-            inherit (user-persistence) files;
-            directories = user-persistence.finalDirectories;
-          }
-        );
       };
-
-      programs.fuse.userAllowOther = cfg.fuseAllowOther;
     };
 }
