@@ -8,6 +8,8 @@
     };
     flake-utils.url = "github:numtide/flake-utils";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    # Pin alpha's kernel version to 6.12.62 to keep it working with NVIDIA drivers.
+    nixpkgs-linux-6_12_62.url = "github:NixOS/nixpkgs/158c7a9c22cabfc57690d6606d400a12ef37442f";
     # Pin the nixpkgs revision for Iosevka to avoid rebuilds.
     nixpkgs-iosevka.url = "github:NixOS/nixpkgs/c0b0e0fddf73fd517c3471e546c0df87a42d53f4";
     lanzaboote = {
