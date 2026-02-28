@@ -80,7 +80,7 @@
         vimAlias = true;
         viAlias = true;
         defaultEditor = true;
-        extraLuaConfig = builtins.readFile (
+        initLua = builtins.readFile (
           pkgs.replaceVars ./init.lua {
             cppdbg_command = "${pkgs.vscode-extensions.ms-vscode.cpptools}/share/vscode/extensions/ms-vscode.cpptools/debugAdapters/bin/OpenDebugAD7";
             jdt_ls = "${pkgs.jdt-language-server}/bin/jdtls";

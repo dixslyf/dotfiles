@@ -82,7 +82,7 @@
           ${pkgs.autorandr}/bin/autorandr --change
 
           # TODO: figure out how to set this for all X window managers
-          ${pkgs.xorg.xsetroot}/bin/xsetroot -cursor_name left_ptr
+          ${pkgs.xsetroot}/bin/xsetroot -cursor_name left_ptr
 
           # Set wallpaper
           ${pkgs.feh}/bin/feh --bg-scale ${localFlake}/planet/wallpapers/ocean-moon-stars.png

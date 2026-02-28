@@ -61,7 +61,7 @@
           font_size = "16";
           page_separator_width = "8";
           should_launch_new_window = "1";
-          startup_commands = "toggle_custom_color";
+          startup_commands = [ "toggle_custom_color" ];
 
           # https://github.com/catppuccin/sioyek/blob/3879f23da360c891ed18bb0b85537f891589c47f/themes/macchiato.config
           background_color = "#24273a";
