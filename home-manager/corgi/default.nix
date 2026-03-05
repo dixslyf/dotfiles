@@ -130,6 +130,7 @@
     # Miscellaneous
     drawio
     localsend
+    qemu
   ];
 
   fonts.fontconfig.enable = true;
