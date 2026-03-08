@@ -10,7 +10,7 @@ stdenvNoCC.mkDerivation {
   inherit src;
 
   installPhase = ''
-    install -d "$out/share/fish/themes"
-    install themes/* "$out/share/fish/themes"
+    mkdir -p "$out/share/fish"
+    cp -r themes "$out/share/fish/themes"
   '';
 }
