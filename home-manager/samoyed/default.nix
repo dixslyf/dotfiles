@@ -30,7 +30,6 @@
     eza
     fd
     ripgrep
-    neofetch
     bottom
   ];
 }
