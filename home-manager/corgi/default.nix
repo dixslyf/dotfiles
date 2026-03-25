@@ -20,7 +20,6 @@
   planet = {
     aerospace.enable = true;
     cambridge.enable = true;
-    colima.enable = true;
     dev-man-pages.enable = true;
     direnv.enable = true;
     discord.enable = true;
@@ -64,24 +63,6 @@
   };
 
   services = {
-    colima = {
-      profiles = {
-        default = {
-          isActive = true;
-          isService = true;
-          settings = {
-            cpu = 6;
-            disk = 32;
-            memory = 32;
-            network = {
-              address = true;
-            };
-            vmType = "vz";
-            mountType = "virtiofs";
-          };
-        };
-      };
-    };
     syncthing = {
       settings = {
         gui = {
@@ -117,6 +98,7 @@
     ouch
     yazi
     docker-client
+    colima
     docker-credential-helpers
     tio
     wget

@@ -9,7 +9,6 @@ _: {
     (importModule ./bspwm { })
     ./cambridge
     ./citra
-    ./colima
     ./default-terminal
     ./dev-man-pages
     ./direnv
