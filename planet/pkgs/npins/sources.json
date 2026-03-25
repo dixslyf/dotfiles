@@ -42,19 +42,6 @@
       "url": "https://github.com/cambridge-stacker/cambridge-modpack/archive/2bd35f47e190978272d6ab32829f6fd00e9b0807.tar.gz",
       "hash": "sha256-dfUMacoppOf+yHZn7M691FVvmDaK9RsnkSL7fMUQ0xs="
     },
-    "catppuccin-fish": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "catppuccin",
-        "repo": "fish"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "5fc5ae9c2ec22eb376cb03ce76f0d262a38960f3",
-      "url": "https://github.com/catppuccin/fish/archive/5fc5ae9c2ec22eb376cb03ce76f0d262a38960f3.tar.gz",
-      "hash": "sha256-3KNWYXfOMzZovdjwjBpjSH8cVlD4CO2QmQcCyQE4Dac="
-    },
     "catppuccin-gitui": {
       "type": "Git",
       "repository": {
