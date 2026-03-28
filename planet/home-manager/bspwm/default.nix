@@ -82,7 +82,7 @@
           ${pkgs.autorandr}/bin/autorandr --change
 
           # TODO: figure out how to set this for all X window managers
-          ${pkgs.xorg.xsetroot}/bin/xsetroot -cursor_name left_ptr
+          ${pkgs.xsetroot}/bin/xsetroot -cursor_name left_ptr
 
           # Set wallpaper
           ${pkgs.feh}/bin/feh --bg-scale ${localFlake}/planet/wallpapers/ocean-moon-stars.png
@@ -112,8 +112,8 @@
             ''num={1-9,10}; if [ $(bspc query -D -d focused --names | cut -c 2) != "$num" ]; then bspc {desktop -f,node -d} focused:^"$num"; fi''; # focus / move window to desktop
           "super + {o,p}" = "bspc desktop -f {prev,next}.local"; # focus the next/prev desktop in the current monitor
           "super + Return" = "${config.planet.xdg-terminal-exec.finalScript}"; # open terminal
-          "{XF86MonBrightnessUp,XF86MonBrightnessDown} + {_,shift}" = "light -{A,U} {0.2,1}";
-          "super + {XF86AudioRaiseVolume,XF86AudioLowerVolume} + {_,shift}" = "light -{A,U} {0.2,1}";
+          "{XF86MonBrightnessUp,XF86MonBrightnessDown} + {_,shift}" = "brightnessctl set {0.2,1}%{+,-}";
+          "super + {XF86AudioRaiseVolume,XF86AudioLowerVolume} + {_,shift}" = "brightnessctl set {0.2,1}%{+,-}";
           "{XF86AudioRaiseVolume,XF86AudioLowerVolume} + {_,shift}" = "pamixer -{i,d} {1,2}";
           "XF86AudioMute" = "pamixer --toggle-mute";
           "super + r" = "rofi -show drun";

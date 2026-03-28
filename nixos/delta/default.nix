@@ -79,10 +79,10 @@
       displayManager = {
         # Disable external monitor
         setupCommands = ''
-          ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-1 --off
-          ${pkgs.xorg.xrandr}/bin/xrandr --output DP-1 --off
-          ${pkgs.xorg.xrandr}/bin/xrandr --output DP-2 --off
-          ${pkgs.xorg.xrandr}/bin/xrandr --output DP-3 --off
+          ${pkgs.xrandr}/bin/xrandr --output HDMI-1 --off
+          ${pkgs.xrandr}/bin/xrandr --output DP-1 --off
+          ${pkgs.xrandr}/bin/xrandr --output DP-2 --off
+          ${pkgs.xrandr}/bin/xrandr --output DP-3 --off
         '';
 
         # Set the background color of the root window
@@ -139,12 +139,11 @@
 
   environment.systemPackages = with pkgs; [
     pciutils
-    light
+    brightnessctl
     pamixer
   ];
 
   programs = {
-    light.enable = true;
     gamemode.enable = true;
     dconf.enable = true; # Required by home-manager if `gtk.enable = true`
     nix-ld.enable = true;

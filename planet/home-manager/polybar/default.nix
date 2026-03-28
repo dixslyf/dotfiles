@@ -113,14 +113,14 @@
                 wm="polybar-HDMI-1_HDMI-1"
               fi
 
-              state=$(${pkgs.xorg.xwininfo}/bin/xwininfo -name "$wm" | ${pkgs.gnugrep}/bin/grep "Map State" | cut -d " " -f 5)
+              state=$(${pkgs.xwininfo}/bin/xwininfo -name "$wm" | ${pkgs.gnugrep}/bin/grep "Map State" | cut -d " " -f 5)
               if [ "$state" = "IsViewable" ]; then
                 ${bspwmPackage}/bin/bspc config -m "$monitor" top_padding 0
               elif [ "$state" = "IsUnMapped" ]; then
                 ${bspwmPackage}/bin/bspc config -m "$monitor" top_padding 40
               fi
 
-              ${polybarPackage}/bin/polybar-msg -p "$(${pkgs.xorg.xprop}/bin/xprop -name "$wm" _NET_WM_PID | cut -d " " -f 3)" cmd toggle
+              ${polybarPackage}/bin/polybar-msg -p "$(${pkgs.xprop}/bin/xprop -name "$wm" _NET_WM_PID | cut -d " " -f 3)" cmd toggle
             '';
           in
           {

@@ -24,10 +24,10 @@
       "version_upper_bound": null,
       "release_prefix": null,
       "submodules": false,
-      "version": "v0.4.4.2",
-      "revision": "f0c17270bc7ad5c924567e6950c99e4a79df2c28",
-      "url": "https://api.github.com/repos/cambridge-stacker/cambridge/tarball/v0.4.4.2",
-      "hash": "sha256-G66dWtAfYubQIGKWhj46ACjkYaVPZ2pjUq879QRRa0o="
+      "version": "v0.4.4.3",
+      "revision": "0f240a5b24238471317d677d7791ba3024278105",
+      "url": "https://api.github.com/repos/cambridge-stacker/cambridge/tarball/refs/tags/v0.4.4.3",
+      "hash": "sha256-cefqObSaUdaVCfddtiCju9Aj3uT69h3w1741rpkzwvE="
     },
     "cambridge-modpack": {
       "type": "Git",
@@ -41,19 +41,6 @@
       "revision": "2bd35f47e190978272d6ab32829f6fd00e9b0807",
       "url": "https://github.com/cambridge-stacker/cambridge-modpack/archive/2bd35f47e190978272d6ab32829f6fd00e9b0807.tar.gz",
       "hash": "sha256-dfUMacoppOf+yHZn7M691FVvmDaK9RsnkSL7fMUQ0xs="
-    },
-    "catppuccin-fish": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "catppuccin",
-        "repo": "fish"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "521560ce2075ca757473816aa31914215332bac9",
-      "url": "https://github.com/catppuccin/fish/archive/521560ce2075ca757473816aa31914215332bac9.tar.gz",
-      "hash": "sha256-5CXdzym6Vp+FbKTVBtVdWoh3dODudADIzOLXIyIIxgQ="
     },
     "catppuccin-gitui": {
       "type": "Git",

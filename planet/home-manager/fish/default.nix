@@ -25,7 +25,7 @@
         let
           shellInit = ''
             fish_vi_key_bindings
-            fish_config theme choose "Catppuccin Macchiato"
+            fish_config theme choose catppuccin-macchiato
           '';
         in
         {
@@ -36,10 +36,5 @@
             fish_greeting = "${pkgs.haskellPackages.misfortune}/bin/misfortune -s -L 2";
           };
         };
-
-      xdg.configFile."fish/themes" = {
-        source = "${pkgs.pers-pkgs.catppuccin-fish}/share/fish/themes";
-        recursive = true;
-      };
     };
 }

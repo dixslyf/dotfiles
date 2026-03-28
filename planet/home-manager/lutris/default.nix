@@ -33,7 +33,7 @@
     mkIf cfg.enable {
       home.packages = with pkgs; [
         lutris
-        wineWowPackages.full
+        wineWow64Packages.full
       ];
       planet.persistence = {
         directories = [

@@ -41,6 +41,7 @@
     };
     glab.enable = true;
     gpg.enable = true;
+    janky-borders.enable = true;
     mpv = {
       enable = true;
       defaultApplication.enable = true;
@@ -103,13 +104,15 @@
     wget
     xz
     devenv
+    google-cloud-sdk
 
     # Media
     inkscape
 
     # Miscellaneous
-    keepassxc
     drawio
+    localsend
+    qemu
   ];
 
   fonts.fontconfig.enable = true;

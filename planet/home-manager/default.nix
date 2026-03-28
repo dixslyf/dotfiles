@@ -30,6 +30,7 @@ _: {
     ./gpg-agent
     ./gtk
     (importModule ./hyprland { })
+    ./janky-borders
     ./kdenlive
     ./kitty
     ./logseq
