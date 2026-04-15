@@ -37,6 +37,7 @@
           };
           name = "catppuccin-macchiato-mauve-standard+rimless";
         };
+        gtk4.theme = config.gtk.theme;
         iconTheme = {
           package = pkgs.catppuccin-papirus-folders.override {
             accent = "mauve";
