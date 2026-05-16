@@ -145,8 +145,7 @@
               ]
             ))
           ]
-          ++ lib.lists.optionals config.planet.bspwm.enable [ xclip ]
-          ++ lib.lists.optionals config.planet.hyprland.enable [ wl-clipboard ];
+          ++ lib.lists.optionals config.planet.bspwm.enable [ xclip ];
         plugins = with pkgs.vimPlugins; [
           leap-nvim
           indent-blankline-nvim

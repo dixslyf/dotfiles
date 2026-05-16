@@ -24,7 +24,6 @@
       xdg = {
         portal = {
           enable = true;
-          # xdg-desktop-portal-wlr should already be enabled by hyprland
           extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
           config = {
             # Prefer `xdg-desktop-portal-gtk` for every portal interface.

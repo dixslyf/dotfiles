@@ -13,8 +13,8 @@
       planet.waybar = {
         enable = mkEnableOption "planet waybar";
         systemd.target = mkOption {
-          type = types.anything;
-          default = "hyprland-session.target";
+          type = types.str;
+          default = "graphical-session.target";
           description = "The systemd target to bind to";
         };
         primaryOutput = mkOption {

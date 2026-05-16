@@ -55,10 +55,6 @@
       url = "github:fufexan/nix-gaming";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     catppuccin-grub = {
       url = "github:catppuccin/grub";
       flake = false;
