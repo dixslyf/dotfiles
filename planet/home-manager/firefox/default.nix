@@ -33,10 +33,12 @@
     let
       cfg = config.planet.firefox;
       inherit (lib) mkIf;
+      configPath = "${config.xdg.configHome}/mozilla/firefox";
     in
     mkIf cfg.enable {
       programs.firefox = {
         enable = true;
+        inherit configPath;
         profiles.default = {
           settings = {
             # Hardware video acceleration
@@ -47,7 +49,7 @@
       };
 
       planet.persistence = {
-        directories = [ ".mozilla" ];
+        directories = [ configPath ];
       };
 
       xdg.mimeApps.defaultApplications = mkIf cfg.defaultApplication.enable (

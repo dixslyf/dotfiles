@@ -80,6 +80,8 @@
         vimAlias = true;
         viAlias = true;
         defaultEditor = true;
+        withRuby = false;
+        withPython3 = false;
         initLua = builtins.readFile (
           pkgs.replaceVars ./init.lua {
             cppdbg_command = "${pkgs.vscode-extensions.ms-vscode.cpptools}/share/vscode/extensions/ms-vscode.cpptools/debugAdapters/bin/OpenDebugAD7";
