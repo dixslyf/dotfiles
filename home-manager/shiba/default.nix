@@ -84,10 +84,6 @@
       enable = true;
       defaultApplication.enable = true;
     };
-    lutris = {
-      enable = true;
-      defaultApplication.enable = true;
-    };
     mako.enable = false;
     mpv = {
       enable = true;
