@@ -34,6 +34,7 @@
       cfg = config.planet.firefox;
       inherit (lib) mkIf;
       configPath = "${config.xdg.configHome}/mozilla/firefox";
+      shortConfigPath = ".config/mozilla/firefox";
     in
     mkIf cfg.enable {
       programs.firefox = {
@@ -49,7 +50,7 @@
       };
 
       planet.persistence = {
-        directories = [ configPath ];
+        directories = [ shortConfigPath ];
       };
 
       xdg.mimeApps.defaultApplications = mkIf cfg.defaultApplication.enable (
