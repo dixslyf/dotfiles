@@ -29,7 +29,6 @@ _: {
     ./gpg
     ./gpg-agent
     ./gtk
-    (importModule ./hyprland { })
     ./janky-borders
     ./kdenlive
     ./kitty

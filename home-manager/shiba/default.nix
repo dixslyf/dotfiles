@@ -16,6 +16,7 @@
     userDirs = {
       enable = true;
       createDirectories = true;
+      setSessionVariables = false;
     };
     mimeApps.enable = true;
   };
@@ -83,10 +84,6 @@
       enable = true;
       defaultApplication.enable = true;
     };
-    lutris = {
-      enable = true;
-      defaultApplication.enable = true;
-    };
     mako.enable = false;
     mpv = {
       enable = true;
@@ -142,11 +139,6 @@
       defaultApplication.enable = true;
     };
     udiskie.enable = true;
-    waybar = {
-      enable = false;
-      primaryOutput = "eDP-1";
-      externalOutput = "HDMI-A-1";
-    };
     wezterm = {
       enable = true;
       defaultTerminal = true;
@@ -154,10 +146,6 @@
     wired = {
       enable = true;
       systemd.target = "bspwm-session.target";
-    };
-    wlsunset = {
-      enable = false;
-      systemd.target = "hyprland-session.target";
     };
     yuzu.enable = false; # FIXME: Wait for the dust to settle.
     zellij.enable = true;
@@ -169,12 +157,10 @@
     network-manager-applet.enable = true;
     blueman-applet.enable = true;
     syncthing = {
-      settings = {
-        gui = {
-          user = "shiba";
-        };
+      guiCredentials = {
+        username = "shiba";
+        passwordFile = config.sops.secrets.syncthing-gui-password.path;
       };
-      passwordFile = config.sops.secrets.syncthing-gui-password.path;
       cert = config.sops.secrets.syncthing-cert.path;
       key = config.sops.secrets.syncthing-key.path;
     };

@@ -7,7 +7,6 @@ _: {
   imports = [
     ./earlyoom
     ./flatpak
-    (importModule ./hyprland { })
     ./mullvad-vpn
     ./neovim
     ./network-manager

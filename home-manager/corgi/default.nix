@@ -64,12 +64,10 @@
 
   services = {
     syncthing = {
-      settings = {
-        gui = {
-          user = "corgi";
-        };
+      guiCredentials = {
+        username = "corgi";
+        passwordFile = config.sops.secrets.syncthing-gui-password.path;
       };
-      passwordFile = config.sops.secrets.syncthing-gui-password.path;
       cert = config.sops.secrets.syncthing-cert.path;
       key = config.sops.secrets.syncthing-key.path;
     };

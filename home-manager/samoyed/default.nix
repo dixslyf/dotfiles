@@ -8,6 +8,7 @@
   xdg.userDirs = {
     enable = true;
     createDirectories = true;
+    setSessionVariables = false;
   };
 
   systemd.user.startServices = "sd-switch";
