@@ -43,8 +43,10 @@ jobs:
           fi
       - name: Update npins
         run: |
-          nix develop .# --impure --command npins -d "planet/pkgs/npins" update
-          nix develop .# --impure --command npins -d "planet/pkgs/vim-plugins/npins" update
+          nix develop .# --command npins -d "planet/pkgs/npins" upgrade
+          nix develop .# --command npins -d "planet/pkgs/npins" update
+          nix develop .# --command npins -d "planet/pkgs/vim-plugins/npins" upgrade
+          nix develop .# --command npins -d "planet/pkgs/vim-plugins/npins" update
           if [ -z "$(git status --porcelain=v1 2>/dev/null)" ]; then
             echo "No changes from update"
           else
