@@ -14,10 +14,8 @@ function M.setup()
          leap = true,
          markdown = true,
          cmp = true,
-         dap = {
-            enabled = true,
-            enable_ui = true,
-         },
+         dap = true,
+         dap_ui = true,
          native_lsp = {
             enabled = true,
             virtual_text = {
