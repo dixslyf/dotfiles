@@ -136,6 +136,7 @@
               inherit (texlive) scheme-minimal latexindent;
             })
             pyrefly
+            ruff
           ]
           ++ lib.lists.optionals config.planet.bspwm.enable [ xclip ];
         plugins = with pkgs.vimPlugins; [

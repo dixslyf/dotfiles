@@ -24,6 +24,7 @@ local servers = {
    "rust-analyzer",
    "svelte-language-server",
    "pyrefly",
+   "ruff",
    "ltex",
    "hls",
    "tinymist",
