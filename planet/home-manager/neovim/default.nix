@@ -135,17 +135,7 @@
             (texlive.combine {
               inherit (texlive) scheme-minimal latexindent;
             })
-            (python3.withPackages (
-              pyPkgs: with pyPkgs; [
-                python-lsp-server
-                python-lsp-black
-                pyls-isort
-                pylsp-mypy
-                flake8
-                flake8-bugbear
-                rope
-              ]
-            ))
+            pyrefly
           ]
           ++ lib.lists.optionals config.planet.bspwm.enable [ xclip ];
         plugins = with pkgs.vimPlugins; [

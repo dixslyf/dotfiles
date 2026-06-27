@@ -23,7 +23,7 @@ local servers = {
    "clangd",
    "rust-analyzer",
    "svelte-language-server",
-   "python-lsp-server",
+   "pyrefly",
    "ltex",
    "hls",
    "tinymist",
