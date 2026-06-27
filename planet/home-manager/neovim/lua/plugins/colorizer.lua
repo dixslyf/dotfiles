@@ -7,6 +7,7 @@ function M.setup()
          parsers = {
             css = true,
             hex = { rrggbbaa = true },
+            tailwind = { enable = true },
          },
       },
    })
