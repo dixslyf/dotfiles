@@ -3,10 +3,11 @@ local M = {}
 local colorizer = require("colorizer")
 function M.setup()
    colorizer.setup({
-      user_default_options = {
-         RRGGBBAA = true,
-         css = true,
-         css_fn = true,
+      options = {
+         parsers = {
+            css = true,
+            hex = { rrggbbaa = true },
+         },
       },
    })
 end
