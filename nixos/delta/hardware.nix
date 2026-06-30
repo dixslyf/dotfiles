@@ -28,6 +28,10 @@
     };
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
+    binfmt = {
+      preferStaticEmulators = true;
+      emulatedSystems = [ "aarch64-linux" ];
+    };
   };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

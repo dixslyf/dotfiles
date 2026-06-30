@@ -47,7 +47,6 @@
             kernelModules = {
               realtek-r8152 = ./realtek-r8152;
             };
-            # vimPlugins = prev.lib.recurseIntoAttrs (prev.callPackage ./vim-plugins { });
           }
         );
     };
