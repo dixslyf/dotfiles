@@ -51,6 +51,7 @@
       "autoraiseapp"
       "yubico-authenticator"
       "keepassxc"
+      "discord"
     ];
   };
 }
