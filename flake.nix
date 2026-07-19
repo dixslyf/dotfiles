@@ -11,7 +11,7 @@
     # Pin the nixpkgs revision for Iosevka to avoid rebuilds.
     nixpkgs-iosevka.url = "github:NixOS/nixpkgs/c0b0e0fddf73fd517c3471e546c0df87a42d53f4";
     lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.4.3";
+      url = "github:nix-community/lanzaboote/v1.1.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-darwin = {
