@@ -106,6 +106,24 @@ local function setup_mappings(bufnr)
          end,
       })
    end, { silent = true, buffer = bufnr, desc = "Format" })
+
+   vim.keymap.set("n", "<leader>li", function()
+      local enabled = vim.lsp.inline_completion.is_enabled({ bufnr = bufnr })
+      vim.lsp.inline_completion.enable(not enabled, { bufnr = bufnr })
+      vim.notify("Inline completion " .. (enabled and "disabled" or "enabled"), vim.log.levels.INFO)
+   end, { desc = "Toggle inline completion", buffer = bufnr })
+
+   vim.keymap.set({ "n", "i" }, "<C-\\>", vim.lsp.inline_completion.get, {
+      desc = "Apply inline completion",
+      buffer = bufnr,
+   })
+
+   vim.keymap.set(
+      { "n", "i" },
+      "<C-S-\\>",
+      vim.lsp.inline_completion.select,
+      { desc = "Switch inline completion", buffer = bufnr }
+   )
 end
 
 -- nvim-navic
@@ -123,6 +141,12 @@ end
 function M.on_attach(client, bufnr)
    setup_mappings(bufnr)
    setup_navic(client, bufnr)
+
+   -- Enable inline completion by default if the client supports it.
+   -- Can be toggled with `<leader>li`.
+   if client:supports_method(vim.lsp.protocol.Methods.textDocument_inlineCompletion, bufnr) then
+      vim.lsp.inline_completion.enable(true, { bufnr = bufnr })
+   end
 end
 
 function M.capabilities()

@@ -1,12 +1,12 @@
 local M = {}
 
 function M.setup(capabilities)
-   vim.lsp.enable("ltex")
-   vim.lsp.config("ltex", {
+   vim.lsp.enable("copilot")
+   vim.lsp.config("copilot", {
       capabilities = capabilities,
       settings = {
-         ltex = {
-            language = "en-GB",
+         telemetry = {
+            telemtryLevel = "off",
          },
       },
    })

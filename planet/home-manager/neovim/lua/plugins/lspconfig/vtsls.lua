@@ -1,10 +1,9 @@
 local M = {}
 
-function M.setup(on_attach, capabilities)
+function M.setup(capabilities)
    vim.lsp.enable({ "vtsls", "vue_ls" })
 
    vim.lsp.config("vue_ls", {
-      on_attach = on_attach,
       capabilities = capabilities,
    })
 
@@ -16,7 +15,6 @@ function M.setup(on_attach, capabilities)
    }
 
    vim.lsp.config("vtsls", {
-      on_attach = on_attach,
       capabilities = capabilities,
       settings = {
          vtsls = {

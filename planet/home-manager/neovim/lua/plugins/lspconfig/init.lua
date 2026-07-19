@@ -43,12 +43,13 @@ local servers = {
    "vtsls",
    "astro-ls",
    "zls",
+   "copilot-language-server",
 }
 
 local function setup_servers()
    for _, server in ipairs(servers) do
       local capabilities = common.capabilities()
-      require("plugins.lspconfig." .. server).setup(common.on_attach, capabilities)
+      require("plugins.lspconfig." .. server).setup(capabilities)
    end
 end
 
@@ -64,6 +65,17 @@ function M.setup()
             })
          end,
       },
+   })
+
+   local lsp_cmds = vim.api.nvim_create_augroup("lsp_cmds", { clear = true })
+   vim.api.nvim_create_autocmd("LspAttach", {
+      group = lsp_cmds,
+      desc = "Global LSP attach callback",
+      callback = function(event)
+         local bufnr = event.buf
+         local client = vim.lsp.get_client_by_id(event.data.client_id)
+         common.on_attach(client, bufnr)
+      end,
    })
 
    setup_mappings()
