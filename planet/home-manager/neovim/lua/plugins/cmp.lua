@@ -20,6 +20,9 @@ function M.setup()
          -- completion = cmp.config.window.bordered(),
          -- documentation = cmp.config.window.bordered(),
       },
+      completion = {
+         autocomplete = false,
+      },
       mapping = cmp.mapping.preset.insert({
          ["<Tab>"] = cmp.mapping(function(fallback)
             local has_words_before = function()
