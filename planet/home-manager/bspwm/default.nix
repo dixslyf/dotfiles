@@ -85,7 +85,7 @@
           ${pkgs.xsetroot}/bin/xsetroot -cursor_name left_ptr
 
           # Set wallpaper
-          ${pkgs.feh}/bin/feh --bg-scale ${localFlake}/planet/wallpapers/ocean-moon-stars.png
+          ${pkgs.feh}/bin/feh --bg-fill ${localFlake}/planet/wallpapers/ocean-moon-stars.png
         '';
       };
 
