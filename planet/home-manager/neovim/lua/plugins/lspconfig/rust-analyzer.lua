@@ -1,9 +1,8 @@
 local M = {}
 
-function M.setup(on_attach, capabilities)
+function M.setup(capabilities)
    vim.lsp.enable("rust_analyzer")
    vim.lsp.config("rust_analyzer", {
-      on_attach = on_attach,
       capabilities = capabilities,
       settings = {
          ["rust-analyzer"] = {

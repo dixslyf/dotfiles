@@ -1,9 +1,8 @@
 local M = {}
 
-function M.setup(on_attach, capabilities)
+function M.setup(capabilities)
    vim.lsp.enable("ltex")
    vim.lsp.config("ltex", {
-      on_attach = on_attach,
       capabilities = capabilities,
       settings = {
          ltex = {

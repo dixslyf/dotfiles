@@ -48,7 +48,7 @@ local htmlhint = {
    lintFormats = { "%f:%l:%c: %m" },
 }
 
-function M.setup(on_attach, capabilities)
+function M.setup(capabilities)
    local languages = {
       lua = { stylua },
       fennel = { fnlfmt },
@@ -98,7 +98,6 @@ function M.setup(on_attach, capabilities)
 
    vim.lsp.enable("efm")
    vim.lsp.config("efm", {
-      on_attach = on_attach,
       capabilities = capabilities,
       filetypes = vim.tbl_keys(languages),
       init_options = {

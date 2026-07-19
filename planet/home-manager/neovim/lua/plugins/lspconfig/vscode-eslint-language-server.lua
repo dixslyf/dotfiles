@@ -1,9 +1,8 @@
 local M = {}
 
-function M.setup(on_attach, capabilities)
+function M.setup(capabilities)
    vim.lsp.enable("eslint")
    vim.lsp.config("eslint", {
-      on_attach = on_attach,
       capabilities = capabilities,
       settings = {
          -- The server can automatically fix problems by "formatting".
