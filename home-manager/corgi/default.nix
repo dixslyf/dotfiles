@@ -34,10 +34,7 @@
       enable = true;
       profile = "work";
     };
-    gitui = {
-      enable = true;
-      package = pkgs.pers-pkgs.gitui-darwin;
-    };
+    gitui.enable = true;
     glab.enable = true;
     gpg.enable = true;
     janky-borders.enable = true;
