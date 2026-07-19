@@ -43,6 +43,7 @@ local servers = {
    "vtsls",
    "astro-ls",
    "zls",
+   "copilot-language-server",
 }
 
 local function setup_servers()

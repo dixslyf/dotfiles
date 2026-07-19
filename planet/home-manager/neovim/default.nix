@@ -74,6 +74,11 @@
         );
       };
 
+      # Persist GitHub copilot credentials.
+      planet.persistence = {
+        directories = [ ".config/github-copilot" ];
+      };
+
       programs.neovim = {
         inherit (cfg) package;
         enable = true;
@@ -132,6 +137,7 @@
             vue-language-server
             astro-language-server
             zls
+            copilot-language-server
             (texlive.combine {
               inherit (texlive) scheme-minimal latexindent;
             })
