@@ -8,37 +8,38 @@ keys:
   - &bravo age1vsflpyynfjxmy2dgxlku4pdk90yccsxpta0l9fntxusyfhvqegestnhcy3
   - &delta age1g8sxyyhpr79y2l9qql2tqd7q7795s4wcleaqca3wzp2rfs4lge8sv9h6uv
 creation_rules:
-  - path_regex: home-manager/users/shiba/*
+  - path_regex: home-manager/shiba/*
     key_groups:
       - pgp:
           - *dixslyf-pgp
         age:
           - *shiba
-  - path_regex: home-manager/users/corgi/*
+  - path_regex: home-manager/corgi/*
     key_groups:
       - pgp:
           - *dixslyf-pgp
         age:
           - *corgi
-  - path_regex: home-manager/users/husky/*
+  - path_regex: home-manager/husky/*
     key_groups:
       - pgp:
           - *dixslyf-pgp
         age:
           - *husky
   - path_regex: nixos/hosts/alpha/sops/secrets.yaml$
+  - path_regex: nixos/alpha/sops/secrets.yaml$
     key_groups:
       - pgp:
           - *dixslyf-pgp
         age:
           - *alpha
-  - path_regex: nixos/hosts/bravo/sops/secrets.yaml$
+  - path_regex: nixos/bravo/sops/secrets.yaml$
     key_groups:
       - pgp:
           - *dixslyf-pgp
         age:
           - *bravo
-  - path_regex: nixos/hosts/delta/sops/secrets.yaml$
+  - path_regex: nixos/delta/sops/secrets.yaml$
     key_groups:
       - pgp:
           - *dixslyf-pgp
