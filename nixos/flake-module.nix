@@ -25,6 +25,13 @@
           ./delta
         ];
       };
+
+      echo = self.lib.mkNixosSystem {
+        modules = [
+          inputs.disko.nixosModules.disko
+          ./echo
+        ];
+      };
     };
   };
 }
