@@ -1,0 +1,190 @@
+{
+  config,
+  pkgs,
+  ...
+}:
+
+{
+  imports = [
+    ./sops
+  ];
+
+  home.stateVersion = "25.05";
+  programs.home-manager.enable = true;
+
+  xdg = {
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+      setSessionVariables = false;
+    };
+    mimeApps.enable = true;
+  };
+
+  systemd.user.startServices = "sd-switch";
+
+  planet = {
+    persistence = {
+      enable = true;
+      persistXdgUserDirectories = true;
+      directories = [
+        ".local/state/wireplumber"
+        ".local/share/flatpak"
+        ".var" # Used by `flatpak`
+      ];
+    };
+    bspwm = {
+      enable = true;
+      # TODO: check what the name of the monitor is
+      primaryMonitor = "HDMI-1";
+    };
+    cambridge = {
+      enable = true;
+      modpack.enable = true;
+    };
+    dev-man-pages.enable = true;
+    direnv.enable = true;
+    discord.enable = true;
+    distrobox.enable = true;
+    editorconfig.enable = true;
+    feh = {
+      enable = true;
+      defaultApplication.enable = true;
+    };
+    file-roller = {
+      enable = true;
+      defaultApplication.enable = true;
+    };
+    firefox = {
+      enable = true;
+      defaultApplication.enable = true;
+    };
+    fish.enable = true;
+    flameshot = {
+      enable = true;
+      systemd.target = "bspwm-session.target";
+    };
+    fzf.enable = true;
+    gh.enable = true;
+    ghostty = {
+      enable = true;
+      defaultTerminal = true;
+    };
+    git = {
+      enable = true;
+      profile = "personal";
+    };
+    gitui.enable = true;
+    glab.enable = true;
+    gpg.enable = true;
+    gpg-agent.enable = true;
+    gtk.enable = true;
+    mpv = {
+      enable = true;
+      defaultApplication.enable = true;
+    };
+    mullvad-vpn = {
+      enable = true;
+      settings = {
+        autoConnect = true;
+        startMinimized = true;
+      };
+      systemd.enable = true;
+    };
+    neovim = {
+      enable = true;
+      defaultApplication.enable = true;
+    };
+    picom = {
+      enable = true;
+      systemd.target = "bspwm-session.target";
+    };
+    pointer-cursor.enable = true;
+    polkit-agent.enable = true;
+    polybar.enable = true;
+    qmk.enable = true;
+    qt.enable = true;
+    redshift = {
+      enable = true;
+      systemd.target = "bspwm-session.target";
+    };
+    rofi.enable = true;
+    sioyek = {
+      enable = true;
+      defaultApplication.enable = true;
+    };
+    ssh.enable = true;
+    syncthing = {
+      enable = true;
+      sync = {
+        books = true;
+        keepass = true;
+        logseq = true;
+        rclone = true;
+      };
+    };
+    tealdeer.enable = true;
+    techmino.enable = true;
+    tetrio-desktop.enable = true;
+    thunar = {
+      enable = true;
+      defaultApplication.enable = true;
+    };
+    udiskie.enable = true;
+    wired = {
+      enable = true;
+      systemd.target = "bspwm-session.target";
+    };
+    yubikey.enable = true;
+    zellij.enable = true;
+    zoxide.enable = true;
+  };
+
+  services = {
+    network-manager-applet.enable = true;
+    syncthing = {
+      guiCredentials = {
+        username = "akita";
+        passwordFile = config.sops.secrets.syncthing-gui-password.path;
+      };
+      # TODO: Uncomment once the secrets have been added
+      # cert = config.sops.secrets.syncthing-cert.path;
+      # key = config.sops.secrets.syncthing-key.path;
+    };
+  };
+
+  home.packages = with pkgs; [
+    # Fonts
+    material-design-icons
+    nerd-fonts.symbols-only
+
+    # Some programs e.g. inkscape use adwaita by default
+    adwaita-icon-theme
+
+    # CLI
+    eza
+    fd
+    ripgrep
+    bottom
+    ouch
+    yazi
+    devenv
+
+    # Media
+    pavucontrol
+    gimp
+    inkscape
+
+    # X
+    dragon-drop
+
+    # Miscellaneous
+    keepassxc
+    android-file-transfer
+    drawio
+    libreoffice
+    localsend
+  ];
+
+  fonts.fontconfig.enable = true;
+}

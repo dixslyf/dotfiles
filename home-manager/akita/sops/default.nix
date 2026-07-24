@@ -1,0 +1,41 @@
+{
+  config,
+  ...
+}:
+{
+  planet.persistence = {
+    directories = [
+      ".config/sops"
+    ];
+  };
+
+  sops = {
+    age.keyFile = "/persist/home/${config.home.username}/.config/sops/age/key.txt";
+    defaultSopsFile = ./secrets.yaml;
+    secrets = {
+      gh_hosts = {
+        mode = "0600";
+        path = "${config.xdg.configHome}/gh/hosts.yml";
+      };
+      glab_config = {
+        mode = "0600";
+        path = "${config.xdg.configHome}/glab-cli/config.yml";
+      };
+      syncthing-gui-password = {
+        sopsFile = ./syncthing/gui_password.yaml;
+        mode = "0600";
+      };
+      # TODO: Generate these
+      # syncthing-cert = {
+      #   format = "binary";
+      #   sopsFile = ./syncthing/cert.pem.sops;
+      #   mode = "0644";
+      # };
+      # syncthing-key = {
+      #   format = "binary";
+      #   sopsFile = ./syncthing/key.pem.sops;
+      #   mode = "0600";
+      # };
+    };
+  };
+}

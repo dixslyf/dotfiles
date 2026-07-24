@@ -26,7 +26,11 @@
 
   home-manager = {
     users = {
-      akita = { };
+      akita = {
+        imports = [
+          homeUsers.akita.homeConfiguration
+        ];
+      };
     };
   };
 }
