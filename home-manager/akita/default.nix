@@ -35,7 +35,6 @@
     };
     bspwm = {
       enable = true;
-      # TODO: check what the name of the monitor is
       primaryMonitor = "HDMI-1";
     };
     cambridge = {
@@ -101,7 +100,12 @@
     };
     pointer-cursor.enable = true;
     polkit-agent.enable = true;
-    polybar.enable = true;
+    polybar = {
+      enable = true;
+      monitors = [
+        "HDMI-1"
+      ];
+    };
     qmk.enable = true;
     qt.enable = true;
     redshift = {

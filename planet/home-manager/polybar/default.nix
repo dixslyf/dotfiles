@@ -12,6 +12,14 @@
     {
       planet.polybar = {
         enable = mkEnableOption "planet polybar";
+        monitors = mkOption {
+          type = types.listOf types.str;
+          default = [ ];
+          description = ''
+            List of monitors to configure Polybar for.
+            The first monitor in the list is the designated as the primary monitor.
+          '';
+        };
         bspwmIntegration = mkOption {
           type = types.bool;
           default = config.planet.bspwm.enable;
@@ -32,6 +40,20 @@
 
       configFile = pkgs.replaceVars ./config.ini {
         colors = "${pkgs.pers-pkgs.catppuccin-polybar}/share/polybar/themes/catppuccin/macchiato.ini";
+        bars = pkgs.writeText "polybar-bars.ini" (
+          lib.concatMapStringsSep "\n\n" (monitor: ''
+            [bar/${monitor}]
+            inherit = bar/super
+            monitor = ${monitor}
+            ${lib.optionalString (monitor == lib.head cfg.monitors) ''
+              modules-right = pulseaudio backlight battery time date
+
+              tray-position = left
+              tray-offset-x = 2
+              tray-padding = 3
+            ''}
+          '') cfg.monitors
+        );
       };
 
       optionalBspwmTarget = lists.optional cfg.bspwmIntegration "bspwm-session.target";
@@ -87,19 +109,21 @@
           providers = [ "polybar-eDP-1.service" ];
         };
 
-        systemd.user.services = {
-          polybar-eDP-1 = mkPolybarService "eDP-1" true;
-          polybar-HDMI-1 = mkPolybarService "HDMI-1" false;
-          polybar-DP-3 = mkPolybarService "DP-3" false;
-        };
+        systemd.user.services = lib.listToAttrs (
+          map (monitor: {
+            name = "polybar-${monitor}";
+            value = mkPolybarService monitor (monitor == lib.head cfg.monitors);
+          }) cfg.monitors
+        );
       }
 
       (mkIf cfg.bspwmIntegration {
-        systemd.user.services = {
-          bspwm-margins-polybar-eDP-1 = mkBspwmMarginService "eDP-1";
-          bspwm-margins-polybar-HDMI-1 = mkBspwmMarginService "HDMI-1";
-          bspwm-margins-polybar-DP-3 = mkBspwmMarginService "DP-3";
-        };
+        systemd.user.services = lib.listToAttrs (
+          map (monitor: {
+            name = "bspwm-margins-polybar-${monitor}";
+            value = mkBspwmMarginService monitor;
+          }) cfg.monitors
+        );
 
         # sxhxd keybinding to toggle the bar on the current monitor
         services.sxhkd.keybindings =

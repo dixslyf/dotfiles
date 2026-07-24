@@ -104,7 +104,14 @@
     };
     pointer-cursor.enable = true;
     polkit-agent.enable = true;
-    polybar.enable = true;
+    polybar = {
+      enable = true;
+      monitors = [
+        "eDP-1" # Primary
+        "HDMI-1"
+        "DP-3"
+      ];
+    };
     qmk.enable = true;
     qt.enable = true;
     redshift = {
