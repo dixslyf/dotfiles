@@ -104,8 +104,7 @@
     };
     podman.enable = true;
     qmk.enable = true;
-    # TODO: re-enable once installed
-    # secure-boot.enable = true;
+    secure-boot.enable = true;
     sddm.enable = true;
     udisks2.enable = true;
     xdg.enable = true;
