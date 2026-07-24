@@ -94,10 +94,11 @@
       enable = true;
       defaultApplication.enable = true;
     };
-    picom = {
-      enable = true;
-      systemd.target = "bspwm-session.target";
-    };
+    # Temporarily disabled due to https://github.com/yshui/picom/issues/1511
+    # picom = {
+    #   enable = true;
+    #   systemd.target = "bspwm-session.target";
+    # };
     pointer-cursor.enable = true;
     polkit-agent.enable = true;
     polybar = {
