@@ -4,9 +4,11 @@ keys:
   - &shiba age18qeqs7gvds09hdcf80rrzr74khdk3s9srdp2asv6v4w9vnqr3cssuq9wxe
   - &corgi age1ygcmgrjeyy23gs32naf4d98jhxssk056waq3f5ntcewkkjtzvqxqg7rayd
   - &husky age15mk8nlv652c4lw3yspshsht28ckxxkn3lunyqcmx238enkk3cdpsk4szq4
+  - &akita age1jm2ymk72tucstw34evrnp7fy72509y43shu2c4vc08x7gnvvcq4srwvx34
   - &alpha age1gjuaev2c8dx6r66a975uk8fd59k3e2p3ksyzqxg2asvmcvasde3ss29y3m
   - &bravo age1vsflpyynfjxmy2dgxlku4pdk90yccsxpta0l9fntxusyfhvqegestnhcy3
   - &delta age1g8sxyyhpr79y2l9qql2tqd7q7795s4wcleaqca3wzp2rfs4lge8sv9h6uv
+  - &echo age1m0q3u2h3v8fq0ujxzrky2pc264fuw96h89kcdhu9df4yr2tvveyqyq2asu
 creation_rules:
   - path_regex: home-manager/shiba/*
     key_groups:
@@ -26,7 +28,12 @@ creation_rules:
           - *dixslyf-pgp
         age:
           - *husky
-  - path_regex: nixos/hosts/alpha/sops/secrets.yaml$
+  - path_regex: home-manager/akita/*
+    key_groups:
+      - pgp:
+          - *dixslyf-pgp
+        age:
+          - *akita
   - path_regex: nixos/alpha/sops/secrets.yaml$
     key_groups:
       - pgp:
@@ -45,3 +52,9 @@ creation_rules:
           - *dixslyf-pgp
         age:
           - *delta
+  - path_regex: nixos/echo/sops/secrets.yaml$
+    key_groups:
+      - pgp:
+          - *dixslyf-pgp
+        age:
+          - *echo
