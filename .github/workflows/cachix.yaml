@@ -25,6 +25,7 @@ jobs:
           - alpha
           - bravo
           - delta
+          - echo
     steps:
       - uses: actions/checkout@v5
         with:
