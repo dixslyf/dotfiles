@@ -26,7 +26,7 @@
         enable = true;
         configPath = "${config.xdg.configHome}/rofi/home-manager.rasi";
         font = "Mali 16";
-        terminal = "${pkgs.wezterm}/bin/wezterm";
+        terminal = lib.getExe pkgs.ghostty;
         theme = "${pkgs.pers-pkgs.catppuccin-rofi}/share/rofi/themes/catppuccin-basic/catppuccin-macchiato.rasi";
         extraConfig = {
           m = -1;
