@@ -18,6 +18,9 @@
       efi.canTouchEfiVariables = true;
     };
 
+    # Use the latest kernel for better MT7925 support.
+    kernelPackages = pkgs.linuxPackages_latest;
+
     kernel = {
       sysctl = {
         # https://wiki.archlinux.org/title/Keyboard_shortcuts#Kernel_(SysRq)
