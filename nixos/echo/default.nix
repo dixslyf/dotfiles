@@ -132,5 +132,11 @@
     localsend.enable = true;
   };
 
+  services.udev = {
+    packages = with pkgs; [
+      steam-devices-udev-rules
+    ];
+  };
+
   system.stateVersion = "26.05"; # Do not change!
 }
