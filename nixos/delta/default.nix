@@ -147,6 +147,7 @@
     gamemode.enable = true;
     dconf.enable = true; # Required by home-manager if `gtk.enable = true`
     nix-ld.enable = true;
+    localsend.enable = true;
   };
 
   system.stateVersion = "25.05"; # Do not change!

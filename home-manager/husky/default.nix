@@ -193,7 +193,6 @@
     android-file-transfer
     drawio
     libreoffice
-    localsend
   ];
 
   fonts.fontconfig.enable = true;
