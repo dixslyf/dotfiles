@@ -152,9 +152,8 @@
         username = "akita";
         passwordFile = config.sops.secrets.syncthing-gui-password.path;
       };
-      # TODO: Uncomment once the secrets have been added
-      # cert = config.sops.secrets.syncthing-cert.path;
-      # key = config.sops.secrets.syncthing-key.path;
+      cert = config.sops.secrets.syncthing-cert.path;
+      key = config.sops.secrets.syncthing-key.path;
     };
   };
 
