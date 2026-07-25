@@ -31,6 +31,7 @@
         "Shiba"
         "Corgi"
         "Husky"
+        "Akita"
       ];
 
       defaultVersioning = {
@@ -63,6 +64,9 @@
             };
             Husky = {
               id = "ZHLKKO7-XAF44BG-XRGLW7Y-C7EJIYB-F4VDH7C-GEWFKVU-OXLBQDN-TB2F7QC";
+            };
+            Akita = {
+              id = "ZHHWLT3-TJW5OYK-DBUHF7V-A5BO5SG-M7G2U3J-7BOJZMC-RONYYSZ-DBIIQQP";
             };
           };
           folders = {
