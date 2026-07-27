@@ -33,13 +33,9 @@
         ".var" # Used by `flatpak`
       ];
     };
-    autorandr = {
-      enable = true;
-      host = "delta";
-    };
     bspwm = {
       enable = true;
-      primaryMonitor = "eDP-1";
+      primaryMonitor = "HDMI-1";
     };
     cambridge = {
       enable = true;
@@ -98,18 +94,17 @@
       enable = true;
       defaultApplication.enable = true;
     };
-    picom = {
-      enable = true;
-      systemd.target = "bspwm-session.target";
-    };
+    # Temporarily disabled due to https://github.com/yshui/picom/issues/1511
+    # picom = {
+    #   enable = true;
+    #   systemd.target = "bspwm-session.target";
+    # };
     pointer-cursor.enable = true;
     polkit-agent.enable = true;
     polybar = {
       enable = true;
       monitors = [
-        "eDP-1" # Primary
         "HDMI-1"
-        "DP-3"
       ];
     };
     qmk.enable = true;
@@ -152,10 +147,9 @@
 
   services = {
     network-manager-applet.enable = true;
-    blueman-applet.enable = true;
     syncthing = {
       guiCredentials = {
-        username = "husky";
+        username = "akita";
         passwordFile = config.sops.secrets.syncthing-gui-password.path;
       };
       cert = config.sops.secrets.syncthing-cert.path;

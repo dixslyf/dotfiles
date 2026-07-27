@@ -12,13 +12,13 @@
   ];
 
   boot = {
-    # Use the systemd-boot as the boot loader.
+    # Use systemd-boot as the boot loader.
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
 
-    # Use a later kernel version for proper Intel BE201 WiFi support.
+    # Use the latest kernel for better MT7925 support.
     kernelPackages = pkgs.linuxPackages_latest;
 
     kernel = {
@@ -37,6 +37,11 @@
         };
       };
     };
+
+    binfmt = {
+      preferStaticEmulators = true;
+      emulatedSystems = [ "aarch64-linux" ];
+    };
   };
 
   security = {
@@ -52,7 +57,7 @@
     RequiresMountsFor = "/persist";
   };
 
-  networking.hostName = "delta";
+  networking.hostName = "echo";
 
   time.timeZone = "Asia/Singapore";
 
@@ -70,21 +75,7 @@
       xkb = {
         layout = "us";
       };
-      resolutions = [
-        {
-          x = 1920;
-          y = 1200;
-        }
-      ];
       displayManager = {
-        # Disable external monitor
-        setupCommands = ''
-          ${pkgs.xrandr}/bin/xrandr --output HDMI-1 --off
-          ${pkgs.xrandr}/bin/xrandr --output DP-1 --off
-          ${pkgs.xrandr}/bin/xrandr --output DP-2 --off
-          ${pkgs.xrandr}/bin/xrandr --output DP-3 --off
-        '';
-
         # Set the background color of the root window
         sessionCommands = ''
           ${pkgs.hsetroot}/bin/hsetroot -solid "#363a4f"
@@ -99,9 +90,7 @@
       touchpad.naturalScrolling = true;
     };
     fstrim.enable = true;
-    autorandr.enable = true;
     resolved.enable = true;
-    blueman.enable = true;
     envfs.enable = true;
   };
 
@@ -120,14 +109,7 @@
     qmk.enable = true;
     secure-boot.enable = true;
     sddm.enable = true;
-    tlp = {
-      enable = true;
-      diskDevices = [
-        "nvme0n1"
-      ];
-    };
     udisks2.enable = true;
-    upower.enable = true;
     xdg.enable = true;
     yubikey.enable = true;
   };
@@ -150,5 +132,11 @@
     localsend.enable = true;
   };
 
-  system.stateVersion = "25.05"; # Do not change!
+  services.udev = {
+    packages = with pkgs; [
+      steam-devices-udev-rules
+    ];
+  };
+
+  system.stateVersion = "26.05"; # Do not change!
 }

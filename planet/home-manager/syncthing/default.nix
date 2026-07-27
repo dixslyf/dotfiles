@@ -30,6 +30,8 @@
         "Pomeranian"
         "Shiba"
         "Corgi"
+        "Husky"
+        "Akita"
       ];
 
       defaultVersioning = {
@@ -59,6 +61,12 @@
             };
             Corgi = {
               id = "CW3GYR6-6GU3PLB-MN6XZI7-FEXSI7H-FCNKI66-XUFKBLP-B2J46XX-GMUD2AL";
+            };
+            Husky = {
+              id = "ZHLKKO7-XAF44BG-XRGLW7Y-C7EJIYB-F4VDH7C-GEWFKVU-OXLBQDN-TB2F7QC";
+            };
+            Akita = {
+              id = "ZHHWLT3-TJW5OYK-DBUHF7V-A5BO5SG-M7G2U3J-7BOJZMC-RONYYSZ-DBIIQQP";
             };
           };
           folders = {
