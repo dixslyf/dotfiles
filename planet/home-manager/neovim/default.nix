@@ -138,9 +138,6 @@
             astro-language-server
             zls
             copilot-language-server
-            (texlive.combine {
-              inherit (texlive) scheme-minimal latexindent;
-            })
             pyrefly
             ruff
           ]
@@ -177,7 +174,6 @@
           cmp-cmdline
           cmp-nvim-lua
           cmp-dap
-          cmp-latex-symbols
           editorconfig-nvim
           which-key-nvim
           hydra-nvim
