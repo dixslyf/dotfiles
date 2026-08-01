@@ -95,6 +95,7 @@
   };
 
   planet = {
+    docker.enable = true;
     earlyoom.enable = true;
     flatpak.enable = true;
     mullvad-vpn.enable = true;
@@ -105,7 +106,6 @@
       enable = true;
       lowLatency = true;
     };
-    podman.enable = true;
     qmk.enable = true;
     secure-boot.enable = true;
     sddm.enable = true;
