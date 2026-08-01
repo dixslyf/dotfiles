@@ -114,15 +114,15 @@
     neovim.enable = true;
     networkmanager.enable = true;
     nix.enable = true;
-    nvidia.enable = true;
+    nvidia = {
+      enable = true;
+      container-toolkit = true;
+    };
     pipewire = {
       enable = true;
       lowLatency = true;
     };
-    podman = {
-      enable = true;
-      nvidia-container-toolkit = true;
-    };
+    podman.enable = true;
     qmk.enable = true;
     sddm.enable = true;
     tlp = {
