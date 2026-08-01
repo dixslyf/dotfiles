@@ -9,7 +9,6 @@ local fnlfmt = { formatCommand = "fnlfmt -", formatStdin = true }
 local prettier = require("efmls-configs.formatters.prettier")
 local shfmt = { formatCommand = "shfmt --indent 2 -filename '${INPUT}' -", formatStdin = true }
 local shellcheck = require("efmls-configs.linters.shellcheck")
-local latexindent = { formatCommand = "latexindent -l -m -", formatStdin = true }
 local proselint = require("efmls-configs.linters.proselint")
 local statix = require("efmls-configs.linters.statix")
 local deadnix = {
@@ -80,7 +79,6 @@ function M.setup(capabilities)
       graphql = { prettier },
       handlebars = { prettier },
       tex = {
-         latexindent,
          proselint,
       },
       sh = {

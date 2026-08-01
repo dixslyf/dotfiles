@@ -116,7 +116,6 @@ function M.setup()
 
    cmp.setup.filetype("tex", {
       sources = {
-         { name = "latex_symbols", option = { strategy = 2 } },
          { name = "luasnip" },
       },
    })
