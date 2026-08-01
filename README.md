@@ -11,16 +11,16 @@ Overview:
 - :hammer: [GitHub Actions](https://docs.github.com/en/actions) + [Cachix](https://www.cachix.org/) for building and caching
 - :office: [direnv](https://direnv.net/) for local shell environment
 
-Software I use includes:
+Software I use:
 
 - **Window Manager:** [bspwm](https://github.com/baskerville/bspwm)
 - **Compositor:** [picom](https://github.com/yshui/picom)
 - **Launcher:** [Rofi](https://github.com/davatorium/rofi)
 - **Bar:** [Polybar](https://github.com/polybar/polybar)
 - **Shell:** [fish](https://github.com/fish-shell/fish-shell) :fish:
-- **Terminal:** [wezterm](https://github.com/wez/wezterm) + [Zellij](https://zellij.dev/)
+- **Terminal:** [Ghostty](https://ghostty.org/) + [Zellij](https://zellij.dev/)
 - **Editor:** [Neovim](https://github.com/neovim/neovim)
 - **File Manager:** [zoxide](https://github.com/ajeetdsouza/zoxide), [fzf](https://github.com/junegunn/fzf), `ls`, `cd`, `mv`, `cp`, `rm`; sometimes [Thunar](https://gitlab.xfce.org/xfce/thunar)
-- **Web Browsers:** [Firefox](https://www.mozilla.org/en-US/firefox/browsers/), [qutebrowser](https://github.com/qutebrowser/qutebrowser)
+- **Web Browsers:** [Zen](https://zen-browser.app/), [Firefox](https://www.mozilla.org/en-US/firefox/browsers/)
 - **Color scheme:** [Catppuccin](https://github.com/catppuccin/catppuccin)
 - **Fonts:** [Iosevka](https://github.com/be5invis/Iosevka), [Material Design Icons](https://github.com/Templarian/MaterialDesign), [Mali](https://fonts.google.com/specimen/Mali)
