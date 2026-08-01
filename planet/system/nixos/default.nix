@@ -5,6 +5,7 @@
 
 _: {
   imports = [
+    ./docker
     ./earlyoom
     ./flatpak
     ./mullvad-vpn
