@@ -14,6 +14,7 @@ _: {
     ./direnv
     ./discord
     ./distrobox
+    ./easyeffects
     ./editorconfig
     ./feh
     ./file-roller
