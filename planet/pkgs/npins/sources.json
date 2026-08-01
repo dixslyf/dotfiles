@@ -9,9 +9,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "c5cf7d3943f9a34a5cb2bab36bf473fd77e7d4f6",
-      "url": "https://github.com/baskerville/bspwm/archive/c5cf7d3943f9a34a5cb2bab36bf473fd77e7d4f6.tar.gz",
-      "hash": "sha256-sEheWAZgKVDCEipQTtDLNfDSA2oho9zU9gK2d6W6WSU="
+      "revision": "e11eff4cb3333216ad03c815609a4ed79e08929c",
+      "url": "https://github.com/baskerville/bspwm/archive/e11eff4cb3333216ad03c815609a4ed79e08929c.tar.gz",
+      "hash": "sha256-lXMuHZyyN5rbWlndvDQAmAAjuY6V5ZZg2lcpeTYav/g="
     },
     "cambridge": {
       "type": "GitRelease",
@@ -106,22 +106,6 @@
       "revision": "9f29c2c1622c70436f0e0b98fea9735863596c1e",
       "url": "https://github.com/catppuccin/zathura/archive/9f29c2c1622c70436f0e0b98fea9735863596c1e.tar.gz",
       "hash": "sha256-upyfc4OSx9xKUoM/JdRfuXiw38ffoSB/Utm2jpyXgy8="
-    },
-    "gitui-darwin": {
-      "type": "GitRelease",
-      "repository": {
-        "type": "GitHub",
-        "owner": "gitui-org",
-        "repo": "gitui"
-      },
-      "pre_releases": false,
-      "version_upper_bound": null,
-      "release_prefix": null,
-      "submodules": false,
-      "version": "v0.28.1",
-      "revision": "e24fb45df1584ee8d8ebdc4258531b4a91ca975d",
-      "url": "https://api.github.com/repos/gitui-org/gitui/tarball/refs/tags/v0.28.1",
-      "hash": "sha256-IyDms4ke5evtSjFZrWEy0AascA0g9rG/a9RjbBNzZwg="
     },
     "mali": {
       "type": "Git",
