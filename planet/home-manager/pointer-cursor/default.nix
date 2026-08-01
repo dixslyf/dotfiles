@@ -22,6 +22,7 @@
     in
     mkIf cfg.enable {
       home.pointerCursor = {
+        enable = true;
         name = "catppuccin-macchiato-dark-cursors";
         package = pkgs.catppuccin-cursors.macchiatoDark;
         x11.enable = true;
