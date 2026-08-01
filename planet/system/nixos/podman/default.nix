@@ -21,17 +21,28 @@
       cfg = config.planet.podman;
       inherit (lib)
         mkIf
+        mkMerge
         ;
     in
-    mkIf cfg.enable {
-      virtualisation.podman = {
-        enable = true;
-      };
+    mkIf cfg.enable (mkMerge [
+      {
+        virtualisation.podman = {
+          enable = true;
+        };
 
-      planet.persistence = {
-        directories = [
-          "/var/lib/containers"
-        ];
-      };
-    };
+        planet.persistence = {
+          directories = [
+            "/var/lib/containers"
+          ];
+        };
+      }
+
+      # Only enable docker compatibility if docker is not enabled to avoid conflicts.
+      (mkIf (!config.virtualisation.docker.enable) {
+        virtualisation.podman = {
+          dockerCompat = true;
+          dockerSocket.enable = true;
+        };
+      })
+    ]);
 }
