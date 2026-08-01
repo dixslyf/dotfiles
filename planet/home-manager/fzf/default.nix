@@ -24,8 +24,8 @@
       programs.fzf = {
         enable = true;
         defaultCommand = "${pkgs.fd}/bin/fd --type f";
-        fileWidgetCommand = "${pkgs.fd}/bin/fd --type f";
-        changeDirWidgetCommand = "${pkgs.fd}/bin/fd --type d";
+        fileWidget.command = "${pkgs.fd}/bin/fd --type f";
+        changeDirWidget.command = "${pkgs.fd}/bin/fd --type d";
         colors = {
           # Macchiato from https://github.com/catppuccin/fzf
           fg = "#cad3f5";
