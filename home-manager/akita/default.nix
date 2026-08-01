@@ -45,6 +45,7 @@
     direnv.enable = true;
     discord.enable = true;
     distrobox.enable = true;
+    easyeffects.enable = true;
     editorconfig.enable = true;
     feh = {
       enable = true;
