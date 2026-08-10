@@ -23,7 +23,7 @@
     mkIf cfg.enable {
       services.mullvad-vpn = {
         enable = true;
-        package = pkgs.mullvad-vpn;
+        package = pkgs.mullvad;
       };
 
       planet.persistence = {
