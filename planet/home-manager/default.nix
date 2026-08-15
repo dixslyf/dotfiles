@@ -9,6 +9,7 @@ _: {
     (importModule ./bspwm { })
     ./cambridge
     ./citra
+    ./claude-code
     ./default-terminal
     ./dev-man-pages
     ./direnv
