@@ -10,6 +10,7 @@ _: {
     ./cambridge
     ./citra
     ./claude-code
+    ./codex
     ./default-terminal
     ./dev-man-pages
     ./direnv
