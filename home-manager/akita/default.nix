@@ -42,6 +42,7 @@
       modpack.enable = true;
     };
     claude-code.enable = true;
+    codex.enable = true;
     dev-man-pages.enable = true;
     direnv.enable = true;
     discord.enable = true;
