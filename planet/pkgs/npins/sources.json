@@ -1,18 +1,5 @@
 {
   "pins": {
-    "bspwm": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "baskerville",
-        "repo": "bspwm"
-      },
-      "branch": "master",
-      "submodules": false,
-      "revision": "e11eff4cb3333216ad03c815609a4ed79e08929c",
-      "url": "https://github.com/baskerville/bspwm/archive/e11eff4cb3333216ad03c815609a4ed79e08929c.tar.gz",
-      "hash": "sha256-lXMuHZyyN5rbWlndvDQAmAAjuY6V5ZZg2lcpeTYav/g="
-    },
     "cambridge": {
       "type": "GitRelease",
       "repository": {

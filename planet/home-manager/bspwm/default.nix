@@ -34,7 +34,6 @@
       # More details: https://github.com/NixOS/nixpkgs/issues/190442
       xsession.windowManager.bspwm = {
         enable = true;
-        package = pkgs.pers-pkgs.bspwm;
         monitors = {
           ${cfg.primaryMonitor} = [
             "p1"
