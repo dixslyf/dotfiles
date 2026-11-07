@@ -36,5 +36,10 @@
             fish_greeting = "${pkgs.haskellPackages.misfortune}/bin/misfortune -s -L 2";
           };
         };
+
+      planet.persistence = {
+        # For persisting history.
+        directories = [ ".local/share/fish" ];
+      };
     };
 }
