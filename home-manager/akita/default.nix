@@ -79,6 +79,10 @@
     gpg.enable = true;
     gpg-agent.enable = true;
     gtk.enable = true;
+    logseq = {
+      enable = true;
+      package = null; # I use the flatpak version instead
+    };
     mpv = {
       enable = true;
       defaultApplication.enable = true;
