@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 {
@@ -24,6 +23,7 @@
       programs.fish =
         let
           shellInit = ''
+            set -g fish_greeting
             fish_vi_key_bindings
             fish_config theme choose catppuccin-macchiato
           '';
@@ -32,9 +32,6 @@
           enable = true;
           loginShellInit = shellInit;
           interactiveShellInit = shellInit;
-          functions = {
-            fish_greeting = "${pkgs.haskellPackages.misfortune}/bin/misfortune -s -L 2";
-          };
         };
 
       planet.persistence = {

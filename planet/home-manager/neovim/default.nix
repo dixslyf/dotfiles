@@ -116,7 +116,7 @@
             ormolu
             haskellPackages.cabal-fmt
             proselint
-            ltex-ls
+            ltex-ls-plus
             statix
             deadnix
             actionlint
